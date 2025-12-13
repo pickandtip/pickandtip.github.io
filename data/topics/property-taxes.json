@@ -3,11 +3,11 @@
     "countryCode": "FR",
     "propertyTax": "0.5% - 1.5%",
     "propertyTaxValue": 1.0,
-    "transferTax": "5.1% - 5.8%",
-    "transferTaxValue": 5.5,
+    "transferTax": "ancien: 7% - 8% / neuf: 2% - 3%",
+    "transferTaxValue": 7.5,
     "notes": {
-      "fr": "Taxe foncière + taxe d'habitation (résidences secondaires)",
-      "en": "Property tax + housing tax (secondary residences)"
+      "fr": "Frais totaux à l'achat incluant droits de mutation (5.1-5.8%), émoluments notaire (~1%) et débours (~0.5%). Neuf: TVA réduite. Taxe d'habitation (0.5-2%) pour résidences secondaires uniquement (nationale, majorations communales possibles)",
+      "en": "Total purchase costs including transfer duties (5.1-5.8%), notary fees (~1%) and disbursements (~0.5%). New: reduced VAT. Housing tax (0.5-2%) on secondary residences only (national, municipal surcharges possible)"
     }
   },
   {
@@ -61,8 +61,8 @@
     "transferTax": "0% - 12%",
     "transferTaxValue": 5.0,
     "notes": {
-      "fr": "Council Tax + Stamp Duty progressif",
-      "en": "Council Tax + progressive Stamp Duty"
+      "fr": "Stamp Duty progressif (droits de mutation). Council Tax (taxe d'habitation municipale, 0.5-1.5%) payée par l'occupant du logement",
+      "en": "Progressive Stamp Duty (transfer tax). Council Tax (municipal housing tax, 0.5-1.5%) paid by property occupant"
     }
   },
   {
@@ -402,8 +402,8 @@
     "transferTax": "2% - 4%",
     "transferTaxValue": 3.0,
     "notes": {
-      "fr": "IPTU varie par ville",
-      "en": "IPTU varies by city"
+      "fr": "IPTU varie par ville (municipale). Peut être payé par le locataire selon contrat de location, mais propriétaire reste légalement responsable",
+      "en": "IPTU varies by city (municipal). Can be paid by tenant per rental agreement, but owner remains legally responsible"
     }
   },
   {
@@ -413,8 +413,8 @@
     "transferTax": "3.5%",
     "transferTaxValue": 3.5,
     "notes": {
-      "fr": "Impuesto Inmobiliario",
-      "en": "Impuesto Inmobiliario"
+      "fr": "Impuesto Inmobiliario / ABL (provincial/municipal). Locataire paie généralement la taxe selon contrat, mais propriétaire reste responsable",
+      "en": "Impuesto Inmobiliario / ABL (provincial/municipal). Tenant typically pays tax per contract, but owner remains responsible"
     }
   },
   {
