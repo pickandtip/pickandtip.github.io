@@ -1,0 +1,767 @@
+[
+  {
+    "code": "FR",
+    "flag": "🇫🇷",
+    "region": "europe",
+    "name": {
+      "fr": "France",
+      "en": "France"
+    }
+  },
+  {
+    "code": "DE",
+    "flag": "🇩🇪",
+    "region": "europe",
+    "name": {
+      "fr": "Allemagne",
+      "en": "Germany"
+    }
+  },
+  {
+    "code": "ES",
+    "flag": "🇪🇸",
+    "region": "europe",
+    "name": {
+      "fr": "Espagne",
+      "en": "Spain"
+    }
+  },
+  {
+    "code": "IT",
+    "flag": "🇮🇹",
+    "region": "europe",
+    "name": {
+      "fr": "Italie",
+      "en": "Italy"
+    }
+  },
+  {
+    "code": "PT",
+    "flag": "🇵🇹",
+    "region": "europe",
+    "name": {
+      "fr": "Portugal",
+      "en": "Portugal"
+    }
+  },
+  {
+    "code": "GB",
+    "flag": "🇬🇧",
+    "region": "europe",
+    "name": {
+      "fr": "Royaume-Uni",
+      "en": "United Kingdom"
+    }
+  },
+  {
+    "code": "BE",
+    "flag": "🇧🇪",
+    "region": "europe",
+    "name": {
+      "fr": "Belgique",
+      "en": "Belgium"
+    }
+  },
+  {
+    "code": "NL",
+    "flag": "🇳🇱",
+    "region": "europe",
+    "name": {
+      "fr": "Pays-Bas",
+      "en": "Netherlands"
+    }
+  },
+  {
+    "code": "CH",
+    "flag": "🇨🇭",
+    "region": "europe",
+    "name": {
+      "fr": "Suisse",
+      "en": "Switzerland"
+    }
+  },
+  {
+    "code": "AT",
+    "flag": "🇦🇹",
+    "region": "europe",
+    "name": {
+      "fr": "Autriche",
+      "en": "Austria"
+    }
+  },
+  {
+    "code": "IE",
+    "flag": "🇮🇪",
+    "region": "europe",
+    "name": {
+      "fr": "Irlande",
+      "en": "Ireland"
+    }
+  },
+  {
+    "code": "GR",
+    "flag": "🇬🇷",
+    "region": "europe",
+    "name": {
+      "fr": "Grèce",
+      "en": "Greece"
+    }
+  },
+  {
+    "code": "PL",
+    "flag": "🇵🇱",
+    "region": "europe",
+    "name": {
+      "fr": "Pologne",
+      "en": "Poland"
+    }
+  },
+  {
+    "code": "CZ",
+    "flag": "🇨🇿",
+    "region": "europe",
+    "name": {
+      "fr": "République Tchèque",
+      "en": "Czech Republic"
+    }
+  },
+  {
+    "code": "HU",
+    "flag": "🇭🇺",
+    "region": "europe",
+    "name": {
+      "fr": "Hongrie",
+      "en": "Hungary"
+    }
+  },
+  {
+    "code": "RO",
+    "flag": "🇷🇴",
+    "region": "europe",
+    "name": {
+      "fr": "Roumanie",
+      "en": "Romania"
+    }
+  },
+  {
+    "code": "BG",
+    "flag": "🇧🇬",
+    "region": "europe",
+    "name": {
+      "fr": "Bulgarie",
+      "en": "Bulgaria"
+    }
+  },
+  {
+    "code": "HR",
+    "flag": "🇭🇷",
+    "region": "europe",
+    "name": {
+      "fr": "Croatie",
+      "en": "Croatia"
+    }
+  },
+  {
+    "code": "SI",
+    "flag": "🇸🇮",
+    "region": "europe",
+    "name": {
+      "fr": "Slovénie",
+      "en": "Slovenia"
+    }
+  },
+  {
+    "code": "SK",
+    "flag": "🇸🇰",
+    "region": "europe",
+    "name": {
+      "fr": "Slovaquie",
+      "en": "Slovakia"
+    }
+  },
+  {
+    "code": "EE",
+    "flag": "🇪🇪",
+    "region": "europe",
+    "name": {
+      "fr": "Estonie",
+      "en": "Estonia"
+    }
+  },
+  {
+    "code": "LV",
+    "flag": "🇱🇻",
+    "region": "europe",
+    "name": {
+      "fr": "Lettonie",
+      "en": "Latvia"
+    }
+  },
+  {
+    "code": "LT",
+    "flag": "🇱🇹",
+    "region": "europe",
+    "name": {
+      "fr": "Lituanie",
+      "en": "Lithuania"
+    }
+  },
+  {
+    "code": "CY",
+    "flag": "🇨🇾",
+    "region": "europe",
+    "name": {
+      "fr": "Chypre",
+      "en": "Cyprus"
+    }
+  },
+  {
+    "code": "MT",
+    "flag": "🇲🇹",
+    "region": "europe",
+    "name": {
+      "fr": "Malte",
+      "en": "Malta"
+    }
+  },
+  {
+    "code": "LU",
+    "flag": "🇱🇺",
+    "region": "europe",
+    "name": {
+      "fr": "Luxembourg",
+      "en": "Luxembourg"
+    }
+  },
+  {
+    "code": "MC",
+    "flag": "🇲🇨",
+    "region": "europe",
+    "name": {
+      "fr": "Monaco",
+      "en": "Monaco"
+    }
+  },
+  {
+    "code": "AD",
+    "flag": "🇦🇩",
+    "region": "europe",
+    "name": {
+      "fr": "Andorre",
+      "en": "Andorra"
+    }
+  },
+  {
+    "code": "SE",
+    "flag": "🇸🇪",
+    "region": "europe",
+    "name": {
+      "fr": "Suède",
+      "en": "Sweden"
+    }
+  },
+  {
+    "code": "NO",
+    "flag": "🇳🇴",
+    "region": "europe",
+    "name": {
+      "fr": "Norvège",
+      "en": "Norway"
+    }
+  },
+  {
+    "code": "DK",
+    "flag": "🇩🇰",
+    "region": "europe",
+    "name": {
+      "fr": "Danemark",
+      "en": "Denmark"
+    }
+  },
+  {
+    "code": "FI",
+    "flag": "🇫🇮",
+    "region": "europe",
+    "name": {
+      "fr": "Finlande",
+      "en": "Finland"
+    }
+  },
+  {
+    "code": "IS",
+    "flag": "🇮🇸",
+    "region": "europe",
+    "name": {
+      "fr": "Islande",
+      "en": "Iceland"
+    }
+  },
+  {
+    "code": "US",
+    "flag": "🇺🇸",
+    "region": "america",
+    "name": {
+      "fr": "États-Unis",
+      "en": "United States"
+    }
+  },
+  {
+    "code": "CA",
+    "flag": "🇨🇦",
+    "region": "america",
+    "name": {
+      "fr": "Canada",
+      "en": "Canada"
+    }
+  },
+  {
+    "code": "MX",
+    "flag": "🇲🇽",
+    "region": "america",
+    "name": {
+      "fr": "Mexique",
+      "en": "Mexico"
+    }
+  },
+  {
+    "code": "BR",
+    "flag": "🇧🇷",
+    "region": "america",
+    "name": {
+      "fr": "Brésil",
+      "en": "Brazil"
+    }
+  },
+  {
+    "code": "AR",
+    "flag": "🇦🇷",
+    "region": "america",
+    "name": {
+      "fr": "Argentine",
+      "en": "Argentina"
+    }
+  },
+  {
+    "code": "CL",
+    "flag": "🇨🇱",
+    "region": "america",
+    "name": {
+      "fr": "Chili",
+      "en": "Chile"
+    }
+  },
+  {
+    "code": "CO",
+    "flag": "🇨🇴",
+    "region": "america",
+    "name": {
+      "fr": "Colombie",
+      "en": "Colombia"
+    }
+  },
+  {
+    "code": "PE",
+    "flag": "🇵🇪",
+    "region": "america",
+    "name": {
+      "fr": "Pérou",
+      "en": "Peru"
+    }
+  },
+  {
+    "code": "CR",
+    "flag": "🇨🇷",
+    "region": "america",
+    "name": {
+      "fr": "Costa Rica",
+      "en": "Costa Rica"
+    }
+  },
+  {
+    "code": "PA",
+    "flag": "🇵🇦",
+    "region": "america",
+    "name": {
+      "fr": "Panama",
+      "en": "Panama"
+    }
+  },
+  {
+    "code": "UY",
+    "flag": "🇺🇾",
+    "region": "america",
+    "name": {
+      "fr": "Uruguay",
+      "en": "Uruguay"
+    }
+  },
+  {
+    "code": "PY",
+    "flag": "🇵🇾",
+    "region": "america",
+    "name": {
+      "fr": "Paraguay",
+      "en": "Paraguay"
+    }
+  },
+  {
+    "code": "EC",
+    "flag": "🇪🇨",
+    "region": "america",
+    "name": {
+      "fr": "Équateur",
+      "en": "Ecuador"
+    }
+  },
+  {
+    "code": "DO",
+    "flag": "🇩🇴",
+    "region": "america",
+    "name": {
+      "fr": "République Dominicaine",
+      "en": "Dominican Republic"
+    }
+  },
+  {
+    "code": "BS",
+    "flag": "🇧🇸",
+    "region": "america",
+    "name": {
+      "fr": "Bahamas",
+      "en": "Bahamas"
+    }
+  },
+  {
+    "code": "KY",
+    "flag": "🇰🇾",
+    "region": "america",
+    "name": {
+      "fr": "Îles Caïmans",
+      "en": "Cayman Islands"
+    }
+  },
+  {
+    "code": "JP",
+    "flag": "🇯🇵",
+    "region": "asia",
+    "name": {
+      "fr": "Japon",
+      "en": "Japan"
+    }
+  },
+  {
+    "code": "KR",
+    "flag": "🇰🇷",
+    "region": "asia",
+    "name": {
+      "fr": "Corée du Sud",
+      "en": "South Korea"
+    }
+  },
+  {
+    "code": "CN",
+    "flag": "🇨🇳",
+    "region": "asia",
+    "name": {
+      "fr": "Chine",
+      "en": "China"
+    }
+  },
+  {
+    "code": "HK",
+    "flag": "🇭🇰",
+    "region": "asia",
+    "name": {
+      "fr": "Hong Kong",
+      "en": "Hong Kong"
+    }
+  },
+  {
+    "code": "SG",
+    "flag": "🇸🇬",
+    "region": "asia",
+    "name": {
+      "fr": "Singapour",
+      "en": "Singapore"
+    }
+  },
+  {
+    "code": "TH",
+    "flag": "🇹🇭",
+    "region": "asia",
+    "name": {
+      "fr": "Thaïlande",
+      "en": "Thailand"
+    }
+  },
+  {
+    "code": "MY",
+    "flag": "🇲🇾",
+    "region": "asia",
+    "name": {
+      "fr": "Malaisie",
+      "en": "Malaysia"
+    }
+  },
+  {
+    "code": "ID",
+    "flag": "🇮🇩",
+    "region": "asia",
+    "name": {
+      "fr": "Indonésie",
+      "en": "Indonesia"
+    }
+  },
+  {
+    "code": "PH",
+    "flag": "🇵🇭",
+    "region": "asia",
+    "name": {
+      "fr": "Philippines",
+      "en": "Philippines"
+    }
+  },
+  {
+    "code": "VN",
+    "flag": "🇻🇳",
+    "region": "asia",
+    "name": {
+      "fr": "Vietnam",
+      "en": "Vietnam"
+    }
+  },
+  {
+    "code": "IN",
+    "flag": "🇮🇳",
+    "region": "asia",
+    "name": {
+      "fr": "Inde",
+      "en": "India"
+    }
+  },
+  {
+    "code": "TW",
+    "flag": "🇹🇼",
+    "region": "asia",
+    "name": {
+      "fr": "Taïwan",
+      "en": "Taiwan"
+    }
+  },
+  {
+    "code": "KH",
+    "flag": "🇰🇭",
+    "region": "asia",
+    "name": {
+      "fr": "Cambodge",
+      "en": "Cambodia"
+    }
+  },
+  {
+    "code": "LK",
+    "flag": "🇱🇰",
+    "region": "asia",
+    "name": {
+      "fr": "Sri Lanka",
+      "en": "Sri Lanka"
+    }
+  },
+  {
+    "code": "GE",
+    "flag": "🇬🇪",
+    "region": "asia",
+    "name": {
+      "fr": "Géorgie",
+      "en": "Georgia"
+    }
+  },
+  {
+    "code": "AE",
+    "flag": "🇦🇪",
+    "region": "middleEast",
+    "name": {
+      "fr": "Émirats Arabes Unis",
+      "en": "United Arab Emirates"
+    }
+  },
+  {
+    "code": "QA",
+    "flag": "🇶🇦",
+    "region": "middleEast",
+    "name": {
+      "fr": "Qatar",
+      "en": "Qatar"
+    }
+  },
+  {
+    "code": "SA",
+    "flag": "🇸🇦",
+    "region": "middleEast",
+    "name": {
+      "fr": "Arabie Saoudite",
+      "en": "Saudi Arabia"
+    }
+  },
+  {
+    "code": "BH",
+    "flag": "🇧🇭",
+    "region": "middleEast",
+    "name": {
+      "fr": "Bahreïn",
+      "en": "Bahrain"
+    }
+  },
+  {
+    "code": "OM",
+    "flag": "🇴🇲",
+    "region": "middleEast",
+    "name": {
+      "fr": "Oman",
+      "en": "Oman"
+    }
+  },
+  {
+    "code": "KW",
+    "flag": "🇰🇼",
+    "region": "middleEast",
+    "name": {
+      "fr": "Koweït",
+      "en": "Kuwait"
+    }
+  },
+  {
+    "code": "JO",
+    "flag": "🇯🇴",
+    "region": "middleEast",
+    "name": {
+      "fr": "Jordanie",
+      "en": "Jordan"
+    }
+  },
+  {
+    "code": "IL",
+    "flag": "🇮🇱",
+    "region": "middleEast",
+    "name": {
+      "fr": "Israël",
+      "en": "Israel"
+    }
+  },
+  {
+    "code": "TR",
+    "flag": "🇹🇷",
+    "region": "middleEast",
+    "name": {
+      "fr": "Turquie",
+      "en": "Turkey"
+    }
+  },
+  {
+    "code": "MA",
+    "flag": "🇲🇦",
+    "region": "africa",
+    "name": {
+      "fr": "Maroc",
+      "en": "Morocco"
+    }
+  },
+  {
+    "code": "TN",
+    "flag": "🇹🇳",
+    "region": "africa",
+    "name": {
+      "fr": "Tunisie",
+      "en": "Tunisia"
+    }
+  },
+  {
+    "code": "EG",
+    "flag": "🇪🇬",
+    "region": "africa",
+    "name": {
+      "fr": "Égypte",
+      "en": "Egypt"
+    }
+  },
+  {
+    "code": "ZA",
+    "flag": "🇿🇦",
+    "region": "africa",
+    "name": {
+      "fr": "Afrique du Sud",
+      "en": "South Africa"
+    }
+  },
+  {
+    "code": "MU",
+    "flag": "🇲🇺",
+    "region": "africa",
+    "name": {
+      "fr": "Maurice",
+      "en": "Mauritius"
+    }
+  },
+  {
+    "code": "SC",
+    "flag": "🇸🇨",
+    "region": "africa",
+    "name": {
+      "fr": "Seychelles",
+      "en": "Seychelles"
+    }
+  },
+  {
+    "code": "KE",
+    "flag": "🇰🇪",
+    "region": "africa",
+    "name": {
+      "fr": "Kenya",
+      "en": "Kenya"
+    }
+  },
+  {
+    "code": "GH",
+    "flag": "🇬🇭",
+    "region": "africa",
+    "name": {
+      "fr": "Ghana",
+      "en": "Ghana"
+    }
+  },
+  {
+    "code": "AU",
+    "flag": "🇦🇺",
+    "region": "oceania",
+    "name": {
+      "fr": "Australie",
+      "en": "Australia"
+    }
+  },
+  {
+    "code": "NZ",
+    "flag": "🇳🇿",
+    "region": "oceania",
+    "name": {
+      "fr": "Nouvelle-Zélande",
+      "en": "New Zealand"
+    }
+  },
+  {
+    "code": "FJ",
+    "flag": "🇫🇯",
+    "region": "oceania",
+    "name": {
+      "fr": "Fidji",
+      "en": "Fiji"
+    }
+  },
+  {
+    "code": "VU",
+    "flag": "🇻🇺",
+    "region": "oceania",
+    "name": {
+      "fr": "Vanuatu",
+      "en": "Vanuatu"
+    }
+  }
+]

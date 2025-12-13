@@ -1,0 +1,54 @@
+{
+  "tagline": "SAVOIR POUR AVOIR",
+  "title": "Comparatif des Taxes Immobilières par Pays",
+  "subtitle": "Guide complet des taxes foncières annuelles et droits de mutation pour les investisseurs internationaux, expatriés et digital nomads.",
+  "stats": {
+    "countries": "Pays comparés",
+    "noTax": "Sans taxe foncière",
+    "lowTax": "Taxe foncière < 0.5%",
+    "updated": "Données actualisées"
+  },
+  "search": {
+    "placeholder": "Rechercher un pays..."
+  },
+  "filter": {
+    "allRegions": "Toutes les régions",
+    "europe": "🇪🇺 Europe",
+    "america": "🌎 Amérique",
+    "asia": "🌏 Asie",
+    "middleEast": "🕌 Moyen-Orient",
+    "africa": "🌍 Afrique",
+    "oceania": "🏝️ Océanie",
+    "all": "Tous",
+    "noTax": "Sans taxe",
+    "lowTax": "Taxe faible"
+  },
+  "results": {
+    "displayed": "pays affichés",
+    "none": "Aucun pays ne correspond à votre recherche."
+  },
+  "table": {
+    "country": "Pays",
+    "region": "Région",
+    "propertyTax": "Taxe Foncière Annuelle",
+    "transferTax": "Droits de Mutation",
+    "notes": "Notes"
+  },
+  "regions": {
+    "europe": "Europe",
+    "america": "Amérique",
+    "asia": "Asie",
+    "middleEast": "Moyen-Orient",
+    "africa": "Afrique",
+    "oceania": "Océanie"
+  },
+  "disclaimer": {
+    "title": "Avertissement",
+    "text": "Ces données sont fournies à titre indicatif uniquement et peuvent varier selon les régions, le type de bien et votre situation personnelle. Les taux peuvent changer. Consultez toujours un conseiller fiscal local avant toute décision d'investissement. Dernière mise à jour : Décembre 2025."
+  },
+  "footer": {
+    "createdBy": "Créé par",
+    "subscribe": "S'abonner à la chaîne YouTube",
+    "topics": "Or • Crypto • Investissement International • Mobilité"
+  }
+}

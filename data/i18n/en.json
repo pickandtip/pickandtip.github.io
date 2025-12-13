@@ -1,0 +1,54 @@
+{
+  "tagline": "KNOWING FOR OWNING",
+  "title": "Property Tax Comparison by Country",
+  "subtitle": "Complete guide to annual property taxes and transfer duties for international investors, expats and digital nomads.",
+  "stats": {
+    "countries": "Countries compared",
+    "noTax": "No property tax",
+    "lowTax": "Property tax < 0.5%",
+    "updated": "Data updated"
+  },
+  "search": {
+    "placeholder": "Search for a country..."
+  },
+  "filter": {
+    "allRegions": "All regions",
+    "europe": "🇪🇺 Europe",
+    "america": "🌎 America",
+    "asia": "🌏 Asia",
+    "middleEast": "🕌 Middle East",
+    "africa": "🌍 Africa",
+    "oceania": "🏝️ Oceania",
+    "all": "All",
+    "noTax": "No tax",
+    "lowTax": "Low tax"
+  },
+  "results": {
+    "displayed": "countries displayed",
+    "none": "No country matches your search."
+  },
+  "table": {
+    "country": "Country",
+    "region": "Region",
+    "propertyTax": "Annual Property Tax",
+    "transferTax": "Transfer Tax",
+    "notes": "Notes"
+  },
+  "regions": {
+    "europe": "Europe",
+    "america": "America",
+    "asia": "Asia",
+    "middleEast": "Middle East",
+    "africa": "Africa",
+    "oceania": "Oceania"
+  },
+  "disclaimer": {
+    "title": "Disclaimer",
+    "text": "This data is provided for informational purposes only and may vary by region, property type and your personal situation. Rates may change. Always consult a local tax advisor before making any investment decision. Last updated: December 2025."
+  },
+  "footer": {
+    "createdBy": "Created by",
+    "subscribe": "Subscribe to YouTube channel",
+    "topics": "Gold • Crypto • International Investment • Mobility"
+  }
+}
