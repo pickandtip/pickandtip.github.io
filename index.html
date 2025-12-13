@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparatif Taxes Immobilières par Pays | Pick and Tip</title>
+    <meta name="description" content="Comparez les taxes foncières et droits de mutation immobilière dans plus de 60 pays. Guide complet pour investisseurs internationaux et expatriés.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Pick and Tip Brand Colors */
+            --brand-blue: #0A3460;
+            --brand-blue-dark: #062444;
+            --brand-blue-light: #0D4A8A;
+            --brand-gold: #F2C744;
+            --brand-gold-light: #F5D76E;
+            --brand-gold-dark: #D4A93A;
+            
+            /* UI Colors */
+            --bg-dark: #050D18;
+            --bg-card: #0A1929;
+            --bg-elevated: #0F2744;
+            --text-primary: #FFFFFF;
+            --text-secondary: #A0B4C8;
+            --text-muted: #6B8299;
+            --border-color: #1A3A5C;
+            
+            /* Status Colors */
+            --success: #4ADE80;
+            --warning: #FBBF24;
+            --danger: #F87171;
+            --info: #60A5FA;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* Animated background */
+        .bg-pattern {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.03;
+            background-image: 
+                radial-gradient(circle at 25% 25%, var(--brand-gold) 1px, transparent 1px),
+                radial-gradient(circle at 75% 75%, var(--brand-gold) 1px, transparent 1px);
+            background-size: 60px 60px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem 0;
+        }
+
+        .logo-container {
+            display: inline-block;
+            margin-bottom: 2rem;
+            padding: 1.5rem 3rem;
+            background: var(--brand-blue);
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(10, 52, 96, 0.4);
+        }
+
+        .logo-main {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 800;
+            color: var(--text-primary);
+            letter-spacing: 2px;
+            margin-bottom: 0.25rem;
+        }
+
+        .logo-tagline {
+            font-size: clamp(1rem, 2.5vw, 1.5rem);
+            font-weight: 700;
+            color: var(--brand-gold);
+            letter-spacing: 3px;
+        }
+
+        h1 {
+            font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+            color: var(--text-primary);
+        }
+
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+            font-weight: 500;
+        }
+
+        /* Stats cards */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, var(--brand-blue), var(--brand-blue-dark));
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(242, 199, 68, 0.15);
+            border-color: var(--brand-gold);
+        }
+
+        .stat-value {
+            font-size: 2.25rem;
+            font-weight: 800;
+            color: var(--brand-gold);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+            font-weight: 500;
+        }
+
+        /* Controls */
+        .controls {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .controls-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .search-box {
+            flex: 1;
+            min-width: 250px;
+            position: relative;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 0.875rem 1rem 0.875rem 3rem;
+            background: var(--bg-elevated);
+            border: 2px solid var(--border-color);
+            border-radius: 10px;
+            color: var(--text-primary);
+            font-family: inherit;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--brand-gold);
+            box-shadow: 0 0 0 3px rgba(242, 199, 68, 0.15);
+        }
+
+        .search-box input::placeholder {
+            color: var(--text-muted);
+        }
+
+        .search-box::before {
+            content: "🔍";
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1rem;
+        }
+
+        .filter-group {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.75rem 1.25rem;
+            background: var(--bg-elevated);
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--text-secondary);
+            font-family: inherit;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn:hover {
+            border-color: var(--brand-gold);
+            color: var(--text-primary);
+        }
+
+        .filter-btn.active {
+            background: var(--brand-gold);
+            border-color: var(--brand-gold);
+            color: var(--brand-blue-dark);
+        }
+
+        select {
+            padding: 0.75rem 2.5rem 0.75rem 1rem;
+            background: var(--bg-elevated);
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-family: inherit;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23A0B4C8' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10l-5 5z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0.75rem center;
+        }
+
+        select:focus {
+            outline: none;
+            border-color: var(--brand-gold);
+        }
+
+        /* Table */
+        .table-container {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .table-scroll {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+        }
+
+        th {
+            background: var(--brand-blue);
+            padding: 1rem 1.25rem;
+            text-align: left;
+            font-weight: 700;
+            color: var(--text-primary);
+            border-bottom: 2px solid var(--brand-gold);
+            cursor: pointer;
+            user-select: none;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+        }
+
+        th:hover {
+            background: var(--brand-blue-light);
+        }
+
+        th.sorted-asc::after {
+            content: " ▲";
+            color: var(--brand-gold);
+        }
+
+        th.sorted-desc::after {
+            content: " ▼";
+            color: var(--brand-gold);
+        }
+
+        td {
+            padding: 1rem 1.25rem;
+            border-bottom: 1px solid var(--border-color);
+            vertical-align: middle;
+        }
+
+        tr:hover td {
+            background: rgba(242, 199, 68, 0.05);
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        .country-cell {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-weight: 600;
+        }
+
+        .flag {
+            font-size: 1.5rem;
+            line-height: 1;
+        }
+
+        .region-badge {
+            display: inline-block;
+            padding: 0.3rem 0.85rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .region-europe { background: rgba(96, 165, 250, 0.2); color: var(--info); }
+        .region-amerique { background: rgba(74, 222, 128, 0.2); color: var(--success); }
+        .region-asie { background: rgba(251, 191, 36, 0.2); color: var(--warning); }
+        .region-afrique { background: rgba(248, 113, 113, 0.2); color: var(--danger); }
+        .region-oceanie { background: rgba(242, 199, 68, 0.2); color: var(--brand-gold); }
+        .region-moyenorient { background: rgba(160, 180, 200, 0.2); color: var(--text-secondary); }
+
+        .tax-value {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 600;
+        }
+
+        .tax-low { color: var(--success); }
+        .tax-medium { color: var(--warning); }
+        .tax-high { color: var(--danger); }
+
+        .tax-none {
+            color: var(--success);
+            font-weight: 700;
+        }
+
+        .notes {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            max-width: 250px;
+            font-weight: 500;
+        }
+
+        /* No results */
+        .no-results {
+            text-align: center;
+            padding: 4rem 2rem;
+            color: var(--text-secondary);
+        }
+
+        .no-results-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            opacity: 0.5;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 3rem 0;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: var(--brand-gold);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .disclaimer {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-left: 4px solid var(--brand-gold);
+            border-radius: 0 12px 12px 0;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .disclaimer-title {
+            color: var(--brand-gold);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* YouTube CTA */
+        .youtube-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-top: 1.5rem;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, #FF0000, #CC0000);
+            border-radius: 50px;
+            color: white;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+
+        .youtube-cta:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(255, 0, 0, 0.3);
+            text-decoration: none;
+        }
+
+        .youtube-icon {
+            font-size: 1.5rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .logo-container {
+                padding: 1rem 1.5rem;
+            }
+
+            .controls-row {
+                flex-direction: column;
+            }
+
+            .search-box {
+                width: 100%;
+            }
+
+            .filter-group {
+                width: 100%;
+                justify-content: center;
+            }
+
+            th, td {
+                padding: 0.75rem;
+                font-size: 0.85rem;
+            }
+
+            .notes {
+                max-width: 150px;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .table-container {
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        tr {
+            animation: fadeIn 0.3s ease-out;
+            animation-fill-mode: both;
+        }
+
+        /* Result count */
+        .result-count {
+            padding: 1rem 1.25rem;
+            background: var(--bg-elevated);
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .result-count strong {
+            color: var(--brand-gold);
+            font-weight: 700;
+        }
+
+        /* Gold accent line */
+        .gold-line {
+            width: 80px;
+            height: 4px;
+            background: var(--brand-gold);
+            margin: 1.5rem auto;
+            border-radius: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-pattern"></div>
+    
+    <div class="container">
+        <header>
+            <div class="logo-container">
+                <div class="logo-main">PICK & TIP</div>
+                <div class="logo-tagline">SAVOIR POUR AVOIR</div>
+            </div>
+            <h1>Comparatif des Taxes Immobilières par Pays</h1>
+            <div class="gold-line"></div>
+            <p class="subtitle">Guide complet des taxes foncières annuelles et droits de mutation pour les investisseurs internationaux, expatriés et digital nomads.</p>
+        </header>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-value" id="countryCount">65</div>
+                <div class="stat-label">Pays comparés</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="noTaxCount">8</div>
+                <div class="stat-label">Sans taxe foncière</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="lowTaxCount">22</div>
+                <div class="stat-label">Taxe foncière &lt; 0.5%</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">2025</div>
+                <div class="stat-label">Données actualisées</div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <div class="controls-row">
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="Rechercher un pays...">
+                </div>
+                <select id="regionFilter">
+                    <option value="">Toutes les régions</option>
+                    <option value="Europe">🇪🇺 Europe</option>
+                    <option value="Amérique">🌎 Amérique</option>
+                    <option value="Asie">🌏 Asie</option>
+                    <option value="Moyen-Orient">🕌 Moyen-Orient</option>
+                    <option value="Afrique">🌍 Afrique</option>
+                    <option value="Océanie">🏝️ Océanie</option>
+                </select>
+                <div class="filter-group">
+                    <button class="filter-btn active" data-filter="all">Tous</button>
+                    <button class="filter-btn" data-filter="no-tax">Sans taxe</button>
+                    <button class="filter-btn" data-filter="low-tax">Taxe faible</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="table-container">
+            <div class="result-count">
+                <strong id="resultCount">65</strong> pays affichés
+            </div>
+            <div class="table-scroll">
+                <table id="taxTable">
+                    <thead>
+                        <tr>
+                            <th data-sort="country">Pays</th>
+                            <th data-sort="region">Région</th>
+                            <th data-sort="propertyTax">Taxe Foncière Annuelle</th>
+                            <th data-sort="transferTax">Droits de Mutation</th>
+                            <th data-sort="notes">Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody">
+                    </tbody>
+                </table>
+            </div>
+            <div class="no-results" id="noResults" style="display: none;">
+                <div class="no-results-icon">🔍</div>
+                <p>Aucun pays ne correspond à votre recherche.</p>
+            </div>
+        </div>
+
+        <div class="disclaimer">
+            <div class="disclaimer-title">⚠️ Avertissement</div>
+            <p>Ces données sont fournies à titre indicatif uniquement et peuvent varier selon les régions, le type de bien et votre situation personnelle. Les taux peuvent changer. Consultez toujours un conseiller fiscal local avant toute décision d'investissement. Dernière mise à jour : Décembre 2025.</p>
+        </div>
+
+        <footer>
+            <p>Créé par <a href="https://www.youtube.com/@pickandtip" target="_blank">Pick & Tip</a></p>
+            <a href="https://www.youtube.com/@pickandtip" target="_blank" class="youtube-cta">
+                <span class="youtube-icon">▶️</span>
+                <span>S'abonner à la chaîne YouTube</span>
+            </a>
+            <p style="margin-top: 1.5rem; font-size: 0.85rem;">Or • Crypto • Investissement International • Mobilité</p>
+        </footer>
+    </div>
+
+    <script>
+        // Data: Property taxes by country
+        const taxData = [
+            // Europe
+            { country: "France", flag: "🇫🇷", region: "Europe", propertyTax: "0.5% - 1.5%", propertyTaxValue: 1.0, transferTax: "5.1% - 5.8%", transferTaxValue: 5.5, notes: "Taxe foncière + taxe d'habitation (résidences secondaires)" },
+            { country: "Allemagne", flag: "🇩🇪", region: "Europe", propertyTax: "0.26% - 1%", propertyTaxValue: 0.5, transferTax: "3.5% - 6.5%", transferTaxValue: 5.0, notes: "Grundsteuer réformée en 2025, varie par Land" },
+            { country: "Espagne", flag: "🇪🇸", region: "Europe", propertyTax: "0.4% - 1.1%", propertyTaxValue: 0.7, transferTax: "6% - 10%", transferTaxValue: 8.0, notes: "IBI varie par municipalité" },
+            { country: "Italie", flag: "🇮🇹", region: "Europe", propertyTax: "0.4% - 1.06%", propertyTaxValue: 0.7, transferTax: "2% - 9%", transferTaxValue: 5.0, notes: "IMU exonérée pour résidence principale" },
+            { country: "Portugal", flag: "🇵🇹", region: "Europe", propertyTax: "0.3% - 0.8%", propertyTaxValue: 0.5, transferTax: "0% - 7.5%", transferTaxValue: 5.0, notes: "IMI basée sur valeur patrimoniale" },
+            { country: "Royaume-Uni", flag: "🇬🇧", region: "Europe", propertyTax: "0.5% - 2%", propertyTaxValue: 1.2, transferTax: "0% - 12%", transferTaxValue: 5.0, notes: "Council Tax + Stamp Duty progressif" },
+            { country: "Belgique", flag: "🇧🇪", region: "Europe", propertyTax: "1.25% - 2.5%", propertyTaxValue: 1.8, transferTax: "10% - 12.5%", transferTaxValue: 11.3, notes: "Précompte immobilier élevé" },
+            { country: "Pays-Bas", flag: "🇳🇱", region: "Europe", propertyTax: "0.1% - 0.3%", propertyTaxValue: 0.2, transferTax: "2% - 10.4%", transferTaxValue: 6.0, notes: "OZB faible, droits transfert augmentés" },
+            { country: "Suisse", flag: "🇨🇭", region: "Europe", propertyTax: "0.05% - 0.3%", propertyTaxValue: 0.15, transferTax: "0% - 3%", transferTaxValue: 1.5, notes: "Varie considérablement par canton" },
+            { country: "Autriche", flag: "🇦🇹", region: "Europe", propertyTax: "0.1% - 0.2%", propertyTaxValue: 0.15, transferTax: "3.5%", transferTaxValue: 3.5, notes: "Grundsteuer très faible" },
+            { country: "Irlande", flag: "🇮🇪", region: "Europe", propertyTax: "0.18% - 0.25%", propertyTaxValue: 0.2, transferTax: "1% - 2%", transferTaxValue: 1.5, notes: "Local Property Tax récente" },
+            { country: "Grèce", flag: "🇬🇷", region: "Europe", propertyTax: "0.1% - 1.15%", propertyTaxValue: 0.6, transferTax: "3%", transferTaxValue: 3.0, notes: "ENFIA basée sur valeur objective" },
+            { country: "Pologne", flag: "🇵🇱", region: "Europe", propertyTax: "~0.7%", propertyTaxValue: 0.7, transferTax: "2%", transferTaxValue: 2.0, notes: "Taxe au m², pas sur la valeur" },
+            { country: "République Tchèque", flag: "🇨🇿", region: "Europe", propertyTax: "~0.1%", propertyTaxValue: 0.1, transferTax: "4%", transferTaxValue: 4.0, notes: "Parmi les plus faibles d'Europe" },
+            { country: "Hongrie", flag: "🇭🇺", region: "Europe", propertyTax: "0% - 1.8%", propertyTaxValue: 0.5, transferTax: "4%", transferTaxValue: 4.0, notes: "Décidée par municipalités" },
+            { country: "Roumanie", flag: "🇷🇴", region: "Europe", propertyTax: "0.08% - 0.2%", propertyTaxValue: 0.1, transferTax: "0% - 3%", transferTaxValue: 1.0, notes: "Très faible, basée sur valeur cadastrale" },
+            { country: "Bulgarie", flag: "🇧🇬", region: "Europe", propertyTax: "0.1% - 0.45%", propertyTaxValue: 0.2, transferTax: "0.1% - 3%", transferTaxValue: 1.5, notes: "Parmi les plus attractives en UE" },
+            { country: "Croatie", flag: "🇭🇷", region: "Europe", propertyTax: "0.6% - 8€/m²", propertyTaxValue: 0.3, transferTax: "3%", transferTaxValue: 3.0, notes: "Taxe sur résidences secondaires/vacantes" },
+            { country: "Slovénie", flag: "🇸🇮", region: "Europe", propertyTax: "~0.15%", propertyTaxValue: 0.15, transferTax: "2%", transferTaxValue: 2.0, notes: "Faible taxe foncière" },
+            { country: "Slovaquie", flag: "🇸🇰", region: "Europe", propertyTax: "~0.2%", propertyTaxValue: 0.2, transferTax: "0%", transferTaxValue: 0, notes: "Pas de droits de mutation" },
+            { country: "Estonie", flag: "🇪🇪", region: "Europe", propertyTax: "0.1% - 2.5%", propertyTaxValue: 0.5, transferTax: "0%", transferTaxValue: 0, notes: "Taxe sur le terrain uniquement" },
+            { country: "Lettonie", flag: "🇱🇻", region: "Europe", propertyTax: "0.2% - 3%", propertyTaxValue: 1.0, transferTax: "2%", transferTaxValue: 2.0, notes: "Taux progressif selon valeur" },
+            { country: "Lituanie", flag: "🇱🇹", region: "Europe", propertyTax: "0.5% - 2%", propertyTaxValue: 1.0, transferTax: "0%", transferTaxValue: 0, notes: "Taxe sur biens > 150 000€" },
+            { country: "Chypre", flag: "🇨🇾", region: "Europe", propertyTax: "0%", propertyTaxValue: 0, transferTax: "3% - 8%", transferTaxValue: 5.0, notes: "Taxe foncière abolie en 2017" },
+            { country: "Malte", flag: "🇲🇹", region: "Europe", propertyTax: "0%", propertyTaxValue: 0, transferTax: "5%", transferTaxValue: 5.0, notes: "Aucune taxe foncière annuelle" },
+            { country: "Luxembourg", flag: "🇱🇺", region: "Europe", propertyTax: "~0.1%", propertyTaxValue: 0.1, transferTax: "6% - 7%", transferTaxValue: 6.5, notes: "Impôt foncier symbolique" },
+            { country: "Monaco", flag: "🇲🇨", region: "Europe", propertyTax: "0%", propertyTaxValue: 0, transferTax: "4.5%", transferTaxValue: 4.5, notes: "Pas de taxe foncière" },
+            { country: "Andorre", flag: "🇦🇩", region: "Europe", propertyTax: "0%", propertyTaxValue: 0, transferTax: "4%", transferTaxValue: 4.0, notes: "Pas de taxe foncière annuelle" },
+            { country: "Suède", flag: "🇸🇪", region: "Europe", propertyTax: "0.75%", propertyTaxValue: 0.75, transferTax: "1.5% - 4.25%", transferTaxValue: 3.0, notes: "Plafonnée à ~8000€/an" },
+            { country: "Norvège", flag: "🇳🇴", region: "Europe", propertyTax: "0% - 0.7%", propertyTaxValue: 0.3, transferTax: "2.5%", transferTaxValue: 2.5, notes: "Décidée localement" },
+            { country: "Danemark", flag: "🇩🇰", region: "Europe", propertyTax: "0.92% - 3%", propertyTaxValue: 1.5, transferTax: "0.6%", transferTaxValue: 0.6, notes: "Taxe foncière élevée" },
+            { country: "Finlande", flag: "🇫🇮", region: "Europe", propertyTax: "0.41% - 1.35%", propertyTaxValue: 0.8, transferTax: "2% - 4%", transferTaxValue: 3.0, notes: "Varie par municipalité" },
+            { country: "Islande", flag: "🇮🇸", region: "Europe", propertyTax: "0.5% - 1.65%", propertyTaxValue: 1.0, transferTax: "0.8%", transferTaxValue: 0.8, notes: "Droits de mutation faibles" },
+            
+            // Amérique
+            { country: "États-Unis", flag: "🇺🇸", region: "Amérique", propertyTax: "0.3% - 2.5%", propertyTaxValue: 1.1, transferTax: "0% - 2%", transferTaxValue: 1.0, notes: "Varie énormément par État/comté" },
+            { country: "Canada", flag: "🇨🇦", region: "Amérique", propertyTax: "0.5% - 2.5%", propertyTaxValue: 1.2, transferTax: "0% - 5%", transferTaxValue: 2.0, notes: "Varie par province" },
+            { country: "Mexique", flag: "🇲🇽", region: "Amérique", propertyTax: "0.1% - 0.3%", propertyTaxValue: 0.2, transferTax: "2% - 5%", transferTaxValue: 3.5, notes: "Predial très faible" },
+            { country: "Brésil", flag: "🇧🇷", region: "Amérique", propertyTax: "0.5% - 1.5%", propertyTaxValue: 1.0, transferTax: "2% - 4%", transferTaxValue: 3.0, notes: "IPTU varie par ville" },
+            { country: "Argentine", flag: "🇦🇷", region: "Amérique", propertyTax: "0.5% - 2%", propertyTaxValue: 1.0, transferTax: "3.5%", transferTaxValue: 3.5, notes: "Impuesto Inmobiliario" },
+            { country: "Chili", flag: "🇨🇱", region: "Amérique", propertyTax: "1% - 1.4%", propertyTaxValue: 1.2, transferTax: "0%", transferTaxValue: 0, notes: "Pas de droits de mutation" },
+            { country: "Colombie", flag: "🇨🇴", region: "Amérique", propertyTax: "0.3% - 3.3%", propertyTaxValue: 1.0, transferTax: "1%", transferTaxValue: 1.0, notes: "Impuesto Predial progressif" },
+            { country: "Pérou", flag: "🇵🇪", region: "Amérique", propertyTax: "0.2% - 1%", propertyTaxValue: 0.5, transferTax: "3%", transferTaxValue: 3.0, notes: "Impuesto Predial" },
+            { country: "Costa Rica", flag: "🇨🇷", region: "Amérique", propertyTax: "0.25%", propertyTaxValue: 0.25, transferTax: "1.5%", transferTaxValue: 1.5, notes: "Impuesto sobre bienes inmuebles" },
+            { country: "Panama", flag: "🇵🇦", region: "Amérique", propertyTax: "0% - 1%", propertyTaxValue: 0.3, transferTax: "2%", transferTaxValue: 2.0, notes: "Exonération jusqu'à 120 000$" },
+            { country: "Uruguay", flag: "🇺🇾", region: "Amérique", propertyTax: "0.25% - 1.2%", propertyTaxValue: 0.6, transferTax: "2%", transferTaxValue: 2.0, notes: "Contribución Inmobiliaria" },
+            { country: "Paraguay", flag: "🇵🇾", region: "Amérique", propertyTax: "0% - 1%", propertyTaxValue: 0.3, transferTax: "2%", transferTaxValue: 2.0, notes: "Impuesto Inmobiliario" },
+            { country: "Équateur", flag: "🇪🇨", region: "Amérique", propertyTax: "0.025% - 0.5%", propertyTaxValue: 0.2, transferTax: "1%", transferTaxValue: 1.0, notes: "Très faible" },
+            { country: "République Dominicaine", flag: "🇩🇴", region: "Amérique", propertyTax: "1%", propertyTaxValue: 1.0, transferTax: "3%", transferTaxValue: 3.0, notes: "IPI sur biens > ~150 000$" },
+            { country: "Bahamas", flag: "🇧🇸", region: "Amérique", propertyTax: "0.75% - 2%", propertyTaxValue: 1.0, transferTax: "2.5% - 10%", transferTaxValue: 5.0, notes: "Property Tax progressif" },
+            { country: "Îles Caïmans", flag: "🇰🇾", region: "Amérique", propertyTax: "0%", propertyTaxValue: 0, transferTax: "7.5%", transferTaxValue: 7.5, notes: "Aucune taxe foncière" },
+
+            // Asie
+            { country: "Japon", flag: "🇯🇵", region: "Asie", propertyTax: "1.4% - 2.1%", propertyTaxValue: 1.7, transferTax: "3% - 4%", transferTaxValue: 3.5, notes: "Kotei Shisan Zei + City Planning Tax" },
+            { country: "Corée du Sud", flag: "🇰🇷", region: "Asie", propertyTax: "0.1% - 0.4%", propertyTaxValue: 0.25, transferTax: "1% - 3%", transferTaxValue: 2.0, notes: "Taxe foncière modérée" },
+            { country: "Chine", flag: "🇨🇳", region: "Asie", propertyTax: "0%", propertyTaxValue: 0, transferTax: "3% - 5%", transferTaxValue: 4.0, notes: "Pas de taxe foncière nationale (pilotes)" },
+            { country: "Hong Kong", flag: "🇭🇰", region: "Asie", propertyTax: "5%", propertyTaxValue: 5.0, transferTax: "1.5% - 8.5%", transferTaxValue: 4.0, notes: "Rates basées sur valeur locative" },
+            { country: "Singapour", flag: "🇸🇬", region: "Asie", propertyTax: "0% - 16%", propertyTaxValue: 4.0, transferTax: "1% - 4%", transferTaxValue: 2.0, notes: "Progressif, élevé pour non-résidents" },
+            { country: "Thaïlande", flag: "🇹🇭", region: "Asie", propertyTax: "0.02% - 0.3%", propertyTaxValue: 0.15, transferTax: "2%", transferTaxValue: 2.0, notes: "Land and Building Tax récente" },
+            { country: "Malaisie", flag: "🇲🇾", region: "Asie", propertyTax: "0.1% - 0.2%", propertyTaxValue: 0.15, transferTax: "1% - 4%", transferTaxValue: 2.5, notes: "Quit Rent + Assessment Rate" },
+            { country: "Indonésie", flag: "🇮🇩", region: "Asie", propertyTax: "0.1% - 0.3%", propertyTaxValue: 0.2, transferTax: "5%", transferTaxValue: 5.0, notes: "PBB faible" },
+            { country: "Philippines", flag: "🇵🇭", region: "Asie", propertyTax: "1% - 2%", propertyTaxValue: 1.5, transferTax: "0.5% - 0.75%", transferTaxValue: 0.6, notes: "Real Property Tax" },
+            { country: "Vietnam", flag: "🇻🇳", region: "Asie", propertyTax: "0.03% - 0.15%", propertyTaxValue: 0.1, transferTax: "0.5%", transferTaxValue: 0.5, notes: "Taxe foncière très faible" },
+            { country: "Inde", flag: "🇮🇳", region: "Asie", propertyTax: "0.5% - 2%", propertyTaxValue: 1.0, transferTax: "5% - 7%", transferTaxValue: 6.0, notes: "Varie par État et ville" },
+            { country: "Taïwan", flag: "🇹🇼", region: "Asie", propertyTax: "1% - 5.5%", propertyTaxValue: 2.0, transferTax: "6%", transferTaxValue: 6.0, notes: "House Tax + Land Tax" },
+            { country: "Cambodge", flag: "🇰🇭", region: "Asie", propertyTax: "0.1%", propertyTaxValue: 0.1, transferTax: "4%", transferTaxValue: 4.0, notes: "Taxe très faible" },
+            { country: "Sri Lanka", flag: "🇱🇰", region: "Asie", propertyTax: "~0.5%", propertyTaxValue: 0.5, transferTax: "4%", transferTaxValue: 4.0, notes: "Assessment rates" },
+            { country: "Géorgie", flag: "🇬🇪", region: "Asie", propertyTax: "0% - 1%", propertyTaxValue: 0.3, transferTax: "0%", transferTaxValue: 0, notes: "Très attractif fiscalement" },
+
+            // Moyen-Orient
+            { country: "Émirats Arabes Unis", flag: "🇦🇪", region: "Moyen-Orient", propertyTax: "0%", propertyTaxValue: 0, transferTax: "4%", transferTaxValue: 4.0, notes: "Aucune taxe foncière à Dubai" },
+            { country: "Qatar", flag: "🇶🇦", region: "Moyen-Orient", propertyTax: "0%", propertyTaxValue: 0, transferTax: "0.25%", transferTaxValue: 0.25, notes: "Presque aucun frais" },
+            { country: "Arabie Saoudite", flag: "🇸🇦", region: "Moyen-Orient", propertyTax: "0%", propertyTaxValue: 0, transferTax: "5%", transferTaxValue: 5.0, notes: "Pas de taxe foncière" },
+            { country: "Bahreïn", flag: "🇧🇭", region: "Moyen-Orient", propertyTax: "0%", propertyTaxValue: 0, transferTax: "2%", transferTaxValue: 2.0, notes: "Aucune taxe foncière" },
+            { country: "Oman", flag: "🇴🇲", region: "Moyen-Orient", propertyTax: "0%", propertyTaxValue: 0, transferTax: "3% - 5%", transferTaxValue: 4.0, notes: "Pas de taxe foncière" },
+            { country: "Koweït", flag: "🇰🇼", region: "Moyen-Orient", propertyTax: "0%", propertyTaxValue: 0, transferTax: "0.5%", transferTaxValue: 0.5, notes: "Aucune taxe immobilière" },
+            { country: "Jordanie", flag: "🇯🇴", region: "Moyen-Orient", propertyTax: "~0.1%", propertyTaxValue: 0.1, transferTax: "5% - 10%", transferTaxValue: 7.5, notes: "Property Tax très faible" },
+            { country: "Israël", flag: "🇮🇱", region: "Moyen-Orient", propertyTax: "0.1% - 0.5%", propertyTaxValue: 0.3, transferTax: "0% - 10%", transferTaxValue: 5.0, notes: "Arnona basée sur surface" },
+            { country: "Turquie", flag: "🇹🇷", region: "Moyen-Orient", propertyTax: "0.1% - 0.6%", propertyTaxValue: 0.3, transferTax: "4%", transferTaxValue: 4.0, notes: "Emlak Vergisi" },
+
+            // Afrique
+            { country: "Maroc", flag: "🇲🇦", region: "Afrique", propertyTax: "0% - 0.2%", propertyTaxValue: 0.1, transferTax: "4% - 6%", transferTaxValue: 5.0, notes: "Taxe d'habitation + taxe services" },
+            { country: "Tunisie", flag: "🇹🇳", region: "Afrique", propertyTax: "0.1% - 0.2%", propertyTaxValue: 0.15, transferTax: "4%", transferTaxValue: 4.0, notes: "Taxe foncière faible" },
+            { country: "Égypte", flag: "🇪🇬", region: "Afrique", propertyTax: "0.1% - 0.3%", propertyTaxValue: 0.2, transferTax: "2.5%", transferTaxValue: 2.5, notes: "Property Tax récente" },
+            { country: "Afrique du Sud", flag: "🇿🇦", region: "Afrique", propertyTax: "0.5% - 2%", propertyTaxValue: 1.0, transferTax: "0% - 13%", transferTaxValue: 5.0, notes: "Rates + Transfer Duty progressif" },
+            { country: "Maurice", flag: "🇲🇺", region: "Afrique", propertyTax: "0%", propertyTaxValue: 0, transferTax: "5%", transferTaxValue: 5.0, notes: "Pas de taxe foncière annuelle" },
+            { country: "Seychelles", flag: "🇸🇨", region: "Afrique", propertyTax: "0%", propertyTaxValue: 0, transferTax: "5%", transferTaxValue: 5.0, notes: "Aucune taxe foncière" },
+            { country: "Kenya", flag: "🇰🇪", region: "Afrique", propertyTax: "0.1% - 0.5%", propertyTaxValue: 0.3, transferTax: "4%", transferTaxValue: 4.0, notes: "Land Rates" },
+            { country: "Ghana", flag: "🇬🇭", region: "Afrique", propertyTax: "0.5%", propertyTaxValue: 0.5, transferTax: "0.5%", transferTaxValue: 0.5, notes: "Property Rate" },
+            
+            // Océanie
+            { country: "Australie", flag: "🇦🇺", region: "Océanie", propertyTax: "0% - 2.67%", propertyTaxValue: 1.0, transferTax: "1.4% - 6.75%", transferTaxValue: 4.0, notes: "Land Tax + Stamp Duty, varie par État" },
+            { country: "Nouvelle-Zélande", flag: "🇳🇿", region: "Océanie", propertyTax: "0.2% - 0.6%", propertyTaxValue: 0.4, transferTax: "0%", transferTaxValue: 0, notes: "Rates locaux, pas de Stamp Duty" },
+            { country: "Fidji", flag: "🇫🇯", region: "Océanie", propertyTax: "0%", propertyTaxValue: 0, transferTax: "3% - 10%", transferTaxValue: 6.0, notes: "Pas de taxe foncière" },
+            { country: "Vanuatu", flag: "🇻🇺", region: "Océanie", propertyTax: "0%", propertyTaxValue: 0, transferTax: "0%", transferTaxValue: 0, notes: "Paradis fiscal complet" },
+        ];
+
+        // DOM elements
+        const tableBody = document.getElementById('tableBody');
+        const searchInput = document.getElementById('searchInput');
+        const regionFilter = document.getElementById('regionFilter');
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const resultCount = document.getElementById('resultCount');
+        const noResults = document.getElementById('noResults');
+
+        let currentSort = { column: 'country', direction: 'asc' };
+        let currentFilter = 'all';
+
+        // Render table
+        function renderTable(data) {
+            tableBody.innerHTML = '';
+            
+            if (data.length === 0) {
+                noResults.style.display = 'block';
+                resultCount.textContent = '0';
+                return;
+            }
+            
+            noResults.style.display = 'none';
+            resultCount.textContent = data.length;
+
+            data.forEach((item, index) => {
+                const row = document.createElement('tr');
+                row.style.animationDelay = `${index * 0.02}s`;
+                
+                // Determine tax level class
+                const taxClass = item.propertyTaxValue === 0 ? 'tax-none' : 
+                                 item.propertyTaxValue < 0.5 ? 'tax-low' : 
+                                 item.propertyTaxValue < 1.5 ? 'tax-medium' : 'tax-high';
+                
+                const transferClass = item.transferTaxValue === 0 ? 'tax-none' : 
+                                      item.transferTaxValue < 2 ? 'tax-low' : 
+                                      item.transferTaxValue < 5 ? 'tax-medium' : 'tax-high';
+
+                // Normalize region for CSS class
+                const regionClass = item.region.toLowerCase()
+                    .normalize('NFD')
+                    .replace(/[\u0300-\u036f]/g, '')
+                    .replace('-', '')
+                    .replace(' ', '');
+
+                row.innerHTML = `
+                    <td>
+                        <div class="country-cell">
+                            <span class="flag">${item.flag}</span>
+                            <span>${item.country}</span>
+                        </div>
+                    </td>
+                    <td><span class="region-badge region-${regionClass}">${item.region}</span></td>
+                    <td><span class="tax-value ${taxClass}">${item.propertyTax}</span></td>
+                    <td><span class="tax-value ${transferClass}">${item.transferTax}</span></td>
+                    <td><span class="notes">${item.notes}</span></td>
+                `;
+                
+                tableBody.appendChild(row);
+            });
+        }
+
+        // Filter and sort data
+        function filterAndSort() {
+            let filtered = [...taxData];
+            
+            // Search filter
+            const searchTerm = searchInput.value.toLowerCase();
+            if (searchTerm) {
+                filtered = filtered.filter(item => 
+                    item.country.toLowerCase().includes(searchTerm) ||
+                    item.region.toLowerCase().includes(searchTerm) ||
+                    item.notes.toLowerCase().includes(searchTerm)
+                );
+            }
+            
+            // Region filter
+            const region = regionFilter.value;
+            if (region) {
+                filtered = filtered.filter(item => item.region === region);
+            }
+            
+            // Tax level filter
+            if (currentFilter === 'no-tax') {
+                filtered = filtered.filter(item => item.propertyTaxValue === 0);
+            } else if (currentFilter === 'low-tax') {
+                filtered = filtered.filter(item => item.propertyTaxValue > 0 && item.propertyTaxValue < 0.5);
+            }
+            
+            // Sort
+            filtered.sort((a, b) => {
+                let valA, valB;
+                
+                switch(currentSort.column) {
+                    case 'country':
+                        valA = a.country;
+                        valB = b.country;
+                        break;
+                    case 'region':
+                        valA = a.region;
+                        valB = b.region;
+                        break;
+                    case 'propertyTax':
+                        valA = a.propertyTaxValue;
+                        valB = b.propertyTaxValue;
+                        break;
+                    case 'transferTax':
+                        valA = a.transferTaxValue;
+                        valB = b.transferTaxValue;
+                        break;
+                    default:
+                        valA = a.country;
+                        valB = b.country;
+                }
+                
+                if (typeof valA === 'string') {
+                    return currentSort.direction === 'asc' 
+                        ? valA.localeCompare(valB) 
+                        : valB.localeCompare(valA);
+                }
+                
+                return currentSort.direction === 'asc' 
+                    ? valA - valB 
+                    : valB - valA;
+            });
+            
+            renderTable(filtered);
+        }
+
+        // Event listeners
+        searchInput.addEventListener('input', filterAndSort);
+        regionFilter.addEventListener('change', filterAndSort);
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                currentFilter = btn.dataset.filter;
+                filterAndSort();
+            });
+        });
+
+        // Sort by column headers
+        document.querySelectorAll('th[data-sort]').forEach(th => {
+            th.addEventListener('click', () => {
+                const column = th.dataset.sort;
+                
+                // Remove sorted class from all headers
+                document.querySelectorAll('th').forEach(h => {
+                    h.classList.remove('sorted-asc', 'sorted-desc');
+                });
+                
+                if (currentSort.column === column) {
+                    currentSort.direction = currentSort.direction === 'asc' ? 'desc' : 'asc';
+                } else {
+                    currentSort.column = column;
+                    currentSort.direction = 'asc';
+                }
+                
+                th.classList.add(currentSort.direction === 'asc' ? 'sorted-asc' : 'sorted-desc');
+                filterAndSort();
+            });
+        });
+
+        // Update stats
+        function updateStats() {
+            document.getElementById('countryCount').textContent = taxData.length;
+            document.getElementById('noTaxCount').textContent = taxData.filter(d => d.propertyTaxValue === 0).length;
+            document.getElementById('lowTaxCount').textContent = taxData.filter(d => d.propertyTaxValue > 0 && d.propertyTaxValue < 0.5).length;
+        }
+
+        // Initialize
+        updateStats();
+        filterAndSort();
+
+        // Add sorted class to initial sort column
+        document.querySelector('th[data-sort="country"]').classList.add('sorted-asc');
+    </script>
+</body>
+</html>
