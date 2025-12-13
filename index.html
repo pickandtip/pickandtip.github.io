@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Comparatif Taxes Immobilières par Pays | Pick and Tip</title>
-    <meta name="description" content="Comparez les taxes foncières et droits de mutation immobilière dans plus de 60 pays. Guide complet pour investisseurs internationaux et expatriés.">
+    <title>Comparatif Taxes Immobilières | Property Tax Comparison | Pick and Tip</title>
+    <meta name="description" content="Comparez les taxes foncières et droits de mutation immobilière dans plus de 60 pays. Compare property taxes and transfer duties in 60+ countries.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -72,11 +72,52 @@
             z-index: 1;
         }
 
+        /* Language Switcher */
+        .lang-switcher {
+            position: fixed;
+            top: 1.5rem;
+            right: 1.5rem;
+            display: flex;
+            gap: 0.5rem;
+            z-index: 1000;
+            background: var(--bg-card);
+            padding: 0.5rem;
+            border-radius: 50px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .lang-btn {
+            width: 42px;
+            height: 42px;
+            border: 2px solid transparent;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            background: transparent;
+        }
+
+        .lang-btn:hover {
+            transform: scale(1.1);
+            border-color: var(--brand-gold);
+        }
+
+        .lang-btn.active {
+            border-color: var(--brand-gold);
+            background: rgba(242, 199, 68, 0.15);
+            box-shadow: 0 0 10px rgba(242, 199, 68, 0.3);
+        }
+
         /* Header */
         header {
             text-align: center;
             margin-bottom: 3rem;
             padding: 2rem 0;
+            padding-top: 4rem;
         }
 
         .logo-container {
@@ -344,11 +385,11 @@
         }
 
         .region-europe { background: rgba(96, 165, 250, 0.2); color: var(--info); }
-        .region-amerique { background: rgba(74, 222, 128, 0.2); color: var(--success); }
-        .region-asie { background: rgba(251, 191, 36, 0.2); color: var(--warning); }
-        .region-afrique { background: rgba(248, 113, 113, 0.2); color: var(--danger); }
-        .region-oceanie { background: rgba(242, 199, 68, 0.2); color: var(--brand-gold); }
-        .region-moyenorient { background: rgba(160, 180, 200, 0.2); color: var(--text-secondary); }
+        .region-america, .region-amerique { background: rgba(74, 222, 128, 0.2); color: var(--success); }
+        .region-asia, .region-asie { background: rgba(251, 191, 36, 0.2); color: var(--warning); }
+        .region-africa, .region-afrique { background: rgba(248, 113, 113, 0.2); color: var(--danger); }
+        .region-oceania, .region-oceanie { background: rgba(242, 199, 68, 0.2); color: var(--brand-gold); }
+        .region-middleeast, .region-moyenorient { background: rgba(160, 180, 200, 0.2); color: var(--text-secondary); }
 
         .tax-value {
             font-family: 'JetBrains Mono', monospace;
@@ -478,6 +519,15 @@
             .notes {
                 max-width: 150px;
             }
+
+            .lang-switcher {
+                top: 1rem;
+                right: 1rem;
+            }
+
+            header {
+                padding-top: 5rem;
+            }
         }
 
         /* Animations */
@@ -523,71 +573,77 @@
 <body>
     <div class="bg-pattern"></div>
     
+    <!-- Language Switcher -->
+    <div class="lang-switcher">
+        <button class="lang-btn" data-lang="fr" title="Français">🇫🇷</button>
+        <button class="lang-btn" data-lang="en" title="English">🇬🇧</button>
+    </div>
+    
     <div class="container">
         <header>
             <div class="logo-container">
                 <div class="logo-main">PICK & TIP</div>
-                <div class="logo-tagline">SAVOIR POUR AVOIR</div>
+                <div class="logo-tagline" data-i18n="tagline">SAVOIR POUR AVOIR</div>
             </div>
-            <h1>Comparatif des Taxes Immobilières par Pays</h1>
+            <h1 data-i18n="title">Comparatif des Taxes Immobilières par Pays</h1>
             <div class="gold-line"></div>
-            <p class="subtitle">Guide complet des taxes foncières annuelles et droits de mutation pour les investisseurs internationaux, expatriés et digital nomads.</p>
+            <p class="subtitle" data-i18n="subtitle">Guide complet des taxes foncières annuelles et droits de mutation pour les investisseurs internationaux, expatriés et digital nomads.</p>
         </header>
 
         <div class="stats-grid">
             <div class="stat-card">
                 <div class="stat-value" id="countryCount">65</div>
-                <div class="stat-label">Pays comparés</div>
+                <div class="stat-label" data-i18n="stats.countries">Pays comparés</div>
             </div>
             <div class="stat-card">
                 <div class="stat-value" id="noTaxCount">8</div>
-                <div class="stat-label">Sans taxe foncière</div>
+                <div class="stat-label" data-i18n="stats.noTax">Sans taxe foncière</div>
             </div>
             <div class="stat-card">
                 <div class="stat-value" id="lowTaxCount">22</div>
-                <div class="stat-label">Taxe foncière &lt; 0.5%</div>
+                <div class="stat-label" data-i18n="stats.lowTax">Taxe foncière &lt; 0.5%</div>
             </div>
             <div class="stat-card">
                 <div class="stat-value">2025</div>
-                <div class="stat-label">Données actualisées</div>
+                <div class="stat-label" data-i18n="stats.updated">Données actualisées</div>
             </div>
         </div>
 
         <div class="controls">
             <div class="controls-row">
                 <div class="search-box">
-                    <input type="text" id="searchInput" placeholder="Rechercher un pays...">
+                    <input type="text" id="searchInput" data-i18n-placeholder="search.placeholder" placeholder="Rechercher un pays...">
                 </div>
                 <select id="regionFilter">
-                    <option value="">Toutes les régions</option>
-                    <option value="Europe">🇪🇺 Europe</option>
-                    <option value="Amérique">🌎 Amérique</option>
-                    <option value="Asie">🌏 Asie</option>
-                    <option value="Moyen-Orient">🕌 Moyen-Orient</option>
-                    <option value="Afrique">🌍 Afrique</option>
-                    <option value="Océanie">🏝️ Océanie</option>
+                    <option value="" data-i18n="filter.allRegions">Toutes les régions</option>
+                    <option value="Europe" data-i18n="filter.europe">🇪🇺 Europe</option>
+                    <option value="America" data-i18n="filter.america">🌎 Amérique</option>
+                    <option value="Asia" data-i18n="filter.asia">🌏 Asie</option>
+                    <option value="MiddleEast" data-i18n="filter.middleEast">🕌 Moyen-Orient</option>
+                    <option value="Africa" data-i18n="filter.africa">🌍 Afrique</option>
+                    <option value="Oceania" data-i18n="filter.oceania">🏝️ Océanie</option>
                 </select>
                 <div class="filter-group">
-                    <button class="filter-btn active" data-filter="all">Tous</button>
-                    <button class="filter-btn" data-filter="no-tax">Sans taxe</button>
-                    <button class="filter-btn" data-filter="low-tax">Taxe faible</button>
+                    <button class="filter-btn active" data-filter="all" data-i18n="filter.all">Tous</button>
+                    <button class="filter-btn" data-filter="no-tax" data-i18n="filter.noTax">Sans taxe</button>
+                    <button class="filter-btn" data-filter="low-tax" data-i18n="filter.lowTax">Taxe faible</button>
                 </div>
             </div>
         </div>
 
         <div class="table-container">
             <div class="result-count">
-                <strong id="resultCount">65</strong> pays affichés
+                <strong id="resultCount">65</strong> <span data-i18n="results.displayed">pays affichés</span>
             </div>
             <div class="table-scroll">
                 <table id="taxTable">
                     <thead>
                         <tr>
-                            <th data-sort="country">Pays</th>
-                            <th data-sort="region">Région</th>
-                            <th data-sort="propertyTax">Taxe Foncière Annuelle</th>
-                            <th data-sort="transferTax">Droits de Mutation</th>
-                            <th data-sort="notes">Notes</th>
+                            <th data-sort="country" data-i18n="table.country">Pays</th>
+                            <th data-sort="region" data-i18n="table.region">Région</th>
+                            <th data-sort="propertyTax" data-i18n="table.propertyTax">Taxe Foncière Annuelle</th>
+                            <th data-sort="transferTax" data-i18n="table.transferTax">Droits de Mutation</th>
+                            <th data-sort="notes" data-i18n="table.notes">Notes</th>
                         </tr>
                     </thead>
                     <tbody id="tableBody">
@@ -596,127 +652,314 @@
             </div>
             <div class="no-results" id="noResults" style="display: none;">
                 <div class="no-results-icon">🔍</div>
-                <p>Aucun pays ne correspond à votre recherche.</p>
+                <p data-i18n="results.none">Aucun pays ne correspond à votre recherche.</p>
             </div>
         </div>
 
         <div class="disclaimer">
-            <div class="disclaimer-title">⚠️ Avertissement</div>
-            <p>Ces données sont fournies à titre indicatif uniquement et peuvent varier selon les régions, le type de bien et votre situation personnelle. Les taux peuvent changer. Consultez toujours un conseiller fiscal local avant toute décision d'investissement. Dernière mise à jour : Décembre 2025.</p>
+            <div class="disclaimer-title">⚠️ <span data-i18n="disclaimer.title">Avertissement</span></div>
+            <p data-i18n="disclaimer.text">Ces données sont fournies à titre indicatif uniquement et peuvent varier selon les régions, le type de bien et votre situation personnelle. Les taux peuvent changer. Consultez toujours un conseiller fiscal local avant toute décision d'investissement. Dernière mise à jour : Décembre 2025.</p>
         </div>
 
         <footer>
-            <p>Créé par <a href="https://www.youtube.com/@pickandtip" target="_blank">Pick & Tip</a></p>
+            <p><span data-i18n="footer.createdBy">Créé par</span> <a href="https://www.youtube.com/@pickandtip" target="_blank">Pick & Tip</a></p>
             <a href="https://www.youtube.com/@pickandtip" target="_blank" class="youtube-cta">
                 <span class="youtube-icon">▶️</span>
-                <span>S'abonner à la chaîne YouTube</span>
+                <span data-i18n="footer.subscribe">S'abonner à la chaîne YouTube</span>
             </a>
-            <p style="margin-top: 1.5rem; font-size: 0.85rem;">Or • Crypto • Investissement International • Mobilité</p>
+            <p style="margin-top: 1.5rem; font-size: 0.85rem;" data-i18n="footer.topics">Or • Crypto • Investissement International • Mobilité</p>
         </footer>
     </div>
 
     <script>
-        // Data: Property taxes by country
+        // ==========================================
+        // TRANSLATION SYSTEM
+        // ==========================================
+        const translations = {
+            fr: {
+                tagline: "SAVOIR POUR AVOIR",
+                title: "Comparatif des Taxes Immobilières par Pays",
+                subtitle: "Guide complet des taxes foncières annuelles et droits de mutation pour les investisseurs internationaux, expatriés et digital nomads.",
+                stats: {
+                    countries: "Pays comparés",
+                    noTax: "Sans taxe foncière",
+                    lowTax: "Taxe foncière < 0.5%",
+                    updated: "Données actualisées"
+                },
+                search: {
+                    placeholder: "Rechercher un pays..."
+                },
+                filter: {
+                    allRegions: "Toutes les régions",
+                    europe: "🇪🇺 Europe",
+                    america: "🌎 Amérique",
+                    asia: "🌏 Asie",
+                    middleEast: "🕌 Moyen-Orient",
+                    africa: "🌍 Afrique",
+                    oceania: "🏝️ Océanie",
+                    all: "Tous",
+                    noTax: "Sans taxe",
+                    lowTax: "Taxe faible"
+                },
+                results: {
+                    displayed: "pays affichés",
+                    none: "Aucun pays ne correspond à votre recherche."
+                },
+                table: {
+                    country: "Pays",
+                    region: "Région",
+                    propertyTax: "Taxe Foncière Annuelle",
+                    transferTax: "Droits de Mutation",
+                    notes: "Notes"
+                },
+                regions: {
+                    Europe: "Europe",
+                    America: "Amérique",
+                    Asia: "Asie",
+                    MiddleEast: "Moyen-Orient",
+                    Africa: "Afrique",
+                    Oceania: "Océanie"
+                },
+                disclaimer: {
+                    title: "Avertissement",
+                    text: "Ces données sont fournies à titre indicatif uniquement et peuvent varier selon les régions, le type de bien et votre situation personnelle. Les taux peuvent changer. Consultez toujours un conseiller fiscal local avant toute décision d'investissement. Dernière mise à jour : Décembre 2025."
+                },
+                footer: {
+                    createdBy: "Créé par",
+                    subscribe: "S'abonner à la chaîne YouTube",
+                    topics: "Or • Crypto • Investissement International • Mobilité"
+                }
+            },
+            en: {
+                tagline: "KNOWING FOR OWNING",
+                title: "Property Tax Comparison by Country",
+                subtitle: "Complete guide to annual property taxes and transfer duties for international investors, expats and digital nomads.",
+                stats: {
+                    countries: "Countries compared",
+                    noTax: "No property tax",
+                    lowTax: "Property tax < 0.5%",
+                    updated: "Data updated"
+                },
+                search: {
+                    placeholder: "Search for a country..."
+                },
+                filter: {
+                    allRegions: "All regions",
+                    europe: "🇪🇺 Europe",
+                    america: "🌎 America",
+                    asia: "🌏 Asia",
+                    middleEast: "🕌 Middle East",
+                    africa: "🌍 Africa",
+                    oceania: "🏝️ Oceania",
+                    all: "All",
+                    noTax: "No tax",
+                    lowTax: "Low tax"
+                },
+                results: {
+                    displayed: "countries displayed",
+                    none: "No country matches your search."
+                },
+                table: {
+                    country: "Country",
+                    region: "Region",
+                    propertyTax: "Annual Property Tax",
+                    transferTax: "Transfer Tax",
+                    notes: "Notes"
+                },
+                regions: {
+                    Europe: "Europe",
+                    America: "America",
+                    Asia: "Asia",
+                    MiddleEast: "Middle East",
+                    Africa: "Africa",
+                    Oceania: "Oceania"
+                },
+                disclaimer: {
+                    title: "Disclaimer",
+                    text: "This data is provided for informational purposes only and may vary by region, property type and your personal situation. Rates may change. Always consult a local tax advisor before making any investment decision. Last updated: December 2025."
+                },
+                footer: {
+                    createdBy: "Created by",
+                    subscribe: "Subscribe to YouTube channel",
+                    topics: "Gold • Crypto • International Investment • Mobility"
+                }
+            }
+        };
+
+        // ==========================================
+        // COUNTRY DATA (Bilingual)
+        // ==========================================
         const taxData = [
             // Europe
-            { country: "France", flag: "🇫🇷", region: "Europe", propertyTax: "0.5% - 1.5%", propertyTaxValue: 1.0, transferTax: "5.1% - 5.8%", transferTaxValue: 5.5, notes: "Taxe foncière + taxe d'habitation (résidences secondaires)" },
-            { country: "Allemagne", flag: "🇩🇪", region: "Europe", propertyTax: "0.26% - 1%", propertyTaxValue: 0.5, transferTax: "3.5% - 6.5%", transferTaxValue: 5.0, notes: "Grundsteuer réformée en 2025, varie par Land" },
-            { country: "Espagne", flag: "🇪🇸", region: "Europe", propertyTax: "0.4% - 1.1%", propertyTaxValue: 0.7, transferTax: "6% - 10%", transferTaxValue: 8.0, notes: "IBI varie par municipalité" },
-            { country: "Italie", flag: "🇮🇹", region: "Europe", propertyTax: "0.4% - 1.06%", propertyTaxValue: 0.7, transferTax: "2% - 9%", transferTaxValue: 5.0, notes: "IMU exonérée pour résidence principale" },
-            { country: "Portugal", flag: "🇵🇹", region: "Europe", propertyTax: "0.3% - 0.8%", propertyTaxValue: 0.5, transferTax: "0% - 7.5%", transferTaxValue: 5.0, notes: "IMI basée sur valeur patrimoniale" },
-            { country: "Royaume-Uni", flag: "🇬🇧", region: "Europe", propertyTax: "0.5% - 2%", propertyTaxValue: 1.2, transferTax: "0% - 12%", transferTaxValue: 5.0, notes: "Council Tax + Stamp Duty progressif" },
-            { country: "Belgique", flag: "🇧🇪", region: "Europe", propertyTax: "1.25% - 2.5%", propertyTaxValue: 1.8, transferTax: "10% - 12.5%", transferTaxValue: 11.3, notes: "Précompte immobilier élevé" },
-            { country: "Pays-Bas", flag: "🇳🇱", region: "Europe", propertyTax: "0.1% - 0.3%", propertyTaxValue: 0.2, transferTax: "2% - 10.4%", transferTaxValue: 6.0, notes: "OZB faible, droits transfert augmentés" },
-            { country: "Suisse", flag: "🇨🇭", region: "Europe", propertyTax: "0.05% - 0.3%", propertyTaxValue: 0.15, transferTax: "0% - 3%", transferTaxValue: 1.5, notes: "Varie considérablement par canton" },
-            { country: "Autriche", flag: "🇦🇹", region: "Europe", propertyTax: "0.1% - 0.2%", propertyTaxValue: 0.15, transferTax: "3.5%", transferTaxValue: 3.5, notes: "Grundsteuer très faible" },
-            { country: "Irlande", flag: "🇮🇪", region: "Europe", propertyTax: "0.18% - 0.25%", propertyTaxValue: 0.2, transferTax: "1% - 2%", transferTaxValue: 1.5, notes: "Local Property Tax récente" },
-            { country: "Grèce", flag: "🇬🇷", region: "Europe", propertyTax: "0.1% - 1.15%", propertyTaxValue: 0.6, transferTax: "3%", transferTaxValue: 3.0, notes: "ENFIA basée sur valeur objective" },
-            { country: "Pologne", flag: "🇵🇱", region: "Europe", propertyTax: "~0.7%", propertyTaxValue: 0.7, transferTax: "2%", transferTaxValue: 2.0, notes: "Taxe au m², pas sur la valeur" },
-            { country: "République Tchèque", flag: "🇨🇿", region: "Europe", propertyTax: "~0.1%", propertyTaxValue: 0.1, transferTax: "4%", transferTaxValue: 4.0, notes: "Parmi les plus faibles d'Europe" },
-            { country: "Hongrie", flag: "🇭🇺", region: "Europe", propertyTax: "0% - 1.8%", propertyTaxValue: 0.5, transferTax: "4%", transferTaxValue: 4.0, notes: "Décidée par municipalités" },
-            { country: "Roumanie", flag: "🇷🇴", region: "Europe", propertyTax: "0.08% - 0.2%", propertyTaxValue: 0.1, transferTax: "0% - 3%", transferTaxValue: 1.0, notes: "Très faible, basée sur valeur cadastrale" },
-            { country: "Bulgarie", flag: "🇧🇬", region: "Europe", propertyTax: "0.1% - 0.45%", propertyTaxValue: 0.2, transferTax: "0.1% - 3%", transferTaxValue: 1.5, notes: "Parmi les plus attractives en UE" },
-            { country: "Croatie", flag: "🇭🇷", region: "Europe", propertyTax: "0.6% - 8€/m²", propertyTaxValue: 0.3, transferTax: "3%", transferTaxValue: 3.0, notes: "Taxe sur résidences secondaires/vacantes" },
-            { country: "Slovénie", flag: "🇸🇮", region: "Europe", propertyTax: "~0.15%", propertyTaxValue: 0.15, transferTax: "2%", transferTaxValue: 2.0, notes: "Faible taxe foncière" },
-            { country: "Slovaquie", flag: "🇸🇰", region: "Europe", propertyTax: "~0.2%", propertyTaxValue: 0.2, transferTax: "0%", transferTaxValue: 0, notes: "Pas de droits de mutation" },
-            { country: "Estonie", flag: "🇪🇪", region: "Europe", propertyTax: "0.1% - 2.5%", propertyTaxValue: 0.5, transferTax: "0%", transferTaxValue: 0, notes: "Taxe sur le terrain uniquement" },
-            { country: "Lettonie", flag: "🇱🇻", region: "Europe", propertyTax: "0.2% - 3%", propertyTaxValue: 1.0, transferTax: "2%", transferTaxValue: 2.0, notes: "Taux progressif selon valeur" },
-            { country: "Lituanie", flag: "🇱🇹", region: "Europe", propertyTax: "0.5% - 2%", propertyTaxValue: 1.0, transferTax: "0%", transferTaxValue: 0, notes: "Taxe sur biens > 150 000€" },
-            { country: "Chypre", flag: "🇨🇾", region: "Europe", propertyTax: "0%", propertyTaxValue: 0, transferTax: "3% - 8%", transferTaxValue: 5.0, notes: "Taxe foncière abolie en 2017" },
-            { country: "Malte", flag: "🇲🇹", region: "Europe", propertyTax: "0%", propertyTaxValue: 0, transferTax: "5%", transferTaxValue: 5.0, notes: "Aucune taxe foncière annuelle" },
-            { country: "Luxembourg", flag: "🇱🇺", region: "Europe", propertyTax: "~0.1%", propertyTaxValue: 0.1, transferTax: "6% - 7%", transferTaxValue: 6.5, notes: "Impôt foncier symbolique" },
-            { country: "Monaco", flag: "🇲🇨", region: "Europe", propertyTax: "0%", propertyTaxValue: 0, transferTax: "4.5%", transferTaxValue: 4.5, notes: "Pas de taxe foncière" },
-            { country: "Andorre", flag: "🇦🇩", region: "Europe", propertyTax: "0%", propertyTaxValue: 0, transferTax: "4%", transferTaxValue: 4.0, notes: "Pas de taxe foncière annuelle" },
-            { country: "Suède", flag: "🇸🇪", region: "Europe", propertyTax: "0.75%", propertyTaxValue: 0.75, transferTax: "1.5% - 4.25%", transferTaxValue: 3.0, notes: "Plafonnée à ~8000€/an" },
-            { country: "Norvège", flag: "🇳🇴", region: "Europe", propertyTax: "0% - 0.7%", propertyTaxValue: 0.3, transferTax: "2.5%", transferTaxValue: 2.5, notes: "Décidée localement" },
-            { country: "Danemark", flag: "🇩🇰", region: "Europe", propertyTax: "0.92% - 3%", propertyTaxValue: 1.5, transferTax: "0.6%", transferTaxValue: 0.6, notes: "Taxe foncière élevée" },
-            { country: "Finlande", flag: "🇫🇮", region: "Europe", propertyTax: "0.41% - 1.35%", propertyTaxValue: 0.8, transferTax: "2% - 4%", transferTaxValue: 3.0, notes: "Varie par municipalité" },
-            { country: "Islande", flag: "🇮🇸", region: "Europe", propertyTax: "0.5% - 1.65%", propertyTaxValue: 1.0, transferTax: "0.8%", transferTaxValue: 0.8, notes: "Droits de mutation faibles" },
+            { country: { fr: "France", en: "France" }, flag: "🇫🇷", region: "Europe", propertyTax: "0.5% - 1.5%", propertyTaxValue: 1.0, transferTax: "5.1% - 5.8%", transferTaxValue: 5.5, notes: { fr: "Taxe foncière + taxe d'habitation (résidences secondaires)", en: "Property tax + housing tax (secondary residences)" } },
+            { country: { fr: "Allemagne", en: "Germany" }, flag: "🇩🇪", region: "Europe", propertyTax: "0.26% - 1%", propertyTaxValue: 0.5, transferTax: "3.5% - 6.5%", transferTaxValue: 5.0, notes: { fr: "Grundsteuer réformée en 2025, varie par Land", en: "Grundsteuer reformed in 2025, varies by state" } },
+            { country: { fr: "Espagne", en: "Spain" }, flag: "🇪🇸", region: "Europe", propertyTax: "0.4% - 1.1%", propertyTaxValue: 0.7, transferTax: "6% - 10%", transferTaxValue: 8.0, notes: { fr: "IBI varie par municipalité", en: "IBI varies by municipality" } },
+            { country: { fr: "Italie", en: "Italy" }, flag: "🇮🇹", region: "Europe", propertyTax: "0.4% - 1.06%", propertyTaxValue: 0.7, transferTax: "2% - 9%", transferTaxValue: 5.0, notes: { fr: "IMU exonérée pour résidence principale", en: "IMU exempt for primary residence" } },
+            { country: { fr: "Portugal", en: "Portugal" }, flag: "🇵🇹", region: "Europe", propertyTax: "0.3% - 0.8%", propertyTaxValue: 0.5, transferTax: "0% - 7.5%", transferTaxValue: 5.0, notes: { fr: "IMI basée sur valeur patrimoniale", en: "IMI based on tax value" } },
+            { country: { fr: "Royaume-Uni", en: "United Kingdom" }, flag: "🇬🇧", region: "Europe", propertyTax: "0.5% - 2%", propertyTaxValue: 1.2, transferTax: "0% - 12%", transferTaxValue: 5.0, notes: { fr: "Council Tax + Stamp Duty progressif", en: "Council Tax + progressive Stamp Duty" } },
+            { country: { fr: "Belgique", en: "Belgium" }, flag: "🇧🇪", region: "Europe", propertyTax: "1.25% - 2.5%", propertyTaxValue: 1.8, transferTax: "10% - 12.5%", transferTaxValue: 11.3, notes: { fr: "Précompte immobilier élevé", en: "High property withholding tax" } },
+            { country: { fr: "Pays-Bas", en: "Netherlands" }, flag: "🇳🇱", region: "Europe", propertyTax: "0.1% - 0.3%", propertyTaxValue: 0.2, transferTax: "2% - 10.4%", transferTaxValue: 6.0, notes: { fr: "OZB faible, droits transfert augmentés", en: "Low OZB, increased transfer duties" } },
+            { country: { fr: "Suisse", en: "Switzerland" }, flag: "🇨🇭", region: "Europe", propertyTax: "0.05% - 0.3%", propertyTaxValue: 0.15, transferTax: "0% - 3%", transferTaxValue: 1.5, notes: { fr: "Varie considérablement par canton", en: "Varies considerably by canton" } },
+            { country: { fr: "Autriche", en: "Austria" }, flag: "🇦🇹", region: "Europe", propertyTax: "0.1% - 0.2%", propertyTaxValue: 0.15, transferTax: "3.5%", transferTaxValue: 3.5, notes: { fr: "Grundsteuer très faible", en: "Very low Grundsteuer" } },
+            { country: { fr: "Irlande", en: "Ireland" }, flag: "🇮🇪", region: "Europe", propertyTax: "0.18% - 0.25%", propertyTaxValue: 0.2, transferTax: "1% - 2%", transferTaxValue: 1.5, notes: { fr: "Local Property Tax récente", en: "Recent Local Property Tax" } },
+            { country: { fr: "Grèce", en: "Greece" }, flag: "🇬🇷", region: "Europe", propertyTax: "0.1% - 1.15%", propertyTaxValue: 0.6, transferTax: "3%", transferTaxValue: 3.0, notes: { fr: "ENFIA basée sur valeur objective", en: "ENFIA based on objective value" } },
+            { country: { fr: "Pologne", en: "Poland" }, flag: "🇵🇱", region: "Europe", propertyTax: "~0.7%", propertyTaxValue: 0.7, transferTax: "2%", transferTaxValue: 2.0, notes: { fr: "Taxe au m², pas sur la valeur", en: "Tax per m², not on value" } },
+            { country: { fr: "République Tchèque", en: "Czech Republic" }, flag: "🇨🇿", region: "Europe", propertyTax: "~0.1%", propertyTaxValue: 0.1, transferTax: "4%", transferTaxValue: 4.0, notes: { fr: "Parmi les plus faibles d'Europe", en: "Among the lowest in Europe" } },
+            { country: { fr: "Hongrie", en: "Hungary" }, flag: "🇭🇺", region: "Europe", propertyTax: "0% - 1.8%", propertyTaxValue: 0.5, transferTax: "4%", transferTaxValue: 4.0, notes: { fr: "Décidée par municipalités", en: "Decided by municipalities" } },
+            { country: { fr: "Roumanie", en: "Romania" }, flag: "🇷🇴", region: "Europe", propertyTax: "0.08% - 0.2%", propertyTaxValue: 0.1, transferTax: "0% - 3%", transferTaxValue: 1.0, notes: { fr: "Très faible, basée sur valeur cadastrale", en: "Very low, based on cadastral value" } },
+            { country: { fr: "Bulgarie", en: "Bulgaria" }, flag: "🇧🇬", region: "Europe", propertyTax: "0.1% - 0.45%", propertyTaxValue: 0.2, transferTax: "0.1% - 3%", transferTaxValue: 1.5, notes: { fr: "Parmi les plus attractives en UE", en: "Among the most attractive in EU" } },
+            { country: { fr: "Croatie", en: "Croatia" }, flag: "🇭🇷", region: "Europe", propertyTax: "0.6% - 8€/m²", propertyTaxValue: 0.3, transferTax: "3%", transferTaxValue: 3.0, notes: { fr: "Taxe sur résidences secondaires/vacantes", en: "Tax on secondary/vacant residences" } },
+            { country: { fr: "Slovénie", en: "Slovenia" }, flag: "🇸🇮", region: "Europe", propertyTax: "~0.15%", propertyTaxValue: 0.15, transferTax: "2%", transferTaxValue: 2.0, notes: { fr: "Faible taxe foncière", en: "Low property tax" } },
+            { country: { fr: "Slovaquie", en: "Slovakia" }, flag: "🇸🇰", region: "Europe", propertyTax: "~0.2%", propertyTaxValue: 0.2, transferTax: "0%", transferTaxValue: 0, notes: { fr: "Pas de droits de mutation", en: "No transfer tax" } },
+            { country: { fr: "Estonie", en: "Estonia" }, flag: "🇪🇪", region: "Europe", propertyTax: "0.1% - 2.5%", propertyTaxValue: 0.5, transferTax: "0%", transferTaxValue: 0, notes: { fr: "Taxe sur le terrain uniquement", en: "Land tax only" } },
+            { country: { fr: "Lettonie", en: "Latvia" }, flag: "🇱🇻", region: "Europe", propertyTax: "0.2% - 3%", propertyTaxValue: 1.0, transferTax: "2%", transferTaxValue: 2.0, notes: { fr: "Taux progressif selon valeur", en: "Progressive rate based on value" } },
+            { country: { fr: "Lituanie", en: "Lithuania" }, flag: "🇱🇹", region: "Europe", propertyTax: "0.5% - 2%", propertyTaxValue: 1.0, transferTax: "0%", transferTaxValue: 0, notes: { fr: "Taxe sur biens > 150 000€", en: "Tax on properties > €150,000" } },
+            { country: { fr: "Chypre", en: "Cyprus" }, flag: "🇨🇾", region: "Europe", propertyTax: "0%", propertyTaxValue: 0, transferTax: "3% - 8%", transferTaxValue: 5.0, notes: { fr: "Taxe foncière abolie en 2017", en: "Property tax abolished in 2017" } },
+            { country: { fr: "Malte", en: "Malta" }, flag: "🇲🇹", region: "Europe", propertyTax: "0%", propertyTaxValue: 0, transferTax: "5%", transferTaxValue: 5.0, notes: { fr: "Aucune taxe foncière annuelle", en: "No annual property tax" } },
+            { country: { fr: "Luxembourg", en: "Luxembourg" }, flag: "🇱🇺", region: "Europe", propertyTax: "~0.1%", propertyTaxValue: 0.1, transferTax: "6% - 7%", transferTaxValue: 6.5, notes: { fr: "Impôt foncier symbolique", en: "Symbolic property tax" } },
+            { country: { fr: "Monaco", en: "Monaco" }, flag: "🇲🇨", region: "Europe", propertyTax: "0%", propertyTaxValue: 0, transferTax: "4.5%", transferTaxValue: 4.5, notes: { fr: "Pas de taxe foncière", en: "No property tax" } },
+            { country: { fr: "Andorre", en: "Andorra" }, flag: "🇦🇩", region: "Europe", propertyTax: "0%", propertyTaxValue: 0, transferTax: "4%", transferTaxValue: 4.0, notes: { fr: "Pas de taxe foncière annuelle", en: "No annual property tax" } },
+            { country: { fr: "Suède", en: "Sweden" }, flag: "🇸🇪", region: "Europe", propertyTax: "0.75%", propertyTaxValue: 0.75, transferTax: "1.5% - 4.25%", transferTaxValue: 3.0, notes: { fr: "Plafonnée à ~8000€/an", en: "Capped at ~€8,000/year" } },
+            { country: { fr: "Norvège", en: "Norway" }, flag: "🇳🇴", region: "Europe", propertyTax: "0% - 0.7%", propertyTaxValue: 0.3, transferTax: "2.5%", transferTaxValue: 2.5, notes: { fr: "Décidée localement", en: "Decided locally" } },
+            { country: { fr: "Danemark", en: "Denmark" }, flag: "🇩🇰", region: "Europe", propertyTax: "0.92% - 3%", propertyTaxValue: 1.5, transferTax: "0.6%", transferTaxValue: 0.6, notes: { fr: "Taxe foncière élevée", en: "High property tax" } },
+            { country: { fr: "Finlande", en: "Finland" }, flag: "🇫🇮", region: "Europe", propertyTax: "0.41% - 1.35%", propertyTaxValue: 0.8, transferTax: "2% - 4%", transferTaxValue: 3.0, notes: { fr: "Varie par municipalité", en: "Varies by municipality" } },
+            { country: { fr: "Islande", en: "Iceland" }, flag: "🇮🇸", region: "Europe", propertyTax: "0.5% - 1.65%", propertyTaxValue: 1.0, transferTax: "0.8%", transferTaxValue: 0.8, notes: { fr: "Droits de mutation faibles", en: "Low transfer duties" } },
             
-            // Amérique
-            { country: "États-Unis", flag: "🇺🇸", region: "Amérique", propertyTax: "0.3% - 2.5%", propertyTaxValue: 1.1, transferTax: "0% - 2%", transferTaxValue: 1.0, notes: "Varie énormément par État/comté" },
-            { country: "Canada", flag: "🇨🇦", region: "Amérique", propertyTax: "0.5% - 2.5%", propertyTaxValue: 1.2, transferTax: "0% - 5%", transferTaxValue: 2.0, notes: "Varie par province" },
-            { country: "Mexique", flag: "🇲🇽", region: "Amérique", propertyTax: "0.1% - 0.3%", propertyTaxValue: 0.2, transferTax: "2% - 5%", transferTaxValue: 3.5, notes: "Predial très faible" },
-            { country: "Brésil", flag: "🇧🇷", region: "Amérique", propertyTax: "0.5% - 1.5%", propertyTaxValue: 1.0, transferTax: "2% - 4%", transferTaxValue: 3.0, notes: "IPTU varie par ville" },
-            { country: "Argentine", flag: "🇦🇷", region: "Amérique", propertyTax: "0.5% - 2%", propertyTaxValue: 1.0, transferTax: "3.5%", transferTaxValue: 3.5, notes: "Impuesto Inmobiliario" },
-            { country: "Chili", flag: "🇨🇱", region: "Amérique", propertyTax: "1% - 1.4%", propertyTaxValue: 1.2, transferTax: "0%", transferTaxValue: 0, notes: "Pas de droits de mutation" },
-            { country: "Colombie", flag: "🇨🇴", region: "Amérique", propertyTax: "0.3% - 3.3%", propertyTaxValue: 1.0, transferTax: "1%", transferTaxValue: 1.0, notes: "Impuesto Predial progressif" },
-            { country: "Pérou", flag: "🇵🇪", region: "Amérique", propertyTax: "0.2% - 1%", propertyTaxValue: 0.5, transferTax: "3%", transferTaxValue: 3.0, notes: "Impuesto Predial" },
-            { country: "Costa Rica", flag: "🇨🇷", region: "Amérique", propertyTax: "0.25%", propertyTaxValue: 0.25, transferTax: "1.5%", transferTaxValue: 1.5, notes: "Impuesto sobre bienes inmuebles" },
-            { country: "Panama", flag: "🇵🇦", region: "Amérique", propertyTax: "0% - 1%", propertyTaxValue: 0.3, transferTax: "2%", transferTaxValue: 2.0, notes: "Exonération jusqu'à 120 000$" },
-            { country: "Uruguay", flag: "🇺🇾", region: "Amérique", propertyTax: "0.25% - 1.2%", propertyTaxValue: 0.6, transferTax: "2%", transferTaxValue: 2.0, notes: "Contribución Inmobiliaria" },
-            { country: "Paraguay", flag: "🇵🇾", region: "Amérique", propertyTax: "0% - 1%", propertyTaxValue: 0.3, transferTax: "2%", transferTaxValue: 2.0, notes: "Impuesto Inmobiliario" },
-            { country: "Équateur", flag: "🇪🇨", region: "Amérique", propertyTax: "0.025% - 0.5%", propertyTaxValue: 0.2, transferTax: "1%", transferTaxValue: 1.0, notes: "Très faible" },
-            { country: "République Dominicaine", flag: "🇩🇴", region: "Amérique", propertyTax: "1%", propertyTaxValue: 1.0, transferTax: "3%", transferTaxValue: 3.0, notes: "IPI sur biens > ~150 000$" },
-            { country: "Bahamas", flag: "🇧🇸", region: "Amérique", propertyTax: "0.75% - 2%", propertyTaxValue: 1.0, transferTax: "2.5% - 10%", transferTaxValue: 5.0, notes: "Property Tax progressif" },
-            { country: "Îles Caïmans", flag: "🇰🇾", region: "Amérique", propertyTax: "0%", propertyTaxValue: 0, transferTax: "7.5%", transferTaxValue: 7.5, notes: "Aucune taxe foncière" },
+            // America
+            { country: { fr: "États-Unis", en: "United States" }, flag: "🇺🇸", region: "America", propertyTax: "0.3% - 2.5%", propertyTaxValue: 1.1, transferTax: "0% - 2%", transferTaxValue: 1.0, notes: { fr: "Varie énormément par État/comté", en: "Varies greatly by state/county" } },
+            { country: { fr: "Canada", en: "Canada" }, flag: "🇨🇦", region: "America", propertyTax: "0.5% - 2.5%", propertyTaxValue: 1.2, transferTax: "0% - 5%", transferTaxValue: 2.0, notes: { fr: "Varie par province", en: "Varies by province" } },
+            { country: { fr: "Mexique", en: "Mexico" }, flag: "🇲🇽", region: "America", propertyTax: "0.1% - 0.3%", propertyTaxValue: 0.2, transferTax: "2% - 5%", transferTaxValue: 3.5, notes: { fr: "Predial très faible", en: "Very low Predial" } },
+            { country: { fr: "Brésil", en: "Brazil" }, flag: "🇧🇷", region: "America", propertyTax: "0.5% - 1.5%", propertyTaxValue: 1.0, transferTax: "2% - 4%", transferTaxValue: 3.0, notes: { fr: "IPTU varie par ville", en: "IPTU varies by city" } },
+            { country: { fr: "Argentine", en: "Argentina" }, flag: "🇦🇷", region: "America", propertyTax: "0.5% - 2%", propertyTaxValue: 1.0, transferTax: "3.5%", transferTaxValue: 3.5, notes: { fr: "Impuesto Inmobiliario", en: "Impuesto Inmobiliario" } },
+            { country: { fr: "Chili", en: "Chile" }, flag: "🇨🇱", region: "America", propertyTax: "1% - 1.4%", propertyTaxValue: 1.2, transferTax: "0%", transferTaxValue: 0, notes: { fr: "Pas de droits de mutation", en: "No transfer tax" } },
+            { country: { fr: "Colombie", en: "Colombia" }, flag: "🇨🇴", region: "America", propertyTax: "0.3% - 3.3%", propertyTaxValue: 1.0, transferTax: "1%", transferTaxValue: 1.0, notes: { fr: "Impuesto Predial progressif", en: "Progressive Impuesto Predial" } },
+            { country: { fr: "Pérou", en: "Peru" }, flag: "🇵🇪", region: "America", propertyTax: "0.2% - 1%", propertyTaxValue: 0.5, transferTax: "3%", transferTaxValue: 3.0, notes: { fr: "Impuesto Predial", en: "Impuesto Predial" } },
+            { country: { fr: "Costa Rica", en: "Costa Rica" }, flag: "🇨🇷", region: "America", propertyTax: "0.25%", propertyTaxValue: 0.25, transferTax: "1.5%", transferTaxValue: 1.5, notes: { fr: "Impuesto sobre bienes inmuebles", en: "Real estate tax" } },
+            { country: { fr: "Panama", en: "Panama" }, flag: "🇵🇦", region: "America", propertyTax: "0% - 1%", propertyTaxValue: 0.3, transferTax: "2%", transferTaxValue: 2.0, notes: { fr: "Exonération jusqu'à 120 000$", en: "Exemption up to $120,000" } },
+            { country: { fr: "Uruguay", en: "Uruguay" }, flag: "🇺🇾", region: "America", propertyTax: "0.25% - 1.2%", propertyTaxValue: 0.6, transferTax: "2%", transferTaxValue: 2.0, notes: { fr: "Contribución Inmobiliaria", en: "Contribución Inmobiliaria" } },
+            { country: { fr: "Paraguay", en: "Paraguay" }, flag: "🇵🇾", region: "America", propertyTax: "0% - 1%", propertyTaxValue: 0.3, transferTax: "2%", transferTaxValue: 2.0, notes: { fr: "Impuesto Inmobiliario", en: "Impuesto Inmobiliario" } },
+            { country: { fr: "Équateur", en: "Ecuador" }, flag: "🇪🇨", region: "America", propertyTax: "0.025% - 0.5%", propertyTaxValue: 0.2, transferTax: "1%", transferTaxValue: 1.0, notes: { fr: "Très faible", en: "Very low" } },
+            { country: { fr: "République Dominicaine", en: "Dominican Republic" }, flag: "🇩🇴", region: "America", propertyTax: "1%", propertyTaxValue: 1.0, transferTax: "3%", transferTaxValue: 3.0, notes: { fr: "IPI sur biens > ~150 000$", en: "IPI on properties > ~$150,000" } },
+            { country: { fr: "Bahamas", en: "Bahamas" }, flag: "🇧🇸", region: "America", propertyTax: "0.75% - 2%", propertyTaxValue: 1.0, transferTax: "2.5% - 10%", transferTaxValue: 5.0, notes: { fr: "Property Tax progressif", en: "Progressive Property Tax" } },
+            { country: { fr: "Îles Caïmans", en: "Cayman Islands" }, flag: "🇰🇾", region: "America", propertyTax: "0%", propertyTaxValue: 0, transferTax: "7.5%", transferTaxValue: 7.5, notes: { fr: "Aucune taxe foncière", en: "No property tax" } },
 
-            // Asie
-            { country: "Japon", flag: "🇯🇵", region: "Asie", propertyTax: "1.4% - 2.1%", propertyTaxValue: 1.7, transferTax: "3% - 4%", transferTaxValue: 3.5, notes: "Kotei Shisan Zei + City Planning Tax" },
-            { country: "Corée du Sud", flag: "🇰🇷", region: "Asie", propertyTax: "0.1% - 0.4%", propertyTaxValue: 0.25, transferTax: "1% - 3%", transferTaxValue: 2.0, notes: "Taxe foncière modérée" },
-            { country: "Chine", flag: "🇨🇳", region: "Asie", propertyTax: "0%", propertyTaxValue: 0, transferTax: "3% - 5%", transferTaxValue: 4.0, notes: "Pas de taxe foncière nationale (pilotes)" },
-            { country: "Hong Kong", flag: "🇭🇰", region: "Asie", propertyTax: "5%", propertyTaxValue: 5.0, transferTax: "1.5% - 8.5%", transferTaxValue: 4.0, notes: "Rates basées sur valeur locative" },
-            { country: "Singapour", flag: "🇸🇬", region: "Asie", propertyTax: "0% - 16%", propertyTaxValue: 4.0, transferTax: "1% - 4%", transferTaxValue: 2.0, notes: "Progressif, élevé pour non-résidents" },
-            { country: "Thaïlande", flag: "🇹🇭", region: "Asie", propertyTax: "0.02% - 0.3%", propertyTaxValue: 0.15, transferTax: "2%", transferTaxValue: 2.0, notes: "Land and Building Tax récente" },
-            { country: "Malaisie", flag: "🇲🇾", region: "Asie", propertyTax: "0.1% - 0.2%", propertyTaxValue: 0.15, transferTax: "1% - 4%", transferTaxValue: 2.5, notes: "Quit Rent + Assessment Rate" },
-            { country: "Indonésie", flag: "🇮🇩", region: "Asie", propertyTax: "0.1% - 0.3%", propertyTaxValue: 0.2, transferTax: "5%", transferTaxValue: 5.0, notes: "PBB faible" },
-            { country: "Philippines", flag: "🇵🇭", region: "Asie", propertyTax: "1% - 2%", propertyTaxValue: 1.5, transferTax: "0.5% - 0.75%", transferTaxValue: 0.6, notes: "Real Property Tax" },
-            { country: "Vietnam", flag: "🇻🇳", region: "Asie", propertyTax: "0.03% - 0.15%", propertyTaxValue: 0.1, transferTax: "0.5%", transferTaxValue: 0.5, notes: "Taxe foncière très faible" },
-            { country: "Inde", flag: "🇮🇳", region: "Asie", propertyTax: "0.5% - 2%", propertyTaxValue: 1.0, transferTax: "5% - 7%", transferTaxValue: 6.0, notes: "Varie par État et ville" },
-            { country: "Taïwan", flag: "🇹🇼", region: "Asie", propertyTax: "1% - 5.5%", propertyTaxValue: 2.0, transferTax: "6%", transferTaxValue: 6.0, notes: "House Tax + Land Tax" },
-            { country: "Cambodge", flag: "🇰🇭", region: "Asie", propertyTax: "0.1%", propertyTaxValue: 0.1, transferTax: "4%", transferTaxValue: 4.0, notes: "Taxe très faible" },
-            { country: "Sri Lanka", flag: "🇱🇰", region: "Asie", propertyTax: "~0.5%", propertyTaxValue: 0.5, transferTax: "4%", transferTaxValue: 4.0, notes: "Assessment rates" },
-            { country: "Géorgie", flag: "🇬🇪", region: "Asie", propertyTax: "0% - 1%", propertyTaxValue: 0.3, transferTax: "0%", transferTaxValue: 0, notes: "Très attractif fiscalement" },
+            // Asia
+            { country: { fr: "Japon", en: "Japan" }, flag: "🇯🇵", region: "Asia", propertyTax: "1.4% - 2.1%", propertyTaxValue: 1.7, transferTax: "3% - 4%", transferTaxValue: 3.5, notes: { fr: "Kotei Shisan Zei + City Planning Tax", en: "Kotei Shisan Zei + City Planning Tax" } },
+            { country: { fr: "Corée du Sud", en: "South Korea" }, flag: "🇰🇷", region: "Asia", propertyTax: "0.1% - 0.4%", propertyTaxValue: 0.25, transferTax: "1% - 3%", transferTaxValue: 2.0, notes: { fr: "Taxe foncière modérée", en: "Moderate property tax" } },
+            { country: { fr: "Chine", en: "China" }, flag: "🇨🇳", region: "Asia", propertyTax: "0%", propertyTaxValue: 0, transferTax: "3% - 5%", transferTaxValue: 4.0, notes: { fr: "Pas de taxe foncière nationale (pilotes)", en: "No national property tax (pilots)" } },
+            { country: { fr: "Hong Kong", en: "Hong Kong" }, flag: "🇭🇰", region: "Asia", propertyTax: "5%", propertyTaxValue: 5.0, transferTax: "1.5% - 8.5%", transferTaxValue: 4.0, notes: { fr: "Rates basées sur valeur locative", en: "Rates based on rental value" } },
+            { country: { fr: "Singapour", en: "Singapore" }, flag: "🇸🇬", region: "Asia", propertyTax: "0% - 16%", propertyTaxValue: 4.0, transferTax: "1% - 4%", transferTaxValue: 2.0, notes: { fr: "Progressif, élevé pour non-résidents", en: "Progressive, high for non-residents" } },
+            { country: { fr: "Thaïlande", en: "Thailand" }, flag: "🇹🇭", region: "Asia", propertyTax: "0.02% - 0.3%", propertyTaxValue: 0.15, transferTax: "2%", transferTaxValue: 2.0, notes: { fr: "Land and Building Tax récente", en: "Recent Land and Building Tax" } },
+            { country: { fr: "Malaisie", en: "Malaysia" }, flag: "🇲🇾", region: "Asia", propertyTax: "0.1% - 0.2%", propertyTaxValue: 0.15, transferTax: "1% - 4%", transferTaxValue: 2.5, notes: { fr: "Quit Rent + Assessment Rate", en: "Quit Rent + Assessment Rate" } },
+            { country: { fr: "Indonésie", en: "Indonesia" }, flag: "🇮🇩", region: "Asia", propertyTax: "0.1% - 0.3%", propertyTaxValue: 0.2, transferTax: "5%", transferTaxValue: 5.0, notes: { fr: "PBB faible", en: "Low PBB" } },
+            { country: { fr: "Philippines", en: "Philippines" }, flag: "🇵🇭", region: "Asia", propertyTax: "1% - 2%", propertyTaxValue: 1.5, transferTax: "0.5% - 0.75%", transferTaxValue: 0.6, notes: { fr: "Real Property Tax", en: "Real Property Tax" } },
+            { country: { fr: "Vietnam", en: "Vietnam" }, flag: "🇻🇳", region: "Asia", propertyTax: "0.03% - 0.15%", propertyTaxValue: 0.1, transferTax: "0.5%", transferTaxValue: 0.5, notes: { fr: "Taxe foncière très faible", en: "Very low property tax" } },
+            { country: { fr: "Inde", en: "India" }, flag: "🇮🇳", region: "Asia", propertyTax: "0.5% - 2%", propertyTaxValue: 1.0, transferTax: "5% - 7%", transferTaxValue: 6.0, notes: { fr: "Varie par État et ville", en: "Varies by state and city" } },
+            { country: { fr: "Taïwan", en: "Taiwan" }, flag: "🇹🇼", region: "Asia", propertyTax: "1% - 5.5%", propertyTaxValue: 2.0, transferTax: "6%", transferTaxValue: 6.0, notes: { fr: "House Tax + Land Tax", en: "House Tax + Land Tax" } },
+            { country: { fr: "Cambodge", en: "Cambodia" }, flag: "🇰🇭", region: "Asia", propertyTax: "0.1%", propertyTaxValue: 0.1, transferTax: "4%", transferTaxValue: 4.0, notes: { fr: "Taxe très faible", en: "Very low tax" } },
+            { country: { fr: "Sri Lanka", en: "Sri Lanka" }, flag: "🇱🇰", region: "Asia", propertyTax: "~0.5%", propertyTaxValue: 0.5, transferTax: "4%", transferTaxValue: 4.0, notes: { fr: "Assessment rates", en: "Assessment rates" } },
+            { country: { fr: "Géorgie", en: "Georgia" }, flag: "🇬🇪", region: "Asia", propertyTax: "0% - 1%", propertyTaxValue: 0.3, transferTax: "0%", transferTaxValue: 0, notes: { fr: "Très attractif fiscalement", en: "Very tax-attractive" } },
 
-            // Moyen-Orient
-            { country: "Émirats Arabes Unis", flag: "🇦🇪", region: "Moyen-Orient", propertyTax: "0%", propertyTaxValue: 0, transferTax: "4%", transferTaxValue: 4.0, notes: "Aucune taxe foncière à Dubai" },
-            { country: "Qatar", flag: "🇶🇦", region: "Moyen-Orient", propertyTax: "0%", propertyTaxValue: 0, transferTax: "0.25%", transferTaxValue: 0.25, notes: "Presque aucun frais" },
-            { country: "Arabie Saoudite", flag: "🇸🇦", region: "Moyen-Orient", propertyTax: "0%", propertyTaxValue: 0, transferTax: "5%", transferTaxValue: 5.0, notes: "Pas de taxe foncière" },
-            { country: "Bahreïn", flag: "🇧🇭", region: "Moyen-Orient", propertyTax: "0%", propertyTaxValue: 0, transferTax: "2%", transferTaxValue: 2.0, notes: "Aucune taxe foncière" },
-            { country: "Oman", flag: "🇴🇲", region: "Moyen-Orient", propertyTax: "0%", propertyTaxValue: 0, transferTax: "3% - 5%", transferTaxValue: 4.0, notes: "Pas de taxe foncière" },
-            { country: "Koweït", flag: "🇰🇼", region: "Moyen-Orient", propertyTax: "0%", propertyTaxValue: 0, transferTax: "0.5%", transferTaxValue: 0.5, notes: "Aucune taxe immobilière" },
-            { country: "Jordanie", flag: "🇯🇴", region: "Moyen-Orient", propertyTax: "~0.1%", propertyTaxValue: 0.1, transferTax: "5% - 10%", transferTaxValue: 7.5, notes: "Property Tax très faible" },
-            { country: "Israël", flag: "🇮🇱", region: "Moyen-Orient", propertyTax: "0.1% - 0.5%", propertyTaxValue: 0.3, transferTax: "0% - 10%", transferTaxValue: 5.0, notes: "Arnona basée sur surface" },
-            { country: "Turquie", flag: "🇹🇷", region: "Moyen-Orient", propertyTax: "0.1% - 0.6%", propertyTaxValue: 0.3, transferTax: "4%", transferTaxValue: 4.0, notes: "Emlak Vergisi" },
+            // Middle East
+            { country: { fr: "Émirats Arabes Unis", en: "United Arab Emirates" }, flag: "🇦🇪", region: "MiddleEast", propertyTax: "0%", propertyTaxValue: 0, transferTax: "4%", transferTaxValue: 4.0, notes: { fr: "Aucune taxe foncière à Dubai", en: "No property tax in Dubai" } },
+            { country: { fr: "Qatar", en: "Qatar" }, flag: "🇶🇦", region: "MiddleEast", propertyTax: "0%", propertyTaxValue: 0, transferTax: "0.25%", transferTaxValue: 0.25, notes: { fr: "Presque aucun frais", en: "Almost no fees" } },
+            { country: { fr: "Arabie Saoudite", en: "Saudi Arabia" }, flag: "🇸🇦", region: "MiddleEast", propertyTax: "0%", propertyTaxValue: 0, transferTax: "5%", transferTaxValue: 5.0, notes: { fr: "Pas de taxe foncière", en: "No property tax" } },
+            { country: { fr: "Bahreïn", en: "Bahrain" }, flag: "🇧🇭", region: "MiddleEast", propertyTax: "0%", propertyTaxValue: 0, transferTax: "2%", transferTaxValue: 2.0, notes: { fr: "Aucune taxe foncière", en: "No property tax" } },
+            { country: { fr: "Oman", en: "Oman" }, flag: "🇴🇲", region: "MiddleEast", propertyTax: "0%", propertyTaxValue: 0, transferTax: "3% - 5%", transferTaxValue: 4.0, notes: { fr: "Pas de taxe foncière", en: "No property tax" } },
+            { country: { fr: "Koweït", en: "Kuwait" }, flag: "🇰🇼", region: "MiddleEast", propertyTax: "0%", propertyTaxValue: 0, transferTax: "0.5%", transferTaxValue: 0.5, notes: { fr: "Aucune taxe immobilière", en: "No real estate tax" } },
+            { country: { fr: "Jordanie", en: "Jordan" }, flag: "🇯🇴", region: "MiddleEast", propertyTax: "~0.1%", propertyTaxValue: 0.1, transferTax: "5% - 10%", transferTaxValue: 7.5, notes: { fr: "Property Tax très faible", en: "Very low Property Tax" } },
+            { country: { fr: "Israël", en: "Israel" }, flag: "🇮🇱", region: "MiddleEast", propertyTax: "0.1% - 0.5%", propertyTaxValue: 0.3, transferTax: "0% - 10%", transferTaxValue: 5.0, notes: { fr: "Arnona basée sur surface", en: "Arnona based on area" } },
+            { country: { fr: "Turquie", en: "Turkey" }, flag: "🇹🇷", region: "MiddleEast", propertyTax: "0.1% - 0.6%", propertyTaxValue: 0.3, transferTax: "4%", transferTaxValue: 4.0, notes: { fr: "Emlak Vergisi", en: "Emlak Vergisi" } },
 
-            // Afrique
-            { country: "Maroc", flag: "🇲🇦", region: "Afrique", propertyTax: "0% - 0.2%", propertyTaxValue: 0.1, transferTax: "4% - 6%", transferTaxValue: 5.0, notes: "Taxe d'habitation + taxe services" },
-            { country: "Tunisie", flag: "🇹🇳", region: "Afrique", propertyTax: "0.1% - 0.2%", propertyTaxValue: 0.15, transferTax: "4%", transferTaxValue: 4.0, notes: "Taxe foncière faible" },
-            { country: "Égypte", flag: "🇪🇬", region: "Afrique", propertyTax: "0.1% - 0.3%", propertyTaxValue: 0.2, transferTax: "2.5%", transferTaxValue: 2.5, notes: "Property Tax récente" },
-            { country: "Afrique du Sud", flag: "🇿🇦", region: "Afrique", propertyTax: "0.5% - 2%", propertyTaxValue: 1.0, transferTax: "0% - 13%", transferTaxValue: 5.0, notes: "Rates + Transfer Duty progressif" },
-            { country: "Maurice", flag: "🇲🇺", region: "Afrique", propertyTax: "0%", propertyTaxValue: 0, transferTax: "5%", transferTaxValue: 5.0, notes: "Pas de taxe foncière annuelle" },
-            { country: "Seychelles", flag: "🇸🇨", region: "Afrique", propertyTax: "0%", propertyTaxValue: 0, transferTax: "5%", transferTaxValue: 5.0, notes: "Aucune taxe foncière" },
-            { country: "Kenya", flag: "🇰🇪", region: "Afrique", propertyTax: "0.1% - 0.5%", propertyTaxValue: 0.3, transferTax: "4%", transferTaxValue: 4.0, notes: "Land Rates" },
-            { country: "Ghana", flag: "🇬🇭", region: "Afrique", propertyTax: "0.5%", propertyTaxValue: 0.5, transferTax: "0.5%", transferTaxValue: 0.5, notes: "Property Rate" },
+            // Africa
+            { country: { fr: "Maroc", en: "Morocco" }, flag: "🇲🇦", region: "Africa", propertyTax: "0% - 0.2%", propertyTaxValue: 0.1, transferTax: "4% - 6%", transferTaxValue: 5.0, notes: { fr: "Taxe d'habitation + taxe services", en: "Housing tax + service tax" } },
+            { country: { fr: "Tunisie", en: "Tunisia" }, flag: "🇹🇳", region: "Africa", propertyTax: "0.1% - 0.2%", propertyTaxValue: 0.15, transferTax: "4%", transferTaxValue: 4.0, notes: { fr: "Taxe foncière faible", en: "Low property tax" } },
+            { country: { fr: "Égypte", en: "Egypt" }, flag: "🇪🇬", region: "Africa", propertyTax: "0.1% - 0.3%", propertyTaxValue: 0.2, transferTax: "2.5%", transferTaxValue: 2.5, notes: { fr: "Property Tax récente", en: "Recent Property Tax" } },
+            { country: { fr: "Afrique du Sud", en: "South Africa" }, flag: "🇿🇦", region: "Africa", propertyTax: "0.5% - 2%", propertyTaxValue: 1.0, transferTax: "0% - 13%", transferTaxValue: 5.0, notes: { fr: "Rates + Transfer Duty progressif", en: "Rates + progressive Transfer Duty" } },
+            { country: { fr: "Maurice", en: "Mauritius" }, flag: "🇲🇺", region: "Africa", propertyTax: "0%", propertyTaxValue: 0, transferTax: "5%", transferTaxValue: 5.0, notes: { fr: "Pas de taxe foncière annuelle", en: "No annual property tax" } },
+            { country: { fr: "Seychelles", en: "Seychelles" }, flag: "🇸🇨", region: "Africa", propertyTax: "0%", propertyTaxValue: 0, transferTax: "5%", transferTaxValue: 5.0, notes: { fr: "Aucune taxe foncière", en: "No property tax" } },
+            { country: { fr: "Kenya", en: "Kenya" }, flag: "🇰🇪", region: "Africa", propertyTax: "0.1% - 0.5%", propertyTaxValue: 0.3, transferTax: "4%", transferTaxValue: 4.0, notes: { fr: "Land Rates", en: "Land Rates" } },
+            { country: { fr: "Ghana", en: "Ghana" }, flag: "🇬🇭", region: "Africa", propertyTax: "0.5%", propertyTaxValue: 0.5, transferTax: "0.5%", transferTaxValue: 0.5, notes: { fr: "Property Rate", en: "Property Rate" } },
             
-            // Océanie
-            { country: "Australie", flag: "🇦🇺", region: "Océanie", propertyTax: "0% - 2.67%", propertyTaxValue: 1.0, transferTax: "1.4% - 6.75%", transferTaxValue: 4.0, notes: "Land Tax + Stamp Duty, varie par État" },
-            { country: "Nouvelle-Zélande", flag: "🇳🇿", region: "Océanie", propertyTax: "0.2% - 0.6%", propertyTaxValue: 0.4, transferTax: "0%", transferTaxValue: 0, notes: "Rates locaux, pas de Stamp Duty" },
-            { country: "Fidji", flag: "🇫🇯", region: "Océanie", propertyTax: "0%", propertyTaxValue: 0, transferTax: "3% - 10%", transferTaxValue: 6.0, notes: "Pas de taxe foncière" },
-            { country: "Vanuatu", flag: "🇻🇺", region: "Océanie", propertyTax: "0%", propertyTaxValue: 0, transferTax: "0%", transferTaxValue: 0, notes: "Paradis fiscal complet" },
+            // Oceania
+            { country: { fr: "Australie", en: "Australia" }, flag: "🇦🇺", region: "Oceania", propertyTax: "0% - 2.67%", propertyTaxValue: 1.0, transferTax: "1.4% - 6.75%", transferTaxValue: 4.0, notes: { fr: "Land Tax + Stamp Duty, varie par État", en: "Land Tax + Stamp Duty, varies by state" } },
+            { country: { fr: "Nouvelle-Zélande", en: "New Zealand" }, flag: "🇳🇿", region: "Oceania", propertyTax: "0.2% - 0.6%", propertyTaxValue: 0.4, transferTax: "0%", transferTaxValue: 0, notes: { fr: "Rates locaux, pas de Stamp Duty", en: "Local rates, no Stamp Duty" } },
+            { country: { fr: "Fidji", en: "Fiji" }, flag: "🇫🇯", region: "Oceania", propertyTax: "0%", propertyTaxValue: 0, transferTax: "3% - 10%", transferTaxValue: 6.0, notes: { fr: "Pas de taxe foncière", en: "No property tax" } },
+            { country: { fr: "Vanuatu", en: "Vanuatu" }, flag: "🇻🇺", region: "Oceania", propertyTax: "0%", propertyTaxValue: 0, transferTax: "0%", transferTaxValue: 0, notes: { fr: "Paradis fiscal complet", en: "Complete tax haven" } },
         ];
 
-        // DOM elements
+        // ==========================================
+        // LANGUAGE MANAGEMENT
+        // ==========================================
+        let currentLang = 'fr';
+
+        function detectLanguage() {
+            const browserLang = navigator.language || navigator.userLanguage;
+            const savedLang = localStorage.getItem('pickandtip-lang');
+            
+            if (savedLang) {
+                return savedLang;
+            }
+            
+            if (browserLang.startsWith('en')) {
+                return 'en';
+            }
+            
+            return 'fr';
+        }
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            localStorage.setItem('pickandtip-lang', lang);
+            document.documentElement.lang = lang;
+            
+            // Update language buttons
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.lang === lang);
+            });
+            
+            // Update all translatable elements
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.dataset.i18n;
+                const translation = getNestedTranslation(translations[lang], key);
+                if (translation) {
+                    el.textContent = translation;
+                }
+            });
+            
+            // Update placeholders
+            document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+                const key = el.dataset.i18nPlaceholder;
+                const translation = getNestedTranslation(translations[lang], key);
+                if (translation) {
+                    el.placeholder = translation;
+                }
+            });
+            
+            // Update select options
+            const regionFilter = document.getElementById('regionFilter');
+            const options = regionFilter.querySelectorAll('option');
+            options.forEach(option => {
+                const key = option.dataset.i18n;
+                if (key) {
+                    const translation = getNestedTranslation(translations[lang], key);
+                    if (translation) {
+                        option.textContent = translation;
+                    }
+                }
+            });
+            
+            // Re-render table with new language
+            filterAndSort();
+        }
+
+        function getNestedTranslation(obj, path) {
+            return path.split('.').reduce((acc, part) => acc && acc[part], obj);
+        }
+
+        // ==========================================
+        // TABLE MANAGEMENT
+        // ==========================================
         const tableBody = document.getElementById('tableBody');
         const searchInput = document.getElementById('searchInput');
         const regionFilter = document.getElementById('regionFilter');
@@ -727,7 +970,6 @@
         let currentSort = { column: 'country', direction: 'asc' };
         let currentFilter = 'all';
 
-        // Render table
         function renderTable(data) {
             tableBody.innerHTML = '';
             
@@ -744,7 +986,6 @@
                 const row = document.createElement('tr');
                 row.style.animationDelay = `${index * 0.02}s`;
                 
-                // Determine tax level class
                 const taxClass = item.propertyTaxValue === 0 ? 'tax-none' : 
                                  item.propertyTaxValue < 0.5 ? 'tax-low' : 
                                  item.propertyTaxValue < 1.5 ? 'tax-medium' : 'tax-high';
@@ -753,65 +994,60 @@
                                       item.transferTaxValue < 2 ? 'tax-low' : 
                                       item.transferTaxValue < 5 ? 'tax-medium' : 'tax-high';
 
-                // Normalize region for CSS class
-                const regionClass = item.region.toLowerCase()
-                    .normalize('NFD')
-                    .replace(/[\u0300-\u036f]/g, '')
-                    .replace('-', '')
-                    .replace(' ', '');
+                const regionClass = item.region.toLowerCase().replace('-', '');
+                const regionName = translations[currentLang].regions[item.region] || item.region;
+                const countryName = item.country[currentLang];
+                const notes = item.notes[currentLang];
 
                 row.innerHTML = `
                     <td>
                         <div class="country-cell">
                             <span class="flag">${item.flag}</span>
-                            <span>${item.country}</span>
+                            <span>${countryName}</span>
                         </div>
                     </td>
-                    <td><span class="region-badge region-${regionClass}">${item.region}</span></td>
+                    <td><span class="region-badge region-${regionClass}">${regionName}</span></td>
                     <td><span class="tax-value ${taxClass}">${item.propertyTax}</span></td>
                     <td><span class="tax-value ${transferClass}">${item.transferTax}</span></td>
-                    <td><span class="notes">${item.notes}</span></td>
+                    <td><span class="notes">${notes}</span></td>
                 `;
                 
                 tableBody.appendChild(row);
             });
         }
 
-        // Filter and sort data
         function filterAndSort() {
             let filtered = [...taxData];
             
-            // Search filter
             const searchTerm = searchInput.value.toLowerCase();
             if (searchTerm) {
                 filtered = filtered.filter(item => 
-                    item.country.toLowerCase().includes(searchTerm) ||
-                    item.region.toLowerCase().includes(searchTerm) ||
-                    item.notes.toLowerCase().includes(searchTerm)
+                    item.country[currentLang].toLowerCase().includes(searchTerm) ||
+                    item.country.fr.toLowerCase().includes(searchTerm) ||
+                    item.country.en.toLowerCase().includes(searchTerm) ||
+                    translations[currentLang].regions[item.region]?.toLowerCase().includes(searchTerm) ||
+                    item.notes[currentLang].toLowerCase().includes(searchTerm)
                 );
             }
             
-            // Region filter
             const region = regionFilter.value;
             if (region) {
                 filtered = filtered.filter(item => item.region === region);
             }
             
-            // Tax level filter
             if (currentFilter === 'no-tax') {
                 filtered = filtered.filter(item => item.propertyTaxValue === 0);
             } else if (currentFilter === 'low-tax') {
                 filtered = filtered.filter(item => item.propertyTaxValue > 0 && item.propertyTaxValue < 0.5);
             }
             
-            // Sort
             filtered.sort((a, b) => {
                 let valA, valB;
                 
                 switch(currentSort.column) {
                     case 'country':
-                        valA = a.country;
-                        valB = b.country;
+                        valA = a.country[currentLang];
+                        valB = b.country[currentLang];
                         break;
                     case 'region':
                         valA = a.region;
@@ -826,8 +1062,8 @@
                         valB = b.transferTaxValue;
                         break;
                     default:
-                        valA = a.country;
-                        valB = b.country;
+                        valA = a.country[currentLang];
+                        valB = b.country[currentLang];
                 }
                 
                 if (typeof valA === 'string') {
@@ -844,7 +1080,9 @@
             renderTable(filtered);
         }
 
-        // Event listeners
+        // ==========================================
+        // EVENT LISTENERS
+        // ==========================================
         searchInput.addEventListener('input', filterAndSort);
         regionFilter.addEventListener('change', filterAndSort);
 
@@ -857,12 +1095,10 @@
             });
         });
 
-        // Sort by column headers
         document.querySelectorAll('th[data-sort]').forEach(th => {
             th.addEventListener('click', () => {
                 const column = th.dataset.sort;
                 
-                // Remove sorted class from all headers
                 document.querySelectorAll('th').forEach(h => {
                     h.classList.remove('sorted-asc', 'sorted-desc');
                 });
@@ -879,7 +1115,15 @@
             });
         });
 
-        // Update stats
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                setLanguage(btn.dataset.lang);
+            });
+        });
+
+        // ==========================================
+        // INITIALIZATION
+        // ==========================================
         function updateStats() {
             document.getElementById('countryCount').textContent = taxData.length;
             document.getElementById('noTaxCount').textContent = taxData.filter(d => d.propertyTaxValue === 0).length;
@@ -888,9 +1132,8 @@
 
         // Initialize
         updateStats();
-        filterAndSort();
-
-        // Add sorted class to initial sort column
+        const detectedLang = detectLanguage();
+        setLanguage(detectedLang);
         document.querySelector('th[data-sort="country"]').classList.add('sorted-asc');
     </script>
 </body>
