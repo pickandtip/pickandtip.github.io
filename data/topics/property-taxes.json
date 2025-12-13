@@ -699,8 +699,8 @@
     "transferTax": "0%",
     "transferTaxValue": 0,
     "notes": {
-      "fr": "Très attractif fiscalement",
-      "en": "Very tax-attractive"
+      "fr": "Taxe progressive selon revenu géorgien. Exonération si < 40 000 GEL/an (~17 000$), 0.8-1% si > 100 000 GEL. Avantage expatriés : revenus étrangers non imposés = taxe foncière souvent à 0%. Aucun droit de mutation",
+      "en": "Progressive tax based on Georgian income. Exempt if < 40,000 GEL/year (~$17,000), 0.8-1% if > 100,000 GEL. Expat advantage: foreign income not taxed = property tax often 0%. No transfer tax"
     }
   },
   {

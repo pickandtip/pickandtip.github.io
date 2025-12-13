@@ -19,9 +19,20 @@
     "middleEast": "🕌 Moyen-Orient",
     "africa": "🌍 Afrique",
     "oceania": "🏝️ Océanie",
-    "all": "Tous",
-    "noTax": "Sans taxe",
-    "lowTax": "Taxe faible"
+    "propertyTax": {
+      "all": "Toutes taxes foncières",
+      "none": "Aucune taxe foncière",
+      "low": "Taxe foncière faible (< 0.5%)",
+      "medium": "Taxe foncière moyenne (0.5-1.5%)",
+      "high": "Taxe foncière élevée (> 1.5%)"
+    },
+    "transferTax": {
+      "all": "Tous droits de mutation",
+      "none": "Aucun droit de mutation",
+      "low": "Droits faibles (< 2%)",
+      "medium": "Droits moyens (2-5%)",
+      "high": "Droits élevés (> 5%)"
+    }
   },
   "results": {
     "displayed": "pays affichés",

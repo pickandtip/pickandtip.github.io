@@ -7,10 +7,11 @@ let countries = [];
 let propertyTaxes = [];
 let taxData = []; // Merged data from countries + propertyTaxes
 let currentSort = { column: 'country', direction: 'asc' };
-let currentFilter = 'all';
+let currentPropertyTaxFilter = 'all';
+let currentTransferTaxFilter = 'all';
 
 // DOM Elements (will be initialized after DOMContentLoaded)
-let tableBody, searchInput, regionFilter, filterBtns, resultCount, noResults;
+let tableBody, searchInput, regionFilter, propertyTaxFilter, transferTaxFilter, resultCount, noResults;
 
 // ==========================================
 // DATA LOADING
@@ -192,10 +193,26 @@ function filterAndSort() {
         filtered = filtered.filter(item => item.region === region);
     }
 
-    if (currentFilter === 'no-tax') {
+    // Property tax filter
+    if (currentPropertyTaxFilter === 'none') {
         filtered = filtered.filter(item => item.propertyTaxValue === 0);
-    } else if (currentFilter === 'low-tax') {
+    } else if (currentPropertyTaxFilter === 'low') {
         filtered = filtered.filter(item => item.propertyTaxValue > 0 && item.propertyTaxValue < 0.5);
+    } else if (currentPropertyTaxFilter === 'medium') {
+        filtered = filtered.filter(item => item.propertyTaxValue >= 0.5 && item.propertyTaxValue <= 1.5);
+    } else if (currentPropertyTaxFilter === 'high') {
+        filtered = filtered.filter(item => item.propertyTaxValue > 1.5);
+    }
+
+    // Transfer tax filter
+    if (currentTransferTaxFilter === 'none') {
+        filtered = filtered.filter(item => item.transferTaxValue === 0);
+    } else if (currentTransferTaxFilter === 'low') {
+        filtered = filtered.filter(item => item.transferTaxValue > 0 && item.transferTaxValue < 2);
+    } else if (currentTransferTaxFilter === 'medium') {
+        filtered = filtered.filter(item => item.transferTaxValue >= 2 && item.transferTaxValue <= 5);
+    } else if (currentTransferTaxFilter === 'high') {
+        filtered = filtered.filter(item => item.transferTaxValue > 5);
     }
 
     filtered.sort((a, b) => {
@@ -247,14 +264,16 @@ function setupEventListeners() {
     // Region filter
     regionFilter.addEventListener('change', filterAndSort);
 
-    // Filter buttons
-    filterBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            filterBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            currentFilter = btn.dataset.filter;
-            filterAndSort();
-        });
+    // Property tax filter
+    propertyTaxFilter.addEventListener('change', () => {
+        currentPropertyTaxFilter = propertyTaxFilter.value;
+        filterAndSort();
+    });
+
+    // Transfer tax filter
+    transferTaxFilter.addEventListener('change', () => {
+        currentTransferTaxFilter = transferTaxFilter.value;
+        filterAndSort();
     });
 
     // Table sorting
@@ -303,7 +322,8 @@ async function init() {
     tableBody = document.getElementById('tableBody');
     searchInput = document.getElementById('searchInput');
     regionFilter = document.getElementById('regionFilter');
-    filterBtns = document.querySelectorAll('.filter-btn');
+    propertyTaxFilter = document.getElementById('propertyTaxFilter');
+    transferTaxFilter = document.getElementById('transferTaxFilter');
     resultCount = document.getElementById('resultCount');
     noResults = document.getElementById('noResults');
 

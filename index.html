@@ -69,11 +69,20 @@
                     <option value="africa" data-i18n="filter.africa">🌍 Afrique</option>
                     <option value="oceania" data-i18n="filter.oceania">🏝️ Océanie</option>
                 </select>
-                <div class="filter-group">
-                    <button class="filter-btn active" data-filter="all" data-i18n="filter.all">Tous</button>
-                    <button class="filter-btn" data-filter="no-tax" data-i18n="filter.noTax">Sans taxe</button>
-                    <button class="filter-btn" data-filter="low-tax" data-i18n="filter.lowTax">Taxe faible</button>
-                </div>
+                <select id="propertyTaxFilter">
+                    <option value="all" data-i18n="filter.propertyTax.all">Toutes taxes foncières</option>
+                    <option value="none" data-i18n="filter.propertyTax.none">Aucune taxe foncière</option>
+                    <option value="low" data-i18n="filter.propertyTax.low">Taxe foncière faible (< 0.5%)</option>
+                    <option value="medium" data-i18n="filter.propertyTax.medium">Taxe foncière moyenne (0.5-1.5%)</option>
+                    <option value="high" data-i18n="filter.propertyTax.high">Taxe foncière élevée (> 1.5%)</option>
+                </select>
+                <select id="transferTaxFilter">
+                    <option value="all" data-i18n="filter.transferTax.all">Tous droits de mutation</option>
+                    <option value="none" data-i18n="filter.transferTax.none">Aucun droit de mutation</option>
+                    <option value="low" data-i18n="filter.transferTax.low">Droits faibles (< 2%)</option>
+                    <option value="medium" data-i18n="filter.transferTax.medium">Droits moyens (2-5%)</option>
+                    <option value="high" data-i18n="filter.transferTax.high">Droits élevés (> 5%)</option>
+                </select>
             </div>
         </div>
 

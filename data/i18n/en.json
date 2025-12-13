@@ -19,9 +19,20 @@
     "middleEast": "🕌 Middle East",
     "africa": "🌍 Africa",
     "oceania": "🏝️ Oceania",
-    "all": "All",
-    "noTax": "No tax",
-    "lowTax": "Low tax"
+    "propertyTax": {
+      "all": "All property taxes",
+      "none": "No property tax",
+      "low": "Low property tax (< 0.5%)",
+      "medium": "Medium property tax (0.5-1.5%)",
+      "high": "High property tax (> 1.5%)"
+    },
+    "transferTax": {
+      "all": "All transfer taxes",
+      "none": "No transfer tax",
+      "low": "Low transfer tax (< 2%)",
+      "medium": "Medium transfer tax (2-5%)",
+      "high": "High transfer tax (> 5%)"
+    }
   },
   "results": {
     "displayed": "countries displayed",
