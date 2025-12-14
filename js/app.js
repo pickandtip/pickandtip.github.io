@@ -170,6 +170,11 @@ function renderTable(data) {
         const propertyTax = replaceTokens(item.propertyTax, currentLang).replace(/\n/g, '<br>');
         const transferTax = replaceTokens(item.transferTax, currentLang).replace(/\n/g, '<br>');
 
+        // Foreign access badge
+        const foreignLevel = item.foreignerRestrictionLevel || 'unrestricted';
+        const foreignClass = `foreign-${foreignLevel}`;
+        const foreignText = translations[currentLang].foreignerRestriction[foreignLevel] || foreignLevel;
+
         row.innerHTML = `
             <td>
                 <div class="country-cell">
@@ -180,6 +185,7 @@ function renderTable(data) {
             <td><span class="region-badge region-${regionClass}">${regionName}</span></td>
             <td><span class="tax-value ${taxClass}">${propertyTax}</span></td>
             <td><span class="tax-value ${transferClass}">${transferTax}</span></td>
+            <td><span class="foreign-badge ${foreignClass}">${foreignText}</span></td>
             <td><span class="notes">${notes}</span></td>
         `;
 
@@ -247,6 +253,10 @@ function filterAndSort() {
             case 'transferTax':
                 valA = a.transferTaxValue;
                 valB = b.transferTaxValue;
+                break;
+            case 'foreignerRestrictionLevel':
+                valA = a.foreignerRestrictionValue || 0;
+                valB = b.foreignerRestrictionValue || 0;
                 break;
             default:
                 valA = a.country[currentLang];

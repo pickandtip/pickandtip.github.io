@@ -45,6 +45,7 @@
     "region": "Region",
     "propertyTax": "Annual Property Tax",
     "transferTax": "Transfer Tax",
+    "foreignAccess": "Foreign Access",
     "notes": "Notes",
     "rangeExplanation": "(min / avg / max)"
   },
@@ -68,5 +69,11 @@
   "tokens": {
     "old": "resale",
     "new": "newly built"
+  },
+  "foreignerRestriction": {
+    "unrestricted": "Unrestricted",
+    "low": "Low restrictions",
+    "high": "High restrictions",
+    "nationalsOnly": "Nationals only"
   }
 }

@@ -1,940 +1,1110 @@
 {
   "lastUpdated": "2025-12",
   "countries": [
-  {
-    "countryCode": "FR",
-    "propertyTax": "0.5% 1% 1.5%",
-    "propertyTaxValue": 1.0,
-    "transferTax": "{{old}}:\n7% 7.5% 8%\n{{new}}:\n2% 2.5% 3%",
-    "transferTaxValue": 7.5,
-    "notes": {
-      "fr": "Frais totaux à l'achat incluant droits de mutation (5.1-5.8%), émoluments notaire (~1%) et débours (~0.5%). Neuf: TVA réduite. Taxe d'habitation (0.5-2%) pour résidences secondaires uniquement (nationale, majorations communales possibles)",
-      "en": "Total purchase costs including transfer duties (5.1-5.8%), notary fees (~1%) and disbursements (~0.5%). New: reduced VAT. Housing tax (0.5-2%) on secondary residences only (national, municipal surcharges possible)"
+    {
+      "countryCode": "FR",
+      "propertyTax": "0.5% 1% 1.5%",
+      "propertyTaxValue": 1.0,
+      "transferTax": "{{old}}:\n7% 7.5% 8%\n{{new}}:\n2% 2.5% 3%",
+      "transferTaxValue": 7.5,
+      "notes": {
+        "fr": "Frais totaux à l'achat incluant droits de mutation (5.1-5.8%), émoluments notaire (~1%) et débours (~0.5%). Neuf: TVA réduite. Taxe d'habitation (0.5-2%) pour résidences secondaires uniquement (nationale, majorations communales possibles) Accès étranger: Pleine propriété sans restriction.",
+        "en": "Total purchase costs including transfer duties (5.1-5.8%), notary fees (~1%) and disbursements (~0.5%). New: reduced VAT. Housing tax (0.5-2%) on secondary residences only (national, municipal surcharges possible) Foreign access: Pleine propriété sans restriction."
+      },
+      "foreignerRestrictionLevel": "unrestricted",
+      "foreignerRestrictionValue": 0
+    },
+    {
+      "countryCode": "DE",
+      "propertyTax": "0.26% 0.5% 1%",
+      "propertyTaxValue": 0.5,
+      "transferTax": "3.5% 5% 6.5%",
+      "transferTaxValue": 5.0,
+      "notes": {
+        "fr": "Grundsteuer réformée en 2025, varie par Land. Droits de mutation (Grunderwerbsteuer): Bavière/Saxe 3.5%, moyenne nationale ~5%, Berlin 6% Accès étranger: Pleine propriété sans restriction.",
+        "en": "Grundsteuer reformed in 2025, varies by state. Transfer tax (Grunderwerbsteuer): Bavaria/Saxony 3.5%, national avg ~5%, Berlin 6% Foreign access: Pleine propriété sans restriction."
+      },
+      "foreignerRestrictionLevel": "unrestricted",
+      "foreignerRestrictionValue": 0
+    },
+    {
+      "countryCode": "ES",
+      "propertyTax": "0.4% 0.7% 1.1%",
+      "propertyTaxValue": 0.7,
+      "transferTax": "6% 8% 10%",
+      "transferTaxValue": 8.0,
+      "notes": {
+        "fr": "IBI varie par municipalité (Madrid 0.44%, Valence 0.57%). Droits de mutation (ITP): Madrid 6%, Andalousie 7%, Catalogne/Valence 10% Accès étranger: Pleine propriété sans restriction.",
+        "en": "IBI varies by municipality (Madrid 0.44%, Valencia 0.57%). Transfer tax (ITP): Madrid 6%, Andalusia 7%, Catalonia/Valencia 10% Foreign access: Pleine propriété sans restriction."
+      },
+      "foreignerRestrictionLevel": "unrestricted",
+      "foreignerRestrictionValue": 0
+    },
+    {
+      "countryCode": "IT",
+      "propertyTax": "0.4% 0.7% 1.06%",
+      "propertyTaxValue": 0.7,
+      "transferTax": "2.0% 5.0% 9.0%",
+      "transferTaxValue": 5.0,
+      "notes": {
+        "fr": "IMU exonérée pour résidence principale Accès étranger: Pleine propriété sans restriction.",
+        "en": "IMU exempt for primary residence Foreign access: Pleine propriété sans restriction."
+      },
+      "foreignerRestrictionLevel": "unrestricted",
+      "foreignerRestrictionValue": 0
+    },
+    {
+      "countryCode": "PT",
+      "propertyTax": "0.3% 0.5% 0.8%",
+      "propertyTaxValue": 0.5,
+      "transferTax": "0.0% 5.0% 7.5%",
+      "transferTaxValue": 5.0,
+      "notes": {
+        "fr": "IMI basée sur valeur patrimoniale Accès étranger: Pleine propriété sans restriction.",
+        "en": "IMI based on tax value Foreign access: Pleine propriété sans restriction."
+      },
+      "foreignerRestrictionLevel": "unrestricted",
+      "foreignerRestrictionValue": 0
+    },
+    {
+      "countryCode": "GB",
+      "propertyTax": "0.5% 1.2% 2%",
+      "propertyTaxValue": 1.2,
+      "transferTax": "0% 3% 12%",
+      "transferTaxValue": 3.0,
+      "notes": {
+        "fr": "Stamp Duty progressif: 0% <£125k, 2% £125k-£250k, 5% £250k-£925k, 10% £925k-£1.5M, 12% >£1.5M. Primo-accédant: 0% <£300k. Council Tax (taxe d'habitation municipale, 0.5-1.5%) payée par l'occupant du logement Accès étranger: Pleine propriété sans restriction.",
+        "en": "Progressive Stamp Duty: 0% <£125k, 2% £125k-£250k, 5% £250k-£925k, 10% £925k-£1.5M, 12% >£1.5M. First-time buyers: 0% <£300k. Council Tax (municipal housing tax, 0.5-1.5%) paid by property occupant Foreign access: Pleine propriété sans restriction."
+      },
+      "foreignerRestrictionLevel": "unrestricted",
+      "foreignerRestrictionValue": 0
+    },
+    {
+      "countryCode": "BE",
+      "propertyTax": "1.25% 1.8% 2.5%",
+      "propertyTaxValue": 1.8,
+      "transferTax": "10.0% 11.3% 12.5%",
+      "transferTaxValue": 11.3,
+      "notes": {
+        "fr": "Précompte immobilier élevé Accès étranger: Pleine propriété sans restriction.",
+        "en": "High property withholding tax Foreign access: Pleine propriété sans restriction."
+      },
+      "foreignerRestrictionLevel": "unrestricted",
+      "foreignerRestrictionValue": 0
+    },
+    {
+      "countryCode": "NL",
+      "propertyTax": "0.1% 0.2% 0.3%",
+      "propertyTaxValue": 0.2,
+      "transferTax": "2.0% 6.0% 10.4%",
+      "transferTaxValue": 6.0,
+      "notes": {
+        "fr": "OZB faible, droits transfert augmentés Accès étranger: Pleine propriété sans restriction.",
+        "en": "Low OZB, increased transfer duties Foreign access: Pleine propriété sans restriction."
+      },
+      "foreignerRestrictionLevel": "unrestricted",
+      "foreignerRestrictionValue": 0
+    },
+    {
+      "countryCode": "CH",
+      "propertyTax": "0.05% 0.15% 0.3%",
+      "propertyTaxValue": 0.15,
+      "transferTax": "0.0% 1.5% 3.0%",
+      "transferTaxValue": 1.5,
+      "notes": {
+        "fr": "Varie considérablement par canton Accès étranger: Quotas stricts, permis de résidence requis dans la plupart des cantons, zones très limitées.",
+        "en": "Varies considerably by canton Foreign access: Quotas stricts, permis de résidence requis dans la plupart des cantons, zones très limitées."
+      },
+      "foreignerRestrictionLevel": "high",
+      "foreignerRestrictionValue": 2
+    },
+    {
+      "countryCode": "AT",
+      "propertyTax": "0.1% 0.15% 0.2%",
+      "propertyTaxValue": 0.15,
+      "transferTax": "3.5%",
+      "transferTaxValue": 3.5,
+      "notes": {
+        "fr": "Grundsteuer très faible Accès étranger: Autorisation requise dans certaines régions (Tyrol, Salzbourg), relativement accessible.",
+        "en": "Very low Grundsteuer Foreign access: Autorisation requise dans certaines régions (Tyrol, Salzbourg), relativement accessible."
+      },
+      "foreignerRestrictionLevel": "low",
+      "foreignerRestrictionValue": 1
+    },
+    {
+      "countryCode": "IE",
+      "propertyTax": "0.18% 0.2% 0.25%",
+      "propertyTaxValue": 0.2,
+      "transferTax": "1.0% 1.5% 2.0%",
+      "transferTaxValue": 1.5,
+      "notes": {
+        "fr": "Local Property Tax récente Accès étranger: Pleine propriété sans restriction.",
+        "en": "Recent Local Property Tax Foreign access: Pleine propriété sans restriction."
+      },
+      "foreignerRestrictionLevel": "unrestricted",
+      "foreignerRestrictionValue": 0
+    },
+    {
+      "countryCode": "GR",
+      "propertyTax": "0.1% 0.6% 1.15%",
+      "propertyTaxValue": 0.6,
+      "transferTax": "3%",
+      "transferTaxValue": 3.0,
+      "notes": {
+        "fr": "ENFIA basée sur valeur objective Accès étranger: Pleine propriété sans restriction.",
+        "en": "ENFIA based on objective value Foreign access: Pleine propriété sans restriction."
+      },
+      "foreignerRestrictionLevel": "unrestricted",
+      "foreignerRestrictionValue": 0
+    },
+    {
+      "countryCode": "PL",
+      "propertyTax": "~0.7%",
+      "propertyTaxValue": 0.7,
+      "transferTax": "2%",
+      "transferTaxValue": 2.0,
+      "notes": {
+        "fr": "Taxe au m², pas sur la valeur Accès étranger: Autorisation requise pour terrains agricoles et forestiers, résidentiel libre.",
+        "en": "Tax per m², not on value Foreign access: Autorisation requise pour terrains agricoles et forestiers, résidentiel libre."
+      },
+      "foreignerRestrictionLevel": "low",
+      "foreignerRestrictionValue": 1
+    },
+    {
+      "countryCode": "CZ",
+      "propertyTax": "~0.1%",
+      "propertyTaxValue": 0.1,
+      "transferTax": "4%",
+      "transferTaxValue": 4.0,
+      "notes": {
+        "fr": "Parmi les plus faibles d'Europe Accès étranger: Pleine propriété sans restriction depuis 2012.",
+        "en": "Among the lowest in Europe Foreign access: Pleine propriété sans restriction depuis 2012."
+      },
+      "foreignerRestrictionLevel": "unrestricted",
+      "foreignerRestrictionValue": 0
+    },
+    {
+      "countryCode": "HU",
+      "propertyTax": "0.0% 0.5% 1.8%",
+      "propertyTaxValue": 0.5,
+      "transferTax": "4%",
+      "transferTaxValue": 4.0,
+      "notes": {
+        "fr": "Décidée par municipalités Accès étranger: Pleine propriété sans restriction.",
+        "en": "Decided by municipalities Foreign access: Pleine propriété sans restriction."
+      },
+      "foreignerRestrictionLevel": "unrestricted",
+      "foreignerRestrictionValue": 0
+    },
+    {
+      "countryCode": "RO",
+      "propertyTax": "0.08% 0.1% 0.2%",
+      "propertyTaxValue": 0.1,
+      "transferTax": "0.0% 1.0% 3.0%",
+      "transferTaxValue": 1.0,
+      "notes": {
+        "fr": "Très faible, basée sur valeur cadastrale Accès étranger: Terrains agricoles restreints, résidentiel libre.",
+        "en": "Very low, based on cadastral value Foreign access: Terrains agricoles restreints, résidentiel libre."
+      },
+      "foreignerRestrictionLevel": "low",
+      "foreignerRestrictionValue": 1
+    },
+    {
+      "countryCode": "BG",
+      "propertyTax": "0.1% 0.2% 0.45%",
+      "propertyTaxValue": 0.2,
+      "transferTax": "0.1% 1.5% 3.0%",
+      "transferTaxValue": 1.5,
+      "notes": {
+        "fr": "Parmi les plus attractives en UE Accès étranger: Terrains agricoles restreints jusqu'en 2024, structures résidentielles libres.",
+        "en": "Among the most attractive in EU Foreign access: Terrains agricoles restreints jusqu'en 2024, structures résidentielles libres."
+      },
+      "foreignerRestrictionLevel": "low",
+      "foreignerRestrictionValue": 1
+    },
+    {
+      "countryCode": "HR",
+      "propertyTax": "0.6% - 8€/m²",
+      "propertyTaxValue": 0.3,
+      "transferTax": "3%",
+      "transferTaxValue": 3.0,
+      "notes": {
+        "fr": "Taxe sur résidences secondaires/vacantes Accès étranger: Réciprocité requise, EU/EEE libre, hors-EU possible mais procédure.",
+        "en": "Tax on secondary/vacant residences Foreign access: Réciprocité requise, EU/EEE libre, hors-EU possible mais procédure."
+      },
+      "foreignerRestrictionLevel": "low",
+      "foreignerRestrictionValue": 1
+    },
+    {
+      "countryCode": "SI",
+      "propertyTax": "~0.15%",
+      "propertyTaxValue": 0.15,
+      "transferTax": "2%",
+      "transferTaxValue": 2.0,
+      "notes": {
+        "fr": "Faible taxe foncière Accès étranger: Autorisation requise pour terrains agricoles, résidentiel relativement libre.",
+        "en": "Low property tax Foreign access: Autorisation requise pour terrains agricoles, résidentiel relativement libre."
+      },
+      "foreignerRestrictionLevel": "low",
+      "foreignerRestrictionValue": 1
+    },
+    {
+      "countryCode": "SK",
+      "propertyTax": "~0.2%",
+      "propertyTaxValue": 0.2,
+      "transferTax": "0%",
+      "transferTaxValue": 0,
+      "notes": {
+        "fr": "Pas de droits de mutation Accès étranger: Pleine propriété sans restriction.",
+        "en": "No transfer tax Foreign access: Pleine propriété sans restriction."
+      },
+      "foreignerRestrictionLevel": "unrestricted",
+      "foreignerRestrictionValue": 0
+    },
+    {
+      "countryCode": "EE",
+      "propertyTax": "0.1% 0.5% 2.5%",
+      "propertyTaxValue": 0.5,
+      "transferTax": "0%",
+      "transferTaxValue": 0,
+      "notes": {
+        "fr": "Taxe sur le terrain uniquement Accès étranger: Pleine propriété sans restriction.",
+        "en": "Land tax only Foreign access: Pleine propriété sans restriction."
+      },
+      "foreignerRestrictionLevel": "unrestricted",
+      "foreignerRestrictionValue": 0
+    },
+    {
+      "countryCode": "LV",
+      "propertyTax": "0.2% 1.0% 3.0%",
+      "propertyTaxValue": 1.0,
+      "transferTax": "2%",
+      "transferTaxValue": 2.0,
+      "notes": {
+        "fr": "Taux progressif selon valeur Accès étranger: Pleine propriété sans restriction.",
+        "en": "Progressive rate based on value Foreign access: Pleine propriété sans restriction."
+      },
+      "foreignerRestrictionLevel": "unrestricted",
+      "foreignerRestrictionValue": 0
+    },
+    {
+      "countryCode": "LT",
+      "propertyTax": "0.5% 1.0% 2.0%",
+      "propertyTaxValue": 1.0,
+      "transferTax": "0%",
+      "transferTaxValue": 0,
+      "notes": {
+        "fr": "Taxe sur biens > 150 000€ Accès étranger: Pleine propriété sans restriction.",
+        "en": "Tax on properties > €150,000 Foreign access: Pleine propriété sans restriction."
+      },
+      "foreignerRestrictionLevel": "unrestricted",
+      "foreignerRestrictionValue": 0
+    },
+    {
+      "countryCode": "CY",
+      "propertyTax": "0%",
+      "propertyTaxValue": 0,
+      "transferTax": "3.0% 5.0% 8.0%",
+      "transferTaxValue": 5.0,
+      "notes": {
+        "fr": "Taxe foncière abolie en 2017 Accès étranger: Pleine propriété sans restriction.",
+        "en": "Property tax abolished in 2017 Foreign access: Pleine propriété sans restriction."
+      },
+      "foreignerRestrictionLevel": "unrestricted",
+      "foreignerRestrictionValue": 0
+    },
+    {
+      "countryCode": "MT",
+      "propertyTax": "0%",
+      "propertyTaxValue": 0,
+      "transferTax": "5%",
+      "transferTaxValue": 5.0,
+      "notes": {
+        "fr": "Aucune taxe foncière annuelle Accès étranger: Autorisation AIP requise, processus simple mais obligatoire.",
+        "en": "No annual property tax Foreign access: Autorisation AIP requise, processus simple mais obligatoire."
+      },
+      "foreignerRestrictionLevel": "low",
+      "foreignerRestrictionValue": 1
+    },
+    {
+      "countryCode": "LU",
+      "propertyTax": "~0.1%",
+      "propertyTaxValue": 0.1,
+      "transferTax": "6.0% 6.5% 7.0%",
+      "transferTaxValue": 6.5,
+      "notes": {
+        "fr": "Impôt foncier symbolique Accès étranger: Pleine propriété sans restriction.",
+        "en": "Symbolic property tax Foreign access: Pleine propriété sans restriction."
+      },
+      "foreignerRestrictionLevel": "unrestricted",
+      "foreignerRestrictionValue": 0
+    },
+    {
+      "countryCode": "MC",
+      "propertyTax": "0%",
+      "propertyTaxValue": 0,
+      "transferTax": "4.5%",
+      "transferTaxValue": 4.5,
+      "notes": {
+        "fr": "Pas de taxe foncière Accès étranger: Permis de résidence facilite l'achat.",
+        "en": "No property tax Foreign access: Permis de résidence facilite l'achat."
+      },
+      "foreignerRestrictionLevel": "low",
+      "foreignerRestrictionValue": 1
+    },
+    {
+      "countryCode": "AD",
+      "propertyTax": "0%",
+      "propertyTaxValue": 0,
+      "transferTax": "4%",
+      "transferTaxValue": 4.0,
+      "notes": {
+        "fr": "Pas de taxe foncière annuelle Accès étranger: Permis de résidence ou autorisation requise.",
+        "en": "No annual property tax Foreign access: Permis de résidence ou autorisation requise."
+      },
+      "foreignerRestrictionLevel": "low",
+      "foreignerRestrictionValue": 1
+    },
+    {
+      "countryCode": "SE",
+      "propertyTax": "0.75%",
+      "propertyTaxValue": 0.75,
+      "transferTax": "1.5% 3.0% 4.25%",
+      "transferTaxValue": 3.0,
+      "notes": {
+        "fr": "Plafonnée à ~8000€/an Accès étranger: Pleine propriété sans restriction.",
+        "en": "Capped at ~€8,000/year Foreign access: Pleine propriété sans restriction."
+      },
+      "foreignerRestrictionLevel": "unrestricted",
+      "foreignerRestrictionValue": 0
+    },
+    {
+      "countryCode": "NO",
+      "propertyTax": "0.0% 0.3% 0.7%",
+      "propertyTaxValue": 0.3,
+      "transferTax": "2.5%",
+      "transferTaxValue": 2.5,
+      "notes": {
+        "fr": "Décidée localement Accès étranger: Autorisation requise pour terrains agricoles et forestiers, résidentiel libre.",
+        "en": "Decided locally Foreign access: Autorisation requise pour terrains agricoles et forestiers, résidentiel libre."
+      },
+      "foreignerRestrictionLevel": "low",
+      "foreignerRestrictionValue": 1
+    },
+    {
+      "countryCode": "DK",
+      "propertyTax": "0.92% 1.5% 3.0%",
+      "propertyTaxValue": 1.5,
+      "transferTax": "0.6%",
+      "transferTaxValue": 0.6,
+      "notes": {
+        "fr": "Taxe foncière élevée Accès étranger: Résidence de 5 ans requise, ou autorisation spéciale.",
+        "en": "High property tax Foreign access: Résidence de 5 ans requise, ou autorisation spéciale."
+      },
+      "foreignerRestrictionLevel": "low",
+      "foreignerRestrictionValue": 1
+    },
+    {
+      "countryCode": "FI",
+      "propertyTax": "0.41% 0.8% 1.35%",
+      "propertyTaxValue": 0.8,
+      "transferTax": "2% 3% 4%",
+      "transferTaxValue": 3.0,
+      "notes": {
+        "fr": "Varie par municipalité. Droits de mutation: 3% pour maisons, 1.5% pour appartements en copropriété Accès étranger: Pleine propriété sans restriction.",
+        "en": "Varies by municipality. Transfer tax: 3% for houses, 1.5% for housing company shares (apartments) Foreign access: Pleine propriété sans restriction."
+      },
+      "foreignerRestrictionLevel": "unrestricted",
+      "foreignerRestrictionValue": 0
+    },
+    {
+      "countryCode": "IS",
+      "propertyTax": "0.5% 1.0% 1.65%",
+      "propertyTaxValue": 1.0,
+      "transferTax": "0.8%",
+      "transferTaxValue": 0.8,
+      "notes": {
+        "fr": "Droits de mutation faibles Accès étranger: Autorisation ministérielle requise, restrictions importantes.",
+        "en": "Low transfer duties Foreign access: Autorisation ministérielle requise, restrictions importantes."
+      },
+      "foreignerRestrictionLevel": "high",
+      "foreignerRestrictionValue": 2
+    },
+    {
+      "countryCode": "US",
+      "propertyTax": "0.3% 1.1% 2.5%",
+      "propertyTaxValue": 1.1,
+      "transferTax": "0.0% 1.0% 2.0%",
+      "transferTaxValue": 1.0,
+      "notes": {
+        "fr": "Varie énormément par État/comté Accès étranger: Pleine propriété sans restriction (restrictions récentes dans certains États pour acheteurs chinois).",
+        "en": "Varies greatly by state/county Foreign access: Pleine propriété sans restriction (restrictions récentes dans certains États pour acheteurs chinois)."
+      },
+      "foreignerRestrictionLevel": "unrestricted",
+      "foreignerRestrictionValue": 0
+    },
+    {
+      "countryCode": "CA",
+      "propertyTax": "0.5% 1.2% 2.5%",
+      "propertyTaxValue": 1.2,
+      "transferTax": "0.0% 2.0% 5.0%",
+      "transferTaxValue": 2.0,
+      "notes": {
+        "fr": "Varie par province Accès étranger: Taxe sur acheteurs étrangers dans certaines provinces (BC, Ontario), interdit jusqu'en 2027.",
+        "en": "Varies by province Foreign access: Taxe sur acheteurs étrangers dans certaines provinces (BC, Ontario), interdit jusqu'en 2027."
+      },
+      "foreignerRestrictionLevel": "low",
+      "foreignerRestrictionValue": 1
+    },
+    {
+      "countryCode": "MX",
+      "propertyTax": "0.1% 0.2% 0.3%",
+      "propertyTaxValue": 0.2,
+      "transferTax": "2.0% 3.5% 5.0%",
+      "transferTaxValue": 3.5,
+      "notes": {
+        "fr": "Predial très faible Accès étranger: Zone restreinte 50km côtes/100km frontières : fidéicommis bancaire obligatoire.",
+        "en": "Very low Predial Foreign access: Zone restreinte 50km côtes/100km frontières : fidéicommis bancaire obligatoire."
+      },
+      "foreignerRestrictionLevel": "high",
+      "foreignerRestrictionValue": 2
+    },
+    {
+      "countryCode": "BR",
+      "propertyTax": "0.5% 1.0% 1.5%",
+      "propertyTaxValue": 1.0,
+      "transferTax": "2.0% 3.0% 4.0%",
+      "transferTaxValue": 3.0,
+      "notes": {
+        "fr": "IPTU varie par ville (municipale). Peut être payé par le locataire selon contrat de location, mais propriétaire reste légalement responsable Accès étranger: Pleine propriété sans restriction (limitations pour zones frontalières rurales).",
+        "en": "IPTU varies by city (municipal). Can be paid by tenant per rental agreement, but owner remains legally responsible Foreign access: Pleine propriété sans restriction (limitations pour zones frontalières rurales)."
+      },
+      "foreignerRestrictionLevel": "unrestricted",
+      "foreignerRestrictionValue": 0
+    },
+    {
+      "countryCode": "AR",
+      "propertyTax": "0.5% 1.0% 2.0%",
+      "propertyTaxValue": 1.0,
+      "transferTax": "3.5%",
+      "transferTaxValue": 3.5,
+      "notes": {
+        "fr": "Impuesto Inmobiliario / ABL (provincial/municipal). Locataire paie généralement la taxe selon contrat, mais propriétaire reste responsable Accès étranger: Pleine propriété sans restriction.",
+        "en": "Impuesto Inmobiliario / ABL (provincial/municipal). Tenant typically pays tax per contract, but owner remains responsible Foreign access: Pleine propriété sans restriction."
+      },
+      "foreignerRestrictionLevel": "unrestricted",
+      "foreignerRestrictionValue": 0
+    },
+    {
+      "countryCode": "CL",
+      "propertyTax": "1.0% 1.2% 1.4%",
+      "propertyTaxValue": 1.2,
+      "transferTax": "0%",
+      "transferTaxValue": 0,
+      "notes": {
+        "fr": "Pas de droits de mutation Accès étranger: Pleine propriété sans restriction.",
+        "en": "No transfer tax Foreign access: Pleine propriété sans restriction."
+      },
+      "foreignerRestrictionLevel": "unrestricted",
+      "foreignerRestrictionValue": 0
+    },
+    {
+      "countryCode": "CO",
+      "propertyTax": "0.3% 1.0% 3.3%",
+      "propertyTaxValue": 1.0,
+      "transferTax": "1%",
+      "transferTaxValue": 1.0,
+      "notes": {
+        "fr": "Impuesto Predial progressif Accès étranger: Pleine propriété sans restriction.",
+        "en": "Progressive Impuesto Predial Foreign access: Pleine propriété sans restriction."
+      },
+      "foreignerRestrictionLevel": "unrestricted",
+      "foreignerRestrictionValue": 0
+    },
+    {
+      "countryCode": "PE",
+      "propertyTax": "0.2% 0.5% 1.0%",
+      "propertyTaxValue": 0.5,
+      "transferTax": "3%",
+      "transferTaxValue": 3.0,
+      "notes": {
+        "fr": "Impuesto Predial Accès étranger: Pleine propriété sans restriction.",
+        "en": "Impuesto Predial Foreign access: Pleine propriété sans restriction."
+      },
+      "foreignerRestrictionLevel": "unrestricted",
+      "foreignerRestrictionValue": 0
+    },
+    {
+      "countryCode": "CR",
+      "propertyTax": "0.25%",
+      "propertyTaxValue": 0.25,
+      "transferTax": "1.5%",
+      "transferTaxValue": 1.5,
+      "notes": {
+        "fr": "Impuesto sobre bienes inmuebles. Accès étranger: Pleine propriété sans restriction (exceptions mineures pour zones côtières et frontalières).",
+        "en": "Real estate tax. Foreign access: Unrestricted full ownership (minor exceptions for beachfront and border areas)."
+      },
+      "foreignerRestrictionLevel": "unrestricted",
+      "foreignerRestrictionValue": 0
+    },
+    {
+      "countryCode": "PA",
+      "propertyTax": "0.0% 0.3% 1.0%",
+      "propertyTaxValue": 0.3,
+      "transferTax": "2%",
+      "transferTaxValue": 2.0,
+      "notes": {
+        "fr": "Exonération jusqu'à 120 000$ Accès étranger: Permis de résidence facilite grandement l'achat.",
+        "en": "Exemption up to $120,000 Foreign access: Permis de résidence facilite grandement l'achat."
+      },
+      "foreignerRestrictionLevel": "low",
+      "foreignerRestrictionValue": 1
+    },
+    {
+      "countryCode": "UY",
+      "propertyTax": "0.25% 0.6% 1.2%",
+      "propertyTaxValue": 0.6,
+      "transferTax": "2%",
+      "transferTaxValue": 2.0,
+      "notes": {
+        "fr": "Contribución Inmobiliaria Accès étranger: Pleine propriété sans restriction, enregistrement simple.",
+        "en": "Contribución Inmobiliaria Foreign access: Pleine propriété sans restriction, enregistrement simple."
+      },
+      "foreignerRestrictionLevel": "unrestricted",
+      "foreignerRestrictionValue": 0
+    },
+    {
+      "countryCode": "PY",
+      "propertyTax": "0.0% 0.3% 1.0%",
+      "propertyTaxValue": 0.3,
+      "transferTax": "2%",
+      "transferTaxValue": 2.0,
+      "notes": {
+        "fr": "Impuesto Inmobiliario Accès étranger: Pleine propriété sans restriction.",
+        "en": "Impuesto Inmobiliario Foreign access: Pleine propriété sans restriction."
+      },
+      "foreignerRestrictionLevel": "unrestricted",
+      "foreignerRestrictionValue": 0
+    },
+    {
+      "countryCode": "EC",
+      "propertyTax": "0.025% 0.2% 0.5%",
+      "propertyTaxValue": 0.2,
+      "transferTax": "1%",
+      "transferTaxValue": 1.0,
+      "notes": {
+        "fr": "Très faible Accès étranger: Pleine propriété sans restriction.",
+        "en": "Very low Foreign access: Pleine propriété sans restriction."
+      },
+      "foreignerRestrictionLevel": "unrestricted",
+      "foreignerRestrictionValue": 0
+    },
+    {
+      "countryCode": "DO",
+      "propertyTax": "1%",
+      "propertyTaxValue": 1.0,
+      "transferTax": "3%",
+      "transferTaxValue": 3.0,
+      "notes": {
+        "fr": "IPI sur biens > ~150 000$. Accès étranger: Pleine propriété sans restriction (restrictions mineures zones frontalières).",
+        "en": "IPI on properties > ~$150,000. Foreign access: Unrestricted full ownership (minor border zone restrictions)."
+      },
+      "foreignerRestrictionLevel": "unrestricted",
+      "foreignerRestrictionValue": 0
+    },
+    {
+      "countryCode": "BS",
+      "propertyTax": "0.75% 1.0% 2.0%",
+      "propertyTaxValue": 1.0,
+      "transferTax": "2.5% 5.0% 10.0%",
+      "transferTaxValue": 5.0,
+      "notes": {
+        "fr": "Property Tax progressif Accès étranger: Pleine propriété sans restriction.",
+        "en": "Progressive Property Tax Foreign access: Pleine propriété sans restriction."
+      },
+      "foreignerRestrictionLevel": "unrestricted",
+      "foreignerRestrictionValue": 0
+    },
+    {
+      "countryCode": "KY",
+      "propertyTax": "0%",
+      "propertyTaxValue": 0,
+      "transferTax": "7.5%",
+      "transferTaxValue": 7.5,
+      "notes": {
+        "fr": "Aucune taxe foncière. Accès étranger: Pleine propriété sans restriction.",
+        "en": "No property tax. Foreign access: Unrestricted full ownership."
+      },
+      "foreignerRestrictionLevel": "unrestricted",
+      "foreignerRestrictionValue": 0
+    },
+    {
+      "countryCode": "JP",
+      "propertyTax": "1.4% 1.7% 2.1%",
+      "propertyTaxValue": 1.7,
+      "transferTax": "3.0% 3.5% 4.0%",
+      "transferTaxValue": 3.5,
+      "notes": {
+        "fr": "Kotei Shisan Zei + City Planning Tax Accès étranger: Pleine propriété sans restriction.",
+        "en": "Kotei Shisan Zei + City Planning Tax Foreign access: Pleine propriété sans restriction."
+      },
+      "foreignerRestrictionLevel": "unrestricted",
+      "foreignerRestrictionValue": 0
+    },
+    {
+      "countryCode": "KR",
+      "propertyTax": "0.1% 0.25% 0.4%",
+      "propertyTaxValue": 0.25,
+      "transferTax": "1.0% 2.0% 3.0%",
+      "transferTaxValue": 2.0,
+      "notes": {
+        "fr": "Taxe foncière modérée Accès étranger: Pleine propriété sans restriction (quelques zones militaires restreintes).",
+        "en": "Moderate property tax Foreign access: Pleine propriété sans restriction (quelques zones militaires restreintes)."
+      },
+      "foreignerRestrictionLevel": "unrestricted",
+      "foreignerRestrictionValue": 0
+    },
+    {
+      "countryCode": "CN",
+      "propertyTax": "0%",
+      "propertyTaxValue": 0,
+      "transferTax": "3.0% 4.0% 5.0%",
+      "transferTaxValue": 4.0,
+      "notes": {
+        "fr": "Pas de taxe foncière nationale (pilotes) Accès étranger: Pas de propriété foncière : baux d'usage 70 ans max.",
+        "en": "No national property tax (pilots) Foreign access: Pas de propriété foncière : baux d'usage 70 ans max."
+      },
+      "foreignerRestrictionLevel": "nationalsOnly",
+      "foreignerRestrictionValue": 3
+    },
+    {
+      "countryCode": "HK",
+      "propertyTax": "5%",
+      "propertyTaxValue": 5.0,
+      "transferTax": "1.5% 4.0% 8.5%",
+      "transferTaxValue": 4.0,
+      "notes": {
+        "fr": "Rates basées sur valeur locative Accès étranger: Pleine propriété sans restriction.",
+        "en": "Rates based on rental value Foreign access: Pleine propriété sans restriction."
+      },
+      "foreignerRestrictionLevel": "unrestricted",
+      "foreignerRestrictionValue": 0
+    },
+    {
+      "countryCode": "SG",
+      "propertyTax": "0.0% 4.0% 16.0%",
+      "propertyTaxValue": 4.0,
+      "transferTax": "1.0% 2.0% 4.0%",
+      "transferTaxValue": 2.0,
+      "notes": {
+        "fr": "Progressif, élevé pour non-résidents Accès étranger: Pleine propriété condos, maisons individuelles soumises à approbation.",
+        "en": "Progressive, high for non-residents Foreign access: Pleine propriété condos, maisons individuelles soumises à approbation."
+      },
+      "foreignerRestrictionLevel": "unrestricted",
+      "foreignerRestrictionValue": 0
+    },
+    {
+      "countryCode": "TH",
+      "propertyTax": "0.02% 0.15% 0.3%",
+      "propertyTaxValue": 0.15,
+      "transferTax": "2%",
+      "transferTaxValue": 2.0,
+      "notes": {
+        "fr": "Land and Building Tax récente Accès étranger: Condos autorisés (max 49% étrangers/immeuble), terrains interdits, baux longue durée 30-90 ans.",
+        "en": "Recent Land and Building Tax Foreign access: Condos autorisés (max 49% étrangers/immeuble), terrains interdits, baux longue durée 30-90 ans."
+      },
+      "foreignerRestrictionLevel": "high",
+      "foreignerRestrictionValue": 2
+    },
+    {
+      "countryCode": "MY",
+      "propertyTax": "0.1% 0.15% 0.2%",
+      "propertyTaxValue": 0.15,
+      "transferTax": "1.0% 2.5% 4.0%",
+      "transferTaxValue": 2.5,
+      "notes": {
+        "fr": "Quit Rent + Assessment Rate Accès étranger: Seuils minimums d'achat selon états ($100k-$500k), condos généralement accessibles.",
+        "en": "Quit Rent + Assessment Rate Foreign access: Seuils minimums d'achat selon états ($100k-$500k), condos généralement accessibles."
+      },
+      "foreignerRestrictionLevel": "low",
+      "foreignerRestrictionValue": 1
+    },
+    {
+      "countryCode": "ID",
+      "propertyTax": "0.1% 0.2% 0.3%",
+      "propertyTaxValue": 0.2,
+      "transferTax": "5%",
+      "transferTaxValue": 5.0,
+      "notes": {
+        "fr": "PBB faible Accès étranger: Droit d'usage 80 ans max (Hak Pakai), pas de pleine propriété foncière.",
+        "en": "Low PBB Foreign access: Droit d'usage 80 ans max (Hak Pakai), pas de pleine propriété foncière."
+      },
+      "foreignerRestrictionLevel": "high",
+      "foreignerRestrictionValue": 2
+    },
+    {
+      "countryCode": "PH",
+      "propertyTax": "1.0% 1.5% 2.0%",
+      "propertyTaxValue": 1.5,
+      "transferTax": "0.5% 0.6% 0.75%",
+      "transferTaxValue": 0.6,
+      "notes": {
+        "fr": "Real Property Tax Accès étranger: Condos max 40% étrangers par immeuble, terrains totalement interdits.",
+        "en": "Real Property Tax Foreign access: Condos max 40% étrangers par immeuble, terrains totalement interdits."
+      },
+      "foreignerRestrictionLevel": "high",
+      "foreignerRestrictionValue": 2
+    },
+    {
+      "countryCode": "VN",
+      "propertyTax": "0.03% 0.1% 0.15%",
+      "propertyTaxValue": 0.1,
+      "transferTax": "0.5%",
+      "transferTaxValue": 0.5,
+      "notes": {
+        "fr": "Taxe foncière très faible Accès étranger: Propriété limitée 50 ans renouvelable, essentiellement location longue durée.",
+        "en": "Very low property tax Foreign access: Propriété limitée 50 ans renouvelable, essentiellement location longue durée."
+      },
+      "foreignerRestrictionLevel": "nationalsOnly",
+      "foreignerRestrictionValue": 3
+    },
+    {
+      "countryCode": "IN",
+      "propertyTax": "0.5% 1.0% 2.0%",
+      "propertyTaxValue": 1.0,
+      "transferTax": "5.0% 6.0% 7.0%",
+      "transferTaxValue": 6.0,
+      "notes": {
+        "fr": "Varie par État et ville Accès étranger: Pleine propriété sans restriction (sauf terrains agricoles).",
+        "en": "Varies by state and city Foreign access: Pleine propriété sans restriction (sauf terrains agricoles)."
+      },
+      "foreignerRestrictionLevel": "unrestricted",
+      "foreignerRestrictionValue": 0
+    },
+    {
+      "countryCode": "TW",
+      "propertyTax": "1.0% 2.0% 5.5%",
+      "propertyTaxValue": 2.0,
+      "transferTax": "6%",
+      "transferTaxValue": 6.0,
+      "notes": {
+        "fr": "House Tax + Land Tax Accès étranger: Autorisation requise, processus relativement simple.",
+        "en": "House Tax + Land Tax Foreign access: Autorisation requise, processus relativement simple."
+      },
+      "foreignerRestrictionLevel": "low",
+      "foreignerRestrictionValue": 1
+    },
+    {
+      "countryCode": "KH",
+      "propertyTax": "0.1%",
+      "propertyTaxValue": 0.1,
+      "transferTax": "4%",
+      "transferTaxValue": 4.0,
+      "notes": {
+        "fr": "Taxe très faible. Accès étranger: Interdiction terrains, condos autorisés à partir du 1er étage.",
+        "en": "Very low tax. Foreign access: Land ownership prohibited, condos allowed from 1st floor and above."
+      },
+      "foreignerRestrictionLevel": "high",
+      "foreignerRestrictionValue": 2
+    },
+    {
+      "countryCode": "LK",
+      "propertyTax": "~0.5%",
+      "propertyTaxValue": 0.5,
+      "transferTax": "4%",
+      "transferTaxValue": 4.0,
+      "notes": {
+        "fr": "Assessment rates. Accès étranger: Interdiction terrains, condos autorisés 4ème étage+, ou baux 99 ans, ou via société locale (51% local).",
+        "en": "Assessment rates. Foreign access: Land prohibited, condos allowed 4th floor+, or 99-year leases, or via local company (51% local)."
+      },
+      "foreignerRestrictionLevel": "high",
+      "foreignerRestrictionValue": 2
+    },
+    {
+      "countryCode": "GE",
+      "propertyTax": "0.0% 0.3% 1.0%",
+      "propertyTaxValue": 0.3,
+      "transferTax": "0%",
+      "transferTaxValue": 0,
+      "notes": {
+        "fr": "Taxe progressive selon revenu géorgien. Exonération si < 40 000 GEL/an (~17 000$), 0.8-1% si > 100 000 GEL. Avantage expatriés : revenus étrangers non imposés = taxe foncière souvent à 0%. Aucun droit de mutation Accès étranger: Terrains agricoles restreints, résidentiel/commercial libre.",
+        "en": "Progressive tax based on Georgian income. Exempt if < 40,000 GEL/year (~$17,000), 0.8-1% if > 100,000 GEL. Expat advantage: foreign income not taxed = property tax often 0%. No transfer tax Foreign access: Terrains agricoles restreints, résidentiel/commercial libre."
+      },
+      "foreignerRestrictionLevel": "low",
+      "foreignerRestrictionValue": 1
+    },
+    {
+      "countryCode": "AE",
+      "propertyTax": "0%",
+      "propertyTaxValue": 0,
+      "transferTax": "4%",
+      "transferTaxValue": 4.0,
+      "notes": {
+        "fr": "Aucune taxe foncière à Dubai Accès étranger: Zones franches et secteurs désignés accessibles (Dubai, Abu Dhabi).",
+        "en": "No property tax in Dubai Foreign access: Zones franches et secteurs désignés accessibles (Dubai, Abu Dhabi)."
+      },
+      "foreignerRestrictionLevel": "low",
+      "foreignerRestrictionValue": 1
+    },
+    {
+      "countryCode": "QA",
+      "propertyTax": "0%",
+      "propertyTaxValue": 0,
+      "transferTax": "0.25%",
+      "transferTaxValue": 0.25,
+      "notes": {
+        "fr": "Presque aucun frais Accès étranger: Zones spécifiques uniquement (The Pearl, West Bay Lagoon).",
+        "en": "Almost no fees Foreign access: Zones spécifiques uniquement (The Pearl, West Bay Lagoon)."
+      },
+      "foreignerRestrictionLevel": "high",
+      "foreignerRestrictionValue": 2
+    },
+    {
+      "countryCode": "SA",
+      "propertyTax": "0%",
+      "propertyTaxValue": 0,
+      "transferTax": "5%",
+      "transferTaxValue": 5.0,
+      "notes": {
+        "fr": "Pas de taxe foncière Accès étranger: Propriété limitée aux zones économiques spéciales, permis requis.",
+        "en": "No property tax Foreign access: Propriété limitée aux zones économiques spéciales, permis requis."
+      },
+      "foreignerRestrictionLevel": "high",
+      "foreignerRestrictionValue": 2
+    },
+    {
+      "countryCode": "BH",
+      "propertyTax": "0%",
+      "propertyTaxValue": 0,
+      "transferTax": "2%",
+      "transferTaxValue": 2.0,
+      "notes": {
+        "fr": "Aucune taxe foncière. Accès étranger: Zones désignées uniquement (Amwaj, Seef, Durrat, Juffair, Bahrain Bay), autorisation ministère intérieur.",
+        "en": "No property tax. Foreign access: Designated zones only (Amwaj, Seef, Durrat, Juffair, Bahrain Bay), Ministry of Interior clearance."
+      },
+      "foreignerRestrictionLevel": "low",
+      "foreignerRestrictionValue": 1
+    },
+    {
+      "countryCode": "OM",
+      "propertyTax": "0%",
+      "propertyTaxValue": 0,
+      "transferTax": "3.0% 4.0% 5.0%",
+      "transferTaxValue": 4.0,
+      "notes": {
+        "fr": "Pas de taxe foncière Accès étranger: Zones intégrées touristiques uniquement, permis requis.",
+        "en": "No property tax Foreign access: Zones intégrées touristiques uniquement, permis requis."
+      },
+      "foreignerRestrictionLevel": "high",
+      "foreignerRestrictionValue": 2
+    },
+    {
+      "countryCode": "KW",
+      "propertyTax": "0%",
+      "propertyTaxValue": 0,
+      "transferTax": "0.5%",
+      "transferTaxValue": 0.5,
+      "notes": {
+        "fr": "Aucune taxe immobilière. Accès étranger: Non-CCG nécessitent 10 ans résidence, casier vierge, approbation Conseil ministres, max 1 bien résidentiel 1000m².",
+        "en": "No real estate tax. Foreign access: Non-GCC require 10 years residency, clean record, Council of Ministers approval, max 1 residential property 1000m²."
+      },
+      "foreignerRestrictionLevel": "high",
+      "foreignerRestrictionValue": 2
+    },
+    {
+      "countryCode": "JO",
+      "propertyTax": "~0.1%",
+      "propertyTaxValue": 0.1,
+      "transferTax": "5.0% 7.5% 10.0%",
+      "transferTaxValue": 7.5,
+      "notes": {
+        "fr": "Property Tax très faible Accès étranger: Autorisation requise mais relativement accessible.",
+        "en": "Very low Property Tax Foreign access: Autorisation requise mais relativement accessible."
+      },
+      "foreignerRestrictionLevel": "low",
+      "foreignerRestrictionValue": 1
+    },
+    {
+      "countryCode": "IL",
+      "propertyTax": "0.1% 0.3% 0.5%",
+      "propertyTaxValue": 0.3,
+      "transferTax": "0.0% 5.0% 10.0%",
+      "transferTaxValue": 5.0,
+      "notes": {
+        "fr": "Arnona basée sur surface Accès étranger: Pleine propriété sans restriction.",
+        "en": "Arnona based on area Foreign access: Pleine propriété sans restriction."
+      },
+      "foreignerRestrictionLevel": "unrestricted",
+      "foreignerRestrictionValue": 0
+    },
+    {
+      "countryCode": "TR",
+      "propertyTax": "0.1% 0.3% 0.6%",
+      "propertyTaxValue": 0.3,
+      "transferTax": "4%",
+      "transferTaxValue": 4.0,
+      "notes": {
+        "fr": "Emlak Vergisi Accès étranger: Réciprocité avec pays d'origine, quotas par district.",
+        "en": "Emlak Vergisi Foreign access: Réciprocité avec pays d'origine, quotas par district."
+      },
+      "foreignerRestrictionLevel": "low",
+      "foreignerRestrictionValue": 1
+    },
+    {
+      "countryCode": "MA",
+      "propertyTax": "0.0% 0.1% 0.2%",
+      "propertyTaxValue": 0.1,
+      "transferTax": "4.0% 5.0% 6.0%",
+      "transferTaxValue": 5.0,
+      "notes": {
+        "fr": "Taxe d'habitation + taxe services Accès étranger: Pleine propriété sans restriction.",
+        "en": "Housing tax + service tax Foreign access: Pleine propriété sans restriction."
+      },
+      "foreignerRestrictionLevel": "unrestricted",
+      "foreignerRestrictionValue": 0
+    },
+    {
+      "countryCode": "TN",
+      "propertyTax": "0.1% 0.15% 0.2%",
+      "propertyTaxValue": 0.15,
+      "transferTax": "4%",
+      "transferTaxValue": 4.0,
+      "notes": {
+        "fr": "Taxe foncière faible Accès étranger: Pleine propriété sans restriction (terrains agricoles limités).",
+        "en": "Low property tax Foreign access: Pleine propriété sans restriction (terrains agricoles limités)."
+      },
+      "foreignerRestrictionLevel": "unrestricted",
+      "foreignerRestrictionValue": 0
+    },
+    {
+      "countryCode": "EG",
+      "propertyTax": "0.1% 0.2% 0.3%",
+      "propertyTaxValue": 0.2,
+      "transferTax": "2.5%",
+      "transferTaxValue": 2.5,
+      "notes": {
+        "fr": "Property Tax récente Accès étranger: Autorisation requise, secteurs touristiques plus accessibles.",
+        "en": "Recent Property Tax Foreign access: Autorisation requise, secteurs touristiques plus accessibles."
+      },
+      "foreignerRestrictionLevel": "low",
+      "foreignerRestrictionValue": 1
+    },
+    {
+      "countryCode": "ZA",
+      "propertyTax": "0.5% 1.0% 2.0%",
+      "propertyTaxValue": 1.0,
+      "transferTax": "0.0% 5.0% 13.0%",
+      "transferTaxValue": 5.0,
+      "notes": {
+        "fr": "Rates + Transfer Duty progressif Accès étranger: Pleine propriété sans restriction.",
+        "en": "Rates + progressive Transfer Duty Foreign access: Pleine propriété sans restriction."
+      },
+      "foreignerRestrictionLevel": "unrestricted",
+      "foreignerRestrictionValue": 0
+    },
+    {
+      "countryCode": "MU",
+      "propertyTax": "0%",
+      "propertyTaxValue": 0,
+      "transferTax": "5%",
+      "transferTaxValue": 5.0,
+      "notes": {
+        "fr": "Pas de taxe foncière annuelle. Accès étranger: Propriété résidentielle interdite, uniquement via programmes IRS/RES (villas de luxe $375k+) avec permis résidence",
+        "en": "No annual property tax. Foreign access: Residential property prohibited, only via IRS/RES schemes (luxury villas $375k+) with residence permit"
+      },
+      "foreignerRestrictionLevel": "high",
+      "foreignerRestrictionValue": 2
+    },
+    {
+      "countryCode": "SC",
+      "propertyTax": "0%",
+      "propertyTaxValue": 0,
+      "transferTax": "18.5%",
+      "transferTaxValue": 18.5,
+      "notes": {
+        "fr": "Aucune taxe foncière. Stamp duty 18.5%. Accès étranger: Moratoire levé 2025, min SCR 10M (695k$), terrains 2000-4000m² à SCR 4000/m².",
+        "en": "No property tax. Stamp duty 18.5%. Foreign access: Moratorium lifted 2025, min SCR 10M ($695k), land 2000-4000m² at SCR 4000/m²."
+      },
+      "foreignerRestrictionLevel": "low",
+      "foreignerRestrictionValue": 1
+    },
+    {
+      "countryCode": "KE",
+      "propertyTax": "0.1% 0.3% 0.5%",
+      "propertyTaxValue": 0.3,
+      "transferTax": "4%",
+      "transferTaxValue": 4.0,
+      "notes": {
+        "fr": "Land Rates Accès étranger: Pleine propriété sans restriction (terrains agricoles limités).",
+        "en": "Land Rates Foreign access: Pleine propriété sans restriction (terrains agricoles limités)."
+      },
+      "foreignerRestrictionLevel": "unrestricted",
+      "foreignerRestrictionValue": 0
+    },
+    {
+      "countryCode": "GH",
+      "propertyTax": "0.5%",
+      "propertyTaxValue": 0.5,
+      "transferTax": "0.5%",
+      "transferTaxValue": 0.5,
+      "notes": {
+        "fr": "Property Rate. Accès étranger: Baux 50 ans max uniquement (pas de freehold), structures bâties en pleine propriété, max 50 acres sans approbation spéciale.",
+        "en": "Property Rate. Foreign access: 50-year leasehold only (no freehold), buildings freehold owned, max 50 acres without special approval."
+      },
+      "foreignerRestrictionLevel": "low",
+      "foreignerRestrictionValue": 1
+    },
+    {
+      "countryCode": "AU",
+      "propertyTax": "0.0% 1.0% 2.67%",
+      "propertyTaxValue": 1.0,
+      "transferTax": "1.4% 4.0% 6.75%",
+      "transferTaxValue": 4.0,
+      "notes": {
+        "fr": "Land Tax + Stamp Duty, varie par État Accès étranger: Approbation FIRB obligatoire, logement neuf prioritaire, restrictions selon visa.",
+        "en": "Land Tax + Stamp Duty, varies by state Foreign access: Approbation FIRB obligatoire, logement neuf prioritaire, restrictions selon visa."
+      },
+      "foreignerRestrictionLevel": "high",
+      "foreignerRestrictionValue": 2
+    },
+    {
+      "countryCode": "NZ",
+      "propertyTax": "0.2% 0.4% 0.6%",
+      "propertyTaxValue": 0.4,
+      "transferTax": "0%",
+      "transferTaxValue": 0,
+      "notes": {
+        "fr": "Rates locaux, pas de Stamp Duty Accès étranger: Interdiction achat résidentiel 2018-2024, assouplissements 2024 mais restrictions importantes.",
+        "en": "Local rates, no Stamp Duty Foreign access: Interdiction achat résidentiel 2018-2024, assouplissements 2024 mais restrictions importantes."
+      },
+      "foreignerRestrictionLevel": "high",
+      "foreignerRestrictionValue": 2
+    },
+    {
+      "countryCode": "FJ",
+      "propertyTax": "0%",
+      "propertyTaxValue": 0,
+      "transferTax": "3.0% 6.0% 10.0%",
+      "transferTaxValue": 6.0,
+      "notes": {
+        "fr": "Pas de taxe foncière Accès étranger: Baux 99 ans pour terrains natifs, pleine propriété sur terrains libres.",
+        "en": "No property tax Foreign access: Baux 99 ans pour terrains natifs, pleine propriété sur terrains libres."
+      },
+      "foreignerRestrictionLevel": "low",
+      "foreignerRestrictionValue": 1
+    },
+    {
+      "countryCode": "VU",
+      "propertyTax": "0%",
+      "propertyTaxValue": 0,
+      "transferTax": "0%",
+      "transferTaxValue": 0,
+      "notes": {
+        "fr": "Paradis fiscal complet. Accès étranger: Baux 50-99 ans (pas de freehold), aucune restriction, libre circulation capitaux.",
+        "en": "Complete tax haven. Foreign access: 50-99 year leases (no freehold), no restrictions, free capital movement."
+      },
+      "foreignerRestrictionLevel": "unrestricted",
+      "foreignerRestrictionValue": 0
     }
-  },
-  {
-    "countryCode": "DE",
-    "propertyTax": "0.26% 0.5% 1%",
-    "propertyTaxValue": 0.5,
-    "transferTax": "3.5% 5% 6.5%",
-    "transferTaxValue": 5.0,
-    "notes": {
-      "fr": "Grundsteuer réformée en 2025, varie par Land. Droits de mutation (Grunderwerbsteuer): Bavière/Saxe 3.5%, moyenne nationale ~5%, Berlin 6%",
-      "en": "Grundsteuer reformed in 2025, varies by state. Transfer tax (Grunderwerbsteuer): Bavaria/Saxony 3.5%, national avg ~5%, Berlin 6%"
-    }
-  },
-  {
-    "countryCode": "ES",
-    "propertyTax": "0.4% 0.7% 1.1%",
-    "propertyTaxValue": 0.7,
-    "transferTax": "6% 8% 10%",
-    "transferTaxValue": 8.0,
-    "notes": {
-      "fr": "IBI varie par municipalité (Madrid 0.44%, Valence 0.57%). Droits de mutation (ITP): Madrid 6%, Andalousie 7%, Catalogne/Valence 10%",
-      "en": "IBI varies by municipality (Madrid 0.44%, Valencia 0.57%). Transfer tax (ITP): Madrid 6%, Andalusia 7%, Catalonia/Valencia 10%"
-    }
-  },
-  {
-    "countryCode": "IT",
-    "propertyTax": "0.4% 0.7% 1.06%",
-    "propertyTaxValue": 0.7,
-    "transferTax": "2.0% 5.0% 9.0%",
-    "transferTaxValue": 5.0,
-    "notes": {
-      "fr": "IMU exonérée pour résidence principale",
-      "en": "IMU exempt for primary residence"
-    }
-  },
-  {
-    "countryCode": "PT",
-    "propertyTax": "0.3% 0.5% 0.8%",
-    "propertyTaxValue": 0.5,
-    "transferTax": "0.0% 5.0% 7.5%",
-    "transferTaxValue": 5.0,
-    "notes": {
-      "fr": "IMI basée sur valeur patrimoniale",
-      "en": "IMI based on tax value"
-    }
-  },
-  {
-    "countryCode": "GB",
-    "propertyTax": "0.5% 1.2% 2%",
-    "propertyTaxValue": 1.2,
-    "transferTax": "0% 3% 12%",
-    "transferTaxValue": 3.0,
-    "notes": {
-      "fr": "Stamp Duty progressif: 0% <£125k, 2% £125k-£250k, 5% £250k-£925k, 10% £925k-£1.5M, 12% >£1.5M. Primo-accédant: 0% <£300k. Council Tax (taxe d'habitation municipale, 0.5-1.5%) payée par l'occupant du logement",
-      "en": "Progressive Stamp Duty: 0% <£125k, 2% £125k-£250k, 5% £250k-£925k, 10% £925k-£1.5M, 12% >£1.5M. First-time buyers: 0% <£300k. Council Tax (municipal housing tax, 0.5-1.5%) paid by property occupant"
-    }
-  },
-  {
-    "countryCode": "BE",
-    "propertyTax": "1.25% 1.8% 2.5%",
-    "propertyTaxValue": 1.8,
-    "transferTax": "10.0% 11.3% 12.5%",
-    "transferTaxValue": 11.3,
-    "notes": {
-      "fr": "Précompte immobilier élevé",
-      "en": "High property withholding tax"
-    }
-  },
-  {
-    "countryCode": "NL",
-    "propertyTax": "0.1% 0.2% 0.3%",
-    "propertyTaxValue": 0.2,
-    "transferTax": "2.0% 6.0% 10.4%",
-    "transferTaxValue": 6.0,
-    "notes": {
-      "fr": "OZB faible, droits transfert augmentés",
-      "en": "Low OZB, increased transfer duties"
-    }
-  },
-  {
-    "countryCode": "CH",
-    "propertyTax": "0.05% 0.15% 0.3%",
-    "propertyTaxValue": 0.15,
-    "transferTax": "0.0% 1.5% 3.0%",
-    "transferTaxValue": 1.5,
-    "notes": {
-      "fr": "Varie considérablement par canton",
-      "en": "Varies considerably by canton"
-    }
-  },
-  {
-    "countryCode": "AT",
-    "propertyTax": "0.1% 0.15% 0.2%",
-    "propertyTaxValue": 0.15,
-    "transferTax": "3.5%",
-    "transferTaxValue": 3.5,
-    "notes": {
-      "fr": "Grundsteuer très faible",
-      "en": "Very low Grundsteuer"
-    }
-  },
-  {
-    "countryCode": "IE",
-    "propertyTax": "0.18% 0.2% 0.25%",
-    "propertyTaxValue": 0.2,
-    "transferTax": "1.0% 1.5% 2.0%",
-    "transferTaxValue": 1.5,
-    "notes": {
-      "fr": "Local Property Tax récente",
-      "en": "Recent Local Property Tax"
-    }
-  },
-  {
-    "countryCode": "GR",
-    "propertyTax": "0.1% 0.6% 1.15%",
-    "propertyTaxValue": 0.6,
-    "transferTax": "3%",
-    "transferTaxValue": 3.0,
-    "notes": {
-      "fr": "ENFIA basée sur valeur objective",
-      "en": "ENFIA based on objective value"
-    }
-  },
-  {
-    "countryCode": "PL",
-    "propertyTax": "~0.7%",
-    "propertyTaxValue": 0.7,
-    "transferTax": "2%",
-    "transferTaxValue": 2.0,
-    "notes": {
-      "fr": "Taxe au m², pas sur la valeur",
-      "en": "Tax per m², not on value"
-    }
-  },
-  {
-    "countryCode": "CZ",
-    "propertyTax": "~0.1%",
-    "propertyTaxValue": 0.1,
-    "transferTax": "4%",
-    "transferTaxValue": 4.0,
-    "notes": {
-      "fr": "Parmi les plus faibles d'Europe",
-      "en": "Among the lowest in Europe"
-    }
-  },
-  {
-    "countryCode": "HU",
-    "propertyTax": "0.0% 0.5% 1.8%",
-    "propertyTaxValue": 0.5,
-    "transferTax": "4%",
-    "transferTaxValue": 4.0,
-    "notes": {
-      "fr": "Décidée par municipalités",
-      "en": "Decided by municipalities"
-    }
-  },
-  {
-    "countryCode": "RO",
-    "propertyTax": "0.08% 0.1% 0.2%",
-    "propertyTaxValue": 0.1,
-    "transferTax": "0.0% 1.0% 3.0%",
-    "transferTaxValue": 1.0,
-    "notes": {
-      "fr": "Très faible, basée sur valeur cadastrale",
-      "en": "Very low, based on cadastral value"
-    }
-  },
-  {
-    "countryCode": "BG",
-    "propertyTax": "0.1% 0.2% 0.45%",
-    "propertyTaxValue": 0.2,
-    "transferTax": "0.1% 1.5% 3.0%",
-    "transferTaxValue": 1.5,
-    "notes": {
-      "fr": "Parmi les plus attractives en UE",
-      "en": "Among the most attractive in EU"
-    }
-  },
-  {
-    "countryCode": "HR",
-    "propertyTax": "0.6% - 8€/m²",
-    "propertyTaxValue": 0.3,
-    "transferTax": "3%",
-    "transferTaxValue": 3.0,
-    "notes": {
-      "fr": "Taxe sur résidences secondaires/vacantes",
-      "en": "Tax on secondary/vacant residences"
-    }
-  },
-  {
-    "countryCode": "SI",
-    "propertyTax": "~0.15%",
-    "propertyTaxValue": 0.15,
-    "transferTax": "2%",
-    "transferTaxValue": 2.0,
-    "notes": {
-      "fr": "Faible taxe foncière",
-      "en": "Low property tax"
-    }
-  },
-  {
-    "countryCode": "SK",
-    "propertyTax": "~0.2%",
-    "propertyTaxValue": 0.2,
-    "transferTax": "0%",
-    "transferTaxValue": 0,
-    "notes": {
-      "fr": "Pas de droits de mutation",
-      "en": "No transfer tax"
-    }
-  },
-  {
-    "countryCode": "EE",
-    "propertyTax": "0.1% 0.5% 2.5%",
-    "propertyTaxValue": 0.5,
-    "transferTax": "0%",
-    "transferTaxValue": 0,
-    "notes": {
-      "fr": "Taxe sur le terrain uniquement",
-      "en": "Land tax only"
-    }
-  },
-  {
-    "countryCode": "LV",
-    "propertyTax": "0.2% 1.0% 3.0%",
-    "propertyTaxValue": 1.0,
-    "transferTax": "2%",
-    "transferTaxValue": 2.0,
-    "notes": {
-      "fr": "Taux progressif selon valeur",
-      "en": "Progressive rate based on value"
-    }
-  },
-  {
-    "countryCode": "LT",
-    "propertyTax": "0.5% 1.0% 2.0%",
-    "propertyTaxValue": 1.0,
-    "transferTax": "0%",
-    "transferTaxValue": 0,
-    "notes": {
-      "fr": "Taxe sur biens > 150 000€",
-      "en": "Tax on properties > €150,000"
-    }
-  },
-  {
-    "countryCode": "CY",
-    "propertyTax": "0%",
-    "propertyTaxValue": 0,
-    "transferTax": "3.0% 5.0% 8.0%",
-    "transferTaxValue": 5.0,
-    "notes": {
-      "fr": "Taxe foncière abolie en 2017",
-      "en": "Property tax abolished in 2017"
-    }
-  },
-  {
-    "countryCode": "MT",
-    "propertyTax": "0%",
-    "propertyTaxValue": 0,
-    "transferTax": "5%",
-    "transferTaxValue": 5.0,
-    "notes": {
-      "fr": "Aucune taxe foncière annuelle",
-      "en": "No annual property tax"
-    }
-  },
-  {
-    "countryCode": "LU",
-    "propertyTax": "~0.1%",
-    "propertyTaxValue": 0.1,
-    "transferTax": "6.0% 6.5% 7.0%",
-    "transferTaxValue": 6.5,
-    "notes": {
-      "fr": "Impôt foncier symbolique",
-      "en": "Symbolic property tax"
-    }
-  },
-  {
-    "countryCode": "MC",
-    "propertyTax": "0%",
-    "propertyTaxValue": 0,
-    "transferTax": "4.5%",
-    "transferTaxValue": 4.5,
-    "notes": {
-      "fr": "Pas de taxe foncière",
-      "en": "No property tax"
-    }
-  },
-  {
-    "countryCode": "AD",
-    "propertyTax": "0%",
-    "propertyTaxValue": 0,
-    "transferTax": "4%",
-    "transferTaxValue": 4.0,
-    "notes": {
-      "fr": "Pas de taxe foncière annuelle",
-      "en": "No annual property tax"
-    }
-  },
-  {
-    "countryCode": "SE",
-    "propertyTax": "0.75%",
-    "propertyTaxValue": 0.75,
-    "transferTax": "1.5% 3.0% 4.25%",
-    "transferTaxValue": 3.0,
-    "notes": {
-      "fr": "Plafonnée à ~8000€/an",
-      "en": "Capped at ~€8,000/year"
-    }
-  },
-  {
-    "countryCode": "NO",
-    "propertyTax": "0.0% 0.3% 0.7%",
-    "propertyTaxValue": 0.3,
-    "transferTax": "2.5%",
-    "transferTaxValue": 2.5,
-    "notes": {
-      "fr": "Décidée localement",
-      "en": "Decided locally"
-    }
-  },
-  {
-    "countryCode": "DK",
-    "propertyTax": "0.92% 1.5% 3.0%",
-    "propertyTaxValue": 1.5,
-    "transferTax": "0.6%",
-    "transferTaxValue": 0.6,
-    "notes": {
-      "fr": "Taxe foncière élevée",
-      "en": "High property tax"
-    }
-  },
-  {
-    "countryCode": "FI",
-    "propertyTax": "0.41% 0.8% 1.35%",
-    "propertyTaxValue": 0.8,
-    "transferTax": "2% 3% 4%",
-    "transferTaxValue": 3.0,
-    "notes": {
-      "fr": "Varie par municipalité. Droits de mutation: 3% pour maisons, 1.5% pour appartements en copropriété",
-      "en": "Varies by municipality. Transfer tax: 3% for houses, 1.5% for housing company shares (apartments)"
-    }
-  },
-  {
-    "countryCode": "IS",
-    "propertyTax": "0.5% 1.0% 1.65%",
-    "propertyTaxValue": 1.0,
-    "transferTax": "0.8%",
-    "transferTaxValue": 0.8,
-    "notes": {
-      "fr": "Droits de mutation faibles",
-      "en": "Low transfer duties"
-    }
-  },
-  {
-    "countryCode": "US",
-    "propertyTax": "0.3% 1.1% 2.5%",
-    "propertyTaxValue": 1.1,
-    "transferTax": "0.0% 1.0% 2.0%",
-    "transferTaxValue": 1.0,
-    "notes": {
-      "fr": "Varie énormément par État/comté",
-      "en": "Varies greatly by state/county"
-    }
-  },
-  {
-    "countryCode": "CA",
-    "propertyTax": "0.5% 1.2% 2.5%",
-    "propertyTaxValue": 1.2,
-    "transferTax": "0.0% 2.0% 5.0%",
-    "transferTaxValue": 2.0,
-    "notes": {
-      "fr": "Varie par province",
-      "en": "Varies by province"
-    }
-  },
-  {
-    "countryCode": "MX",
-    "propertyTax": "0.1% 0.2% 0.3%",
-    "propertyTaxValue": 0.2,
-    "transferTax": "2.0% 3.5% 5.0%",
-    "transferTaxValue": 3.5,
-    "notes": {
-      "fr": "Predial très faible",
-      "en": "Very low Predial"
-    }
-  },
-  {
-    "countryCode": "BR",
-    "propertyTax": "0.5% 1.0% 1.5%",
-    "propertyTaxValue": 1.0,
-    "transferTax": "2.0% 3.0% 4.0%",
-    "transferTaxValue": 3.0,
-    "notes": {
-      "fr": "IPTU varie par ville (municipale). Peut être payé par le locataire selon contrat de location, mais propriétaire reste légalement responsable",
-      "en": "IPTU varies by city (municipal). Can be paid by tenant per rental agreement, but owner remains legally responsible"
-    }
-  },
-  {
-    "countryCode": "AR",
-    "propertyTax": "0.5% 1.0% 2.0%",
-    "propertyTaxValue": 1.0,
-    "transferTax": "3.5%",
-    "transferTaxValue": 3.5,
-    "notes": {
-      "fr": "Impuesto Inmobiliario / ABL (provincial/municipal). Locataire paie généralement la taxe selon contrat, mais propriétaire reste responsable",
-      "en": "Impuesto Inmobiliario / ABL (provincial/municipal). Tenant typically pays tax per contract, but owner remains responsible"
-    }
-  },
-  {
-    "countryCode": "CL",
-    "propertyTax": "1.0% 1.2% 1.4%",
-    "propertyTaxValue": 1.2,
-    "transferTax": "0%",
-    "transferTaxValue": 0,
-    "notes": {
-      "fr": "Pas de droits de mutation",
-      "en": "No transfer tax"
-    }
-  },
-  {
-    "countryCode": "CO",
-    "propertyTax": "0.3% 1.0% 3.3%",
-    "propertyTaxValue": 1.0,
-    "transferTax": "1%",
-    "transferTaxValue": 1.0,
-    "notes": {
-      "fr": "Impuesto Predial progressif",
-      "en": "Progressive Impuesto Predial"
-    }
-  },
-  {
-    "countryCode": "PE",
-    "propertyTax": "0.2% 0.5% 1.0%",
-    "propertyTaxValue": 0.5,
-    "transferTax": "3%",
-    "transferTaxValue": 3.0,
-    "notes": {
-      "fr": "Impuesto Predial",
-      "en": "Impuesto Predial"
-    }
-  },
-  {
-    "countryCode": "CR",
-    "propertyTax": "0.25%",
-    "propertyTaxValue": 0.25,
-    "transferTax": "1.5%",
-    "transferTaxValue": 1.5,
-    "notes": {
-      "fr": "Impuesto sobre bienes inmuebles",
-      "en": "Real estate tax"
-    }
-  },
-  {
-    "countryCode": "PA",
-    "propertyTax": "0.0% 0.3% 1.0%",
-    "propertyTaxValue": 0.3,
-    "transferTax": "2%",
-    "transferTaxValue": 2.0,
-    "notes": {
-      "fr": "Exonération jusqu'à 120 000$",
-      "en": "Exemption up to $120,000"
-    }
-  },
-  {
-    "countryCode": "UY",
-    "propertyTax": "0.25% 0.6% 1.2%",
-    "propertyTaxValue": 0.6,
-    "transferTax": "2%",
-    "transferTaxValue": 2.0,
-    "notes": {
-      "fr": "Contribución Inmobiliaria",
-      "en": "Contribución Inmobiliaria"
-    }
-  },
-  {
-    "countryCode": "PY",
-    "propertyTax": "0.0% 0.3% 1.0%",
-    "propertyTaxValue": 0.3,
-    "transferTax": "2%",
-    "transferTaxValue": 2.0,
-    "notes": {
-      "fr": "Impuesto Inmobiliario",
-      "en": "Impuesto Inmobiliario"
-    }
-  },
-  {
-    "countryCode": "EC",
-    "propertyTax": "0.025% 0.2% 0.5%",
-    "propertyTaxValue": 0.2,
-    "transferTax": "1%",
-    "transferTaxValue": 1.0,
-    "notes": {
-      "fr": "Très faible",
-      "en": "Very low"
-    }
-  },
-  {
-    "countryCode": "DO",
-    "propertyTax": "1%",
-    "propertyTaxValue": 1.0,
-    "transferTax": "3%",
-    "transferTaxValue": 3.0,
-    "notes": {
-      "fr": "IPI sur biens > ~150 000$",
-      "en": "IPI on properties > ~$150,000"
-    }
-  },
-  {
-    "countryCode": "BS",
-    "propertyTax": "0.75% 1.0% 2.0%",
-    "propertyTaxValue": 1.0,
-    "transferTax": "2.5% 5.0% 10.0%",
-    "transferTaxValue": 5.0,
-    "notes": {
-      "fr": "Property Tax progressif",
-      "en": "Progressive Property Tax"
-    }
-  },
-  {
-    "countryCode": "KY",
-    "propertyTax": "0%",
-    "propertyTaxValue": 0,
-    "transferTax": "7.5%",
-    "transferTaxValue": 7.5,
-    "notes": {
-      "fr": "Aucune taxe foncière",
-      "en": "No property tax"
-    }
-  },
-  {
-    "countryCode": "JP",
-    "propertyTax": "1.4% 1.7% 2.1%",
-    "propertyTaxValue": 1.7,
-    "transferTax": "3.0% 3.5% 4.0%",
-    "transferTaxValue": 3.5,
-    "notes": {
-      "fr": "Kotei Shisan Zei + City Planning Tax",
-      "en": "Kotei Shisan Zei + City Planning Tax"
-    }
-  },
-  {
-    "countryCode": "KR",
-    "propertyTax": "0.1% 0.25% 0.4%",
-    "propertyTaxValue": 0.25,
-    "transferTax": "1.0% 2.0% 3.0%",
-    "transferTaxValue": 2.0,
-    "notes": {
-      "fr": "Taxe foncière modérée",
-      "en": "Moderate property tax"
-    }
-  },
-  {
-    "countryCode": "CN",
-    "propertyTax": "0%",
-    "propertyTaxValue": 0,
-    "transferTax": "3.0% 4.0% 5.0%",
-    "transferTaxValue": 4.0,
-    "notes": {
-      "fr": "Pas de taxe foncière nationale (pilotes)",
-      "en": "No national property tax (pilots)"
-    }
-  },
-  {
-    "countryCode": "HK",
-    "propertyTax": "5%",
-    "propertyTaxValue": 5.0,
-    "transferTax": "1.5% 4.0% 8.5%",
-    "transferTaxValue": 4.0,
-    "notes": {
-      "fr": "Rates basées sur valeur locative",
-      "en": "Rates based on rental value"
-    }
-  },
-  {
-    "countryCode": "SG",
-    "propertyTax": "0.0% 4.0% 16.0%",
-    "propertyTaxValue": 4.0,
-    "transferTax": "1.0% 2.0% 4.0%",
-    "transferTaxValue": 2.0,
-    "notes": {
-      "fr": "Progressif, élevé pour non-résidents",
-      "en": "Progressive, high for non-residents"
-    }
-  },
-  {
-    "countryCode": "TH",
-    "propertyTax": "0.02% 0.15% 0.3%",
-    "propertyTaxValue": 0.15,
-    "transferTax": "2%",
-    "transferTaxValue": 2.0,
-    "notes": {
-      "fr": "Land and Building Tax récente",
-      "en": "Recent Land and Building Tax"
-    }
-  },
-  {
-    "countryCode": "MY",
-    "propertyTax": "0.1% 0.15% 0.2%",
-    "propertyTaxValue": 0.15,
-    "transferTax": "1.0% 2.5% 4.0%",
-    "transferTaxValue": 2.5,
-    "notes": {
-      "fr": "Quit Rent + Assessment Rate",
-      "en": "Quit Rent + Assessment Rate"
-    }
-  },
-  {
-    "countryCode": "ID",
-    "propertyTax": "0.1% 0.2% 0.3%",
-    "propertyTaxValue": 0.2,
-    "transferTax": "5%",
-    "transferTaxValue": 5.0,
-    "notes": {
-      "fr": "PBB faible",
-      "en": "Low PBB"
-    }
-  },
-  {
-    "countryCode": "PH",
-    "propertyTax": "1.0% 1.5% 2.0%",
-    "propertyTaxValue": 1.5,
-    "transferTax": "0.5% 0.6% 0.75%",
-    "transferTaxValue": 0.6,
-    "notes": {
-      "fr": "Real Property Tax",
-      "en": "Real Property Tax"
-    }
-  },
-  {
-    "countryCode": "VN",
-    "propertyTax": "0.03% 0.1% 0.15%",
-    "propertyTaxValue": 0.1,
-    "transferTax": "0.5%",
-    "transferTaxValue": 0.5,
-    "notes": {
-      "fr": "Taxe foncière très faible",
-      "en": "Very low property tax"
-    }
-  },
-  {
-    "countryCode": "IN",
-    "propertyTax": "0.5% 1.0% 2.0%",
-    "propertyTaxValue": 1.0,
-    "transferTax": "5.0% 6.0% 7.0%",
-    "transferTaxValue": 6.0,
-    "notes": {
-      "fr": "Varie par État et ville",
-      "en": "Varies by state and city"
-    }
-  },
-  {
-    "countryCode": "TW",
-    "propertyTax": "1.0% 2.0% 5.5%",
-    "propertyTaxValue": 2.0,
-    "transferTax": "6%",
-    "transferTaxValue": 6.0,
-    "notes": {
-      "fr": "House Tax + Land Tax",
-      "en": "House Tax + Land Tax"
-    }
-  },
-  {
-    "countryCode": "KH",
-    "propertyTax": "0.1%",
-    "propertyTaxValue": 0.1,
-    "transferTax": "4%",
-    "transferTaxValue": 4.0,
-    "notes": {
-      "fr": "Taxe très faible",
-      "en": "Very low tax"
-    }
-  },
-  {
-    "countryCode": "LK",
-    "propertyTax": "~0.5%",
-    "propertyTaxValue": 0.5,
-    "transferTax": "4%",
-    "transferTaxValue": 4.0,
-    "notes": {
-      "fr": "Assessment rates",
-      "en": "Assessment rates"
-    }
-  },
-  {
-    "countryCode": "GE",
-    "propertyTax": "0.0% 0.3% 1.0%",
-    "propertyTaxValue": 0.3,
-    "transferTax": "0%",
-    "transferTaxValue": 0,
-    "notes": {
-      "fr": "Taxe progressive selon revenu géorgien. Exonération si < 40 000 GEL/an (~17 000$), 0.8-1% si > 100 000 GEL. Avantage expatriés : revenus étrangers non imposés = taxe foncière souvent à 0%. Aucun droit de mutation",
-      "en": "Progressive tax based on Georgian income. Exempt if < 40,000 GEL/year (~$17,000), 0.8-1% if > 100,000 GEL. Expat advantage: foreign income not taxed = property tax often 0%. No transfer tax"
-    }
-  },
-  {
-    "countryCode": "AE",
-    "propertyTax": "0%",
-    "propertyTaxValue": 0,
-    "transferTax": "4%",
-    "transferTaxValue": 4.0,
-    "notes": {
-      "fr": "Aucune taxe foncière à Dubai",
-      "en": "No property tax in Dubai"
-    }
-  },
-  {
-    "countryCode": "QA",
-    "propertyTax": "0%",
-    "propertyTaxValue": 0,
-    "transferTax": "0.25%",
-    "transferTaxValue": 0.25,
-    "notes": {
-      "fr": "Presque aucun frais",
-      "en": "Almost no fees"
-    }
-  },
-  {
-    "countryCode": "SA",
-    "propertyTax": "0%",
-    "propertyTaxValue": 0,
-    "transferTax": "5%",
-    "transferTaxValue": 5.0,
-    "notes": {
-      "fr": "Pas de taxe foncière",
-      "en": "No property tax"
-    }
-  },
-  {
-    "countryCode": "BH",
-    "propertyTax": "0%",
-    "propertyTaxValue": 0,
-    "transferTax": "2%",
-    "transferTaxValue": 2.0,
-    "notes": {
-      "fr": "Aucune taxe foncière",
-      "en": "No property tax"
-    }
-  },
-  {
-    "countryCode": "OM",
-    "propertyTax": "0%",
-    "propertyTaxValue": 0,
-    "transferTax": "3.0% 4.0% 5.0%",
-    "transferTaxValue": 4.0,
-    "notes": {
-      "fr": "Pas de taxe foncière",
-      "en": "No property tax"
-    }
-  },
-  {
-    "countryCode": "KW",
-    "propertyTax": "0%",
-    "propertyTaxValue": 0,
-    "transferTax": "0.5%",
-    "transferTaxValue": 0.5,
-    "notes": {
-      "fr": "Aucune taxe immobilière",
-      "en": "No real estate tax"
-    }
-  },
-  {
-    "countryCode": "JO",
-    "propertyTax": "~0.1%",
-    "propertyTaxValue": 0.1,
-    "transferTax": "5.0% 7.5% 10.0%",
-    "transferTaxValue": 7.5,
-    "notes": {
-      "fr": "Property Tax très faible",
-      "en": "Very low Property Tax"
-    }
-  },
-  {
-    "countryCode": "IL",
-    "propertyTax": "0.1% 0.3% 0.5%",
-    "propertyTaxValue": 0.3,
-    "transferTax": "0.0% 5.0% 10.0%",
-    "transferTaxValue": 5.0,
-    "notes": {
-      "fr": "Arnona basée sur surface",
-      "en": "Arnona based on area"
-    }
-  },
-  {
-    "countryCode": "TR",
-    "propertyTax": "0.1% 0.3% 0.6%",
-    "propertyTaxValue": 0.3,
-    "transferTax": "4%",
-    "transferTaxValue": 4.0,
-    "notes": {
-      "fr": "Emlak Vergisi",
-      "en": "Emlak Vergisi"
-    }
-  },
-  {
-    "countryCode": "MA",
-    "propertyTax": "0.0% 0.1% 0.2%",
-    "propertyTaxValue": 0.1,
-    "transferTax": "4.0% 5.0% 6.0%",
-    "transferTaxValue": 5.0,
-    "notes": {
-      "fr": "Taxe d'habitation + taxe services",
-      "en": "Housing tax + service tax"
-    }
-  },
-  {
-    "countryCode": "TN",
-    "propertyTax": "0.1% 0.15% 0.2%",
-    "propertyTaxValue": 0.15,
-    "transferTax": "4%",
-    "transferTaxValue": 4.0,
-    "notes": {
-      "fr": "Taxe foncière faible",
-      "en": "Low property tax"
-    }
-  },
-  {
-    "countryCode": "EG",
-    "propertyTax": "0.1% 0.2% 0.3%",
-    "propertyTaxValue": 0.2,
-    "transferTax": "2.5%",
-    "transferTaxValue": 2.5,
-    "notes": {
-      "fr": "Property Tax récente",
-      "en": "Recent Property Tax"
-    }
-  },
-  {
-    "countryCode": "ZA",
-    "propertyTax": "0.5% 1.0% 2.0%",
-    "propertyTaxValue": 1.0,
-    "transferTax": "0.0% 5.0% 13.0%",
-    "transferTaxValue": 5.0,
-    "notes": {
-      "fr": "Rates + Transfer Duty progressif",
-      "en": "Rates + progressive Transfer Duty"
-    }
-  },
-  {
-    "countryCode": "MU",
-    "propertyTax": "0%",
-    "propertyTaxValue": 0,
-    "transferTax": "5%",
-    "transferTaxValue": 5.0,
-    "notes": {
-      "fr": "Pas de taxe foncière annuelle",
-      "en": "No annual property tax"
-    }
-  },
-  {
-    "countryCode": "SC",
-    "propertyTax": "0%",
-    "propertyTaxValue": 0,
-    "transferTax": "5%",
-    "transferTaxValue": 5.0,
-    "notes": {
-      "fr": "Aucune taxe foncière",
-      "en": "No property tax"
-    }
-  },
-  {
-    "countryCode": "KE",
-    "propertyTax": "0.1% 0.3% 0.5%",
-    "propertyTaxValue": 0.3,
-    "transferTax": "4%",
-    "transferTaxValue": 4.0,
-    "notes": {
-      "fr": "Land Rates",
-      "en": "Land Rates"
-    }
-  },
-  {
-    "countryCode": "GH",
-    "propertyTax": "0.5%",
-    "propertyTaxValue": 0.5,
-    "transferTax": "0.5%",
-    "transferTaxValue": 0.5,
-    "notes": {
-      "fr": "Property Rate",
-      "en": "Property Rate"
-    }
-  },
-  {
-    "countryCode": "AU",
-    "propertyTax": "0.0% 1.0% 2.67%",
-    "propertyTaxValue": 1.0,
-    "transferTax": "1.4% 4.0% 6.75%",
-    "transferTaxValue": 4.0,
-    "notes": {
-      "fr": "Land Tax + Stamp Duty, varie par État",
-      "en": "Land Tax + Stamp Duty, varies by state"
-    }
-  },
-  {
-    "countryCode": "NZ",
-    "propertyTax": "0.2% 0.4% 0.6%",
-    "propertyTaxValue": 0.4,
-    "transferTax": "0%",
-    "transferTaxValue": 0,
-    "notes": {
-      "fr": "Rates locaux, pas de Stamp Duty",
-      "en": "Local rates, no Stamp Duty"
-    }
-  },
-  {
-    "countryCode": "FJ",
-    "propertyTax": "0%",
-    "propertyTaxValue": 0,
-    "transferTax": "3.0% 6.0% 10.0%",
-    "transferTaxValue": 6.0,
-    "notes": {
-      "fr": "Pas de taxe foncière",
-      "en": "No property tax"
-    }
-  },
-  {
-    "countryCode": "VU",
-    "propertyTax": "0%",
-    "propertyTaxValue": 0,
-    "transferTax": "0%",
-    "transferTaxValue": 0,
-    "notes": {
-      "fr": "Paradis fiscal complet",
-      "en": "Complete tax haven"
-    }
-  }
   ]
 }

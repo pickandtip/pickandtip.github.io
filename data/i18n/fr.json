@@ -45,6 +45,7 @@
     "region": "Région",
     "propertyTax": "Taxe Foncière Annuelle",
     "transferTax": "Droits de Mutation",
+    "foreignAccess": "Accès Étranger",
     "notes": "Notes",
     "rangeExplanation": "(min / moy / max)"
   },
@@ -68,5 +69,11 @@
   "tokens": {
     "old": "revente",
     "new": "logement neuf"
+  },
+  "foreignerRestriction": {
+    "unrestricted": "Libre",
+    "low": "Restrictions faibles",
+    "high": "Restrictions élevées",
+    "nationalsOnly": "Nationaux uniquement"
   }
 }
