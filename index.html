@@ -50,7 +50,15 @@
                 <div class="stat-label" data-i18n="stats.lowTax">Taxe foncière &lt; 0.5%</div>
             </div>
             <div class="stat-card">
-                <div class="stat-value">2025</div>
+                <div class="stat-value" id="noTransferTaxCount">—</div>
+                <div class="stat-label" data-i18n="stats.noTransferTax">Sans droits de mutation</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="lowTransferTaxCount">—</div>
+                <div class="stat-label" data-i18n="stats.lowTransferTax">Droits de mutation &lt; 2%</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="lastUpdated">—</div>
                 <div class="stat-label" data-i18n="stats.updated">Données actualisées</div>
             </div>
         </div>
@@ -96,8 +104,14 @@
                         <tr>
                             <th data-sort="country" data-i18n="table.country">Pays</th>
                             <th data-sort="region" data-i18n="table.region">Région</th>
-                            <th data-sort="propertyTax" data-i18n="table.propertyTax">Taxe Foncière Annuelle</th>
-                            <th data-sort="transferTax" data-i18n="table.transferTax">Droits de Mutation</th>
+                            <th data-sort="propertyTax">
+                                <div data-i18n="table.propertyTax">Taxe Foncière Annuelle</div>
+                                <div class="th-subtitle" data-i18n="table.rangeExplanation">(min / avg / max)</div>
+                            </th>
+                            <th data-sort="transferTax">
+                                <div data-i18n="table.transferTax">Droits de Mutation</div>
+                                <div class="th-subtitle" data-i18n="table.rangeExplanation">(min / avg / max)</div>
+                            </th>
                             <th data-sort="notes" data-i18n="table.notes">Notes</th>
                         </tr>
                     </thead>

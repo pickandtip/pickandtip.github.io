@@ -6,6 +6,8 @@
     "countries": "Countries compared",
     "noTax": "No property tax",
     "lowTax": "Property tax < 0.5%",
+    "noTransferTax": "No transfer tax",
+    "lowTransferTax": "Transfer tax < 2%",
     "updated": "Data updated"
   },
   "search": {
@@ -43,7 +45,8 @@
     "region": "Region",
     "propertyTax": "Annual Property Tax",
     "transferTax": "Transfer Tax",
-    "notes": "Notes"
+    "notes": "Notes",
+    "rangeExplanation": "(min / avg / max)"
   },
   "regions": {
     "europe": "Europe",
@@ -61,5 +64,9 @@
     "createdBy": "Created by",
     "subscribe": "Subscribe to YouTube channel",
     "topics": "Gold • Crypto • International Investment • Mobility"
+  },
+  "tokens": {
+    "old": "resale",
+    "new": "newly built"
   }
 }

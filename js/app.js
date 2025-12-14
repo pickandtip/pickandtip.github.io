@@ -6,6 +6,7 @@ let translations = {};
 let countries = [];
 let propertyTaxes = [];
 let taxData = []; // Merged data from countries + propertyTaxes
+let lastUpdated = ''; // Last update date from property-taxes.json
 let currentSort = { column: 'country', direction: 'asc' };
 let currentPropertyTaxFilter = 'all';
 let currentTransferTaxFilter = 'all';
@@ -27,7 +28,11 @@ async function loadData() {
         ]);
 
         countries = countriesData;
-        propertyTaxes = propertyTaxesData;
+
+        // Extract metadata and countries from new JSON structure
+        lastUpdated = propertyTaxesData.lastUpdated || '2024-12';
+        propertyTaxes = propertyTaxesData.countries || propertyTaxesData;
+
         translations = {
             fr: frTranslations,
             en: enTranslations
@@ -125,6 +130,12 @@ function getNestedTranslation(obj, path) {
     return path.split('.').reduce((acc, part) => acc && acc[part], obj);
 }
 
+function replaceTokens(text, lang) {
+    if (!text || typeof text !== 'string') return text;
+    const tokens = translations[lang].tokens || {};
+    return text.replace(/\{\{(\w+)\}\}/g, (match, key) => tokens[key] || match);
+}
+
 // ==========================================
 // TABLE MANAGEMENT
 // ==========================================
@@ -156,6 +167,8 @@ function renderTable(data) {
         const regionName = translations[currentLang].regions[item.region] || item.region;
         const countryName = item.country[currentLang];
         const notes = item.notes[currentLang];
+        const propertyTax = replaceTokens(item.propertyTax, currentLang).replace(/\n/g, '<br>');
+        const transferTax = replaceTokens(item.transferTax, currentLang).replace(/\n/g, '<br>');
 
         row.innerHTML = `
             <td>
@@ -165,8 +178,8 @@ function renderTable(data) {
                 </div>
             </td>
             <td><span class="region-badge region-${regionClass}">${regionName}</span></td>
-            <td><span class="tax-value ${taxClass}">${item.propertyTax}</span></td>
-            <td><span class="tax-value ${transferClass}">${item.transferTax}</span></td>
+            <td><span class="tax-value ${taxClass}">${propertyTax}</span></td>
+            <td><span class="tax-value ${transferClass}">${transferTax}</span></td>
             <td><span class="notes">${notes}</span></td>
         `;
 
@@ -312,6 +325,12 @@ function updateStats() {
     document.getElementById('countryCount').textContent = taxData.length;
     document.getElementById('noTaxCount').textContent = taxData.filter(d => d.propertyTaxValue === 0).length;
     document.getElementById('lowTaxCount').textContent = taxData.filter(d => d.propertyTaxValue > 0 && d.propertyTaxValue < 0.5).length;
+    document.getElementById('noTransferTaxCount').textContent = taxData.filter(d => d.transferTaxValue === 0).length;
+    document.getElementById('lowTransferTaxCount').textContent = taxData.filter(d => d.transferTaxValue > 0 && d.transferTaxValue < 2).length;
+
+    // Format and display last updated date (MM/YYYY format)
+    const [year, month] = lastUpdated.split('-');
+    document.getElementById('lastUpdated').textContent = `${month}/${year}`;
 }
 
 // ==========================================

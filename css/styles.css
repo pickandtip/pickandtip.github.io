@@ -301,12 +301,20 @@ select:focus {
 
 .table-scroll {
     overflow-x: auto;
+    max-height: calc(100vh - 400px);
+    overflow-y: auto;
 }
 
 table {
     width: 100%;
     border-collapse: collapse;
     font-size: 0.95rem;
+}
+
+thead {
+    position: sticky;
+    top: 0;
+    z-index: 10;
 }
 
 th {
@@ -327,6 +335,15 @@ th {
 
 th:hover {
     background: var(--brand-blue-light);
+}
+
+.th-subtitle {
+    font-size: 0.7rem;
+    font-weight: 400;
+    color: var(--text-secondary);
+    text-transform: none;
+    margin-top: 0.25rem;
+    letter-spacing: 0;
 }
 
 th.sorted-asc::after {
@@ -383,6 +400,13 @@ tr:last-child td {
 .tax-value {
     font-family: 'JetBrains Mono', monospace;
     font-weight: 600;
+    line-height: 1.8;
+    white-space: nowrap;
+}
+
+/* Allow wrapping only for multi-line contexts (like France old/new) */
+.tax-value br {
+    display: block;
 }
 
 .tax-low { color: var(--success); }

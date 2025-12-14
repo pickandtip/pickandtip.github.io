@@ -1,9 +1,11 @@
-[
+{
+  "lastUpdated": "2025-12",
+  "countries": [
   {
     "countryCode": "FR",
-    "propertyTax": "0.5% - 1.5%",
+    "propertyTax": "0.5% 1% 1.5%",
     "propertyTaxValue": 1.0,
-    "transferTax": "ancien: 7% - 8% / neuf: 2% - 3%",
+    "transferTax": "{{old}}:\n7% 7.5% 8%\n{{new}}:\n2% 2.5% 3%",
     "transferTaxValue": 7.5,
     "notes": {
       "fr": "Frais totaux à l'achat incluant droits de mutation (5.1-5.8%), émoluments notaire (~1%) et débours (~0.5%). Neuf: TVA réduite. Taxe d'habitation (0.5-2%) pour résidences secondaires uniquement (nationale, majorations communales possibles)",
@@ -12,31 +14,31 @@
   },
   {
     "countryCode": "DE",
-    "propertyTax": "0.26% - 1%",
+    "propertyTax": "0.26% 0.5% 1%",
     "propertyTaxValue": 0.5,
-    "transferTax": "3.5% - 6.5%",
+    "transferTax": "3.5% 5% 6.5%",
     "transferTaxValue": 5.0,
     "notes": {
-      "fr": "Grundsteuer réformée en 2025, varie par Land",
-      "en": "Grundsteuer reformed in 2025, varies by state"
+      "fr": "Grundsteuer réformée en 2025, varie par Land. Droits de mutation (Grunderwerbsteuer): Bavière/Saxe 3.5%, moyenne nationale ~5%, Berlin 6%",
+      "en": "Grundsteuer reformed in 2025, varies by state. Transfer tax (Grunderwerbsteuer): Bavaria/Saxony 3.5%, national avg ~5%, Berlin 6%"
     }
   },
   {
     "countryCode": "ES",
-    "propertyTax": "0.4% - 1.1%",
+    "propertyTax": "0.4% 0.7% 1.1%",
     "propertyTaxValue": 0.7,
-    "transferTax": "6% - 10%",
+    "transferTax": "6% 8% 10%",
     "transferTaxValue": 8.0,
     "notes": {
-      "fr": "IBI varie par municipalité",
-      "en": "IBI varies by municipality"
+      "fr": "IBI varie par municipalité (Madrid 0.44%, Valence 0.57%). Droits de mutation (ITP): Madrid 6%, Andalousie 7%, Catalogne/Valence 10%",
+      "en": "IBI varies by municipality (Madrid 0.44%, Valencia 0.57%). Transfer tax (ITP): Madrid 6%, Andalusia 7%, Catalonia/Valencia 10%"
     }
   },
   {
     "countryCode": "IT",
-    "propertyTax": "0.4% - 1.06%",
+    "propertyTax": "0.4% 0.7% 1.06%",
     "propertyTaxValue": 0.7,
-    "transferTax": "2% - 9%",
+    "transferTax": "2.0% 5.0% 9.0%",
     "transferTaxValue": 5.0,
     "notes": {
       "fr": "IMU exonérée pour résidence principale",
@@ -45,9 +47,9 @@
   },
   {
     "countryCode": "PT",
-    "propertyTax": "0.3% - 0.8%",
+    "propertyTax": "0.3% 0.5% 0.8%",
     "propertyTaxValue": 0.5,
-    "transferTax": "0% - 7.5%",
+    "transferTax": "0.0% 5.0% 7.5%",
     "transferTaxValue": 5.0,
     "notes": {
       "fr": "IMI basée sur valeur patrimoniale",
@@ -56,20 +58,20 @@
   },
   {
     "countryCode": "GB",
-    "propertyTax": "0.5% - 2%",
+    "propertyTax": "0.5% 1.2% 2%",
     "propertyTaxValue": 1.2,
-    "transferTax": "0% - 12%",
-    "transferTaxValue": 5.0,
+    "transferTax": "0% 3% 12%",
+    "transferTaxValue": 3.0,
     "notes": {
-      "fr": "Stamp Duty progressif (droits de mutation). Council Tax (taxe d'habitation municipale, 0.5-1.5%) payée par l'occupant du logement",
-      "en": "Progressive Stamp Duty (transfer tax). Council Tax (municipal housing tax, 0.5-1.5%) paid by property occupant"
+      "fr": "Stamp Duty progressif: 0% <£125k, 2% £125k-£250k, 5% £250k-£925k, 10% £925k-£1.5M, 12% >£1.5M. Primo-accédant: 0% <£300k. Council Tax (taxe d'habitation municipale, 0.5-1.5%) payée par l'occupant du logement",
+      "en": "Progressive Stamp Duty: 0% <£125k, 2% £125k-£250k, 5% £250k-£925k, 10% £925k-£1.5M, 12% >£1.5M. First-time buyers: 0% <£300k. Council Tax (municipal housing tax, 0.5-1.5%) paid by property occupant"
     }
   },
   {
     "countryCode": "BE",
-    "propertyTax": "1.25% - 2.5%",
+    "propertyTax": "1.25% 1.8% 2.5%",
     "propertyTaxValue": 1.8,
-    "transferTax": "10% - 12.5%",
+    "transferTax": "10.0% 11.3% 12.5%",
     "transferTaxValue": 11.3,
     "notes": {
       "fr": "Précompte immobilier élevé",
@@ -78,9 +80,9 @@
   },
   {
     "countryCode": "NL",
-    "propertyTax": "0.1% - 0.3%",
+    "propertyTax": "0.1% 0.2% 0.3%",
     "propertyTaxValue": 0.2,
-    "transferTax": "2% - 10.4%",
+    "transferTax": "2.0% 6.0% 10.4%",
     "transferTaxValue": 6.0,
     "notes": {
       "fr": "OZB faible, droits transfert augmentés",
@@ -89,9 +91,9 @@
   },
   {
     "countryCode": "CH",
-    "propertyTax": "0.05% - 0.3%",
+    "propertyTax": "0.05% 0.15% 0.3%",
     "propertyTaxValue": 0.15,
-    "transferTax": "0% - 3%",
+    "transferTax": "0.0% 1.5% 3.0%",
     "transferTaxValue": 1.5,
     "notes": {
       "fr": "Varie considérablement par canton",
@@ -100,7 +102,7 @@
   },
   {
     "countryCode": "AT",
-    "propertyTax": "0.1% - 0.2%",
+    "propertyTax": "0.1% 0.15% 0.2%",
     "propertyTaxValue": 0.15,
     "transferTax": "3.5%",
     "transferTaxValue": 3.5,
@@ -111,9 +113,9 @@
   },
   {
     "countryCode": "IE",
-    "propertyTax": "0.18% - 0.25%",
+    "propertyTax": "0.18% 0.2% 0.25%",
     "propertyTaxValue": 0.2,
-    "transferTax": "1% - 2%",
+    "transferTax": "1.0% 1.5% 2.0%",
     "transferTaxValue": 1.5,
     "notes": {
       "fr": "Local Property Tax récente",
@@ -122,7 +124,7 @@
   },
   {
     "countryCode": "GR",
-    "propertyTax": "0.1% - 1.15%",
+    "propertyTax": "0.1% 0.6% 1.15%",
     "propertyTaxValue": 0.6,
     "transferTax": "3%",
     "transferTaxValue": 3.0,
@@ -155,7 +157,7 @@
   },
   {
     "countryCode": "HU",
-    "propertyTax": "0% - 1.8%",
+    "propertyTax": "0.0% 0.5% 1.8%",
     "propertyTaxValue": 0.5,
     "transferTax": "4%",
     "transferTaxValue": 4.0,
@@ -166,9 +168,9 @@
   },
   {
     "countryCode": "RO",
-    "propertyTax": "0.08% - 0.2%",
+    "propertyTax": "0.08% 0.1% 0.2%",
     "propertyTaxValue": 0.1,
-    "transferTax": "0% - 3%",
+    "transferTax": "0.0% 1.0% 3.0%",
     "transferTaxValue": 1.0,
     "notes": {
       "fr": "Très faible, basée sur valeur cadastrale",
@@ -177,9 +179,9 @@
   },
   {
     "countryCode": "BG",
-    "propertyTax": "0.1% - 0.45%",
+    "propertyTax": "0.1% 0.2% 0.45%",
     "propertyTaxValue": 0.2,
-    "transferTax": "0.1% - 3%",
+    "transferTax": "0.1% 1.5% 3.0%",
     "transferTaxValue": 1.5,
     "notes": {
       "fr": "Parmi les plus attractives en UE",
@@ -221,7 +223,7 @@
   },
   {
     "countryCode": "EE",
-    "propertyTax": "0.1% - 2.5%",
+    "propertyTax": "0.1% 0.5% 2.5%",
     "propertyTaxValue": 0.5,
     "transferTax": "0%",
     "transferTaxValue": 0,
@@ -232,7 +234,7 @@
   },
   {
     "countryCode": "LV",
-    "propertyTax": "0.2% - 3%",
+    "propertyTax": "0.2% 1.0% 3.0%",
     "propertyTaxValue": 1.0,
     "transferTax": "2%",
     "transferTaxValue": 2.0,
@@ -243,7 +245,7 @@
   },
   {
     "countryCode": "LT",
-    "propertyTax": "0.5% - 2%",
+    "propertyTax": "0.5% 1.0% 2.0%",
     "propertyTaxValue": 1.0,
     "transferTax": "0%",
     "transferTaxValue": 0,
@@ -256,7 +258,7 @@
     "countryCode": "CY",
     "propertyTax": "0%",
     "propertyTaxValue": 0,
-    "transferTax": "3% - 8%",
+    "transferTax": "3.0% 5.0% 8.0%",
     "transferTaxValue": 5.0,
     "notes": {
       "fr": "Taxe foncière abolie en 2017",
@@ -278,7 +280,7 @@
     "countryCode": "LU",
     "propertyTax": "~0.1%",
     "propertyTaxValue": 0.1,
-    "transferTax": "6% - 7%",
+    "transferTax": "6.0% 6.5% 7.0%",
     "transferTaxValue": 6.5,
     "notes": {
       "fr": "Impôt foncier symbolique",
@@ -311,7 +313,7 @@
     "countryCode": "SE",
     "propertyTax": "0.75%",
     "propertyTaxValue": 0.75,
-    "transferTax": "1.5% - 4.25%",
+    "transferTax": "1.5% 3.0% 4.25%",
     "transferTaxValue": 3.0,
     "notes": {
       "fr": "Plafonnée à ~8000€/an",
@@ -320,7 +322,7 @@
   },
   {
     "countryCode": "NO",
-    "propertyTax": "0% - 0.7%",
+    "propertyTax": "0.0% 0.3% 0.7%",
     "propertyTaxValue": 0.3,
     "transferTax": "2.5%",
     "transferTaxValue": 2.5,
@@ -331,7 +333,7 @@
   },
   {
     "countryCode": "DK",
-    "propertyTax": "0.92% - 3%",
+    "propertyTax": "0.92% 1.5% 3.0%",
     "propertyTaxValue": 1.5,
     "transferTax": "0.6%",
     "transferTaxValue": 0.6,
@@ -342,18 +344,18 @@
   },
   {
     "countryCode": "FI",
-    "propertyTax": "0.41% - 1.35%",
+    "propertyTax": "0.41% 0.8% 1.35%",
     "propertyTaxValue": 0.8,
-    "transferTax": "2% - 4%",
+    "transferTax": "2% 3% 4%",
     "transferTaxValue": 3.0,
     "notes": {
-      "fr": "Varie par municipalité",
-      "en": "Varies by municipality"
+      "fr": "Varie par municipalité. Droits de mutation: 3% pour maisons, 1.5% pour appartements en copropriété",
+      "en": "Varies by municipality. Transfer tax: 3% for houses, 1.5% for housing company shares (apartments)"
     }
   },
   {
     "countryCode": "IS",
-    "propertyTax": "0.5% - 1.65%",
+    "propertyTax": "0.5% 1.0% 1.65%",
     "propertyTaxValue": 1.0,
     "transferTax": "0.8%",
     "transferTaxValue": 0.8,
@@ -364,9 +366,9 @@
   },
   {
     "countryCode": "US",
-    "propertyTax": "0.3% - 2.5%",
+    "propertyTax": "0.3% 1.1% 2.5%",
     "propertyTaxValue": 1.1,
-    "transferTax": "0% - 2%",
+    "transferTax": "0.0% 1.0% 2.0%",
     "transferTaxValue": 1.0,
     "notes": {
       "fr": "Varie énormément par État/comté",
@@ -375,9 +377,9 @@
   },
   {
     "countryCode": "CA",
-    "propertyTax": "0.5% - 2.5%",
+    "propertyTax": "0.5% 1.2% 2.5%",
     "propertyTaxValue": 1.2,
-    "transferTax": "0% - 5%",
+    "transferTax": "0.0% 2.0% 5.0%",
     "transferTaxValue": 2.0,
     "notes": {
       "fr": "Varie par province",
@@ -386,9 +388,9 @@
   },
   {
     "countryCode": "MX",
-    "propertyTax": "0.1% - 0.3%",
+    "propertyTax": "0.1% 0.2% 0.3%",
     "propertyTaxValue": 0.2,
-    "transferTax": "2% - 5%",
+    "transferTax": "2.0% 3.5% 5.0%",
     "transferTaxValue": 3.5,
     "notes": {
       "fr": "Predial très faible",
@@ -397,9 +399,9 @@
   },
   {
     "countryCode": "BR",
-    "propertyTax": "0.5% - 1.5%",
+    "propertyTax": "0.5% 1.0% 1.5%",
     "propertyTaxValue": 1.0,
-    "transferTax": "2% - 4%",
+    "transferTax": "2.0% 3.0% 4.0%",
     "transferTaxValue": 3.0,
     "notes": {
       "fr": "IPTU varie par ville (municipale). Peut être payé par le locataire selon contrat de location, mais propriétaire reste légalement responsable",
@@ -408,7 +410,7 @@
   },
   {
     "countryCode": "AR",
-    "propertyTax": "0.5% - 2%",
+    "propertyTax": "0.5% 1.0% 2.0%",
     "propertyTaxValue": 1.0,
     "transferTax": "3.5%",
     "transferTaxValue": 3.5,
@@ -419,7 +421,7 @@
   },
   {
     "countryCode": "CL",
-    "propertyTax": "1% - 1.4%",
+    "propertyTax": "1.0% 1.2% 1.4%",
     "propertyTaxValue": 1.2,
     "transferTax": "0%",
     "transferTaxValue": 0,
@@ -430,7 +432,7 @@
   },
   {
     "countryCode": "CO",
-    "propertyTax": "0.3% - 3.3%",
+    "propertyTax": "0.3% 1.0% 3.3%",
     "propertyTaxValue": 1.0,
     "transferTax": "1%",
     "transferTaxValue": 1.0,
@@ -441,7 +443,7 @@
   },
   {
     "countryCode": "PE",
-    "propertyTax": "0.2% - 1%",
+    "propertyTax": "0.2% 0.5% 1.0%",
     "propertyTaxValue": 0.5,
     "transferTax": "3%",
     "transferTaxValue": 3.0,
@@ -463,7 +465,7 @@
   },
   {
     "countryCode": "PA",
-    "propertyTax": "0% - 1%",
+    "propertyTax": "0.0% 0.3% 1.0%",
     "propertyTaxValue": 0.3,
     "transferTax": "2%",
     "transferTaxValue": 2.0,
@@ -474,7 +476,7 @@
   },
   {
     "countryCode": "UY",
-    "propertyTax": "0.25% - 1.2%",
+    "propertyTax": "0.25% 0.6% 1.2%",
     "propertyTaxValue": 0.6,
     "transferTax": "2%",
     "transferTaxValue": 2.0,
@@ -485,7 +487,7 @@
   },
   {
     "countryCode": "PY",
-    "propertyTax": "0% - 1%",
+    "propertyTax": "0.0% 0.3% 1.0%",
     "propertyTaxValue": 0.3,
     "transferTax": "2%",
     "transferTaxValue": 2.0,
@@ -496,7 +498,7 @@
   },
   {
     "countryCode": "EC",
-    "propertyTax": "0.025% - 0.5%",
+    "propertyTax": "0.025% 0.2% 0.5%",
     "propertyTaxValue": 0.2,
     "transferTax": "1%",
     "transferTaxValue": 1.0,
@@ -518,9 +520,9 @@
   },
   {
     "countryCode": "BS",
-    "propertyTax": "0.75% - 2%",
+    "propertyTax": "0.75% 1.0% 2.0%",
     "propertyTaxValue": 1.0,
-    "transferTax": "2.5% - 10%",
+    "transferTax": "2.5% 5.0% 10.0%",
     "transferTaxValue": 5.0,
     "notes": {
       "fr": "Property Tax progressif",
@@ -540,9 +542,9 @@
   },
   {
     "countryCode": "JP",
-    "propertyTax": "1.4% - 2.1%",
+    "propertyTax": "1.4% 1.7% 2.1%",
     "propertyTaxValue": 1.7,
-    "transferTax": "3% - 4%",
+    "transferTax": "3.0% 3.5% 4.0%",
     "transferTaxValue": 3.5,
     "notes": {
       "fr": "Kotei Shisan Zei + City Planning Tax",
@@ -551,9 +553,9 @@
   },
   {
     "countryCode": "KR",
-    "propertyTax": "0.1% - 0.4%",
+    "propertyTax": "0.1% 0.25% 0.4%",
     "propertyTaxValue": 0.25,
-    "transferTax": "1% - 3%",
+    "transferTax": "1.0% 2.0% 3.0%",
     "transferTaxValue": 2.0,
     "notes": {
       "fr": "Taxe foncière modérée",
@@ -564,7 +566,7 @@
     "countryCode": "CN",
     "propertyTax": "0%",
     "propertyTaxValue": 0,
-    "transferTax": "3% - 5%",
+    "transferTax": "3.0% 4.0% 5.0%",
     "transferTaxValue": 4.0,
     "notes": {
       "fr": "Pas de taxe foncière nationale (pilotes)",
@@ -575,7 +577,7 @@
     "countryCode": "HK",
     "propertyTax": "5%",
     "propertyTaxValue": 5.0,
-    "transferTax": "1.5% - 8.5%",
+    "transferTax": "1.5% 4.0% 8.5%",
     "transferTaxValue": 4.0,
     "notes": {
       "fr": "Rates basées sur valeur locative",
@@ -584,9 +586,9 @@
   },
   {
     "countryCode": "SG",
-    "propertyTax": "0% - 16%",
+    "propertyTax": "0.0% 4.0% 16.0%",
     "propertyTaxValue": 4.0,
-    "transferTax": "1% - 4%",
+    "transferTax": "1.0% 2.0% 4.0%",
     "transferTaxValue": 2.0,
     "notes": {
       "fr": "Progressif, élevé pour non-résidents",
@@ -595,7 +597,7 @@
   },
   {
     "countryCode": "TH",
-    "propertyTax": "0.02% - 0.3%",
+    "propertyTax": "0.02% 0.15% 0.3%",
     "propertyTaxValue": 0.15,
     "transferTax": "2%",
     "transferTaxValue": 2.0,
@@ -606,9 +608,9 @@
   },
   {
     "countryCode": "MY",
-    "propertyTax": "0.1% - 0.2%",
+    "propertyTax": "0.1% 0.15% 0.2%",
     "propertyTaxValue": 0.15,
-    "transferTax": "1% - 4%",
+    "transferTax": "1.0% 2.5% 4.0%",
     "transferTaxValue": 2.5,
     "notes": {
       "fr": "Quit Rent + Assessment Rate",
@@ -617,7 +619,7 @@
   },
   {
     "countryCode": "ID",
-    "propertyTax": "0.1% - 0.3%",
+    "propertyTax": "0.1% 0.2% 0.3%",
     "propertyTaxValue": 0.2,
     "transferTax": "5%",
     "transferTaxValue": 5.0,
@@ -628,9 +630,9 @@
   },
   {
     "countryCode": "PH",
-    "propertyTax": "1% - 2%",
+    "propertyTax": "1.0% 1.5% 2.0%",
     "propertyTaxValue": 1.5,
-    "transferTax": "0.5% - 0.75%",
+    "transferTax": "0.5% 0.6% 0.75%",
     "transferTaxValue": 0.6,
     "notes": {
       "fr": "Real Property Tax",
@@ -639,7 +641,7 @@
   },
   {
     "countryCode": "VN",
-    "propertyTax": "0.03% - 0.15%",
+    "propertyTax": "0.03% 0.1% 0.15%",
     "propertyTaxValue": 0.1,
     "transferTax": "0.5%",
     "transferTaxValue": 0.5,
@@ -650,9 +652,9 @@
   },
   {
     "countryCode": "IN",
-    "propertyTax": "0.5% - 2%",
+    "propertyTax": "0.5% 1.0% 2.0%",
     "propertyTaxValue": 1.0,
-    "transferTax": "5% - 7%",
+    "transferTax": "5.0% 6.0% 7.0%",
     "transferTaxValue": 6.0,
     "notes": {
       "fr": "Varie par État et ville",
@@ -661,7 +663,7 @@
   },
   {
     "countryCode": "TW",
-    "propertyTax": "1% - 5.5%",
+    "propertyTax": "1.0% 2.0% 5.5%",
     "propertyTaxValue": 2.0,
     "transferTax": "6%",
     "transferTaxValue": 6.0,
@@ -694,7 +696,7 @@
   },
   {
     "countryCode": "GE",
-    "propertyTax": "0% - 1%",
+    "propertyTax": "0.0% 0.3% 1.0%",
     "propertyTaxValue": 0.3,
     "transferTax": "0%",
     "transferTaxValue": 0,
@@ -751,7 +753,7 @@
     "countryCode": "OM",
     "propertyTax": "0%",
     "propertyTaxValue": 0,
-    "transferTax": "3% - 5%",
+    "transferTax": "3.0% 4.0% 5.0%",
     "transferTaxValue": 4.0,
     "notes": {
       "fr": "Pas de taxe foncière",
@@ -773,7 +775,7 @@
     "countryCode": "JO",
     "propertyTax": "~0.1%",
     "propertyTaxValue": 0.1,
-    "transferTax": "5% - 10%",
+    "transferTax": "5.0% 7.5% 10.0%",
     "transferTaxValue": 7.5,
     "notes": {
       "fr": "Property Tax très faible",
@@ -782,9 +784,9 @@
   },
   {
     "countryCode": "IL",
-    "propertyTax": "0.1% - 0.5%",
+    "propertyTax": "0.1% 0.3% 0.5%",
     "propertyTaxValue": 0.3,
-    "transferTax": "0% - 10%",
+    "transferTax": "0.0% 5.0% 10.0%",
     "transferTaxValue": 5.0,
     "notes": {
       "fr": "Arnona basée sur surface",
@@ -793,7 +795,7 @@
   },
   {
     "countryCode": "TR",
-    "propertyTax": "0.1% - 0.6%",
+    "propertyTax": "0.1% 0.3% 0.6%",
     "propertyTaxValue": 0.3,
     "transferTax": "4%",
     "transferTaxValue": 4.0,
@@ -804,9 +806,9 @@
   },
   {
     "countryCode": "MA",
-    "propertyTax": "0% - 0.2%",
+    "propertyTax": "0.0% 0.1% 0.2%",
     "propertyTaxValue": 0.1,
-    "transferTax": "4% - 6%",
+    "transferTax": "4.0% 5.0% 6.0%",
     "transferTaxValue": 5.0,
     "notes": {
       "fr": "Taxe d'habitation + taxe services",
@@ -815,7 +817,7 @@
   },
   {
     "countryCode": "TN",
-    "propertyTax": "0.1% - 0.2%",
+    "propertyTax": "0.1% 0.15% 0.2%",
     "propertyTaxValue": 0.15,
     "transferTax": "4%",
     "transferTaxValue": 4.0,
@@ -826,7 +828,7 @@
   },
   {
     "countryCode": "EG",
-    "propertyTax": "0.1% - 0.3%",
+    "propertyTax": "0.1% 0.2% 0.3%",
     "propertyTaxValue": 0.2,
     "transferTax": "2.5%",
     "transferTaxValue": 2.5,
@@ -837,9 +839,9 @@
   },
   {
     "countryCode": "ZA",
-    "propertyTax": "0.5% - 2%",
+    "propertyTax": "0.5% 1.0% 2.0%",
     "propertyTaxValue": 1.0,
-    "transferTax": "0% - 13%",
+    "transferTax": "0.0% 5.0% 13.0%",
     "transferTaxValue": 5.0,
     "notes": {
       "fr": "Rates + Transfer Duty progressif",
@@ -870,7 +872,7 @@
   },
   {
     "countryCode": "KE",
-    "propertyTax": "0.1% - 0.5%",
+    "propertyTax": "0.1% 0.3% 0.5%",
     "propertyTaxValue": 0.3,
     "transferTax": "4%",
     "transferTaxValue": 4.0,
@@ -892,9 +894,9 @@
   },
   {
     "countryCode": "AU",
-    "propertyTax": "0% - 2.67%",
+    "propertyTax": "0.0% 1.0% 2.67%",
     "propertyTaxValue": 1.0,
-    "transferTax": "1.4% - 6.75%",
+    "transferTax": "1.4% 4.0% 6.75%",
     "transferTaxValue": 4.0,
     "notes": {
       "fr": "Land Tax + Stamp Duty, varie par État",
@@ -903,7 +905,7 @@
   },
   {
     "countryCode": "NZ",
-    "propertyTax": "0.2% - 0.6%",
+    "propertyTax": "0.2% 0.4% 0.6%",
     "propertyTaxValue": 0.4,
     "transferTax": "0%",
     "transferTaxValue": 0,
@@ -916,7 +918,7 @@
     "countryCode": "FJ",
     "propertyTax": "0%",
     "propertyTaxValue": 0,
-    "transferTax": "3% - 10%",
+    "transferTax": "3.0% 6.0% 10.0%",
     "transferTaxValue": 6.0,
     "notes": {
       "fr": "Pas de taxe foncière",
@@ -934,4 +936,5 @@
       "en": "Complete tax haven"
     }
   }
-]
+  ]
+}

@@ -6,6 +6,8 @@
     "countries": "Pays comparés",
     "noTax": "Sans taxe foncière",
     "lowTax": "Taxe foncière < 0.5%",
+    "noTransferTax": "Sans droits de mutation",
+    "lowTransferTax": "Droits de mutation < 2%",
     "updated": "Données actualisées"
   },
   "search": {
@@ -43,7 +45,8 @@
     "region": "Région",
     "propertyTax": "Taxe Foncière Annuelle",
     "transferTax": "Droits de Mutation",
-    "notes": "Notes"
+    "notes": "Notes",
+    "rangeExplanation": "(min / moy / max)"
   },
   "regions": {
     "europe": "Europe",
@@ -61,5 +64,9 @@
     "createdBy": "Créé par",
     "subscribe": "S'abonner à la chaîne YouTube",
     "topics": "Or • Crypto • Investissement International • Mobilité"
+  },
+  "tokens": {
+    "old": "revente",
+    "new": "logement neuf"
   }
 }
