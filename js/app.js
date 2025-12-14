@@ -1,65 +1,11 @@
 // ==========================================
-// GLOBAL STATE
+// PICK & TIP - SPA ROUTER & GLOBAL STATE
 // ==========================================
-let currentLang = 'fr';
-let translations = {};
-let countries = [];
-let propertyTaxes = [];
-let taxData = []; // Merged data from countries + propertyTaxes
-let lastUpdated = ''; // Last update date from property-taxes.json
-let currentSort = { column: 'country', direction: 'asc' };
-let currentPropertyTaxFilter = 'all';
-let currentTransferTaxFilter = 'all';
 
-// DOM Elements (will be initialized after DOMContentLoaded)
-let tableBody, searchInput, regionFilter, propertyTaxFilter, transferTaxFilter, resultCount, noResults;
-
-// ==========================================
-// DATA LOADING
-// ==========================================
-async function loadData() {
-    try {
-        // Load all data in parallel
-        const [countriesData, propertyTaxesData, frTranslations, enTranslations] = await Promise.all([
-            fetch('data/countries/countries.json').then(res => res.json()),
-            fetch('data/topics/property-taxes.json').then(res => res.json()),
-            fetch('data/i18n/fr.json').then(res => res.json()),
-            fetch('data/i18n/en.json').then(res => res.json())
-        ]);
-
-        countries = countriesData;
-
-        // Extract metadata and countries from new JSON structure
-        lastUpdated = propertyTaxesData.lastUpdated || '2024-12';
-        propertyTaxes = propertyTaxesData.countries || propertyTaxesData;
-
-        translations = {
-            fr: frTranslations,
-            en: enTranslations
-        };
-
-        // Merge countries with property taxes
-        taxData = propertyTaxes.map(tax => {
-            const country = countries.find(c => c.code === tax.countryCode);
-            if (!country) {
-                console.warn(`Country not found for code: ${tax.countryCode}`);
-                return null;
-            }
-            return {
-                ...tax,
-                country: country.name,
-                flag: country.flag,
-                region: country.region
-            };
-        }).filter(item => item !== null);
-
-        return true;
-    } catch (error) {
-        console.error('Error loading data:', error);
-        alert('Failed to load application data. Please refresh the page.');
-        return false;
-    }
-}
+// Global state
+window.currentLang = 'fr';
+window.translations = {};
+let currentTopic = null;
 
 // ==========================================
 // LANGUAGE MANAGEMENT
@@ -80,7 +26,7 @@ function detectLanguage() {
 }
 
 function setLanguage(lang) {
-    currentLang = lang;
+    window.currentLang = lang;
     localStorage.setItem('pickandtip-lang', lang);
     document.documentElement.lang = lang;
 
@@ -89,10 +35,15 @@ function setLanguage(lang) {
         btn.classList.toggle('active', btn.dataset.lang === lang);
     });
 
+    // Apply translations
+    applyTranslations();
+}
+
+function applyTranslations() {
     // Update all translatable elements
     document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.dataset.i18n;
-        const translation = getNestedTranslation(translations[lang], key);
+        const translation = getNestedTranslation(window.translations[window.currentLang], key);
         if (translation) {
             el.textContent = translation;
         }
@@ -101,7 +52,7 @@ function setLanguage(lang) {
     // Update placeholders
     document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
         const key = el.dataset.i18nPlaceholder;
-        const translation = getNestedTranslation(translations[lang], key);
+        const translation = getNestedTranslation(window.translations[window.currentLang], key);
         if (translation) {
             el.placeholder = translation;
         }
@@ -114,265 +65,166 @@ function setLanguage(lang) {
         options.forEach(option => {
             const key = option.dataset.i18n;
             if (key) {
-                const translation = getNestedTranslation(translations[lang], key);
+                const translation = getNestedTranslation(window.translations[window.currentLang], key);
                 if (translation) {
                     option.textContent = translation;
                 }
             }
         });
     }
-
-    // Re-render table with new language
-    filterAndSort();
 }
 
 function getNestedTranslation(obj, path) {
     return path.split('.').reduce((acc, part) => acc && acc[part], obj);
 }
 
-function replaceTokens(text, lang) {
+window.replaceTokens = function(text, lang) {
     if (!text || typeof text !== 'string') return text;
-    const tokens = translations[lang].tokens || {};
+    const tokens = window.translations[lang].tokens || {};
     return text.replace(/\{\{(\w+)\}\}/g, (match, key) => tokens[key] || match);
-}
+};
+
+window.applyTranslations = applyTranslations;
 
 // ==========================================
-// TABLE MANAGEMENT
+// ROUTER - SPA NAVIGATION
 // ==========================================
-function renderTable(data) {
-    tableBody.innerHTML = '';
+const routes = {
+    '': 'landing',
+    'property-taxes': 'property-taxes',
+    'vat': 'vat',
+    'airbnb': 'airbnb'
+};
 
-    if (data.length === 0) {
-        noResults.style.display = 'block';
-        resultCount.textContent = '0';
-        return;
-    }
+async function loadView(viewName) {
+    const appContainer = document.getElementById('app-container');
+    const breadcrumb = document.getElementById('breadcrumb');
 
-    noResults.style.display = 'none';
-    resultCount.textContent = data.length;
+    try {
+        // Load the HTML template
+        const response = await fetch(`views/${viewName}.html`);
+        if (!response.ok) {
+            throw new Error(`Failed to load view: ${viewName}`);
+        }
+        const html = await response.text();
+        appContainer.innerHTML = html;
 
-    data.forEach((item, index) => {
-        const row = document.createElement('tr');
-        row.style.animationDelay = `${index * 0.02}s`;
-
-        const taxClass = item.propertyTaxValue === 0 ? 'tax-none' :
-                         item.propertyTaxValue < 0.5 ? 'tax-low' :
-                         item.propertyTaxValue < 1.5 ? 'tax-medium' : 'tax-high';
-
-        const transferClass = item.transferTaxValue === 0 ? 'tax-none' :
-                              item.transferTaxValue < 2 ? 'tax-low' :
-                              item.transferTaxValue < 5 ? 'tax-medium' : 'tax-high';
-
-        const regionClass = item.region.toLowerCase().replace('-', '');
-        const regionName = translations[currentLang].regions[item.region] || item.region;
-        const countryName = item.country[currentLang];
-        const notes = item.notes[currentLang];
-        const propertyTax = replaceTokens(item.propertyTax, currentLang).replace(/\n/g, '<br>');
-        const transferTax = replaceTokens(item.transferTax, currentLang).replace(/\n/g, '<br>');
-
-        // Foreign access badge
-        const foreignLevel = item.foreignerRestrictionLevel || 'unrestricted';
-        const foreignClass = `foreign-${foreignLevel}`;
-        const foreignText = translations[currentLang].foreignerRestriction[foreignLevel] || foreignLevel;
-
-        row.innerHTML = `
-            <td>
-                <div class="country-cell">
-                    <span class="flag">${item.flag}</span>
-                    <span>${countryName}</span>
-                </div>
-            </td>
-            <td><span class="region-badge region-${regionClass}">${regionName}</span></td>
-            <td><span class="tax-value ${taxClass}">${propertyTax}</span></td>
-            <td><span class="tax-value ${transferClass}">${transferTax}</span></td>
-            <td><span class="foreign-badge ${foreignClass}">${foreignText}</span></td>
-            <td><span class="notes">${notes}</span></td>
-        `;
-
-        tableBody.appendChild(row);
-    });
-}
-
-function filterAndSort() {
-    let filtered = [...taxData];
-
-    const searchTerm = searchInput.value.toLowerCase();
-    if (searchTerm) {
-        filtered = filtered.filter(item =>
-            item.country[currentLang].toLowerCase().includes(searchTerm) ||
-            item.country.fr.toLowerCase().includes(searchTerm) ||
-            item.country.en.toLowerCase().includes(searchTerm) ||
-            translations[currentLang].regions[item.region]?.toLowerCase().includes(searchTerm) ||
-            item.notes[currentLang].toLowerCase().includes(searchTerm)
-        );
-    }
-
-    const region = regionFilter.value;
-    if (region) {
-        filtered = filtered.filter(item => item.region === region);
-    }
-
-    // Property tax filter
-    if (currentPropertyTaxFilter === 'none') {
-        filtered = filtered.filter(item => item.propertyTaxValue === 0);
-    } else if (currentPropertyTaxFilter === 'low') {
-        filtered = filtered.filter(item => item.propertyTaxValue > 0 && item.propertyTaxValue < 0.5);
-    } else if (currentPropertyTaxFilter === 'medium') {
-        filtered = filtered.filter(item => item.propertyTaxValue >= 0.5 && item.propertyTaxValue <= 1.5);
-    } else if (currentPropertyTaxFilter === 'high') {
-        filtered = filtered.filter(item => item.propertyTaxValue > 1.5);
-    }
-
-    // Transfer tax filter
-    if (currentTransferTaxFilter === 'none') {
-        filtered = filtered.filter(item => item.transferTaxValue === 0);
-    } else if (currentTransferTaxFilter === 'low') {
-        filtered = filtered.filter(item => item.transferTaxValue > 0 && item.transferTaxValue < 2);
-    } else if (currentTransferTaxFilter === 'medium') {
-        filtered = filtered.filter(item => item.transferTaxValue >= 2 && item.transferTaxValue <= 5);
-    } else if (currentTransferTaxFilter === 'high') {
-        filtered = filtered.filter(item => item.transferTaxValue > 5);
-    }
-
-    filtered.sort((a, b) => {
-        let valA, valB;
-
-        switch(currentSort.column) {
-            case 'country':
-                valA = a.country[currentLang];
-                valB = b.country[currentLang];
-                break;
-            case 'region':
-                valA = a.region;
-                valB = b.region;
-                break;
-            case 'propertyTax':
-                valA = a.propertyTaxValue;
-                valB = b.propertyTaxValue;
-                break;
-            case 'transferTax':
-                valA = a.transferTaxValue;
-                valB = b.transferTaxValue;
-                break;
-            case 'foreignerRestrictionLevel':
-                valA = a.foreignerRestrictionValue || 0;
-                valB = b.foreignerRestrictionValue || 0;
-                break;
-            default:
-                valA = a.country[currentLang];
-                valB = b.country[currentLang];
+        // Update breadcrumb
+        if (viewName === 'landing') {
+            breadcrumb.style.display = 'none';
+        } else {
+            breadcrumb.style.display = 'block';
+            const topicName = document.querySelector('.topic-view h1')?.textContent || viewName;
+            document.getElementById('current-topic').textContent = topicName;
         }
 
-        if (typeof valA === 'string') {
-            return currentSort.direction === 'asc'
-                ? valA.localeCompare(valB)
-                : valB.localeCompare(valA);
+        // Load topic-specific JavaScript if exists
+        if (viewName !== 'landing') {
+            await loadTopicScript(viewName);
         }
 
-        return currentSort.direction === 'asc'
-            ? valA - valB
-            : valB - valA;
-    });
+        // Apply translations to the new view
+        applyTranslations();
 
-    renderTable(filtered);
+    } catch (error) {
+        console.error('Error loading view:', error);
+        appContainer.innerHTML = '<div class="error-message">Failed to load content. Please try again.</div>';
+    }
 }
 
-// ==========================================
-// EVENT LISTENERS SETUP
-// ==========================================
-function setupEventListeners() {
-    // Search input
-    searchInput.addEventListener('input', filterAndSort);
-
-    // Region filter
-    regionFilter.addEventListener('change', filterAndSort);
-
-    // Property tax filter
-    propertyTaxFilter.addEventListener('change', () => {
-        currentPropertyTaxFilter = propertyTaxFilter.value;
-        filterAndSort();
-    });
-
-    // Transfer tax filter
-    transferTaxFilter.addEventListener('change', () => {
-        currentTransferTaxFilter = transferTaxFilter.value;
-        filterAndSort();
-    });
-
-    // Table sorting
-    document.querySelectorAll('th[data-sort]').forEach(th => {
-        th.addEventListener('click', () => {
-            const column = th.dataset.sort;
-
-            document.querySelectorAll('th').forEach(h => {
-                h.classList.remove('sorted-asc', 'sorted-desc');
-            });
-
-            if (currentSort.column === column) {
-                currentSort.direction = currentSort.direction === 'asc' ? 'desc' : 'asc';
-            } else {
-                currentSort.column = column;
-                currentSort.direction = 'asc';
+async function loadTopicScript(topicName) {
+    return new Promise((resolve, reject) => {
+        // Check if script already exists
+        const existingScript = document.querySelector(`script[src="js/topics/${topicName}.js"]`);
+        if (existingScript) {
+            // Script already loaded, just call init function
+            if (window[`init${capitalize(camelize(topicName))}`]) {
+                window[`init${capitalize(camelize(topicName))}`]();
             }
+            resolve();
+            return;
+        }
 
-            th.classList.add(currentSort.direction === 'asc' ? 'sorted-asc' : 'sorted-desc');
-            filterAndSort();
-        });
-    });
-
-    // Language buttons
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-            setLanguage(btn.dataset.lang);
-        });
+        // Load new script
+        const script = document.createElement('script');
+        script.src = `js/topics/${topicName}.js`;
+        script.onload = () => {
+            // Call the init function for this topic
+            if (window[`init${capitalize(camelize(topicName))}`]) {
+                window[`init${capitalize(camelize(topicName))}`]();
+            }
+            resolve();
+        };
+        script.onerror = () => reject(new Error(`Failed to load script: ${topicName}.js`));
+        document.body.appendChild(script);
     });
 }
 
-// ==========================================
-// STATISTICS UPDATE
-// ==========================================
-function updateStats() {
-    document.getElementById('countryCount').textContent = taxData.length;
-    document.getElementById('noTaxCount').textContent = taxData.filter(d => d.propertyTaxValue === 0).length;
-    document.getElementById('lowTaxCount').textContent = taxData.filter(d => d.propertyTaxValue > 0 && d.propertyTaxValue < 0.5).length;
-    document.getElementById('noTransferTaxCount').textContent = taxData.filter(d => d.transferTaxValue === 0).length;
-    document.getElementById('lowTransferTaxCount').textContent = taxData.filter(d => d.transferTaxValue > 0 && d.transferTaxValue < 2).length;
+function capitalize(str) {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+}
 
-    // Format and display last updated date (MM/YYYY format)
-    const [year, month] = lastUpdated.split('-');
-    document.getElementById('lastUpdated').textContent = `${month}/${year}`;
+function camelize(str) {
+    return str.replace(/-([a-z])/g, g => g[1].toUpperCase());
+}
+
+function navigateTo(route) {
+    window.location.hash = route;
+}
+
+function handleRoute() {
+    const hash = window.location.hash.slice(1); // Remove the '#'
+    const route = routes[hash] || 'landing';
+    currentTopic = route;
+    loadView(route);
 }
 
 // ==========================================
 // INITIALIZATION
 // ==========================================
 async function init() {
-    // Initialize DOM elements
-    tableBody = document.getElementById('tableBody');
-    searchInput = document.getElementById('searchInput');
-    regionFilter = document.getElementById('regionFilter');
-    propertyTaxFilter = document.getElementById('propertyTaxFilter');
-    transferTaxFilter = document.getElementById('transferTaxFilter');
-    resultCount = document.getElementById('resultCount');
-    noResults = document.getElementById('noResults');
+    try {
+        // Load translations
+        const [frTranslations, enTranslations] = await Promise.all([
+            fetch('data/i18n/fr.json').then(res => res.json()),
+            fetch('data/i18n/en.json').then(res => res.json())
+        ]);
 
-    // Load data
-    const loaded = await loadData();
-    if (!loaded) return;
+        window.translations = {
+            fr: frTranslations,
+            en: enTranslations
+        };
 
-    // Setup event listeners
-    setupEventListeners();
+        // Detect and set language
+        const detectedLang = detectLanguage();
+        setLanguage(detectedLang);
 
-    // Update statistics
-    updateStats();
+        // Setup language switcher
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                setLanguage(btn.dataset.lang);
+            });
+        });
 
-    // Detect and set language
-    const detectedLang = detectLanguage();
-    setLanguage(detectedLang);
+        // Setup router
+        window.addEventListener('hashchange', handleRoute);
 
-    // Set initial sort indicator
-    document.querySelector('th[data-sort="country"]').classList.add('sorted-asc');
+        // Setup home button
+        document.getElementById('home-btn')?.addEventListener('click', () => {
+            navigateTo('');
+        });
+
+        // Load initial route
+        handleRoute();
+
+    } catch (error) {
+        console.error('Error initializing application:', error);
+        alert('Failed to load application. Please refresh the page.');
+    }
 }
 
 // Start the application when DOM is ready
 document.addEventListener('DOMContentLoaded', init);
+
+// Export navigation function
+window.navigateTo = navigateTo;

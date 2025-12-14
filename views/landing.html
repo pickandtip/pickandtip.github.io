@@ -1,0 +1,46 @@
+<div class="landing-view">
+    <header class="landing-header">
+        <h1 data-i18n="landing.title">Choisissez votre thématique</h1>
+        <div class="gold-line"></div>
+        <p class="subtitle" data-i18n="landing.subtitle">Explorez nos guides comparatifs pour investisseurs internationaux, expatriés et digital nomads</p>
+    </header>
+
+    <div class="topics-grid">
+        <!-- Property Taxes Card -->
+        <div class="topic-card available" onclick="window.navigateTo('property-taxes')">
+            <div class="topic-icon">🏠</div>
+            <h2 class="topic-title" data-i18n="landing.topics.propertyTaxes.title">Taxes Immobilières</h2>
+            <p class="topic-description" data-i18n="landing.topics.propertyTaxes.description">Comparez les taxes foncières et droits de mutation dans 85 pays</p>
+            <div class="topic-stats">
+                <span class="stat-badge">✓ 85 pays</span>
+                <span class="stat-badge">✓ Mis à jour</span>
+            </div>
+            <button class="topic-cta" data-i18n="landing.explore">Explorer →</button>
+        </div>
+
+        <!-- VAT Card -->
+        <div class="topic-card coming-soon">
+            <div class="topic-icon">💰</div>
+            <h2 class="topic-title" data-i18n="landing.topics.vat.title">TVA par Pays</h2>
+            <p class="topic-description" data-i18n="landing.topics.vat.description">Taux de TVA et fiscalité indirecte à l'international</p>
+            <div class="coming-soon-badge" data-i18n="landing.comingSoon">Bientôt disponible</div>
+            <button class="topic-cta disabled" disabled data-i18n="landing.inProgress">En construction</button>
+        </div>
+
+        <!-- Airbnb Card -->
+        <div class="topic-card coming-soon">
+            <div class="topic-icon">🏖️</div>
+            <h2 class="topic-title" data-i18n="landing.topics.airbnb.title">Business Airbnb</h2>
+            <p class="topic-description" data-i18n="landing.topics.airbnb.description">Rentabilité et réglementation des locations courte durée</p>
+            <div class="coming-soon-badge" data-i18n="landing.comingSoon">Bientôt disponible</div>
+            <button class="topic-cta disabled" disabled data-i18n="landing.inProgress">En construction</button>
+        </div>
+
+        <!-- Placeholder for future topics -->
+        <div class="topic-card placeholder">
+            <div class="topic-icon">➕</div>
+            <h2 class="topic-title" data-i18n="landing.topics.more.title">Et plus encore...</h2>
+            <p class="topic-description" data-i18n="landing.topics.more.description">Visas, impôts, coût de la vie et bien d'autres thématiques à venir</p>
+        </div>
+    </div>
+</div>

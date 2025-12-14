@@ -1,7 +1,8 @@
 {
   "tagline": "SAVOIR POUR AVOIR",
+  "description": "La chaîne YouTube pour entrepreneurs, investisseurs et professionnels qui cherchent liberté d'action et enrichissement par-delà les frontières",
   "title": "Comparatif des Taxes Immobilières par Pays",
-  "subtitle": "Guide complet des taxes foncières annuelles et droits de mutation pour les investisseurs internationaux, expatriés et digital nomads.",
+  "subtitle": "Guide complet des taxes foncières annuelles et droits de mutation pour les investisseurs internationaux, expatriés et nomades digitaux.",
   "stats": {
     "countries": "Pays comparés",
     "noTax": "Sans taxe foncière",
@@ -75,5 +76,61 @@
     "low": "Restrictions faibles",
     "high": "Restrictions élevées",
     "nationalsOnly": "Nationaux uniquement"
+  },
+  "breadcrumb": {
+    "home": "Accueil"
+  },
+  "landing": {
+    "title": "Explorer la thématique de votre choix",
+    "subtitle": "Explorez nos guides comparatifs pour investisseurs internationaux, expatriés et nomades digitaux",
+    "explore": "Explorer →",
+    "comingSoon": "Bientôt disponible",
+    "inProgress": "En construction",
+    "topics": {
+      "propertyTaxes": {
+        "title": "Taxes Immobilières",
+        "description": "Comparez les taxes foncières et droits de mutation dans 85 pays"
+      },
+      "vat": {
+        "title": "TVA par Pays",
+        "description": "Taux de TVA et fiscalité indirecte à l'international"
+      },
+      "airbnb": {
+        "title": "Business Airbnb",
+        "description": "Rentabilité et réglementation des locations courte durée"
+      },
+      "more": {
+        "title": "Et plus encore...",
+        "description": "Visas, impôts, coût de la vie et bien d'autres thématiques à venir"
+      }
+    }
+  },
+  "construction": {
+    "title": "Contenu en construction",
+    "message": "Cette thématique est actuellement en cours de développement. Nous travaillons dur pour vous apporter des données complètes et fiables.",
+    "upcoming": "À venir prochainement :",
+    "backHome": "← Retour à l'accueil"
+  },
+  "vat": {
+    "title": "TVA par Pays",
+    "subtitle": "Comparatif des taux de TVA et fiscalité indirecte à l'international",
+    "features": {
+      "standard": "✓ Taux de TVA standard par pays",
+      "reduced": "✓ Taux réduits et exonérations",
+      "registration": "✓ Seuils d'enregistrement TVA",
+      "ecommerce": "✓ Règles TVA e-commerce",
+      "refund": "✓ Procédures de remboursement"
+    }
+  },
+  "airbnb": {
+    "title": "Business Airbnb",
+    "subtitle": "Analyse de la rentabilité et réglementation des locations courte durée par pays",
+    "features": {
+      "regulations": "✓ Réglementations par pays et ville",
+      "profitability": "✓ Analyse de rentabilité moyenne",
+      "licenses": "✓ Licences et autorisations requises",
+      "taxes": "✓ Taxation des revenus locatifs",
+      "restrictions": "✓ Restrictions et quotas"
+    }
   }
 }

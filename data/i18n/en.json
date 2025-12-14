@@ -1,5 +1,6 @@
 {
   "tagline": "KNOWING FOR OWNING",
+  "description": "The YouTube channel for entrepreneurs, investors and professionals seeking freedom of action and wealth creation across borders",
   "title": "Property Tax Comparison by Country",
   "subtitle": "Complete guide to annual property taxes and transfer duties for international investors, expats and digital nomads.",
   "stats": {
@@ -75,5 +76,61 @@
     "low": "Low restrictions",
     "high": "High restrictions",
     "nationalsOnly": "Nationals only"
+  },
+  "breadcrumb": {
+    "home": "Home"
+  },
+  "landing": {
+    "title": "Explore the topic of your choice",
+    "subtitle": "Explore our comparison guides for international investors, expats and digital nomads",
+    "explore": "Explore →",
+    "comingSoon": "Coming soon",
+    "inProgress": "Under construction",
+    "topics": {
+      "propertyTaxes": {
+        "title": "Property Taxes",
+        "description": "Compare property taxes and transfer duties in 85 countries"
+      },
+      "vat": {
+        "title": "VAT by Country",
+        "description": "VAT rates and indirect taxation worldwide"
+      },
+      "airbnb": {
+        "title": "Airbnb Business",
+        "description": "Profitability and regulations for short-term rentals"
+      },
+      "more": {
+        "title": "And much more...",
+        "description": "Visas, taxes, cost of living and many more topics coming soon"
+      }
+    }
+  },
+  "construction": {
+    "title": "Content under construction",
+    "message": "This topic is currently under development. We're working hard to bring you complete and reliable data.",
+    "upcoming": "Coming soon:",
+    "backHome": "← Back to home"
+  },
+  "vat": {
+    "title": "VAT by Country",
+    "subtitle": "Comparison of VAT rates and indirect taxation worldwide",
+    "features": {
+      "standard": "✓ Standard VAT rates by country",
+      "reduced": "✓ Reduced rates and exemptions",
+      "registration": "✓ VAT registration thresholds",
+      "ecommerce": "✓ E-commerce VAT rules",
+      "refund": "✓ Refund procedures"
+    }
+  },
+  "airbnb": {
+    "title": "Airbnb Business",
+    "subtitle": "Analysis of profitability and regulation of short-term rentals by country",
+    "features": {
+      "regulations": "✓ Regulations by country and city",
+      "profitability": "✓ Average profitability analysis",
+      "licenses": "✓ Required licenses and permits",
+      "taxes": "✓ Taxation of rental income",
+      "restrictions": "✓ Restrictions and quotas"
+    }
   }
 }

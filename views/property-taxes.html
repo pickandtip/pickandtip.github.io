@@ -1,0 +1,102 @@
+<div class="topic-view" id="property-taxes-view">
+    <header>
+        <h1 data-i18n="title">Comparatif des Taxes Immobilières par Pays</h1>
+        <div class="gold-line"></div>
+        <p class="subtitle" data-i18n="subtitle">Guide complet des taxes foncières annuelles et droits de mutation pour les investisseurs internationaux, expatriés et digital nomads.</p>
+    </header>
+
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-value" id="countryCount">—</div>
+            <div class="stat-label" data-i18n="stats.countries">Pays comparés</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value" id="noTaxCount">—</div>
+            <div class="stat-label" data-i18n="stats.noTax">Sans taxe foncière</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value" id="lowTaxCount">—</div>
+            <div class="stat-label" data-i18n="stats.lowTax">Taxe foncière &lt; 0.5%</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value" id="noTransferTaxCount">—</div>
+            <div class="stat-label" data-i18n="stats.noTransferTax">Sans droits de mutation</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value" id="lowTransferTaxCount">—</div>
+            <div class="stat-label" data-i18n="stats.lowTransferTax">Droits de mutation &lt; 2%</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value" id="lastUpdated">—</div>
+            <div class="stat-label" data-i18n="stats.updated">Données actualisées</div>
+        </div>
+    </div>
+
+    <div class="controls">
+        <div class="controls-row">
+            <div class="search-box">
+                <input type="text" id="searchInput" data-i18n-placeholder="search.placeholder" placeholder="Rechercher un pays...">
+            </div>
+            <select id="regionFilter">
+                <option value="" data-i18n="filter.allRegions">Toutes les régions</option>
+                <option value="europe" data-i18n="filter.europe">🇪🇺 Europe</option>
+                <option value="america" data-i18n="filter.america">🌎 Amérique</option>
+                <option value="asia" data-i18n="filter.asia">🌏 Asie</option>
+                <option value="middleEast" data-i18n="filter.middleEast">🕌 Moyen-Orient</option>
+                <option value="africa" data-i18n="filter.africa">🌍 Afrique</option>
+                <option value="oceania" data-i18n="filter.oceania">🏝️ Océanie</option>
+            </select>
+            <select id="propertyTaxFilter">
+                <option value="all" data-i18n="filter.propertyTax.all">Toutes taxes foncières</option>
+                <option value="none" data-i18n="filter.propertyTax.none">Aucune taxe foncière</option>
+                <option value="low" data-i18n="filter.propertyTax.low">Taxe foncière faible (< 0.5%)</option>
+                <option value="medium" data-i18n="filter.propertyTax.medium">Taxe foncière moyenne (0.5-1.5%)</option>
+                <option value="high" data-i18n="filter.propertyTax.high">Taxe foncière élevée (> 1.5%)</option>
+            </select>
+            <select id="transferTaxFilter">
+                <option value="all" data-i18n="filter.transferTax.all">Tous droits de mutation</option>
+                <option value="none" data-i18n="filter.transferTax.none">Aucun droit de mutation</option>
+                <option value="low" data-i18n="filter.transferTax.low">Droits faibles (< 2%)</option>
+                <option value="medium" data-i18n="filter.transferTax.medium">Droits moyens (2-5%)</option>
+                <option value="high" data-i18n="filter.transferTax.high">Droits élevés (> 5%)</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="table-container">
+        <div class="result-count">
+            <strong id="resultCount">—</strong> <span data-i18n="results.displayed">pays affichés</span>
+        </div>
+        <div class="table-scroll">
+            <table id="taxTable">
+                <thead>
+                    <tr>
+                        <th data-sort="country" data-i18n="table.country">Pays</th>
+                        <th data-sort="region" data-i18n="table.region">Région</th>
+                        <th data-sort="propertyTax">
+                            <div data-i18n="table.propertyTax">Taxe Foncière Annuelle</div>
+                            <div class="th-subtitle" data-i18n="table.rangeExplanation">(min / avg / max)</div>
+                        </th>
+                        <th data-sort="transferTax">
+                            <div data-i18n="table.transferTax">Droits de Mutation</div>
+                            <div class="th-subtitle" data-i18n="table.rangeExplanation">(min / avg / max)</div>
+                        </th>
+                        <th data-sort="foreignerRestrictionLevel" data-i18n="table.foreignAccess">Accès Étranger</th>
+                        <th data-sort="notes" data-i18n="table.notes">Notes</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                </tbody>
+            </table>
+        </div>
+        <div class="no-results" id="noResults" style="display: none;">
+            <div class="no-results-icon">🔍</div>
+            <p data-i18n="results.none">Aucun pays ne correspond à votre recherche.</p>
+        </div>
+    </div>
+
+    <div class="disclaimer">
+        <div class="disclaimer-title">⚠️ <span data-i18n="disclaimer.title">Avertissement</span></div>
+        <p data-i18n="disclaimer.text">Ces données sont fournies à titre indicatif uniquement et peuvent varier selon les régions, le type de bien et votre situation personnelle. Les taux peuvent changer. Consultez toujours un conseiller fiscal local avant toute décision d'investissement. Dernière mise à jour : Décembre 2025.</p>
+    </div>
+</div>
