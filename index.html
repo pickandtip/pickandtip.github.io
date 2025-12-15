@@ -19,19 +19,22 @@
 <body>
     <div class="bg-pattern"></div>
 
-    <!-- Language Switcher -->
-    <div class="lang-switcher">
-        <button class="lang-btn" data-lang="fr" title="Français">🇫🇷</button>
-        <button class="lang-btn" data-lang="en" title="English">🇬🇧</button>
-    </div>
+    <!-- Top Sticky Header with blur effect -->
+    <div class="top-header-bar">
+        <!-- Breadcrumb Navigation -->
+        <div class="breadcrumb" id="breadcrumb" style="display: none;">
+            <button id="home-btn" class="breadcrumb-btn">
+                ← <span>{{ breadcrumb.home }}</span>
+            </button>
+            <span class="breadcrumb-separator">›</span>
+            <span id="current-topic" class="breadcrumb-current"></span>
+        </div>
 
-    <!-- Breadcrumb Navigation -->
-    <div class="breadcrumb" id="breadcrumb" style="display: none;">
-        <button id="home-btn" class="breadcrumb-btn">
-            <span data-i18n="breadcrumb.home">← Accueil</span>
-        </button>
-        <span class="breadcrumb-separator">›</span>
-        <span id="current-topic" class="breadcrumb-current"></span>
+        <!-- Language Switcher -->
+        <div class="lang-switcher">
+            <button class="lang-btn" data-lang="fr" title="Français">🇫🇷</button>
+            <button class="lang-btn" data-lang="en" title="English">🇬🇧</button>
+        </div>
     </div>
 
     <div class="container">
@@ -39,10 +42,10 @@
         <div class="header-section">
             <div class="logo-container">
                 <div class="logo-main" onclick="window.navigateTo('')" style="cursor: pointer;">PICK & TIP</div>
-                <div class="logo-tagline" data-i18n="tagline">SAVOIR POUR AVOIR</div>
+                <div class="logo-tagline">{{ tagline }}</div>
             </div>
             <div class="channel-description">
-                <p data-i18n="description">La chaîne YouTube pour entrepreneurs, investisseurs et professionnels qui cherchent liberté d'action et enrichissement par-delà les frontières</p>
+                <p>{{ description }}</p>
                 <a href="https://www.youtube.com/@pickandtip-channel" target="_blank" class="youtube-link" title="Visiter la chaîne YouTube">
                     <span class="youtube-icon">▶️</span>
                 </a>
@@ -56,12 +59,12 @@
 
         <!-- Footer - Always visible -->
         <footer>
-            <p><span data-i18n="footer.createdBy">Créé par</span> <a href="https://www.youtube.com/@pickandtip-channel" target="_blank">Pick & Tip</a></p>
+            <p>{{ footer.createdBy }} <a href="https://www.youtube.com/@pickandtip-channel" target="_blank">Pick & Tip</a></p>
             <a href="https://www.youtube.com/@pickandtip-channel" target="_blank" class="youtube-cta">
                 <span class="youtube-icon">▶️</span>
-                <span data-i18n="footer.subscribe">S'abonner à la chaîne YouTube</span>
+                <span>{{ footer.subscribe }}</span>
             </a>
-            <p style="margin-top: 1.5rem; font-size: 0.85rem;" data-i18n="footer.topics">Or • Crypto • Investissement International • Mobilité</p>
+            <p style="margin-top: 1.5rem; font-size: 0.85rem;">{{ footer.topics }}</p>
         </footer>
     </div>
 

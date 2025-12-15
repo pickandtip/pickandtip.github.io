@@ -95,9 +95,13 @@
         "title": "VAT by Country",
         "description": "VAT rates and indirect taxation worldwide"
       },
-      "airbnb": {
-        "title": "Airbnb Business",
-        "description": "Profitability and regulations for short-term rentals"
+      "vacationRentalBusiness": {
+        "title": "Vacation Rental Business",
+        "description": "Legal framework, taxation and platforms for short-term rentals in 30+ countries"
+      },
+      "vacationRentalHotspots": {
+        "title": "Vacation Rental Hotspots",
+        "description": "Top tourist destinations to invest in seasonal rentals"
       },
       "more": {
         "title": "And much more...",
@@ -122,15 +126,81 @@
       "refund": "✓ Refund procedures"
     }
   },
-  "airbnb": {
-    "title": "Airbnb Business",
-    "subtitle": "Analysis of profitability and regulation of short-term rentals by country",
-    "features": {
-      "regulations": "✓ Regulations by country and city",
-      "profitability": "✓ Average profitability analysis",
-      "licenses": "✓ Required licenses and permits",
-      "taxes": "✓ Taxation of rental income",
-      "restrictions": "✓ Restrictions and quotas"
+  "vacationRentalBusiness": {
+    "title": "Vacation Rental Business",
+    "subtitle": "Legal framework, taxation and platforms for short-term rentals",
+    "stats": {
+      "permissive": "Permissive countries",
+      "professionalServices": "Professional services available",
+      "prohibited": "Banned countries",
+      "updated": "January 2025"
+    },
+    "filter": {
+      "legal": "Legal framework",
+      "allLegal": "All",
+      "permissive": "Permissive",
+      "moderate": "Moderate",
+      "restrictiveLocal": "Local restrictions",
+      "prohibitedExceptions": "Banned with exceptions",
+      "prohibited": "Banned",
+      "services": "Management services",
+      "allServices": "All",
+      "professional": "Professional",
+      "limited": "Limited",
+      "noServices": "Rare/non-existent"
+    },
+    "table": {
+      "legalFramework": "Legal framework",
+      "taxation": "Taxation",
+      "platforms": "Platforms",
+      "services": "Management services"
+    },
+    "disclaimer": {
+      "text": "This data is provided for informational purposes only and may vary by region, property type and your personal situation. Regulations change frequently. Always consult a local legal and tax advisor before making any investment decision. Last updated: January 2025."
+    }
+  },
+  "vacationRentalHotspots": {
+    "title": "Vacation Rental Hotspots",
+    "subtitle": "Top tourist destinations to invest in seasonal rentals",
+    "stats": {
+      "cities": "Destinations analyzed",
+      "unlimited": "No day limits",
+      "avgRevenue": "Average monthly revenue",
+      "avgOccupancy": "Average occupancy rate",
+      "updated": "January 2025"
+    },
+    "search": {
+      "placeholder": "Search for a destination..."
+    },
+    "filter": {
+      "marketType": "Market type",
+      "allMarkets": "All",
+      "beach": "🏖️ Beach",
+      "urban": "🏙️ Urban",
+      "nature": "🏔️ Nature",
+      "revenue": "Monthly revenue",
+      "allRevenue": "All",
+      "highRevenue": "> $2000",
+      "mediumRevenue": "$1000-2000",
+      "lowRevenue": "< $1000"
+    },
+    "results": {
+      "displayed": "destinations displayed",
+      "none": "No destination matches your search."
+    },
+    "table": {
+      "destination": "Destination",
+      "marketType": "Type",
+      "dayLimit": "Day limit/year",
+      "revenue": "Monthly revenue",
+      "occupancy": "Occupancy",
+      "licensing": "Licenses",
+      "taxation": "Taxation",
+      "platforms": "Platforms",
+      "services": "Management services"
+    },
+    "disclaimer": {
+      "text": "This data is provided for informational purposes only. Estimated revenues can vary significantly based on precise location, property type and quality. Local regulations change frequently. Always consult a local legal and tax advisor before making any investment decision. Last updated: January 2025."
     }
   }
 }

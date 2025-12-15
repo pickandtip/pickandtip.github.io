@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Property Taxes Loading</title>
+</head>
+<body>
+    <h1>Test Property Taxes Data Loading</h1>
+    <div id="results"></div>
+
+    <script>
+        async function testLoad() {
+            try {
+                const [countriesData, propertyTaxesData] = await Promise.all([
+                    fetch('data/countries/countries.json').then(res => res.json()),
+                    fetch('data/topics/property-taxes.json').then(res => res.json())
+                ]);
+
+                const countries = countriesData;
+                const propertyTaxes = propertyTaxesData.countries || propertyTaxesData;
+
+                const taxData = propertyTaxes.map(tax => {
+                    const country = countries.find(c => c.code === tax.countryCode);
+                    if (!country) {
+                        console.warn(`Country not found for code: ${tax.countryCode}`);
+                        return null;
+                    }
+                    return {
+                        ...tax,
+                        country: country.name,
+                        flag: country.flag,
+                        region: country.region
+                    };
+                }).filter(item => item !== null);
+
+                document.getElementById('results').innerHTML = `
+                    <p style="color: green; font-weight: bold;">✓ SUCCESS</p>
+                    <p>Countries loaded: ${countries.length}</p>
+                    <p>Property taxes loaded: ${propertyTaxes.length}</p>
+                    <p>Merged data: ${taxData.length}</p>
+                    <p>First country: ${taxData[0].flag} ${taxData[0].country.fr} / ${taxData[0].country.en}</p>
+                    <p>Property tax value: ${taxData[0].propertyTaxValue}</p>
+                    <h3>First 5 countries:</h3>
+                    <ul>
+                        ${taxData.slice(0, 5).map(item => `
+                            <li>${item.flag} ${item.country.fr} - Property Tax: ${item.propertyTaxValue}%</li>
+                        `).join('')}
+                    </ul>
+                `;
+            } catch (error) {
+                document.getElementById('results').innerHTML = `
+                    <p style="color: red; font-weight: bold;">✗ ERROR</p>
+                    <p>${error.message}</p>
+                    <pre>${error.stack}</pre>
+                `;
+            }
+        }
+
+        testLoad();
+    </script>
+</body>
+</html>

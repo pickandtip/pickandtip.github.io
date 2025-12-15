@@ -1,0 +1,97 @@
+<div class="topic-view" id="vacation-rental-hotspots-view">
+    <header>
+        <h1>{{ vacationRentalHotspots.title }}</h1>
+        <div class="gold-line"></div>
+        <p class="subtitle">{{ vacationRentalHotspots.subtitle }}</p>
+    </header>
+
+    <!-- Statistics Section -->
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-value" id="total-cities">0</div>
+            <div class="stat-label">{{ vacationRentalHotspots.stats.cities }}</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value" id="unlimited-count">0</div>
+            <div class="stat-label">{{ vacationRentalHotspots.stats.unlimited }}</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value" id="avg-revenue">0$</div>
+            <div class="stat-label">{{ vacationRentalHotspots.stats.avgRevenue }}</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value" id="avg-occupancy">0%</div>
+            <div class="stat-label">{{ vacationRentalHotspots.stats.avgOccupancy }}</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value">{{ vacationRentalHotspots.stats.updated }}</div>
+            <div class="stat-label">{{ stats.updated }}</div>
+        </div>
+    </div>
+
+    <div class="controls">
+        <div class="controls-row">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="{{ vacationRentalHotspots.search.placeholder }}">
+            </div>
+            <select id="regionFilter">
+                <option value="all">{{ filter.allRegions }}</option>
+                <option value="europe">{{ filter.europe }}</option>
+                <option value="america">{{ filter.america }}</option>
+                <option value="asia">{{ filter.asia }}</option>
+                <option value="middleEast">{{ filter.middleEast }}</option>
+                <option value="africa">{{ filter.africa }}</option>
+                <option value="oceania">{{ filter.oceania }}</option>
+            </select>
+            <select id="marketFilter">
+                <option value="all">{{ vacationRentalHotspots.filter.allMarkets }}</option>
+                <option value="beach">{{ vacationRentalHotspots.filter.beach }}</option>
+                <option value="urban">{{ vacationRentalHotspots.filter.urban }}</option>
+                <option value="nature">{{ vacationRentalHotspots.filter.nature }}</option>
+            </select>
+            <select id="revenueFilter">
+                <option value="all">{{ vacationRentalHotspots.filter.allRevenue }}</option>
+                <option value="high">{{ vacationRentalHotspots.filter.highRevenue }}</option>
+                <option value="medium">{{ vacationRentalHotspots.filter.mediumRevenue }}</option>
+                <option value="low">{{ vacationRentalHotspots.filter.lowRevenue }}</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="table-container">
+        <div class="result-count">
+            <strong id="result-count">—</strong> <span>{{ vacationRentalHotspots.results.displayed }}</span>
+        </div>
+        <div class="table-scroll">
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th data-sort="city" class="sortable">{{ vacationRentalHotspots.table.destination }}</th>
+                    <th data-sort="country" class="sortable">{{ table.country }}</th>
+                    <th data-sort="marketType" class="sortable">{{ vacationRentalHotspots.table.marketType }}</th>
+                    <th data-sort="dayLimit" class="sortable">{{ vacationRentalHotspots.table.dayLimit }}</th>
+                    <th data-sort="revenue" class="sortable">{{ vacationRentalHotspots.table.revenue }}</th>
+                    <th data-sort="occupancy" class="sortable">{{ vacationRentalHotspots.table.occupancy }}</th>
+                    <th data-sort="licensing" class="sortable">{{ vacationRentalHotspots.table.licensing }}</th>
+                    <th data-sort="taxation" class="sortable">{{ vacationRentalHotspots.table.taxation }}</th>
+                    <th data-sort="platforms" class="sortable">{{ vacationRentalHotspots.table.platforms }}</th>
+                    <th data-sort="services" class="sortable">{{ vacationRentalHotspots.table.services }}</th>
+                    <th>{{ table.notes }}</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+                <!-- Table rows will be inserted here by JavaScript -->
+            </tbody>
+        </table>
+        </div>
+        <div class="no-results" id="no-results" style="display: none;">
+            <div class="no-results-icon">🔍</div>
+            <p>{{ vacationRentalHotspots.results.none }}</p>
+        </div>
+    </div>
+
+    <div class="disclaimer">
+        <div class="disclaimer-title">⚠️ <span>{{ disclaimer.title }}</span></div>
+        <p>{{ vacationRentalHotspots.disclaimer.text }}</p>
+    </div>
+</div>

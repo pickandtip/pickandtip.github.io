@@ -1,0 +1,569 @@
+{
+  "lastUpdated": "2025-01",
+  "countries": [
+    {
+      "countryCode": "FR",
+      "legalFramework": {
+        "level": "restrictive_local",
+        "value": 2,
+        "details": {
+          "fr": "Cadre national encadré avec restrictions locales sévères. Loi Le Meur (2024) : limite 90j/an, enregistrement obligatoire, DPE A-E requis.",
+          "en": "National framework with severe local restrictions. Le Meur Law (2024): 90-day limit, mandatory registration, A-E energy rating required."
+        }
+      },
+      "taxation": {
+        "fr": "National : Micro-BIC 30% abattement (plafonné 15k€) ou 50% si classé meublé tourisme (plafonné 77.7k€) + 17.2% charges sociales | Municipal : Taxe séjour ~0.83€/nuit",
+        "en": "National: Micro-BIC 30% deduction (capped €15k) or 50% if classified tourism (capped €77.7k) + 17.2% social charges | Municipal: Tourist tax ~€0.83/night"
+      },
+      "platforms": [
+        {
+          "name": "Airbnb",
+          "languages": ["fr", "en"],
+          "scope": "international"
+        },
+        {
+          "name": "Booking.com",
+          "languages": ["fr", "en"],
+          "scope": "international"
+        },
+        {
+          "name": "Abritel",
+          "languages": ["fr", "en"],
+          "scope": "international"
+        }
+      ],
+      "managementServices": {
+        "level": "professional",
+        "value": 2,
+        "examples": ["HostnFly", "GuestReady", "Luckey Homes"]
+      },
+      "notes": {
+        "fr": "Paris, Lyon, Bordeaux très restrictifs. Nombreuses villes suspendent nouvelles autorisations. Amendes jusqu'à 50 000€.",
+        "en": "Paris, Lyon, Bordeaux very restrictive. Many cities suspend new authorizations. Fines up to €50,000."
+      }
+    },
+    {
+      "countryCode": "ES",
+      "legalFramework": {
+        "level": "restrictive_local",
+        "value": 2,
+        "details": {
+          "fr": "Cadre national encadré avec restrictions locales drastiques. Enregistrement NRA obligatoire (juil. 2025). Barcelone interdit progressivement (2028).",
+          "en": "National framework with drastic local restrictions. Mandatory NRA registration (July 2025). Barcelona progressive ban (2028)."
+        }
+      },
+      "taxation": {
+        "fr": "National : 19-47% progressif ou régime simplifié | Régional : varie | Municipal : Taxe séjour 2-4€/nuit selon ville",
+        "en": "National: 19-47% progressive or simplified regime | Regional: varies | Municipal: Tourist tax €2-4/night by city"
+      },
+      "platforms": [
+        {
+          "name": "Airbnb",
+          "languages": ["es", "en"],
+          "scope": "international"
+        },
+        {
+          "name": "Booking.com",
+          "languages": ["es", "en"],
+          "scope": "international"
+        },
+        {
+          "name": "Vrbo",
+          "languages": ["es", "en"],
+          "scope": "international"
+        }
+      ],
+      "managementServices": {
+        "level": "professional",
+        "value": 2,
+        "examples": ["Sweet Inn", "Apartime", "Friendly Rentals"]
+      },
+      "notes": {
+        "fr": "Barcelone : interdiction totale 2028. Madrid, Valence : restrictions sévères. 65k+ annonces retirées en 2025 faute de NRA. Amendes jusqu'à 90 000€.",
+        "en": "Barcelona: total ban 2028. Madrid, Valencia: severe restrictions. 65k+ listings removed in 2025 for missing NRA. Fines up to €90,000."
+      }
+    },
+    {
+      "countryCode": "PT",
+      "legalFramework": {
+        "level": "moderate",
+        "value": 1,
+        "details": {
+          "fr": "Licence AL (Alojamento Local) requise au niveau national. Réforme 2024 : municipalités peuvent suspendre nouvelles licences.",
+          "en": "AL (Alojamento Local) license required nationally. 2024 reform: municipalities can suspend new licenses."
+        }
+      },
+      "taxation": {
+        "fr": "National : 28% IRS sur revenus locatifs (ou régime simplifié 35% du revenu taxé) + CEAL (contribution extraordinaire) | Municipal : Taxe séjour 2-3€/nuit | TVA : 6%",
+        "en": "National: 28% IRS on rental income (or simplified regime 35% of income taxed) + CEAL (extraordinary contribution) | Municipal: Tourist tax €2-3/night | VAT: 6%"
+      },
+      "platforms": [
+        {
+          "name": "Airbnb",
+          "languages": ["pt", "en"],
+          "scope": "international"
+        },
+        {
+          "name": "Booking.com",
+          "languages": ["pt", "en"],
+          "scope": "international"
+        },
+        {
+          "name": "Vrbo",
+          "languages": ["pt", "en"],
+          "scope": "international"
+        }
+      ],
+      "managementServices": {
+        "level": "professional",
+        "value": 2,
+        "examples": ["Rental Guardians", "Sweet Inn", "Local Apartments"]
+      },
+      "notes": {
+        "fr": "Lisbonne centre, Porto, Algarve : moratoire sur nouvelles licences AL. 19 quartiers interdits à Lisbonne. Amendes jusqu'à 90 000€.",
+        "en": "Central Lisbon, Porto, Algarve: moratorium on new AL licenses. 19 banned neighborhoods in Lisbon. Fines up to €90,000."
+      }
+    },
+    {
+      "countryCode": "IT",
+      "legalFramework": {
+        "level": "moderate",
+        "value": 1,
+        "details": {
+          "fr": "Code CIN (National Identification Code) obligatoire depuis janv. 2025. Enregistrement base BDSR. Normes sécurité obligatoires.",
+          "en": "Mandatory CIN (National Identification Code) since Jan. 2025. BDSR database registration. Mandatory safety standards."
+        }
+      },
+      "taxation": {
+        "fr": "National : Cédulaire sèche 21% (1 bien) ou 26% (2+ biens) | Municipal : Taxe séjour 1-7€/nuit selon ville | TVA : non applicable",
+        "en": "National: Flat tax 21% (1 property) or 26% (2+ properties) | Municipal: Tourist tax €1-7/night by city | VAT: not applicable"
+      },
+      "platforms": [
+        {
+          "name": "Airbnb",
+          "languages": ["it", "en"],
+          "scope": "international"
+        },
+        {
+          "name": "Booking.com",
+          "languages": ["it", "en"],
+          "scope": "international"
+        },
+        {
+          "name": "Vrbo",
+          "languages": ["it", "en"],
+          "scope": "international"
+        }
+      ],
+      "managementServices": {
+        "level": "professional",
+        "value": 2,
+        "examples": ["GuestReady", "Rental in Rome", "Keesy"]
+      },
+      "notes": {
+        "fr": "Rome, Venise, Florence, Milan : restrictions additionnelles (min. 2 nuits, check-in présence). Amendes 800-8 000€ sans CIN.",
+        "en": "Rome, Venice, Florence, Milan: additional restrictions (2-night min, in-person check-in). Fines €800-8,000 without CIN."
+      }
+    },
+    {
+      "countryCode": "GR",
+      "legalFramework": {
+        "level": "moderate",
+        "value": 1,
+        "details": {
+          "fr": "Enregistrement Short-Term Stay Property Registry obligatoire. Numéro PRN requis. Max 2 biens par individu. Gel 1 an nouvelles inscriptions Athènes (2025).",
+          "en": "Mandatory Short-Term Stay Property Registry. PRN number required. Max 2 properties per individual. 1-year freeze on new Athens registrations (2025)."
+        }
+      },
+      "taxation": {
+        "fr": "National : TVA 13% + Taxe résilience climatique 8€/nuit (mars-oct) ou 2€/nuit (nov-fév) | Incitations : exonération IR 3 ans si conversion location longue durée",
+        "en": "National: VAT 13% + Climate Resilience Tax €8/night (Mar-Oct) or €2/night (Nov-Feb) | Incentives: 3-year income tax exemption if converting to long-term"
+      },
+      "platforms": [
+        {
+          "name": "Airbnb",
+          "languages": ["el", "en"],
+          "scope": "international"
+        },
+        {
+          "name": "Booking.com",
+          "languages": ["el", "en"],
+          "scope": "international"
+        },
+        {
+          "name": "Vrbo",
+          "languages": ["el", "en"],
+          "scope": "international"
+        }
+      ],
+      "managementServices": {
+        "level": "professional",
+        "value": 2,
+        "examples": ["GuestReady Athens", "Sweet Inn", "Key Concierge"]
+      },
+      "notes": {
+        "fr": "Normes sécurité strictes (oct. 2025) : assurance RC, certif électrique, extincteurs. Amendes jusqu'à 5 000€. Athènes gel nouvelles inscriptions.",
+        "en": "Strict safety standards (Oct. 2025): liability insurance, electrical cert, fire extinguishers. Fines up to €5,000. Athens new registration freeze."
+      }
+    },
+    {
+      "countryCode": "TR",
+      "legalFramework": {
+        "level": "moderate",
+        "value": 1,
+        "details": {
+          "fr": "Licence tourisme obligatoire du Ministère du Tourisme pour locations < 100 jours. Approbation unanime copropriétaires requise. Licence valide 1 an.",
+          "en": "Mandatory Tourism Ministry license for rentals < 100 days. Unanimous building owner approval required. 1-year license validity."
+        }
+      },
+      "taxation": {
+        "fr": "National : 15-40% progressif sur revenus locatifs + TVA 20% + Taxe tourisme incluse dans tarif nuit",
+        "en": "National: 15-40% progressive on rental income + VAT 20% + Tourism tax included in nightly rate"
+      },
+      "platforms": [
+        {
+          "name": "Airbnb",
+          "languages": ["tr", "en"],
+          "scope": "international"
+        },
+        {
+          "name": "Booking.com",
+          "languages": ["tr", "en"],
+          "scope": "international"
+        },
+        {
+          "name": "Sahibinden",
+          "languages": ["tr"],
+          "scope": "local"
+        }
+      ],
+      "managementServices": {
+        "level": "limited",
+        "value": 1,
+        "examples": ["Local agencies", "Limited professional services"]
+      },
+      "notes": {
+        "fr": "Istanbul : licence strictement contrôlée depuis 2024. Amendes jusqu'à 100 000 TRY. Renouvellement annuel obligatoire.",
+        "en": "Istanbul: strictly controlled license since 2024. Fines up to TRY 100,000. Mandatory annual renewal."
+      }
+    },
+    {
+      "countryCode": "AE",
+      "legalFramework": {
+        "level": "permissive",
+        "value": 0,
+        "details": {
+          "fr": "Permis DTCM (Dubai) ou DoT (Abu Dhabi) requis. Location légale depuis 2016. Min. 7 jours à Dubaï. Bien entier uniquement.",
+          "en": "DTCM permit (Dubai) or DoT (Abu Dhabi) required. Legal rental since 2016. 7-day minimum in Dubai. Entire unit only."
+        }
+      },
+      "taxation": {
+        "fr": "National : 0% impôt sur le revenu | TVA : 5% (enregistrement obligatoire si > 375k AED CA) | Tourism Dirham : 10-15 AED/chambre/nuit",
+        "en": "National: 0% income tax | VAT: 5% (mandatory registration if > AED 375k revenue) | Tourism Dirham: AED 10-15/bedroom/night"
+      },
+      "platforms": [
+        {
+          "name": "Airbnb",
+          "languages": ["en", "ar"],
+          "scope": "international"
+        },
+        {
+          "name": "Booking.com",
+          "languages": ["en", "ar"],
+          "scope": "international"
+        },
+        {
+          "name": "Vrbo",
+          "languages": ["en"],
+          "scope": "international"
+        }
+      ],
+      "managementServices": {
+        "level": "professional",
+        "value": 2,
+        "examples": ["Blueground Dubai", "Sonder", "Short Stay Dubai"]
+      },
+      "notes": {
+        "fr": "Dubaï très favorable fiscalement (0% IR). Permis communautaire parfois requis. Amendes jusqu'à 5 000 AED. Contrôles stricts.",
+        "en": "Dubai very tax-friendly (0% income tax). Community permit sometimes required. Fines up to AED 5,000. Strict controls."
+      }
+    },
+    {
+      "countryCode": "MX",
+      "legalFramework": {
+        "level": "permissive",
+        "value": 0,
+        "details": {
+          "fr": "Permis Holiday Home requis dans certains États (Quintana Roo). Enregistrement municipal recommandé. Peu de restrictions nationales.",
+          "en": "Holiday Home permit required in some states (Quintana Roo). Municipal registration recommended. Few national restrictions."
+        }
+      },
+      "taxation": {
+        "fr": "National : 10-35% progressif (avec RFC) ou 20% forfait (sans RFC) + TVA 16% + Taxe séjour 3% (Quintana Roo) | Facturas obligatoires",
+        "en": "National: 10-35% progressive (with RFC) or 20% flat (without RFC) + VAT 16% + Lodging tax 3% (Quintana Roo) | Mandatory invoices"
+      },
+      "platforms": [
+        {
+          "name": "Airbnb",
+          "languages": ["es", "en"],
+          "scope": "international"
+        },
+        {
+          "name": "Vrbo",
+          "languages": ["es", "en"],
+          "scope": "international"
+        },
+        {
+          "name": "Booking.com",
+          "languages": ["es", "en"],
+          "scope": "international"
+        }
+      ],
+      "managementServices": {
+        "level": "professional",
+        "value": 2,
+        "examples": ["Condo Hotels Playa", "PlayaStays", "Nomads Rental"]
+      },
+      "notes": {
+        "fr": "Cancún, Playa del Carmen très favorables. Propriété étrangère autorisée (fidéicommis bancaire). Contrôles modérés. RFC réduit fiscalité.",
+        "en": "Cancún, Playa del Carmen very favorable. Foreign ownership allowed (bank trust). Moderate controls. RFC reduces taxation."
+      }
+    },
+    {
+      "countryCode": "TH",
+      "legalFramework": {
+        "level": "prohibited_exceptions",
+        "value": 3,
+        "details": {
+          "fr": "Licence hôtelière requise pour locations < 30 jours selon Hotel Act 2004. Condos ne qualifient généralement pas. Zone grise, application incohérente.",
+          "en": "Hotel license required for rentals < 30 days per Hotel Act 2004. Condos generally don't qualify. Gray area, inconsistent enforcement."
+        }
+      },
+      "taxation": {
+        "fr": "National : Impôt progressif + Retenue 5% (résidents) ou 15% (non-résidents) + Taxe foncière 12.5% | TVA : si > 1.8M THB/an",
+        "en": "National: Progressive tax + Withholding 5% (residents) or 15% (non-residents) + House & Land Tax 12.5% | VAT: if > THB 1.8M/year"
+      },
+      "platforms": [
+        {
+          "name": "Airbnb",
+          "languages": ["th", "en"],
+          "scope": "international"
+        },
+        {
+          "name": "Agoda",
+          "languages": ["th", "en"],
+          "scope": "international"
+        },
+        {
+          "name": "Booking.com",
+          "languages": ["th", "en"],
+          "scope": "international"
+        }
+      ],
+      "managementServices": {
+        "level": "limited",
+        "value": 1,
+        "examples": ["Hostmaker Bangkok", "KeyNest", "Local agencies"]
+      },
+      "notes": {
+        "fr": "Zone grise légale. Locations > 30 jours légales sans licence. Contrôles ciblés investisseurs étrangers (2025). Loi en révision.",
+        "en": "Legal gray area. Rentals > 30 days legal without license. Targeted controls on foreign investors (2025). Law under review."
+      }
+    },
+    {
+      "countryCode": "GB",
+      "legalFramework": {
+        "level": "restrictive_local",
+        "value": 2,
+        "details": {
+          "fr": "Londres : limite 90 jours/an résidence principale (application automatique plateformes). Autres villes : réglementations locales variables.",
+          "en": "London: 90-day/year limit primary residence (automatic platform enforcement). Other cities: varying local regulations."
+        }
+      },
+      "taxation": {
+        "fr": "National : Rent-a-Room Relief (7 500£ exonérés) puis taux marginal 20-45% IR | Pas de taxe séjour nationale",
+        "en": "National: Rent-a-Room Relief (£7,500 tax-free) then marginal rate 20-45% income tax | No national tourist tax"
+      },
+      "platforms": [
+        {
+          "name": "Airbnb",
+          "languages": ["en"],
+          "scope": "international"
+        },
+        {
+          "name": "Booking.com",
+          "languages": ["en"],
+          "scope": "international"
+        },
+        {
+          "name": "Vrbo",
+          "languages": ["en"],
+          "scope": "international"
+        }
+      ],
+      "managementServices": {
+        "level": "professional",
+        "value": 2,
+        "examples": ["Pass the Keys", "GuestReady", "Hostmaker"]
+      },
+      "notes": {
+        "fr": "Londres : limite stricte 90j appliquée automatiquement. Résidence secondaire nécessite planning permission. Édimbourg : zones contrôlées.",
+        "en": "London: strict 90-day limit automatically enforced. Secondary residence requires planning permission. Edinburgh: controlled zones."
+      }
+    },
+    {
+      "countryCode": "US",
+      "legalFramework": {
+        "level": "restrictive_local",
+        "value": 2,
+        "details": {
+          "fr": "Pas de loi fédérale. Réglementations État/ville très variables. NYC : quasi-interdit < 30j. Floride : villes ne peuvent interdire totalement.",
+          "en": "No federal law. Highly variable state/city regulations. NYC: essentially banned < 30 days. Florida: cities cannot ban entirely."
+        }
+      },
+      "taxation": {
+        "fr": "Fédéral : 10-37% progressif | État : 0-13% selon État | Local : Transient Occupancy Tax 4-14% selon ville",
+        "en": "Federal: 10-37% progressive | State: 0-13% by state | Local: Transient Occupancy Tax 4-14% by city"
+      },
+      "platforms": [
+        {
+          "name": "Airbnb",
+          "languages": ["en"],
+          "scope": "international"
+        },
+        {
+          "name": "Vrbo",
+          "languages": ["en"],
+          "scope": "international"
+        },
+        {
+          "name": "Booking.com",
+          "languages": ["en"],
+          "scope": "international"
+        }
+      ],
+      "managementServices": {
+        "level": "professional",
+        "value": 2,
+        "examples": ["Sonder", "Stay Alfred", "Vacasa"]
+      },
+      "notes": {
+        "fr": "NYC Local Law 18 : quasi-interdiction. SF, LA : réglementations strictes. Texas, Floride, Tennessee : États permissifs. Vérifier lois locales impérativement.",
+        "en": "NYC Local Law 18: near ban. SF, LA: strict regulations. Texas, Florida, Tennessee: permissive states. Must verify local laws."
+      }
+    },
+    {
+      "countryCode": "JP",
+      "legalFramework": {
+        "level": "moderate",
+        "value": 1,
+        "details": {
+          "fr": "Enregistrement Minpaku requis au niveau national. Limite 180 jours/an. Restrictions variables par arrondissement (Tokyo : certains interdisent dim-ven).",
+          "en": "Minpaku national registration required. 180-day/year limit. Variable restrictions by ward (Tokyo: some ban Sun-Fri)."
+        }
+      },
+      "taxation": {
+        "fr": "National : Impôt progressif 5-45% + complexité résidence fiscale | Local : Taxe séjour 100-200 JPY/nuit",
+        "en": "National: Progressive tax 5-45% + complex tax residency | Local: Tourist tax JPY 100-200/night"
+      },
+      "platforms": [
+        {
+          "name": "Airbnb",
+          "languages": ["ja", "en"],
+          "scope": "international"
+        },
+        {
+          "name": "Booking.com",
+          "languages": ["ja", "en"],
+          "scope": "international"
+        },
+        {
+          "name": "Rakuten STAY",
+          "languages": ["ja", "en"],
+          "scope": "local"
+        }
+      ],
+      "managementServices": {
+        "level": "professional",
+        "value": 2,
+        "examples": ["Zens", "Stay Japan", "Squeeze"]
+      },
+      "notes": {
+        "fr": "Tokyo Shinjuku interdit dim-ven. Gestionnaire local souvent requis. Osaka plus permissive. Barrière linguistique significative.",
+        "en": "Tokyo Shinjuku banned Sun-Fri. Local manager often required. Osaka more permissive. Significant language barrier."
+      }
+    },
+    {
+      "countryCode": "NL",
+      "legalFramework": {
+        "level": "restrictive_local",
+        "value": 2,
+        "details": {
+          "fr": "Amsterdam : limite drastique 30 jours/an (2024), enregistrement B&B obligatoire. Autres villes : réglementations locales strictes.",
+          "en": "Amsterdam: drastic 30-day/year limit (2024), mandatory B&B registration. Other cities: strict local regulations."
+        }
+      },
+      "taxation": {
+        "fr": "National : Taux progressif 37-49.5% | Municipal : Taxe séjour Amsterdam 7%, Rotterdam/La Haye variables",
+        "en": "National: Progressive rate 37-49.5% | Municipal: Amsterdam tourist tax 7%, Rotterdam/The Hague variable"
+      },
+      "platforms": [
+        {
+          "name": "Airbnb",
+          "languages": ["nl", "en"],
+          "scope": "international"
+        },
+        {
+          "name": "Booking.com",
+          "languages": ["nl", "en"],
+          "scope": "international"
+        },
+        {
+          "name": "Vrbo",
+          "languages": ["nl", "en"],
+          "scope": "international"
+        }
+      ],
+      "managementServices": {
+        "level": "professional",
+        "value": 2,
+        "examples": ["GuestReady Amsterdam", "Sweet Inn", "Housekeeper.com"]
+      },
+      "notes": {
+        "fr": "Amsterdam très restrictif : 30j/an max, amendes 8 700€. Résidence principale uniquement. Rotterdam, Utrecht : limites 60-90j.",
+        "en": "Amsterdam very restrictive: 30 days/year max, €8,700 fines. Primary residence only. Rotterdam, Utrecht: 60-90 day limits."
+      }
+    },
+    {
+      "countryCode": "SG",
+      "legalFramework": {
+        "level": "prohibited",
+        "value": 4,
+        "details": {
+          "fr": "Interdit < 3 mois pour HDB/appartements. Min. 6 mois pour condos privés. Interdiction stricte appliquée.",
+          "en": "Banned < 3 months for HDB/apartments. Min. 6 months for private condos. Strict ban enforced."
+        }
+      },
+      "taxation": {
+        "fr": "N/A - Location courte durée interdite",
+        "en": "N/A - Short-term rentals banned"
+      },
+      "platforms": [
+        {
+          "name": "None",
+          "languages": [],
+          "scope": "none"
+        }
+      ],
+      "managementServices": {
+        "level": "none",
+        "value": 0,
+        "examples": []
+      },
+      "notes": {
+        "fr": "Interdiction stricte < 3 mois. Amendes jusqu'à 200 000 SGD. Minimum 6 mois pour condos privés. Aucune exception.",
+        "en": "Strict ban < 3 months. Fines up to SGD 200,000. Minimum 6 months for private condos. No exceptions."
+      }
+    }
+  ]
+}

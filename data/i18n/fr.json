@@ -95,9 +95,13 @@
         "title": "TVA par Pays",
         "description": "Taux de TVA et fiscalité indirecte à l'international"
       },
-      "airbnb": {
-        "title": "Business Airbnb",
-        "description": "Rentabilité et réglementation des locations courte durée"
+      "vacationRentalBusiness": {
+        "title": "Location Vacances par Pays",
+        "description": "Cadre légal, fiscalité et plateformes pour la location courte durée dans 30+ pays"
+      },
+      "vacationRentalHotspots": {
+        "title": "Destinations Location Vacances",
+        "description": "Top destinations touristiques pour investir dans la location saisonnière"
       },
       "more": {
         "title": "Et plus encore...",
@@ -122,15 +126,81 @@
       "refund": "✓ Procédures de remboursement"
     }
   },
-  "airbnb": {
-    "title": "Business Airbnb",
-    "subtitle": "Analyse de la rentabilité et réglementation des locations courte durée par pays",
-    "features": {
-      "regulations": "✓ Réglementations par pays et ville",
-      "profitability": "✓ Analyse de rentabilité moyenne",
-      "licenses": "✓ Licences et autorisations requises",
-      "taxes": "✓ Taxation des revenus locatifs",
-      "restrictions": "✓ Restrictions et quotas"
+  "vacationRentalBusiness": {
+    "title": "Location Vacances par Pays",
+    "subtitle": "Cadre légal, fiscalité et plateformes pour la location courte durée",
+    "stats": {
+      "permissive": "Pays permissifs",
+      "professionalServices": "Services pro disponibles",
+      "prohibited": "Pays interdiction",
+      "updated": "Janvier 2025"
+    },
+    "filter": {
+      "legal": "Cadre légal",
+      "allLegal": "Tous",
+      "permissive": "Permissif",
+      "moderate": "Modéré",
+      "restrictiveLocal": "Restrictions locales",
+      "prohibitedExceptions": "Interdit sauf exceptions",
+      "prohibited": "Interdit",
+      "services": "Services gestion",
+      "allServices": "Tous",
+      "professional": "Professionnels",
+      "limited": "Limités",
+      "noServices": "Rares/inexistants"
+    },
+    "table": {
+      "legalFramework": "Cadre légal",
+      "taxation": "Fiscalité",
+      "platforms": "Plateformes",
+      "services": "Services de gestion"
+    },
+    "disclaimer": {
+      "text": "Ces données sont fournies à titre indicatif uniquement et peuvent varier selon les régions, le type de bien et votre situation personnelle. Les réglementations changent fréquemment. Consultez toujours un conseiller juridique et fiscal local avant toute décision d'investissement. Dernière mise à jour : Janvier 2025."
+    }
+  },
+  "vacationRentalHotspots": {
+    "title": "Destinations Location Vacances",
+    "subtitle": "Top destinations touristiques pour investir dans la location saisonnière",
+    "stats": {
+      "cities": "Destinations analysées",
+      "unlimited": "Sans limite jours",
+      "avgRevenue": "Revenu moyen mensuel",
+      "avgOccupancy": "Taux occupation moyen",
+      "updated": "Janvier 2025"
+    },
+    "search": {
+      "placeholder": "Rechercher une destination..."
+    },
+    "filter": {
+      "marketType": "Type de marché",
+      "allMarkets": "Tous",
+      "beach": "🏖️ Plage",
+      "urban": "🏙️ Urbain",
+      "nature": "🏔️ Nature",
+      "revenue": "Revenu mensuel",
+      "allRevenue": "Tous",
+      "highRevenue": "> 2000$",
+      "mediumRevenue": "1000-2000$",
+      "lowRevenue": "< 1000$"
+    },
+    "results": {
+      "displayed": "destinations affichées",
+      "none": "Aucune destination ne correspond à votre recherche."
+    },
+    "table": {
+      "destination": "Destination",
+      "marketType": "Type",
+      "dayLimit": "Limite j/an",
+      "revenue": "Revenu mensuel",
+      "occupancy": "Occupation",
+      "licensing": "Licences",
+      "taxation": "Fiscalité",
+      "platforms": "Plateformes",
+      "services": "Services gestion"
+    },
+    "disclaimer": {
+      "text": "Ces données sont fournies à titre indicatif uniquement. Les revenus estimés peuvent varier significativement selon l'emplacement précis, le type et la qualité du bien. Les réglementations locales changent fréquemment. Consultez toujours un conseiller juridique et fiscal local avant toute décision d'investissement. Dernière mise à jour : Janvier 2025."
     }
   }
 }

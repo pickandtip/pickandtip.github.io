@@ -57,18 +57,38 @@ body {
     max-width: 1400px;
     margin: 0 auto;
     padding: 2rem;
+    padding-top: 6rem; /* Add space for sticky header */
     position: relative;
     z-index: 1;
 }
 
+/* ==========================================
+   STICKY HEADER BAR WITH BLUR EFFECT
+   ========================================== */
+.top-header-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    background: rgba(10, 25, 41, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+}
+
 /* Language Switcher */
 .lang-switcher {
-    position: fixed;
-    top: 1.5rem;
-    right: 1.5rem;
+    position: relative;
     display: flex;
     gap: 0.5rem;
-    z-index: 1000;
     background: var(--bg-card);
     padding: 0.5rem;
     border-radius: 50px;
@@ -614,6 +634,7 @@ footer a:hover {
 @media (max-width: 768px) {
     .container {
         padding: 1rem;
+        padding-top: 5.5rem; /* Adjust for sticky header on mobile */
     }
 
     .logo-container {
@@ -642,13 +663,8 @@ footer a:hover {
         max-width: 150px;
     }
 
-    .lang-switcher {
-        top: 1rem;
-        right: 1rem;
-    }
-
     header {
-        padding-top: 5rem;
+        padding-top: 3rem;
     }
 }
 
@@ -695,10 +711,7 @@ tr {
    BREADCRUMB NAVIGATION
    ========================================== */
 .breadcrumb {
-    position: fixed;
-    top: 1.5rem;
-    left: 1.5rem;
-    z-index: 999;
+    position: relative;
     display: flex;
     align-items: center;
     gap: 0.75rem;
@@ -985,16 +998,19 @@ tr {
    RESPONSIVE ADJUSTMENTS
    ========================================== */
 @media (max-width: 768px) {
+    .top-header-bar {
+        padding: 0.75rem 1rem;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+    }
+
     .breadcrumb {
-        top: 1rem;
-        left: 1rem;
         padding: 0.6rem 1rem;
         font-size: 0.85rem;
     }
 
     .lang-switcher {
-        top: 1rem;
-        right: 1rem;
+        /* Styling remains the same */
     }
 
     .header-section {
@@ -1031,5 +1047,125 @@ tr {
 
     .construction-container {
         padding: 2rem 1.5rem;
+    }
+}
+
+/* ============================================
+   AIRBNB-SPECIFIC STYLES
+   ============================================ */
+
+/* Regulation Badge */
+.regulation-badge {
+    display: inline-block;
+    padding: 0.4rem 0.9rem;
+    border-radius: 50px;
+    color: white;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    white-space: nowrap;
+}
+
+/* Platform Badge */
+.platform-badge {
+    display: inline-block;
+    padding: 0.4rem 0.9rem;
+    border-radius: 50px;
+    color: white;
+    font-weight: 600;
+    font-size: 0.85rem;
+    cursor: help;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    white-space: nowrap;
+}
+
+/* Management Badge */
+.management-badge {
+    display: inline-block;
+    padding: 0.4rem 0.9rem;
+    border-radius: 50px;
+    color: white;
+    font-weight: 600;
+    font-size: 0.85rem;
+    cursor: help;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    white-space: nowrap;
+}
+
+/* License Badge */
+.license-badge {
+    display: inline-block;
+    padding: 0.4rem 0.9rem;
+    border-radius: 50px;
+    color: white;
+    font-weight: 600;
+    font-size: 0.85rem;
+    cursor: help;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    white-space: nowrap;
+}
+
+/* Table cell alignments for Airbnb */
+#airbnb-view .comparison-table td.center {
+    text-align: center;
+}
+
+#airbnb-view .comparison-table td.right {
+    text-align: right;
+}
+
+#airbnb-view .comparison-table td.small-text {
+    font-size: 0.85rem;
+    line-height: 1.4;
+    color: var(--text-secondary);
+}
+
+#airbnb-view .comparison-table td.notes-cell {
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: var(--text-secondary);
+    max-width: 300px;
+}
+
+/* Responsive adjustments for Airbnb view */
+@media (max-width: 1400px) {
+    #airbnb-view .comparison-table {
+        font-size: 0.85rem;
+    }
+
+    #airbnb-view .comparison-table th,
+    #airbnb-view .comparison-table td {
+        padding: 0.8rem 0.6rem;
+    }
+}
+
+@media (max-width: 1200px) {
+    #airbnb-view .stats-grid {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    }
+
+    #airbnb-view .filter-section {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    #airbnb-view .comparison-table {
+        font-size: 0.8rem;
+    }
+
+    #airbnb-view .comparison-table th,
+    #airbnb-view .comparison-table td {
+        padding: 0.6rem 0.4rem;
+    }
+
+    .regulation-badge,
+    .platform-badge,
+    .management-badge,
+    .license-badge {
+        font-size: 0.75rem;
+        padding: 0.3rem 0.7rem;
     }
 }

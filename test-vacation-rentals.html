@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Vacation Rentals Loading</title>
+</head>
+<body>
+    <h1>Test Vacation Rentals Data Loading</h1>
+
+    <h2>Vacation Rental Business</h2>
+    <div id="business-results"></div>
+
+    <h2>Vacation Rental Hotspots</h2>
+    <div id="hotspots-results"></div>
+
+    <script>
+        window.currentLang = 'fr';
+
+        async function testBusinessLoad() {
+            try {
+                const [countriesData, rentalBusinessData] = await Promise.all([
+                    fetch('data/countries/countries.json').then(res => res.json()),
+                    fetch('data/topics/vacation-rental-business.json').then(res => res.json())
+                ]);
+
+                const countries = countriesData;
+                const rentalData = rentalBusinessData.countries || rentalBusinessData;
+
+                const countryData = rentalData.map(rental => {
+                    const country = countries.find(c => c.code === rental.countryCode);
+                    if (!country) {
+                        console.warn(`Country not found for code: ${rental.countryCode}`);
+                        return null;
+                    }
+                    return {
+                        ...rental,
+                        countryName: country.name,
+                        flag: country.flag,
+                        region: country.region
+                    };
+                }).filter(item => item !== null);
+
+                document.getElementById('business-results').innerHTML = `
+                    <p style="color: green; font-weight: bold;">✓ SUCCESS</p>
+                    <p>Countries loaded: ${countries.length}</p>
+                    <p>Business data loaded: ${rentalData.length}</p>
+                    <p>Merged data: ${countryData.length}</p>
+                    <p>First country: ${countryData[0].flag} ${countryData[0].countryName.fr}</p>
+                    <p>Legal level: ${countryData[0].legalFramework.level}</p>
+                    <h3>First 5 countries:</h3>
+                    <ul>
+                        ${countryData.slice(0, 5).map(item => `
+                            <li>${item.flag} ${item.countryName.fr} - ${item.legalFramework.level}</li>
+                        `).join('')}
+                    </ul>
+                `;
+            } catch (error) {
+                document.getElementById('business-results').innerHTML = `
+                    <p style="color: red; font-weight: bold;">✗ ERROR</p>
+                    <p>${error.message}</p>
+                    <pre>${error.stack}</pre>
+                `;
+            }
+        }
+
+        async function testHotspotsLoad() {
+            try {
+                const [countriesData, hotspotsJsonData] = await Promise.all([
+                    fetch('data/countries/countries.json').then(res => res.json()),
+                    fetch('data/topics/vacation-rental-hotspots.json').then(res => res.json())
+                ]);
+
+                const countries = countriesData;
+                const hotspotsData = hotspotsJsonData.cities || hotspotsJsonData;
+
+                const cityData = hotspotsData.map(city => {
+                    const country = countries.find(c => c.code === city.countryCode);
+                    if (!country) {
+                        console.warn(`Country not found for code: ${city.countryCode}`);
+                        return null;
+                    }
+                    return {
+                        ...city,
+                        countryName: country.name,
+                        flag: country.flag,
+                        regionName: country.region
+                    };
+                }).filter(item => item !== null);
+
+                document.getElementById('hotspots-results').innerHTML = `
+                    <p style="color: green; font-weight: bold;">✓ SUCCESS</p>
+                    <p>Countries loaded: ${countries.length}</p>
+                    <p>Hotspots data loaded: ${hotspotsData.length}</p>
+                    <p>Merged data: ${cityData.length}</p>
+                    <p>First city: ${cityData[0].city.fr} ${cityData[0].flag}</p>
+                    <p>Market type: ${cityData[0].marketType}</p>
+                    <h3>First 5 cities:</h3>
+                    <ul>
+                        ${cityData.slice(0, 5).map(item => `
+                            <li>${item.city.fr} ${item.flag} - ${item.marketType}</li>
+                        `).join('')}
+                    </ul>
+                `;
+            } catch (error) {
+                document.getElementById('hotspots-results').innerHTML = `
+                    <p style="color: red; font-weight: bold;">✗ ERROR</p>
+                    <p>${error.message}</p>
+                    <pre>${error.stack}</pre>
+                `;
+            }
+        }
+
+        testBusinessLoad();
+        testHotspotsLoad();
+    </script>
+</body>
+</html>
