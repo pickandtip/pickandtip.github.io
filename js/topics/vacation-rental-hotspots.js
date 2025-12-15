@@ -15,9 +15,21 @@
 
     // Market type mapping
     const marketTypes = {
-        'beach': { label: { fr: '🏖️ Plage', en: '🏖️ Beach' }, icon: '🏖️' },
-        'urban': { label: { fr: '🏙️ Urbain', en: '🏙️ Urban' }, icon: '🏙️' },
-        'nature': { label: { fr: '🏔️ Nature', en: '🏔️ Nature' }, icon: '🏔️' }
+        'beach': {
+            label: { fr: 'Plage', en: 'Beach' },
+            icon: '🏖️',
+            tooltip: { fr: 'Destination balnéaire', en: 'Beach destination' }
+        },
+        'urban': {
+            label: { fr: 'Urbain', en: 'Urban' },
+            icon: '🏙️',
+            tooltip: { fr: 'Ville/Centre urbain', en: 'City/Urban center' }
+        },
+        'nature': {
+            label: { fr: 'Nature', en: 'Nature' },
+            icon: '🏔️',
+            tooltip: { fr: 'Nature/Montagne', en: 'Nature/Mountain' }
+        }
     };
 
     // Licensing level mapping
@@ -114,50 +126,144 @@
         if (rate === 0) {
             return '<span style="color: #999;">N/A</span>';
         }
-    
+
         let color = '#4CAF50';
         if (rate < 50) color = '#F44336';
         else if (rate < 65) color = '#FF9800';
-    
+
         return `<span style="color: ${color}; font-weight: 600;">${rate}%</span>`;
     }
-    
+
+    // Truncate text with ellipsis
+    function truncateText(text, maxLength = 150) {
+        if (!text || text.length <= maxLength) {
+            return text;
+        }
+        return text.substring(0, maxLength).trim() + '...';
+    }
+
+    // Escape HTML for attributes
+    function escapeHtml(text) {
+        if (!text) return '';
+        return text
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#039;');
+    }
+
+    // Format management services tooltip
+    function formatManagementServices(city) {
+        const lang = window.currentLang;
+        const services = city.managementServices[lang] || city.managementServices.fr;
+
+        // Pattern matching to replace prefix
+        let formattedServices = services;
+
+        if (lang === 'fr') {
+            // Replace "Nombreuses: " with "Nombreux services de gestion locative :\n"
+            formattedServices = formattedServices.replace(/^Nombreuses\s*:\s*/i, 'Nombreux services de gestion locative :<br>');
+            formattedServices = formattedServices.replace(/^Limités\s*:\s*/i, 'Services de gestion locative limités :<br>');
+        } else {
+            // Replace "Numerous: " with "Numerous rental management services:\n"
+            formattedServices = formattedServices.replace(/^Numerous\s*:\s*/i, 'Numerous rental management services:<br>');
+            formattedServices = formattedServices.replace(/^Limited\s*:\s*/i, 'Limited rental management services:<br>');
+        }
+
+        // Replace commas with line breaks for each service on its own line
+        formattedServices = formattedServices.replace(/,\s*/g, '<br>');
+
+        return `<div class="services-tooltip-content">${formattedServices}</div>`;
+    }
+
     // Render table
     function renderTable(data) {
         tableBody.innerHTML = '';
-    
+
         if (data.length === 0) {
             noResults.style.display = 'block';
             resultCount.textContent = '0';
             return;
         }
-    
+
         noResults.style.display = 'none';
         resultCount.textContent = data.length;
-    
+
         data.forEach(city => {
             const row = document.createElement('tr');
-    
+
             const cityName = city.city[window.currentLang] || city.city.fr;
             const countryName = city.countryName[window.currentLang] || city.countryName.fr;
             const notes = city.notes[window.currentLang] || city.notes.fr;
             const taxation = city.totalTaxation[window.currentLang] || city.totalTaxation.fr;
-            const services = city.managementServices[window.currentLang] || city.managementServices.fr;
-    
+            const truncatedNotes = truncateText(notes, 150);
+
+            // Prepare tooltip data
+            const platformsList = city.platforms.join(', ');
+            const platformsEscaped = escapeHtml(platformsList);
+            const servicesFormatted = formatManagementServices(city);
+
+            // Get market type info
+            const marketType = marketTypes[city.marketType] || marketTypes['urban'];
+            const marketIcon = marketType.icon;
+            const marketTooltip = marketType.tooltip[window.currentLang] || marketType.tooltip.fr;
+            const marketTooltipEscaped = escapeHtml(marketTooltip);
+
             row.innerHTML = `
+                <td class="info-cell">
+                    <div class="info-icons">
+                        <span class="info-icon type-icon">
+                            ${marketIcon}
+                            <span class="custom-tooltip">${marketTooltipEscaped}</span>
+                        </span>
+                        <span class="info-icon platform-icon">
+                            🌐
+                            <span class="custom-tooltip">${platformsEscaped}</span>
+                        </span>
+                        <span class="info-icon services-icon">
+                            🏢
+                            <span class="custom-tooltip services-tooltip">${servicesFormatted}</span>
+                        </span>
+                    </div>
+                </td>
                 <td><strong>${cityName}</strong></td>
                 <td><span class="flag">${city.flag}</span> ${countryName}</td>
-                <td>${getMarketBadge(city.marketType)}</td>
                 <td class="center">${formatDayLimit(city.dayLimit)}</td>
                 <td class="right">${formatRevenue(city.monthlyRevenue)}</td>
                 <td class="center">${formatOccupancy(city.occupancyRate)}</td>
                 <td>${getLicensingBadge(city.licensing)}</td>
                 <td class="small-text">${taxation}</td>
-                <td class="small-text">${city.platforms.join(', ')}</td>
-                <td class="small-text">${services}</td>
-                <td class="notes-cell">${notes}</td>
+                <td class="notes-cell">${truncatedNotes}</td>
             `;
-    
+
+            // Add click event listeners for all tooltips
+            const typeIcon = row.querySelector('.type-icon');
+            const platformIcon = row.querySelector('.platform-icon');
+            const servicesIcon = row.querySelector('.services-icon');
+
+            [typeIcon, platformIcon, servicesIcon].forEach(icon => {
+                if (icon) {
+                    icon.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        // Close all other tooltips
+                        document.querySelectorAll('.info-icon.active').forEach(otherIcon => {
+                            if (otherIcon !== this) otherIcon.classList.remove('active');
+                        });
+                        // Toggle this tooltip
+                        this.classList.toggle('active');
+                    });
+                }
+            });
+
+            // Add tooltip to notes cell if text was truncated
+            if (notes.length > 150) {
+                const notesCell = row.querySelector('.notes-cell');
+                if (notesCell) {
+                    notesCell.setAttribute('title', notes);
+                }
+            }
+
             tableBody.appendChild(row);
         });
     }
@@ -268,7 +374,14 @@
     function setupEventListeners() {
         // Search input
         searchInput.addEventListener('input', filterAndSort);
-    
+
+        // Close tooltips when clicking outside
+        document.addEventListener('click', () => {
+            document.querySelectorAll('.info-icon.active').forEach(icon => {
+                icon.classList.remove('active');
+            });
+        });
+
         // Filter dropdowns
         regionFilter.addEventListener('change', () => {
             currentRegionFilter = regionFilter.value;

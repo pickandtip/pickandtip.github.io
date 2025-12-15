@@ -54,6 +54,14 @@
         }
     }
 
+    // Truncate text with ellipsis
+    function truncateText(text, maxLength = 150) {
+        if (!text || text.length <= maxLength) {
+            return text;
+        }
+        return text.substring(0, maxLength).trim() + '...';
+    }
+
     // ==========================================
     // TABLE RENDERING
     // ==========================================
@@ -85,6 +93,7 @@
             const regionName = window.translations[window.currentLang].regions[item.region] || item.region;
             const countryName = item.country[window.currentLang];
             const notes = item.notes[window.currentLang];
+            const truncatedNotes = truncateText(notes, 150);
             const propertyTax = window.replaceTokens(item.propertyTax, window.currentLang).replace(/\n/g, '<br>');
             const transferTax = window.replaceTokens(item.transferTax, window.currentLang).replace(/\n/g, '<br>');
 
@@ -104,8 +113,17 @@
                 <td><span class="tax-value ${taxClass}">${propertyTax}</span></td>
                 <td><span class="tax-value ${transferClass}">${transferTax}</span></td>
                 <td><span class="foreign-badge ${foreignClass}">${foreignText}</span></td>
-                <td><span class="notes">${notes}</span></td>
+                <td><span class="notes">${truncatedNotes}</span></td>
             `;
+
+            // Add tooltip to notes if text was truncated
+            if (notes.length > 150) {
+                const notesSpan = row.querySelector('.notes');
+                if (notesSpan) {
+                    notesSpan.setAttribute('title', notes);
+                    notesSpan.style.cursor = 'help';
+                }
+            }
 
             tableBody.appendChild(row);
         });

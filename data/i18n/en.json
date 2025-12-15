@@ -65,7 +65,7 @@
   "footer": {
     "createdBy": "Created by",
     "subscribe": "Subscribe to YouTube channel",
-    "topics": "Gold • Crypto • International Investment • Mobility"
+    "topics": "Mobility • International Investment • Gold • Overseas Real Estate • Crypto • Working with AI"
   },
   "tokens": {
     "old": "resale",
@@ -162,6 +162,7 @@
   "vacationRentalHotspots": {
     "title": "Vacation Rental Hotspots",
     "subtitle": "Top tourist destinations to invest in seasonal rentals",
+    "platformNote": "ℹ️ Only destinations where Airbnb or equivalent platforms with international exposure (e.g., Booking.com) are available AND with sufficient management services infrastructure",
     "stats": {
       "cities": "Destinations analyzed",
       "unlimited": "No day limits",
@@ -190,14 +191,11 @@
     },
     "table": {
       "destination": "Destination",
-      "marketType": "Type",
       "dayLimit": "Day limit/year",
       "revenue": "Monthly revenue",
       "occupancy": "Occupancy",
       "licensing": "Licenses",
-      "taxation": "Taxation",
-      "platforms": "Platforms",
-      "services": "Management services"
+      "taxation": "Taxation"
     },
     "disclaimer": {
       "text": "This data is provided for informational purposes only. Estimated revenues can vary significantly based on precise location, property type and quality. Local regulations change frequently. Always consult a local legal and tax advisor before making any investment decision. Last updated: January 2025."

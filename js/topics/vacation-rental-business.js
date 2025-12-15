@@ -98,10 +98,18 @@
             const scope = platform.scope === 'international' ? '🌍' : '📍';
             return `<span class="platform-item" title="${platform.name}">${scope} ${platform.name} ${langs}</span>`;
         }).join(' ');
-    
+
         return `<div class="platforms-list">${badges}</div>`;
     }
-    
+
+    // Truncate text with ellipsis
+    function truncateText(text, maxLength = 150) {
+        if (!text || text.length <= maxLength) {
+            return text;
+        }
+        return text.substring(0, maxLength).trim() + '...';
+    }
+
     // Render table
     function renderTableBusiness(data) {
         tableBody.innerHTML = '';
@@ -117,12 +125,13 @@
     
         data.forEach(country => {
             const row = document.createElement('tr');
-    
+
             const countryName = country.countryName[window.currentLang] || country.countryName.fr;
             const notes = country.notes[window.currentLang] || country.notes.fr;
             const taxation = country.taxation[window.currentLang] || country.taxation.fr;
             const regionLabel = window.translations?.regions?.[country.region] || country.region;
-    
+            const truncatedNotes = truncateText(notes, 150);
+
             row.innerHTML = `
                 <td><span class="flag">${country.flag}</span> ${countryName}</td>
                 <td>${regionLabel}</td>
@@ -130,9 +139,17 @@
                 <td class="small-text taxation-cell">${taxation}</td>
                 <td class="platforms-cell">${getPlatformsDisplay(country.platforms)}</td>
                 <td>${getServicesBadge(country.managementServices)}</td>
-                <td class="notes-cell">${notes}</td>
+                <td class="notes-cell">${truncatedNotes}</td>
             `;
-    
+
+            // Add tooltip to notes cell if text was truncated
+            if (notes.length > 150) {
+                const notesCell = row.querySelector('.notes-cell');
+                if (notesCell) {
+                    notesCell.setAttribute('title', notes);
+                }
+            }
+
             tableBody.appendChild(row);
         });
     }

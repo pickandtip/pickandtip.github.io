@@ -65,7 +65,7 @@
   "footer": {
     "createdBy": "Créé par",
     "subscribe": "S'abonner à la chaîne YouTube",
-    "topics": "Or • Crypto • Investissement International • Mobilité"
+    "topics": "Mobilité • Investissement International • Or • Immobilier à l'Étranger • Crypto • Travailler avec l'IA"
   },
   "tokens": {
     "old": "revente",
@@ -162,6 +162,7 @@
   "vacationRentalHotspots": {
     "title": "Destinations Location Vacances",
     "subtitle": "Top destinations touristiques pour investir dans la location saisonnière",
+    "platformNote": "ℹ️ Uniquement les destinations où Airbnb ou plateformes équivalentes avec exposition internationale (ex. Booking.com) sont disponibles ET disposant d'une infrastructure de services de gestion suffisante",
     "stats": {
       "cities": "Destinations analysées",
       "unlimited": "Sans limite jours",
@@ -190,14 +191,11 @@
     },
     "table": {
       "destination": "Destination",
-      "marketType": "Type",
       "dayLimit": "Limite j/an",
       "revenue": "Revenu mensuel",
       "occupancy": "Occupation",
       "licensing": "Licences",
-      "taxation": "Fiscalité",
-      "platforms": "Plateformes",
-      "services": "Services gestion"
+      "taxation": "Fiscalité"
     },
     "disclaimer": {
       "text": "Ces données sont fournies à titre indicatif uniquement. Les revenus estimés peuvent varier significativement selon l'emplacement précis, le type et la qualité du bien. Les réglementations locales changent fréquemment. Consultez toujours un conseiller juridique et fiscal local avant toute décision d'investissement. Dernière mise à jour : Janvier 2025."
