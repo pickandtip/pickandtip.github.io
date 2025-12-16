@@ -1238,6 +1238,7 @@ tr {
 
 /* Custom tooltip */
 .custom-tooltip {
+    display: none;
     position: absolute;
     left: calc(100% + 0.75rem);
     top: 50%;
@@ -1282,6 +1283,7 @@ tr {
 }
 
 .info-icon.active .custom-tooltip {
+    display: block;
     visibility: visible;
     opacity: 1;
     pointer-events: auto;
