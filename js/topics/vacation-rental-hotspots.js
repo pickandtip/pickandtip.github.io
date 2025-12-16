@@ -308,7 +308,7 @@
             const servicesIcon = row.querySelector('.services-icon');
             const profitabilityIcon = row.querySelector('.profitability-info-icon');
 
-            [typeIcon, platformIcon, servicesIcon, profitabilityIcon].forEach(icon => {
+            [typeIcon, platformIcon, servicesIcon].forEach(icon => {
                 if (icon) {
                     icon.addEventListener('click', function(e) {
                         e.stopPropagation();
@@ -319,8 +319,62 @@
                         // Toggle this tooltip
                         this.classList.toggle('active');
                     });
+
+                    // Close tooltip when mouse leaves the icon
+                    icon.addEventListener('mouseleave', function(e) {
+                        this.classList.remove('active');
+                    });
                 }
             });
+
+            // Special handling for profitability tooltip with position adjustment
+            if (profitabilityIcon) {
+                profitabilityIcon.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    // Close all other tooltips
+                    document.querySelectorAll('.info-icon.active').forEach(otherIcon => {
+                        if (otherIcon !== this) otherIcon.classList.remove('active');
+                    });
+                    // Toggle this tooltip
+                    this.classList.toggle('active');
+
+                    // Adjust tooltip position if active
+                    if (this.classList.contains('active')) {
+                        const tooltip = this.querySelector('.custom-tooltip');
+                        if (tooltip) {
+                            // Wait for tooltip to be displayed to get accurate dimensions
+                            setTimeout(() => {
+                                const iconRect = this.getBoundingClientRect();
+                                const tooltipRect = tooltip.getBoundingClientRect();
+                                const viewportHeight = window.innerHeight;
+                                const tableScrollContainer = document.querySelector('.table-scroll');
+                                const containerTop = tableScrollContainer ? tableScrollContainer.getBoundingClientRect().top : 0;
+                                const containerBottom = tableScrollContainer ? tableScrollContainer.getBoundingClientRect().bottom : viewportHeight;
+
+                                // Remove any previous positioning classes
+                                tooltip.classList.remove('tooltip-top', 'tooltip-bottom');
+
+                                // Calculate where the tooltip would be positioned if centered
+                                const tooltipCenterTop = iconRect.top + iconRect.height / 2 - tooltipRect.height / 2;
+                                const tooltipCenterBottom = tooltipCenterTop + tooltipRect.height;
+
+                                // Check if tooltip would overflow at the top
+                                if (tooltipCenterTop < containerTop) {
+                                    tooltip.classList.add('tooltip-top');
+                                }
+                                // Check if tooltip would overflow at the bottom
+                                else if (tooltipCenterBottom > Math.min(viewportHeight, containerBottom)) {
+                                    tooltip.classList.add('tooltip-bottom');
+                                }
+                            }, 10);
+                        }
+                    }
+                });
+
+                profitabilityIcon.addEventListener('mouseleave', function() {
+                    this.classList.remove('active');
+                });
+            }
 
             // Add tooltip to notes cell if text was truncated
             if (notes.length > 150) {
