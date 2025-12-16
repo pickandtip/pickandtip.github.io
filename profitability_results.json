@@ -1,0 +1,442 @@
+{
+  "CUN": {
+    "pricePerSqm": 1800,
+    "expenseRatio": 61.0,
+    "netMargin": 39.0,
+    "profitabilityBySize": {
+      "50m2": {
+        "profitability": 5.2,
+        "monthlyRevenue": 1000,
+        "propertyPrice": 90000
+      },
+      "100m2": {
+        "profitability": 5.2,
+        "monthlyRevenue": 2000,
+        "propertyPrice": 180000
+      },
+      "200m2": {
+        "profitability": 4.5,
+        "monthlyRevenue": 3500,
+        "propertyPrice": 360000
+      }
+    }
+  },
+  "IST": {
+    "pricePerSqm": 2850,
+    "expenseRatio": 40.0,
+    "netMargin": 60.0,
+    "profitabilityBySize": {
+      "50m2": {
+        "profitability": 5.1,
+        "monthlyRevenue": 1000,
+        "propertyPrice": 142500
+      },
+      "100m2": {
+        "profitability": 4.0,
+        "monthlyRevenue": 1600,
+        "propertyPrice": 285000
+      },
+      "200m2": {
+        "profitability": 3.3,
+        "monthlyRevenue": 2600,
+        "propertyPrice": 570000
+      }
+    }
+  },
+  "DXB": {
+    "pricePerSqm": 5500,
+    "expenseRatio": 40.0,
+    "netMargin": 60.0,
+    "profitabilityBySize": {
+      "50m2": {
+        "profitability": 4.8,
+        "monthlyRevenue": 1815,
+        "propertyPrice": 275000
+      },
+      "100m2": {
+        "profitability": 5.2,
+        "monthlyRevenue": 3970,
+        "propertyPrice": 550000
+      },
+      "200m2": {
+        "profitability": 4.1,
+        "monthlyRevenue": 6250,
+        "propertyPrice": 1100000
+      }
+    }
+  },
+  "LIS": {
+    "pricePerSqm": 4850,
+    "expenseRatio": 50.0,
+    "netMargin": 50.0,
+    "profitabilityBySize": {
+      "50m2": {
+        "profitability": 4.3,
+        "monthlyRevenue": 1750,
+        "propertyPrice": 242500
+      },
+      "100m2": {
+        "profitability": 3.7,
+        "monthlyRevenue": 3000,
+        "propertyPrice": 485000
+      },
+      "200m2": {
+        "profitability": 2.9,
+        "monthlyRevenue": 4750,
+        "propertyPrice": 970000
+      }
+    }
+  },
+  "PDC": {
+    "pricePerSqm": 4000,
+    "expenseRatio": 45.0,
+    "netMargin": 55.0,
+    "profitabilityBySize": {
+      "50m2": {
+        "profitability": 4.5,
+        "monthlyRevenue": 1350,
+        "propertyPrice": 200000
+      },
+      "100m2": {
+        "profitability": 4.0,
+        "monthlyRevenue": 2400,
+        "propertyPrice": 400000
+      },
+      "200m2": {
+        "profitability": 3.5,
+        "monthlyRevenue": 4250,
+        "propertyPrice": 800000
+      }
+    }
+  },
+  "OPO": {
+    "pricePerSqm": 4610,
+    "expenseRatio": 50.0,
+    "netMargin": 50.0,
+    "profitabilityBySize": {
+      "50m2": {
+        "profitability": 3.1,
+        "monthlyRevenue": 1200,
+        "propertyPrice": 230500
+      },
+      "100m2": {
+        "profitability": 2.8,
+        "monthlyRevenue": 2150,
+        "propertyPrice": 461000
+      },
+      "200m2": {
+        "profitability": 2.3,
+        "monthlyRevenue": 3500,
+        "propertyPrice": 922000
+      }
+    }
+  },
+  "ROM": {
+    "pricePerSqm": 4200,
+    "expenseRatio": 62.5,
+    "netMargin": 37.5,
+    "profitabilityBySize": {
+      "50m2": {
+        "profitability": 6.0,
+        "monthlyRevenue": 2800,
+        "propertyPrice": 210000
+      },
+      "100m2": {
+        "profitability": 4.1,
+        "monthlyRevenue": 3850,
+        "propertyPrice": 420000
+      },
+      "200m2": {
+        "profitability": 3.1,
+        "monthlyRevenue": 5750,
+        "propertyPrice": 840000
+      }
+    }
+  },
+  "ATH": {
+    "pricePerSqm": 3600,
+    "expenseRatio": 64.5,
+    "netMargin": 35.5,
+    "profitabilityBySize": {
+      "50m2": {
+        "profitability": 4.3,
+        "monthlyRevenue": 1800,
+        "propertyPrice": 180000
+      },
+      "100m2": {
+        "profitability": 3.0,
+        "monthlyRevenue": 2500,
+        "propertyPrice": 360000
+      },
+      "200m2": {
+        "profitability": 2.1,
+        "monthlyRevenue": 3600,
+        "propertyPrice": 720000
+      }
+    }
+  },
+  "MIA": {
+    "pricePerSqm": 10000,
+    "expenseRatio": 59.0,
+    "netMargin": 41.0,
+    "profitabilityBySize": {
+      "50m2": {
+        "profitability": 3.1,
+        "monthlyRevenue": 3150,
+        "propertyPrice": 500000
+      },
+      "100m2": {
+        "profitability": 2.3,
+        "monthlyRevenue": 4600,
+        "propertyPrice": 1000000
+      },
+      "200m2": {
+        "profitability": 1.8,
+        "monthlyRevenue": 7500,
+        "propertyPrice": 2000000
+      }
+    }
+  },
+  "TUL": {
+    "pricePerSqm": 2685,
+    "expenseRatio": 66.5,
+    "netMargin": 33.5,
+    "profitabilityBySize": {
+      "50m2": {
+        "profitability": 4.2,
+        "monthlyRevenue": 1400,
+        "propertyPrice": 134250
+      },
+      "100m2": {
+        "profitability": 4.0,
+        "monthlyRevenue": 2650,
+        "propertyPrice": 268500
+      },
+      "200m2": {
+        "profitability": 5.2,
+        "monthlyRevenue": 7000,
+        "propertyPrice": 537000
+      }
+    }
+  },
+  "UBU": {
+    "pricePerSqm": 825,
+    "expenseRatio": 62.0,
+    "netMargin": 38.0,
+    "profitabilityBySize": {
+      "50m2": {
+        "profitability": 6.1,
+        "monthlyRevenue": 550,
+        "propertyPrice": 41250
+      },
+      "100m2": {
+        "profitability": 6.4,
+        "monthlyRevenue": 1150,
+        "propertyPrice": 82500
+      },
+      "200m2": {
+        "profitability": 6.2,
+        "monthlyRevenue": 2250,
+        "propertyPrice": 165000
+      }
+    }
+  },
+  "JTR": {
+    "pricePerSqm": 7625,
+    "expenseRatio": 50.0,
+    "netMargin": 50.0,
+    "profitabilityBySize": {
+      "50m2": {
+        "profitability": 5.4,
+        "monthlyRevenue": 3450,
+        "propertyPrice": 381250
+      },
+      "100m2": {
+        "profitability": 4.9,
+        "monthlyRevenue": 6250,
+        "propertyPrice": 762500
+      },
+      "200m2": {
+        "profitability": 4.9,
+        "monthlyRevenue": 12500,
+        "propertyPrice": 1525000
+      }
+    }
+  },
+  "PRG": {
+    "pricePerSqm": 5450,
+    "expenseRatio": 40.0,
+    "netMargin": 60.0,
+    "profitabilityBySize": {
+      "50m2": {
+        "profitability": 5.8,
+        "monthlyRevenue": 2200,
+        "propertyPrice": 272500
+      },
+      "100m2": {
+        "profitability": 5.3,
+        "monthlyRevenue": 4000,
+        "propertyPrice": 545000
+      },
+      "200m2": {
+        "profitability": 4.6,
+        "monthlyRevenue": 7000,
+        "propertyPrice": 1090000
+      }
+    }
+  },
+  "BUD": {
+    "pricePerSqm": 4400,
+    "expenseRatio": 57.5,
+    "netMargin": 42.5,
+    "profitabilityBySize": {
+      "50m2": {
+        "profitability": 3.2,
+        "monthlyRevenue": 1400,
+        "propertyPrice": 220000
+      },
+      "100m2": {
+        "profitability": 3.0,
+        "monthlyRevenue": 2600,
+        "propertyPrice": 440000
+      },
+      "200m2": {
+        "profitability": 2.8,
+        "monthlyRevenue": 4750,
+        "propertyPrice": 880000
+      }
+    }
+  },
+  "RAK": {
+    "pricePerSqm": 1675,
+    "expenseRatio": 50.0,
+    "netMargin": 50.0,
+    "profitabilityBySize": {
+      "50m2": {
+        "profitability": 10.7,
+        "monthlyRevenue": 1500,
+        "propertyPrice": 83750
+      },
+      "100m2": {
+        "profitability": 10.0,
+        "monthlyRevenue": 2800,
+        "propertyPrice": 167500
+      },
+      "200m2": {
+        "profitability": 9.9,
+        "monthlyRevenue": 5500,
+        "propertyPrice": 335000
+      }
+    }
+  },
+  "CNX": {
+    "pricePerSqm": 2445,
+    "expenseRatio": 30.0,
+    "netMargin": 70.0,
+    "profitabilityBySize": {
+      "50m2": {
+        "profitability": 5.3,
+        "monthlyRevenue": 775,
+        "propertyPrice": 122250
+      },
+      "100m2": {
+        "profitability": 4.8,
+        "monthlyRevenue": 1400,
+        "propertyPrice": 244500
+      },
+      "200m2": {
+        "profitability": 4.9,
+        "monthlyRevenue": 2850,
+        "propertyPrice": 489000
+      }
+    }
+  },
+  "KRK": {
+    "pricePerSqm": 4400,
+    "expenseRatio": 60.0,
+    "netMargin": 40.0,
+    "profitabilityBySize": {
+      "50m2": {
+        "profitability": 2.6,
+        "monthlyRevenue": 1200,
+        "propertyPrice": 220000
+      },
+      "100m2": {
+        "profitability": 2.0,
+        "monthlyRevenue": 1800,
+        "propertyPrice": 440000
+      },
+      "200m2": {
+        "profitability": 1.6,
+        "monthlyRevenue": 2850,
+        "propertyPrice": 880000
+      }
+    }
+  },
+  "SPU": {
+    "pricePerSqm": 3750,
+    "expenseRatio": 50.0,
+    "netMargin": 50.0,
+    "profitabilityBySize": {
+      "50m2": {
+        "profitability": 5.9,
+        "monthlyRevenue": 1850,
+        "propertyPrice": 187500
+      },
+      "100m2": {
+        "profitability": 4.2,
+        "monthlyRevenue": 2600,
+        "propertyPrice": 375000
+      },
+      "200m2": {
+        "profitability": 3.2,
+        "monthlyRevenue": 4000,
+        "propertyPrice": 750000
+      }
+    }
+  },
+  "FAO": {
+    "pricePerSqm": 4150,
+    "expenseRatio": 55.0,
+    "netMargin": 45.0,
+    "profitabilityBySize": {
+      "50m2": {
+        "profitability": 5.7,
+        "monthlyRevenue": 2200,
+        "propertyPrice": 207500
+      },
+      "100m2": {
+        "profitability": 4.0,
+        "monthlyRevenue": 3100,
+        "propertyPrice": 415000
+      },
+      "200m2": {
+        "profitability": 3.2,
+        "monthlyRevenue": 4850,
+        "propertyPrice": 830000
+      }
+    }
+  },
+  "VLC": {
+    "pricePerSqm": 3630,
+    "expenseRatio": 60.0,
+    "netMargin": 40.0,
+    "profitabilityBySize": {
+      "50m2": {
+        "profitability": 4.8,
+        "monthlyRevenue": 1800,
+        "propertyPrice": 181500
+      },
+      "100m2": {
+        "profitability": 3.3,
+        "monthlyRevenue": 2500,
+        "propertyPrice": 363000
+      },
+      "200m2": {
+        "profitability": 2.6,
+        "monthlyRevenue": 4000,
+        "propertyPrice": 726000
+      }
+    }
+  }
+}

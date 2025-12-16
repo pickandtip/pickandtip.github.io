@@ -191,9 +191,7 @@
     },
     "table": {
       "destination": "Destination",
-      "dayLimit": "Limite j/an",
-      "revenue": "Revenu mensuel",
-      "occupancy": "Occupation",
+      "profitability": "Rentabilité",
       "licensing": "Licences",
       "taxation": "Fiscalité"
     },

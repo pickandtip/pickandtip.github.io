@@ -292,28 +292,6 @@
       "notes": {
         "fr": "Aéroport Cancún 45 min. Très peu restrictif. Propriété étrangère autorisée (fidéicommis). Marché favorable investisseurs.",
         "en": "Cancún airport 45 min. Very permissive. Foreign ownership allowed (bank trust). Favorable investor market."
-      },
-      "profitability": {
-        "pricePerSqm": 4000,
-        "expenseRatio": 45.0,
-        "netMargin": 55.0,
-        "profitabilityBySize": {
-          "50m2": {
-            "profitability": 4.5,
-            "monthlyRevenue": 1350,
-            "propertyPrice": 200000
-          },
-          "100m2": {
-            "profitability": 4.0,
-            "monthlyRevenue": 2400,
-            "propertyPrice": 400000
-          },
-          "200m2": {
-            "profitability": 3.5,
-            "monthlyRevenue": 4250,
-            "propertyPrice": 800000
-          }
-        }
       }
     },
     {
@@ -355,28 +333,6 @@
       "notes": {
         "fr": "Aéroport international. Moratoire centre historique. Alternative moins chère que Lisbonne. Forte demande tourisme oenotouristique.",
         "en": "International airport. Historic center moratorium. Cheaper alternative to Lisbon. Strong wine tourism demand."
-      },
-      "profitability": {
-        "pricePerSqm": 4610,
-        "expenseRatio": 50.0,
-        "netMargin": 50.0,
-        "profitabilityBySize": {
-          "50m2": {
-            "profitability": 3.1,
-            "monthlyRevenue": 1200,
-            "propertyPrice": 230500
-          },
-          "100m2": {
-            "profitability": 2.8,
-            "monthlyRevenue": 2150,
-            "propertyPrice": 461000
-          },
-          "200m2": {
-            "profitability": 2.3,
-            "monthlyRevenue": 3500,
-            "propertyPrice": 922000
-          }
-        }
       }
     },
     {
@@ -607,28 +563,6 @@
       "notes": {
         "fr": "Aéroport Tulum nouveau (2024). Zone bohème-luxe. Très peu restrictif. Marché premium. Nouvel aéroport boost demande.",
         "en": "New Tulum airport (2024). Boho-luxury zone. Very permissive. Premium market. New airport boosts demand."
-      },
-      "profitability": {
-        "pricePerSqm": 2685,
-        "expenseRatio": 66.5,
-        "netMargin": 33.5,
-        "profitabilityBySize": {
-          "50m2": {
-            "profitability": 4.2,
-            "monthlyRevenue": 1400,
-            "propertyPrice": 134250
-          },
-          "100m2": {
-            "profitability": 4.0,
-            "monthlyRevenue": 2650,
-            "propertyPrice": 268500
-          },
-          "200m2": {
-            "profitability": 5.2,
-            "monthlyRevenue": 7000,
-            "propertyPrice": 537000
-          }
-        }
       }
     },
     {
@@ -670,28 +604,6 @@
       "notes": {
         "fr": "Aéroport international Denpasar. Situation réglementaire en évolution (2025). 0% licences actuellement. Gouvernement refuse interdiction totale. Top 10%: 4 974 USD/mois.",
         "en": "Denpasar international airport. Evolving regulatory situation (2025). 0% current licenses. Government rejects total ban. Top 10%: $4,974/month."
-      },
-      "profitability": {
-        "pricePerSqm": 825,
-        "expenseRatio": 62.0,
-        "netMargin": 38.0,
-        "profitabilityBySize": {
-          "50m2": {
-            "profitability": 6.1,
-            "monthlyRevenue": 550,
-            "propertyPrice": 41250
-          },
-          "100m2": {
-            "profitability": 6.4,
-            "monthlyRevenue": 1150,
-            "propertyPrice": 82500
-          },
-          "200m2": {
-            "profitability": 6.2,
-            "monthlyRevenue": 2250,
-            "propertyPrice": 165000
-          }
-        }
       }
     },
     {
@@ -733,28 +645,6 @@
       "notes": {
         "fr": "Aéroport + ferry Athènes. Marché premium. Très saisonnier (avr-oct). Max 2 biens/personne. Taxe climatique élevée haute saison.",
         "en": "Airport + Athens ferry. Premium market. Very seasonal (Apr-Oct). Max 2 properties/person. High climate tax in season."
-      },
-      "profitability": {
-        "pricePerSqm": 7625,
-        "expenseRatio": 50.0,
-        "netMargin": 50.0,
-        "profitabilityBySize": {
-          "50m2": {
-            "profitability": 5.4,
-            "monthlyRevenue": 3450,
-            "propertyPrice": 381250
-          },
-          "100m2": {
-            "profitability": 4.9,
-            "monthlyRevenue": 6250,
-            "propertyPrice": 762500
-          },
-          "200m2": {
-            "profitability": 4.9,
-            "monthlyRevenue": 12500,
-            "propertyPrice": 1525000
-          }
-        }
       }
     },
     {
@@ -922,28 +812,6 @@
       "notes": {
         "fr": "Aéroport international. Marché riads/villas mature. Médina demande forte. Propriété étrangère autorisée sans restriction.",
         "en": "International airport. Mature riads/villas market. High demand Medina. Unrestricted foreign ownership."
-      },
-      "profitability": {
-        "pricePerSqm": 1675,
-        "expenseRatio": 50.0,
-        "netMargin": 50.0,
-        "profitabilityBySize": {
-          "50m2": {
-            "profitability": 10.7,
-            "monthlyRevenue": 1500,
-            "propertyPrice": 83750
-          },
-          "100m2": {
-            "profitability": 10.0,
-            "monthlyRevenue": 2800,
-            "propertyPrice": 167500
-          },
-          "200m2": {
-            "profitability": 9.9,
-            "monthlyRevenue": 5500,
-            "propertyPrice": 335000
-          }
-        }
       }
     },
     {
@@ -985,28 +853,6 @@
       "notes": {
         "fr": "Aéroport international. Zone grise légale. Locations > 30j légales sans licence. Marché nomades digitaux. Coût vie bas.",
         "en": "International airport. Legal gray area. Rentals > 30 days legal without license. Digital nomad market. Low cost of living."
-      },
-      "profitability": {
-        "pricePerSqm": 2445,
-        "expenseRatio": 30.0,
-        "netMargin": 70.0,
-        "profitabilityBySize": {
-          "50m2": {
-            "profitability": 5.3,
-            "monthlyRevenue": 775,
-            "propertyPrice": 122250
-          },
-          "100m2": {
-            "profitability": 4.8,
-            "monthlyRevenue": 1400,
-            "propertyPrice": 244500
-          },
-          "200m2": {
-            "profitability": 4.9,
-            "monthlyRevenue": 2850,
-            "propertyPrice": 489000
-          }
-        }
       }
     },
     {
@@ -1048,28 +894,6 @@
       "notes": {
         "fr": "Aéroport international. Réglementation modérée. Centre historique UNESCO forte demande. Marché compétitif prix abordables.",
         "en": "International airport. Moderate regulation. UNESCO historic center high demand. Competitive market with affordable pricing."
-      },
-      "profitability": {
-        "pricePerSqm": 4400,
-        "expenseRatio": 60.0,
-        "netMargin": 40.0,
-        "profitabilityBySize": {
-          "50m2": {
-            "profitability": 2.6,
-            "monthlyRevenue": 1200,
-            "propertyPrice": 220000
-          },
-          "100m2": {
-            "profitability": 2.0,
-            "monthlyRevenue": 1800,
-            "propertyPrice": 440000
-          },
-          "200m2": {
-            "profitability": 1.6,
-            "monthlyRevenue": 2850,
-            "propertyPrice": 880000
-          }
-        }
       }
     },
     {
@@ -1111,28 +935,6 @@
       "notes": {
         "fr": "Aéroport international. Marché saisonnier fort (mai-sept). Palais Dioclétien UNESCO. Propriété étrangère autorisée UE.",
         "en": "International airport. Strong seasonal market (May-Sept). Diocletian's Palace UNESCO. EU foreign ownership allowed."
-      },
-      "profitability": {
-        "pricePerSqm": 3750,
-        "expenseRatio": 50.0,
-        "netMargin": 50.0,
-        "profitabilityBySize": {
-          "50m2": {
-            "profitability": 5.9,
-            "monthlyRevenue": 1850,
-            "propertyPrice": 187500
-          },
-          "100m2": {
-            "profitability": 4.2,
-            "monthlyRevenue": 2600,
-            "propertyPrice": 375000
-          },
-          "200m2": {
-            "profitability": 3.2,
-            "monthlyRevenue": 4000,
-            "propertyPrice": 750000
-          }
-        }
       }
     },
     {
@@ -1174,28 +976,6 @@
       "notes": {
         "fr": "Aéroport Faro international. Moratoire zones saturées. Marché saisonnier premium. Forte demande retraités EU. Plages classe mondiale.",
         "en": "Faro international airport. Moratorium in saturated zones. Premium seasonal market. High retiree demand EU. World-class beaches."
-      },
-      "profitability": {
-        "pricePerSqm": 4150,
-        "expenseRatio": 55.0,
-        "netMargin": 45.0,
-        "profitabilityBySize": {
-          "50m2": {
-            "profitability": 5.7,
-            "monthlyRevenue": 2200,
-            "propertyPrice": 207500
-          },
-          "100m2": {
-            "profitability": 4.0,
-            "monthlyRevenue": 3100,
-            "propertyPrice": 415000
-          },
-          "200m2": {
-            "profitability": 3.2,
-            "monthlyRevenue": 4850,
-            "propertyPrice": 830000
-          }
-        }
       }
     },
     {
@@ -1237,28 +1017,6 @@
       "notes": {
         "fr": "Aéroport international. Alternative moins chère Barcelone/Madrid. Restrictions centre historique. Plages urbaines. Cité Arts et Sciences.",
         "en": "International airport. Cheaper alternative to Barcelona/Madrid. Historic center restrictions. Urban beaches. City of Arts and Sciences."
-      },
-      "profitability": {
-        "pricePerSqm": 3630,
-        "expenseRatio": 60.0,
-        "netMargin": 40.0,
-        "profitabilityBySize": {
-          "50m2": {
-            "profitability": 4.8,
-            "monthlyRevenue": 1800,
-            "propertyPrice": 181500
-          },
-          "100m2": {
-            "profitability": 3.3,
-            "monthlyRevenue": 2500,
-            "propertyPrice": 363000
-          },
-          "200m2": {
-            "profitability": 2.6,
-            "monthlyRevenue": 4000,
-            "propertyPrice": 726000
-          }
-        }
       }
     }
   ]

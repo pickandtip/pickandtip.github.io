@@ -191,9 +191,7 @@
     },
     "table": {
       "destination": "Destination",
-      "dayLimit": "Day limit/year",
-      "revenue": "Monthly revenue",
-      "occupancy": "Occupancy",
+      "profitability": "Profitability",
       "licensing": "Licenses",
       "taxation": "Taxation"
     },

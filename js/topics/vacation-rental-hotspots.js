@@ -134,6 +134,73 @@
         return `<span style="color: ${color}; font-weight: 600;">${rate}%</span>`;
     }
 
+    // Format profitability with tooltip
+    function formatProfitability(city) {
+        const lang = window.currentLang;
+
+        if (!city.profitability) {
+            return '<span style="color: #999;">N/A</span>';
+        }
+
+        const prof = city.profitability.profitabilityBySize;
+
+        // Calculate average profitability across sizes
+        const avg50 = prof["50m2"].profitability;
+        const avg100 = prof["100m2"].profitability;
+        const avg200 = prof["200m2"].profitability;
+        const avgProf = ((avg50 + avg100 + avg200) / 3).toFixed(1);
+
+        // Color based on profitability
+        let color = '#4CAF50';  // Green
+        if (avgProf < 3) color = '#F44336';  // Red
+        else if (avgProf < 5) color = '#FF9800';  // Orange
+
+        // Build tooltip content
+        const header = lang === 'fr' ? 'Rentabilité nette annuelle' : 'Annual net profitability';
+        const dayLimitLabel = lang === 'fr' ? 'Limite jours/an' : 'Day limit/year';
+        const occupancyLabel = lang === 'fr' ? 'Taux d\'occupation' : 'Occupancy rate';
+        const revenueLabel = lang === 'fr' ? 'Revenu mensuel moyen' : 'Average monthly revenue';
+        const priceLabel = lang === 'fr' ? 'Prix du bien' : 'Property price';
+        const profLabel = lang === 'fr' ? 'Rentabilité' : 'Profitability';
+
+        const tooltipContent = `
+            <div class="profitability-tooltip-content">
+                <strong>${header}</strong><br>
+                <span class="tooltip-meta">${dayLimitLabel}: ${city.dayLimit === 365 ? '∞' : city.dayLimit} | ${occupancyLabel}: ${city.occupancyRate}%</span>
+                <div class="prof-breakdown">
+                    <div class="prof-row">
+                        <span class="prof-size">50m²:</span>
+                        <span class="prof-revenue">${prof["50m2"].monthlyRevenue}$/mo</span>
+                        <span class="prof-price">($${(prof["50m2"].propertyPrice / 1000).toFixed(0)}k)</span>
+                        <span class="prof-value">${prof["50m2"].profitability}%</span>
+                    </div>
+                    <div class="prof-row">
+                        <span class="prof-size">100m²:</span>
+                        <span class="prof-revenue">${prof["100m2"].monthlyRevenue}$/mo</span>
+                        <span class="prof-price">($${(prof["100m2"].propertyPrice / 1000).toFixed(0)}k)</span>
+                        <span class="prof-value">${prof["100m2"].profitability}%</span>
+                    </div>
+                    <div class="prof-row">
+                        <span class="prof-size">200m²:</span>
+                        <span class="prof-revenue">${prof["200m2"].monthlyRevenue}$/mo</span>
+                        <span class="prof-price">($${(prof["200m2"].propertyPrice / 1000).toFixed(0)}k)</span>
+                        <span class="prof-value">${prof["200m2"].profitability}%</span>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        return `
+            <div class="profitability-cell">
+                <span class="profitability-value" style="color: ${color}; font-weight: 700; font-size: 1.1rem;">${avgProf}%</span>
+                <span class="info-icon profitability-info-icon">
+                    ℹ️
+                    <span class="custom-tooltip profitability-tooltip">${tooltipContent}</span>
+                </span>
+            </div>
+        `;
+    }
+
     // Truncate text with ellipsis
     function truncateText(text, maxLength = 150) {
         if (!text || text.length <= maxLength) {
@@ -229,9 +296,7 @@
                 </td>
                 <td><strong>${cityName}</strong></td>
                 <td><span class="flag">${city.flag}</span> ${countryName}</td>
-                <td class="center">${formatDayLimit(city.dayLimit)}</td>
-                <td class="right">${formatRevenue(city.monthlyRevenue)}</td>
-                <td class="center">${formatOccupancy(city.occupancyRate)}</td>
+                <td class="center profitability-td">${formatProfitability(city)}</td>
                 <td>${getLicensingBadge(city.licensing)}</td>
                 <td class="small-text">${taxation}</td>
                 <td class="notes-cell">${truncatedNotes}</td>
@@ -241,8 +306,9 @@
             const typeIcon = row.querySelector('.type-icon');
             const platformIcon = row.querySelector('.platform-icon');
             const servicesIcon = row.querySelector('.services-icon');
+            const profitabilityIcon = row.querySelector('.profitability-info-icon');
 
-            [typeIcon, platformIcon, servicesIcon].forEach(icon => {
+            [typeIcon, platformIcon, servicesIcon, profitabilityIcon].forEach(icon => {
                 if (icon) {
                     icon.addEventListener('click', function(e) {
                         e.stopPropagation();
@@ -312,21 +378,20 @@
                     aVal = a.countryName[window.currentLang] || a.countryName.fr;
                     bVal = b.countryName[window.currentLang] || b.countryName.fr;
                     break;
-                case 'marketType':
-                    aVal = a.marketType;
-                    bVal = b.marketType;
-                    break;
-                case 'dayLimit':
-                    aVal = a.dayLimit;
-                    bVal = b.dayLimit;
-                    break;
-                case 'revenue':
-                    aVal = (a.monthlyRevenue.min + a.monthlyRevenue.max) / 2;
-                    bVal = (b.monthlyRevenue.min + b.monthlyRevenue.max) / 2;
-                    break;
-                case 'occupancy':
-                    aVal = a.occupancyRate;
-                    bVal = b.occupancyRate;
+                case 'profitability':
+                    // Calculate average profitability for sorting
+                    if (a.profitability && a.profitability.profitabilityBySize) {
+                        const aProf = a.profitability.profitabilityBySize;
+                        aVal = (aProf["50m2"].profitability + aProf["100m2"].profitability + aProf["200m2"].profitability) / 3;
+                    } else {
+                        aVal = 0;
+                    }
+                    if (b.profitability && b.profitability.profitabilityBySize) {
+                        const bProf = b.profitability.profitabilityBySize;
+                        bVal = (bProf["50m2"].profitability + bProf["100m2"].profitability + bProf["200m2"].profitability) / 3;
+                    } else {
+                        bVal = 0;
+                    }
                     break;
                 case 'licensing':
                     aVal = a.licensing.value || 0;
