@@ -191,8 +191,8 @@
     },
     "table": {
       "destination": "Destination",
+      "legalFramework": "Cadre Légal",
       "profitability": "Rentabilité",
-      "licensing": "Licences",
       "taxation": "Fiscalité"
     },
     "disclaimer": {

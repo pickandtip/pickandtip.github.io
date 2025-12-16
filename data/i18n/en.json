@@ -191,8 +191,8 @@
     },
     "table": {
       "destination": "Destination",
+      "legalFramework": "Legal Framework",
       "profitability": "Profitability",
-      "licensing": "Licenses",
       "taxation": "Taxation"
     },
     "disclaimer": {

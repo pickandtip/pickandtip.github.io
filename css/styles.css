@@ -1282,6 +1282,28 @@ tr {
     border-right-color: #0F2744;
 }
 
+/* Profitability tooltip positioned to the left */
+.profitability-tooltip {
+    left: auto;
+    right: calc(100% + 0.75rem);
+}
+
+.profitability-tooltip::before {
+    right: auto;
+    left: 100%;
+    border-right-color: transparent;
+    border-left-color: var(--brand-gold);
+}
+
+.profitability-tooltip::after {
+    right: auto;
+    left: 100%;
+    margin-right: 0;
+    margin-left: 1px;
+    border-right-color: transparent;
+    border-left-color: #0F2744;
+}
+
 .info-icon.active .custom-tooltip {
     display: block;
     visibility: visible;
@@ -1362,34 +1384,34 @@ tr {
 }
 
 /* Tooltip position adjustments */
-.custom-tooltip.tooltip-top {
+.profitability-tooltip.tooltip-top {
     top: -8px;
     transform: translateY(0);
 }
 
-.custom-tooltip.tooltip-top::before {
+.profitability-tooltip.tooltip-top::before {
     top: 16px;
     transform: translateY(0);
 }
 
-.custom-tooltip.tooltip-top::after {
+.profitability-tooltip.tooltip-top::after {
     top: 16px;
     transform: translateY(0);
 }
 
-.custom-tooltip.tooltip-bottom {
+.profitability-tooltip.tooltip-bottom {
     top: auto;
     bottom: -8px;
     transform: translateY(0);
 }
 
-.custom-tooltip.tooltip-bottom::before {
+.profitability-tooltip.tooltip-bottom::before {
     top: auto;
     bottom: 16px;
     transform: translateY(0);
 }
 
-.custom-tooltip.tooltip-bottom::after {
+.profitability-tooltip.tooltip-bottom::after {
     top: auto;
     bottom: 16px;
     transform: translateY(0);

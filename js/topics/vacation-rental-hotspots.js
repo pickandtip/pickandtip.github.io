@@ -192,11 +192,11 @@
 
         return `
             <div class="profitability-cell">
-                <span class="profitability-value" style="color: ${color}; font-weight: 700; font-size: 1.1rem;">${avgProf}%</span>
                 <span class="info-icon profitability-info-icon">
                     ℹ️
                     <span class="custom-tooltip profitability-tooltip">${tooltipContent}</span>
                 </span>
+                <span class="profitability-value" style="color: ${color}; font-weight: 700; font-size: 1.1rem;">${avgProf}%</span>
             </div>
         `;
     }
@@ -296,9 +296,9 @@
                 </td>
                 <td><strong>${cityName}</strong></td>
                 <td><span class="flag">${city.flag}</span> ${countryName}</td>
-                <td class="center profitability-td">${formatProfitability(city)}</td>
                 <td>${getLicensingBadge(city.licensing)}</td>
                 <td class="small-text">${taxation}</td>
+                <td class="center profitability-td">${formatProfitability(city)}</td>
                 <td class="notes-cell">${truncatedNotes}</td>
             `;
 
