@@ -1158,7 +1158,13 @@ tr {
     white-space: nowrap;
 }
 
-/* Licensing Badge (for vacation rental hotspots) */
+/* Licensing cell and badge (for vacation rental hotspots) */
+.licensing-cell {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
 .licensing-badge {
     display: inline-block;
     padding: 0.25rem 0.75rem;
@@ -1166,10 +1172,38 @@ tr {
     color: white;
     font-weight: 600;
     font-size: 0.8rem;
-    cursor: help;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
     white-space: nowrap;
     line-height: 1.2;
+}
+
+.licensing-info-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: all 0.2s ease;
+    position: relative;
+    z-index: 10;
+}
+
+.licensing-info-icon:hover {
+    opacity: 1;
+    transform: scale(1.2);
+}
+
+.licensing-info-icon.active {
+    z-index: 99999;
+}
+
+.custom-tooltip.licensing-tooltip {
+    max-width: 400px;
+    min-width: 280px;
+    white-space: normal;
+    text-align: left;
+    line-height: 1.6;
 }
 
 /* Market Badge (for vacation rental hotspots) */
@@ -1309,6 +1343,14 @@ tr {
     visibility: visible;
     opacity: 1;
     pointer-events: auto;
+}
+
+/* Show licensing tooltip when active (clicked) */
+.licensing-info-icon.active .custom-tooltip {
+    display: block !important;
+    opacity: 1 !important;
+    background: #0F2744 !important;
+    visibility: visible !important;
 }
 
 /* Services tooltip - wider with line breaks */

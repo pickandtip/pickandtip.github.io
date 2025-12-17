@@ -81,13 +81,25 @@
         return `<span class="market-badge">${label}</span>`;
     }
     
-    // Get licensing badge
+    // Get licensing badge with info icon and tooltip
     function getLicensingBadge(licensing) {
         const level = licensingLevels[licensing.level] || licensingLevels['registration'];
         const label = level.label[window.currentLang] || level.label.fr;
         const details = licensing.details[window.currentLang] || licensing.details.fr;
-    
-        return `<span class="licensing-badge" style="background-color: ${level.color}" title="${details}">${label}</span>`;
+        const legalNotes = licensing.legalNotes ? (licensing.legalNotes[window.currentLang] || licensing.legalNotes.fr) : '';
+
+        // Combine details and legal notes for tooltip
+        const tooltipContent = legalNotes ? `${details}<br><br>${legalNotes}` : details;
+
+        return `
+            <div class="licensing-cell">
+                <span class="licensing-badge" style="background-color: ${level.color}">${label}</span>
+                <span class="info-icon licensing-info-icon">
+                    ℹ️
+                    <span class="custom-tooltip licensing-tooltip">${tooltipContent}</span>
+                </span>
+            </div>
+        `;
     }
     
     // Format day limit
@@ -307,8 +319,9 @@
             const platformIcon = row.querySelector('.platform-icon');
             const servicesIcon = row.querySelector('.services-icon');
             const profitabilityIcon = row.querySelector('.profitability-info-icon');
+            const licensingIcon = row.querySelector('.licensing-info-icon');
 
-            [typeIcon, platformIcon, servicesIcon].forEach(icon => {
+            [typeIcon, platformIcon, servicesIcon, licensingIcon].forEach(icon => {
                 if (icon) {
                     icon.addEventListener('click', function(e) {
                         e.stopPropagation();

@@ -22,6 +22,10 @@
         "details": {
           "fr": "Permis Holiday Home requis (Quintana Roo)",
           "en": "Holiday Home permit required (Quintana Roo)"
+        },
+        "legalNotes": {
+          "fr": "Basse réglementation. RFC (Registro Federal de Contribuyentes) réduit la fiscalité de 20% à 10%.",
+          "en": "Low regulation. RFC (Federal Taxpayer Registry) reduces taxation from 20% to 10%."
         }
       },
       "totalTaxation": {
@@ -38,8 +42,8 @@
         "en": "Numerous: Condo Hotels Playa, PlayaStays, Nomads Rental"
       },
       "notes": {
-        "fr": "Aéroport international. Basse réglementation. Marché saisonnier fort (déc-juil). 7 309 annonces actives. RFC réduit fiscalité à 10%.",
-        "en": "International airport. Low regulation. Strong seasonal market (Dec-Jul). 7,309 active listings. RFC reduces tax to 10%."
+        "fr": "Aéroport international. Marché saisonnier fort (déc-juil). 7 309 annonces actives.",
+        "en": "International airport. Strong seasonal market (Dec-Jul). 7,309 active listings."
       },
       "profitability": {
         "pricePerSqm": 1800,
@@ -85,6 +89,10 @@
         "details": {
           "fr": "Certificat 'maison touristique' du Ministère requis",
           "en": "Tourism house certificate from Ministry required"
+        },
+        "legalNotes": {
+          "fr": "Limite stricte de 100 jours/an. Amendes de 100 000 à 1 000 000 TRY pour non-conformité.",
+          "en": "Strict 100-day/year limit. Fines TRY 100,000-1,000,000 for non-compliance."
         }
       },
       "totalTaxation": {
@@ -101,8 +109,8 @@
         "en": "Limited: local agencies, limited professional services"
       },
       "notes": {
-        "fr": "2 aéroports internationaux. Limite 100j/an stricte. 21 877 annonces. 80% clients internationaux. ROI 10-15% districts premium. Amendes 100k-1M TRY.",
-        "en": "2 international airports. Strict 100-day/year limit. 21,877 listings. 80% international guests. ROI 10-15% premium districts. Fines TRY 100k-1M."
+        "fr": "2 aéroports internationaux. 21 877 annonces. 80% clients internationaux. ROI 10-15% districts premium.",
+        "en": "2 international airports. 21,877 listings. 80% international guests. ROI 10-15% premium districts."
       },
       "profitability": {
         "pricePerSqm": 2850,
@@ -148,6 +156,10 @@
         "details": {
           "fr": "Permis DTCM requis (370-1270 AED/an)",
           "en": "DTCM permit required (AED 370-1,270/year)"
+        },
+        "legalNotes": {
+          "fr": "Minimum 7 jours de location. Très favorable fiscalement (0% impôt sur le revenu).",
+          "en": "7-day minimum rental. Very tax-friendly (0% income tax)."
         }
       },
       "totalTaxation": {
@@ -164,8 +176,8 @@
         "en": "Numerous: Blueground Dubai, Sonder, Short Stay Dubai"
       },
       "notes": {
-        "fr": "Aéroport international hub. Min. 7j. Très favorable fiscalement (0% IR). Occupancy 85% hiver. Downtown, Marina, JBR: zones premium. ADR 226 USD.",
-        "en": "International airport hub. 7-day min. Very tax-friendly (0% income tax). 85% winter occupancy. Downtown, Marina, JBR: premium zones. ADR $226."
+        "fr": "Aéroport international hub. Occupancy 85% hiver. Downtown, Marina, JBR: zones premium. ADR 226 USD.",
+        "en": "International airport hub. 85% winter occupancy. Downtown, Marina, JBR: premium zones. ADR $226."
       },
       "profitability": {
         "pricePerSqm": 5500,
@@ -211,6 +223,10 @@
         "details": {
           "fr": "Licence AL (Alojamento Local) obligatoire",
           "en": "AL (Alojamento Local) license mandatory"
+        },
+        "legalNotes": {
+          "fr": "Moratoire sur les nouvelles licences dans le centre-ville.",
+          "en": "Moratorium on new licenses in downtown area."
         }
       },
       "totalTaxation": {
@@ -227,8 +243,8 @@
         "en": "Numerous: Rental Guardians, Sweet Inn, Local Apartments"
       },
       "notes": {
-        "fr": "Aéroport international. Moratoire nouvelles licences centre. 13 342 annonces actives. 93% clients internationaux. Saisonnalité forte (mai-juil). Top 10% : 272 USD/nuit.",
-        "en": "International airport. Moratorium on new licenses downtown. 13,342 active listings. 93% international guests. Strong seasonality (May-Jul). Top 10%: $272/night."
+        "fr": "Aéroport international. 13 342 annonces actives. 93% clients internationaux. Saisonnalité forte (mai-juil). Top 10% : 272 USD/nuit.",
+        "en": "International airport. 13,342 active listings. 93% international guests. Strong seasonality (May-Jul). Top 10%: $272/night."
       },
       "profitability": {
         "pricePerSqm": 4850,
@@ -274,6 +290,10 @@
         "details": {
           "fr": "Enregistrement municipal recommandé",
           "en": "Municipal registration recommended"
+        },
+        "legalNotes": {
+          "fr": "Très peu restrictif. Propriété étrangère autorisée via fidéicommis bancaire (bank trust).",
+          "en": "Very permissive. Foreign ownership allowed through bank trust (fideicomiso)."
         }
       },
       "totalTaxation": {
@@ -290,8 +310,8 @@
         "en": "Numerous: PlayaStays, Nomads Rental, local agencies"
       },
       "notes": {
-        "fr": "Aéroport Cancún 45 min. Très peu restrictif. Propriété étrangère autorisée (fidéicommis). Marché favorable investisseurs.",
-        "en": "Cancún airport 45 min. Very permissive. Foreign ownership allowed (bank trust). Favorable investor market."
+        "fr": "Aéroport Cancún 45 min. Marché favorable aux investisseurs.",
+        "en": "Cancún airport 45 min. Favorable investor market."
       },
       "profitability": {
         "pricePerSqm": 4000,
@@ -337,6 +357,10 @@
         "details": {
           "fr": "Licence AL (Alojamento Local) obligatoire",
           "en": "AL (Alojamento Local) license mandatory"
+        },
+        "legalNotes": {
+          "fr": "Moratoire sur les nouvelles licences dans le centre historique.",
+          "en": "Moratorium on new licenses in historic center."
         }
       },
       "totalTaxation": {
@@ -353,8 +377,8 @@
         "en": "Numerous: local agencies, Sweet Inn"
       },
       "notes": {
-        "fr": "Aéroport international. Moratoire centre historique. Alternative moins chère que Lisbonne. Forte demande tourisme oenotouristique.",
-        "en": "International airport. Historic center moratorium. Cheaper alternative to Lisbon. Strong wine tourism demand."
+        "fr": "Aéroport international. Alternative moins chère que Lisbonne. Forte demande tourisme oenotouristique.",
+        "en": "International airport. Cheaper alternative to Lisbon. Strong wine tourism demand."
       },
       "profitability": {
         "pricePerSqm": 4610,
@@ -400,6 +424,10 @@
         "details": {
           "fr": "CIN (Code National) obligatoire depuis 2025",
           "en": "CIN (National Code) mandatory since 2025"
+        },
+        "legalNotes": {
+          "fr": "Minimum 2 nuits dans le centre historique. Check-in en personne requis. Amendes de 800€ à 8 000€.",
+          "en": "2-night minimum in historic center. In-person check-in required. Fines €800-8,000."
         }
       },
       "totalTaxation": {
@@ -416,8 +444,8 @@
         "en": "Numerous: Rome Sweet Rome, Rental in Rome, GuestReady"
       },
       "notes": {
-        "fr": "2 aéroports internationaux. CIN obligatoire. Min. 2 nuits dans centre historique. Check-in présence requis. Amendes 800-8 000€.",
-        "en": "2 international airports. Mandatory CIN. 2-night min in historic center. In-person check-in required. Fines €800-8,000."
+        "fr": "2 aéroports internationaux. CIN obligatoire depuis 2025.",
+        "en": "2 international airports. Mandatory CIN since 2025."
       },
       "profitability": {
         "pricePerSqm": 4200,
@@ -463,6 +491,10 @@
         "details": {
           "fr": "Numéro PRN (Property Registry Number) requis",
           "en": "PRN (Property Registry Number) required"
+        },
+        "legalNotes": {
+          "fr": "Gel d'un an sur les nouvelles inscriptions (2025). Maximum 2 biens par individu. Normes de sécurité strictes (oct. 2025). Amendes de 5 000€.",
+          "en": "1-year registration freeze (2025). Max 2 properties per individual. Strict safety standards (Oct. 2025). €5,000 fines."
         }
       },
       "totalTaxation": {
@@ -479,8 +511,8 @@
         "en": "Numerous: GuestReady Athens, Sweet Inn, Key Concierge"
       },
       "notes": {
-        "fr": "Aéroport international. Gel 1 an nouvelles inscriptions (2025). Max 2 biens/individu. Normes sécurité strictes (oct. 2025). Amendes 5 000€.",
-        "en": "International airport. 1-year registration freeze (2025). Max 2 properties/individual. Strict safety standards (Oct. 2025). €5,000 fines."
+        "fr": "Aéroport international.",
+        "en": "International airport."
       },
       "profitability": {
         "pricePerSqm": 3600,
@@ -526,6 +558,10 @@
         "details": {
           "fr": "Licence Resort (6 mois+) ou BTR (< 6 mois) requise",
           "en": "Resort license (6 months+) or BTR (< 6 months) required"
+        },
+        "legalNotes": {
+          "fr": "Réglementations variables par quartier. Miami Beach très restrictif. Les condos peuvent interdire les locations courte durée.",
+          "en": "Regulations vary by neighborhood. Miami Beach very restrictive. Condos can ban short-term rentals."
         }
       },
       "totalTaxation": {
@@ -542,8 +578,8 @@
         "en": "Numerous: Sonder, Stay Alfred, Blueground Miami"
       },
       "notes": {
-        "fr": "Aéroport international hub. Réglementations variables par quartier. Miami Beach très restrictif. Condos peuvent interdire STR. Pas d'impôt État.",
-        "en": "International airport hub. Regulations vary by neighborhood. Miami Beach very restrictive. Condos can ban STR. No state tax."
+        "fr": "Aéroport international hub. Pas d'impôt d'État en Floride.",
+        "en": "International airport hub. No state income tax in Florida."
       },
       "profitability": {
         "pricePerSqm": 10000,
@@ -589,6 +625,10 @@
         "details": {
           "fr": "Enregistrement municipal minimal",
           "en": "Minimal municipal registration"
+        },
+        "legalNotes": {
+          "fr": "Zone très peu restrictive. Marché bohème-luxe en expansion.",
+          "en": "Very permissive zone. Growing boho-luxury market."
         }
       },
       "totalTaxation": {
@@ -605,8 +645,8 @@
         "en": "Numerous: local agencies specialized in Tulum"
       },
       "notes": {
-        "fr": "Aéroport Tulum nouveau (2024). Zone bohème-luxe. Très peu restrictif. Marché premium. Nouvel aéroport boost demande.",
-        "en": "New Tulum airport (2024). Boho-luxury zone. Very permissive. Premium market. New airport boosts demand."
+        "fr": "Nouvel aéroport Tulum (2024). Zone bohème-luxe. Marché premium. Nouvel aéroport booste la demande.",
+        "en": "New Tulum airport (2024). Boho-luxury zone. Premium market. New airport boosts demand."
       },
       "profitability": {
         "pricePerSqm": 2685,
@@ -652,6 +692,10 @@
         "details": {
           "fr": "Licence nationale + permis local requis (depuis 2025)",
           "en": "National license + local permit required (since 2025)"
+        },
+        "legalNotes": {
+          "fr": "Situation réglementaire en évolution (2025). 0% des locations actuellement licenciées. Le gouvernement a refusé une interdiction totale.",
+          "en": "Evolving regulatory situation (2025). 0% of current rentals licensed. Government rejected total ban."
         }
       },
       "totalTaxation": {
@@ -668,8 +712,8 @@
         "en": "Numerous: local Bali agencies, property managers"
       },
       "notes": {
-        "fr": "Aéroport international Denpasar. Situation réglementaire en évolution (2025). 0% licences actuellement. Gouvernement refuse interdiction totale. Top 10%: 4 974 USD/mois.",
-        "en": "Denpasar international airport. Evolving regulatory situation (2025). 0% current licenses. Government rejects total ban. Top 10%: $4,974/month."
+        "fr": "Aéroport international Denpasar. Top 10% : 4 974 USD/mois.",
+        "en": "Denpasar international airport. Top 10%: $4,974/month."
       },
       "profitability": {
         "pricePerSqm": 825,
@@ -715,6 +759,10 @@
         "details": {
           "fr": "Numéro PRN requis",
           "en": "PRN number required"
+        },
+        "legalNotes": {
+          "fr": "Maximum 2 biens par personne. Taxe climatique élevée en haute saison.",
+          "en": "Max 2 properties per person. High climate tax in high season."
         }
       },
       "totalTaxation": {
@@ -731,8 +779,8 @@
         "en": "Numerous: local Santorini agencies"
       },
       "notes": {
-        "fr": "Aéroport + ferry Athènes. Marché premium. Très saisonnier (avr-oct). Max 2 biens/personne. Taxe climatique élevée haute saison.",
-        "en": "Airport + Athens ferry. Premium market. Very seasonal (Apr-Oct). Max 2 properties/person. High climate tax in season."
+        "fr": "Aéroport + ferry Athènes. Marché premium. Très saisonnier (avr-oct).",
+        "en": "Airport + Athens ferry. Premium market. Very seasonal (Apr-Oct)."
       },
       "profitability": {
         "pricePerSqm": 7625,
@@ -778,6 +826,10 @@
         "details": {
           "fr": "Enregistrement commercial requis",
           "en": "Business registration required"
+        },
+        "legalNotes": {
+          "fr": "Réglementation modérée. Marché mature de location courte durée.",
+          "en": "Moderate regulation. Mature short-term rental market."
         }
       },
       "totalTaxation": {
@@ -794,8 +846,8 @@
         "en": "Numerous: local Prague agencies"
       },
       "notes": {
-        "fr": "Aéroport international. Réglementation modérée. Centre historique demande forte. Marché mature STR.",
-        "en": "International airport. Moderate regulation. High demand historic center. Mature STR market."
+        "fr": "Aéroport international. Centre historique forte demande.",
+        "en": "International airport. High demand historic center."
       },
       "profitability": {
         "pricePerSqm": 5450,
@@ -841,6 +893,10 @@
         "details": {
           "fr": "Licence commerciale + enregistrement tourisme requis",
           "en": "Commercial license + tourism registration required"
+        },
+        "legalNotes": {
+          "fr": "Réglementations strictes dans le centre (districts V, VI, VII).",
+          "en": "Strict regulations in downtown (districts V, VI, VII)."
         }
       },
       "totalTaxation": {
@@ -857,8 +913,8 @@
         "en": "Numerous: local Budapest agencies"
       },
       "notes": {
-        "fr": "Aéroport international. Réglementations strictes centre (districts V, VI, VII). Marché compétitif. Fiscalité avantageuse (15% IR).",
-        "en": "International airport. Strict regulations downtown (districts V, VI, VII). Competitive market. Favorable taxation (15% income tax)."
+        "fr": "Aéroport international. Marché compétitif. Fiscalité avantageuse (15% IR).",
+        "en": "International airport. Competitive market. Favorable taxation (15% income tax)."
       },
       "profitability": {
         "pricePerSqm": 4400,
@@ -904,6 +960,10 @@
         "details": {
           "fr": "Licence touristique obligatoire",
           "en": "Mandatory tourist license"
+        },
+        "legalNotes": {
+          "fr": "Propriété étrangère autorisée sans restriction.",
+          "en": "Unrestricted foreign ownership."
         }
       },
       "totalTaxation": {
@@ -920,8 +980,8 @@
         "en": "Numerous: local riad agencies, property managers"
       },
       "notes": {
-        "fr": "Aéroport international. Marché riads/villas mature. Médina demande forte. Propriété étrangère autorisée sans restriction.",
-        "en": "International airport. Mature riads/villas market. High demand Medina. Unrestricted foreign ownership."
+        "fr": "Aéroport international. Marché riads/villas mature. Médina forte demande.",
+        "en": "International airport. Mature riads/villas market. High demand Medina."
       },
       "profitability": {
         "pricePerSqm": 1675,
@@ -967,6 +1027,10 @@
         "details": {
           "fr": "Zone grise - Licence hôtelière théoriquement requise < 30j",
           "en": "Gray area - Hotel license technically required < 30 days"
+        },
+        "legalNotes": {
+          "fr": "Zone grise légale. Locations de plus de 30 jours légales sans licence.",
+          "en": "Legal gray area. Rentals over 30 days legal without license."
         }
       },
       "totalTaxation": {
@@ -983,8 +1047,8 @@
         "en": "Limited: local agencies, less developed services"
       },
       "notes": {
-        "fr": "Aéroport international. Zone grise légale. Locations > 30j légales sans licence. Marché nomades digitaux. Coût vie bas.",
-        "en": "International airport. Legal gray area. Rentals > 30 days legal without license. Digital nomad market. Low cost of living."
+        "fr": "Aéroport international. Marché nomades digitaux. Coût de vie bas.",
+        "en": "International airport. Digital nomad market. Low cost of living."
       },
       "profitability": {
         "pricePerSqm": 2445,
@@ -1030,6 +1094,10 @@
         "details": {
           "fr": "Enregistrement activité économique requis",
           "en": "Economic activity registration required"
+        },
+        "legalNotes": {
+          "fr": "Réglementation modérée.",
+          "en": "Moderate regulation."
         }
       },
       "totalTaxation": {
@@ -1046,8 +1114,8 @@
         "en": "Numerous: local Krakow agencies"
       },
       "notes": {
-        "fr": "Aéroport international. Réglementation modérée. Centre historique UNESCO forte demande. Marché compétitif prix abordables.",
-        "en": "International airport. Moderate regulation. UNESCO historic center high demand. Competitive market with affordable pricing."
+        "fr": "Aéroport international. Centre historique UNESCO forte demande. Marché compétitif prix abordables.",
+        "en": "International airport. UNESCO historic center high demand. Competitive market with affordable pricing."
       },
       "profitability": {
         "pricePerSqm": 4400,
@@ -1093,6 +1161,10 @@
         "details": {
           "fr": "Licence location touristique obligatoire",
           "en": "Mandatory tourist rental license"
+        },
+        "legalNotes": {
+          "fr": "Propriété étrangère autorisée pour les citoyens de l'UE.",
+          "en": "Foreign ownership allowed for EU citizens."
         }
       },
       "totalTaxation": {
@@ -1109,8 +1181,8 @@
         "en": "Numerous: local Dalmatian coast agencies"
       },
       "notes": {
-        "fr": "Aéroport international. Marché saisonnier fort (mai-sept). Palais Dioclétien UNESCO. Propriété étrangère autorisée UE.",
-        "en": "International airport. Strong seasonal market (May-Sept). Diocletian's Palace UNESCO. EU foreign ownership allowed."
+        "fr": "Aéroport international. Marché saisonnier fort (mai-sept). Palais de Dioclétien UNESCO.",
+        "en": "International airport. Strong seasonal market (May-Sept). Diocletian's Palace UNESCO."
       },
       "profitability": {
         "pricePerSqm": 3750,
@@ -1156,6 +1228,10 @@
         "details": {
           "fr": "Licence AL (Alojamento Local) obligatoire",
           "en": "AL (Alojamento Local) license mandatory"
+        },
+        "legalNotes": {
+          "fr": "Moratoire dans les zones saturées.",
+          "en": "Moratorium in saturated zones."
         }
       },
       "totalTaxation": {
@@ -1172,8 +1248,8 @@
         "en": "Numerous: specialized Algarve agencies"
       },
       "notes": {
-        "fr": "Aéroport Faro international. Moratoire zones saturées. Marché saisonnier premium. Forte demande retraités EU. Plages classe mondiale.",
-        "en": "Faro international airport. Moratorium in saturated zones. Premium seasonal market. High retiree demand EU. World-class beaches."
+        "fr": "Aéroport Faro international. Marché saisonnier premium. Forte demande retraités EU. Plages classe mondiale.",
+        "en": "Faro international airport. Premium seasonal market. High retiree demand EU. World-class beaches."
       },
       "profitability": {
         "pricePerSqm": 4150,
@@ -1219,6 +1295,10 @@
         "details": {
           "fr": "Enregistrement NRA + licence touristique requis",
           "en": "NRA registration + tourist license required"
+        },
+        "legalNotes": {
+          "fr": "Restrictions dans le centre historique.",
+          "en": "Restrictions in historic center."
         }
       },
       "totalTaxation": {
@@ -1235,8 +1315,8 @@
         "en": "Numerous: local Valencia agencies"
       },
       "notes": {
-        "fr": "Aéroport international. Alternative moins chère Barcelone/Madrid. Restrictions centre historique. Plages urbaines. Cité Arts et Sciences.",
-        "en": "International airport. Cheaper alternative to Barcelona/Madrid. Historic center restrictions. Urban beaches. City of Arts and Sciences."
+        "fr": "Aéroport international. Alternative moins chère Barcelone/Madrid. Plages urbaines. Cité des Arts et des Sciences.",
+        "en": "International airport. Cheaper alternative to Barcelona/Madrid. Urban beaches. City of Arts and Sciences."
       },
       "profitability": {
         "pricePerSqm": 3630,
