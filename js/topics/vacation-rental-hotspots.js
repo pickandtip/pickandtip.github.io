@@ -369,13 +369,16 @@
                         </span>
                     </div>
                 </td>
-                <td><strong>${cityName}</strong></td>
-                <td class="country-cell">
-                    <span class="flag">${city.flag}</span> ${countryName}
+                <td class="destination-cell">
+                    <strong>${cityName}</strong>
                     <span class="info-icon type-icon">
                         ${marketIcon}
                         <span class="custom-tooltip">${marketTooltipEscaped}</span>
                     </span>
+                </td>
+                <td class="country-cell">
+                    <span class="flag">${city.flag}</span>
+                    <span class="country-name">${countryName}</span>
                 </td>
                 <td class="licensing-td">${getLicensingBadge(city.licensing)}</td>
                 <td class="small-text">${taxation}</td>

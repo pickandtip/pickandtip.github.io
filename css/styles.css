@@ -498,10 +498,8 @@ tr:last-child td {
 }
 
 .country-cell {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
     font-weight: 600;
+    white-space: nowrap;
 }
 
 .flag {
@@ -1158,12 +1156,25 @@ tr {
     white-space: nowrap;
 }
 
-/* Country cell with environment type icon */
-.country-cell {
+/* Destination cell with environment type icon */
+.destination-cell {
+    white-space: nowrap;
     position: relative;
+    overflow: visible;
+    z-index: 100;
 }
 
-.country-cell .type-icon {
+.destination-cell:has(.info-icon.active) {
+    z-index: 10000 !important;
+}
+
+.destination-cell strong,
+.destination-cell .type-icon {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.destination-cell .type-icon {
     margin-left: 0.5rem;
 }
 
