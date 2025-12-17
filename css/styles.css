@@ -1158,6 +1158,26 @@ tr {
     white-space: nowrap;
 }
 
+/* Country cell with environment type icon */
+.country-cell {
+    position: relative;
+}
+
+.country-cell .type-icon {
+    margin-left: 0.5rem;
+}
+
+/* Licensing TD cell - must be above other cells when tooltip is active */
+.licensing-td {
+    position: relative;
+    overflow: visible;
+    z-index: 100;
+}
+
+.licensing-td:has(.info-icon.active) {
+    z-index: 10000 !important;
+}
+
 /* Licensing cell and badge (for vacation rental hotspots) */
 .licensing-cell {
     display: flex;
@@ -1177,26 +1197,7 @@ tr {
     line-height: 1.2;
 }
 
-.licensing-info-icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.1rem;
-    cursor: pointer;
-    opacity: 0.7;
-    transition: all 0.2s ease;
-    position: relative;
-    z-index: 10;
-}
-
-.licensing-info-icon:hover {
-    opacity: 1;
-    transform: scale(1.2);
-}
-
-.licensing-info-icon.active {
-    z-index: 99999;
-}
+/* Licensing icon styles - inherited from .smart-tooltip-icon */
 
 .custom-tooltip.licensing-tooltip {
     max-width: 400px;
@@ -1343,14 +1344,7 @@ tr {
     visibility: visible;
     opacity: 1;
     pointer-events: auto;
-}
-
-/* Show licensing tooltip when active (clicked) */
-.licensing-info-icon.active .custom-tooltip {
-    display: block !important;
-    opacity: 1 !important;
-    background: #0F2744 !important;
-    visibility: visible !important;
+    background: #0F2744;
 }
 
 /* Services tooltip - wider with line breaks */
@@ -1388,7 +1382,24 @@ tr {
     font-weight: 700;
 }
 
-.profitability-info-icon {
+/* Profitability icon styles - inherited from .smart-tooltip-icon */
+
+/* Profitability tooltip */
+.custom-tooltip.profitability-tooltip {
+    max-width: 400px;
+    min-width: 320px;
+    white-space: normal;
+    text-align: left;
+}
+
+/* Profitability tooltip active state - inherited from .smart-tooltip-icon.active .custom-tooltip */
+
+/* ========================================
+   SMART TOOLTIP SYSTEM - Modular & Reusable
+   ======================================== */
+
+/* Smart tooltip icon base */
+.smart-tooltip-icon {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -1400,32 +1411,104 @@ tr {
     z-index: 10;
 }
 
-.profitability-info-icon.active {
-    z-index: 99999;
-}
-
-.profitability-info-icon:hover {
+.smart-tooltip-icon:hover {
     opacity: 1;
     transform: scale(1.2);
 }
 
-/* Profitability tooltip */
-.custom-tooltip.profitability-tooltip {
-    max-width: 400px;
-    min-width: 320px;
-    white-space: normal;
-    text-align: left;
+.smart-tooltip-icon.active {
+    z-index: 99999;
 }
 
-/* Show tooltip only when active (clicked) */
-.profitability-info-icon.active .custom-tooltip {
+/* Show smart tooltips when active */
+.smart-tooltip-icon.active .custom-tooltip {
     display: block !important;
     opacity: 1 !important;
     background: #0F2744 !important;
     visibility: visible !important;
+    pointer-events: auto !important;
 }
 
-/* Tooltip position adjustments */
+/* Horizontal positioning - LEFT */
+.custom-tooltip.tooltip-left {
+    left: auto;
+    right: calc(100% + 0.75rem);
+}
+
+.custom-tooltip.tooltip-left::before {
+    right: auto;
+    left: 100%;
+    border-right-color: transparent;
+    border-left-color: var(--brand-gold);
+}
+
+.custom-tooltip.tooltip-left::after {
+    right: auto;
+    left: 100%;
+    margin-right: 0;
+    margin-left: 1px;
+    border-right-color: transparent;
+    border-left-color: #0F2744;
+}
+
+/* Horizontal positioning - RIGHT (default) */
+.custom-tooltip.tooltip-right {
+    left: calc(100% + 0.75rem);
+    right: auto;
+}
+
+.custom-tooltip.tooltip-right::before {
+    right: 100%;
+    left: auto;
+    border-right-color: var(--brand-gold);
+    border-left-color: transparent;
+}
+
+.custom-tooltip.tooltip-right::after {
+    right: 100%;
+    left: auto;
+    margin-right: 1px;
+    margin-left: 0;
+    border-right-color: #0F2744;
+    border-left-color: transparent;
+}
+
+/* Vertical positioning - TOP aligned */
+.custom-tooltip.tooltip-top {
+    top: -8px;
+    transform: translateY(0);
+}
+
+.custom-tooltip.tooltip-top::before {
+    top: 16px;
+    transform: translateY(0);
+}
+
+.custom-tooltip.tooltip-top::after {
+    top: 16px;
+    transform: translateY(0);
+}
+
+/* Vertical positioning - BOTTOM aligned */
+.custom-tooltip.tooltip-bottom {
+    top: auto;
+    bottom: -8px;
+    transform: translateY(0);
+}
+
+.custom-tooltip.tooltip-bottom::before {
+    top: auto;
+    bottom: 16px;
+    transform: translateY(0);
+}
+
+.custom-tooltip.tooltip-bottom::after {
+    top: auto;
+    bottom: 16px;
+    transform: translateY(0);
+}
+
+/* Legacy profitability tooltip positioning (deprecated - use smart system) */
 .profitability-tooltip.tooltip-top {
     top: -8px;
     transform: translateY(0);

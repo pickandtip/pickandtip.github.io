@@ -81,6 +81,74 @@
         return `<span class="market-badge">${label}</span>`;
     }
     
+    // Generic tooltip cell creator
+    function createTooltipCell(config) {
+        const {
+            mainContent,      // HTML content before/after the icon
+            tooltipContent,   // Tooltip HTML content
+            cellClass,        // Class for the wrapper cell
+            iconClass,        // Unique class for the icon
+            tooltipClass,     // Class for the tooltip
+            position = 'right', // 'left' or 'right' - where tooltip appears
+            iconFirst = false // true = icon before content, false = content before icon
+        } = config;
+
+        const iconHtml = `<span class="info-icon smart-tooltip-icon ${iconClass}" data-position="${position}">
+                    ℹ️
+                    <span class="custom-tooltip ${tooltipClass}">${tooltipContent}</span>
+                </span>`;
+
+        return `
+            <div class="${cellClass}">
+                ${iconFirst ? iconHtml + mainContent : mainContent + iconHtml}
+            </div>
+        `;
+    }
+
+    // Smart tooltip position adjuster
+    function setupSmartTooltip(icon) {
+        if (!icon) return;
+
+        const tooltip = icon.querySelector('.custom-tooltip');
+        if (!tooltip) return;
+
+        const preferredPosition = icon.getAttribute('data-position') || 'right';
+
+        // Wait for tooltip to be displayed to get accurate dimensions
+        setTimeout(() => {
+            const iconRect = icon.getBoundingClientRect();
+            const tooltipRect = tooltip.getBoundingClientRect();
+            const viewportHeight = window.innerHeight;
+            const viewportWidth = window.innerWidth;
+            const tableScrollContainer = document.querySelector('.table-scroll');
+            const containerTop = tableScrollContainer ? tableScrollContainer.getBoundingClientRect().top : 0;
+            const containerBottom = tableScrollContainer ? tableScrollContainer.getBoundingClientRect().bottom : viewportHeight;
+
+            // Remove any previous positioning classes
+            tooltip.classList.remove('tooltip-top', 'tooltip-bottom', 'tooltip-left', 'tooltip-right');
+
+            // Horizontal positioning
+            if (preferredPosition === 'left') {
+                tooltip.classList.add('tooltip-left');
+            } else {
+                tooltip.classList.add('tooltip-right');
+            }
+
+            // Vertical positioning - calculate where the tooltip would be if centered
+            const tooltipCenterTop = iconRect.top + iconRect.height / 2 - tooltipRect.height / 2;
+            const tooltipCenterBottom = tooltipCenterTop + tooltipRect.height;
+
+            // Check if tooltip would overflow at the top
+            if (tooltipCenterTop < containerTop) {
+                tooltip.classList.add('tooltip-top');
+            }
+            // Check if tooltip would overflow at the bottom
+            else if (tooltipCenterBottom > Math.min(viewportHeight, containerBottom)) {
+                tooltip.classList.add('tooltip-bottom');
+            }
+        }, 10);
+    }
+
     // Get licensing badge with info icon and tooltip
     function getLicensingBadge(licensing) {
         const level = licensingLevels[licensing.level] || licensingLevels['registration'];
@@ -91,15 +159,14 @@
         // Combine details and legal notes for tooltip
         const tooltipContent = legalNotes ? `${details}<br><br>${legalNotes}` : details;
 
-        return `
-            <div class="licensing-cell">
-                <span class="licensing-badge" style="background-color: ${level.color}">${label}</span>
-                <span class="info-icon licensing-info-icon">
-                    ℹ️
-                    <span class="custom-tooltip licensing-tooltip">${tooltipContent}</span>
-                </span>
-            </div>
-        `;
+        return createTooltipCell({
+            mainContent: `<span class="licensing-badge" style="background-color: ${level.color}">${label}</span>`,
+            tooltipContent: tooltipContent,
+            cellClass: 'licensing-cell',
+            iconClass: 'licensing-info-icon',
+            tooltipClass: 'licensing-tooltip',
+            position: 'right'
+        });
     }
     
     // Format day limit
@@ -202,15 +269,15 @@
             </div>
         `;
 
-        return `
-            <div class="profitability-cell">
-                <span class="info-icon profitability-info-icon">
-                    ℹ️
-                    <span class="custom-tooltip profitability-tooltip">${tooltipContent}</span>
-                </span>
-                <span class="profitability-value" style="color: ${color}; font-weight: 700; font-size: 1.1rem;">${avgProf}%</span>
-            </div>
-        `;
+        return createTooltipCell({
+            mainContent: `<span class="profitability-value" style="color: ${color}; font-weight: 700; font-size: 1.1rem;">${avgProf}%</span>`,
+            tooltipContent: tooltipContent,
+            cellClass: 'profitability-cell',
+            iconClass: 'profitability-info-icon',
+            tooltipClass: 'profitability-tooltip',
+            position: 'left',
+            iconFirst: true
+        });
     }
 
     // Truncate text with ellipsis
@@ -292,10 +359,6 @@
             row.innerHTML = `
                 <td class="info-cell">
                     <div class="info-icons">
-                        <span class="info-icon type-icon">
-                            ${marketIcon}
-                            <span class="custom-tooltip">${marketTooltipEscaped}</span>
-                        </span>
                         <span class="info-icon platform-icon">
                             🌐
                             <span class="custom-tooltip">${platformsEscaped}</span>
@@ -307,8 +370,14 @@
                     </div>
                 </td>
                 <td><strong>${cityName}</strong></td>
-                <td><span class="flag">${city.flag}</span> ${countryName}</td>
-                <td>${getLicensingBadge(city.licensing)}</td>
+                <td class="country-cell">
+                    <span class="flag">${city.flag}</span> ${countryName}
+                    <span class="info-icon type-icon">
+                        ${marketIcon}
+                        <span class="custom-tooltip">${marketTooltipEscaped}</span>
+                    </span>
+                </td>
+                <td class="licensing-td">${getLicensingBadge(city.licensing)}</td>
                 <td class="small-text">${taxation}</td>
                 <td class="center profitability-td">${formatProfitability(city)}</td>
                 <td class="notes-cell">${truncatedNotes}</td>
@@ -318,10 +387,9 @@
             const typeIcon = row.querySelector('.type-icon');
             const platformIcon = row.querySelector('.platform-icon');
             const servicesIcon = row.querySelector('.services-icon');
-            const profitabilityIcon = row.querySelector('.profitability-info-icon');
-            const licensingIcon = row.querySelector('.licensing-info-icon');
 
-            [typeIcon, platformIcon, servicesIcon, licensingIcon].forEach(icon => {
+            // Regular tooltips (type, platform, services)
+            [typeIcon, platformIcon, servicesIcon].forEach(icon => {
                 if (icon) {
                     icon.addEventListener('click', function(e) {
                         e.stopPropagation();
@@ -340,54 +408,53 @@
                 }
             });
 
-            // Special handling for profitability tooltip with position adjustment
-            if (profitabilityIcon) {
-                profitabilityIcon.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                    // Close all other tooltips
-                    document.querySelectorAll('.info-icon.active').forEach(otherIcon => {
-                        if (otherIcon !== this) otherIcon.classList.remove('active');
-                    });
-                    // Toggle this tooltip
-                    this.classList.toggle('active');
+            // Smart tooltips (profitability, licensing, etc.) - unified handler
+            const smartTooltips = row.querySelectorAll('.smart-tooltip-icon');
+            smartTooltips.forEach(icon => {
+                if (icon) {
+                    const tooltip = icon.querySelector('.custom-tooltip');
+                    let closeTimeout;
 
-                    // Adjust tooltip position if active
-                    if (this.classList.contains('active')) {
-                        const tooltip = this.querySelector('.custom-tooltip');
-                        if (tooltip) {
-                            // Wait for tooltip to be displayed to get accurate dimensions
-                            setTimeout(() => {
-                                const iconRect = this.getBoundingClientRect();
-                                const tooltipRect = tooltip.getBoundingClientRect();
-                                const viewportHeight = window.innerHeight;
-                                const tableScrollContainer = document.querySelector('.table-scroll');
-                                const containerTop = tableScrollContainer ? tableScrollContainer.getBoundingClientRect().top : 0;
-                                const containerBottom = tableScrollContainer ? tableScrollContainer.getBoundingClientRect().bottom : viewportHeight;
+                    icon.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        // Close all other tooltips
+                        document.querySelectorAll('.info-icon.active').forEach(otherIcon => {
+                            if (otherIcon !== this) otherIcon.classList.remove('active');
+                        });
+                        // Toggle this tooltip
+                        this.classList.toggle('active');
 
-                                // Remove any previous positioning classes
-                                tooltip.classList.remove('tooltip-top', 'tooltip-bottom');
-
-                                // Calculate where the tooltip would be positioned if centered
-                                const tooltipCenterTop = iconRect.top + iconRect.height / 2 - tooltipRect.height / 2;
-                                const tooltipCenterBottom = tooltipCenterTop + tooltipRect.height;
-
-                                // Check if tooltip would overflow at the top
-                                if (tooltipCenterTop < containerTop) {
-                                    tooltip.classList.add('tooltip-top');
-                                }
-                                // Check if tooltip would overflow at the bottom
-                                else if (tooltipCenterBottom > Math.min(viewportHeight, containerBottom)) {
-                                    tooltip.classList.add('tooltip-bottom');
-                                }
-                            }, 10);
+                        // Adjust tooltip position if active
+                        if (this.classList.contains('active')) {
+                            setupSmartTooltip(this);
                         }
-                    }
-                });
+                    });
 
-                profitabilityIcon.addEventListener('mouseleave', function() {
-                    this.classList.remove('active');
-                });
-            }
+                    // Delay closing when mouse leaves the icon
+                    icon.addEventListener('mouseleave', function() {
+                        closeTimeout = setTimeout(() => {
+                            this.classList.remove('active');
+                        }, 200);
+                    });
+
+                    // Cancel closing if mouse enters the icon again
+                    icon.addEventListener('mouseenter', function() {
+                        clearTimeout(closeTimeout);
+                    });
+
+                    // Keep tooltip open when mouse is over it
+                    if (tooltip) {
+                        tooltip.addEventListener('mouseenter', function() {
+                            clearTimeout(closeTimeout);
+                        });
+
+                        // Close when mouse leaves the tooltip
+                        tooltip.addEventListener('mouseleave', function() {
+                            icon.classList.remove('active');
+                        });
+                    }
+                }
+            });
 
             // Add tooltip to notes cell if text was truncated
             if (notes.length > 150) {
