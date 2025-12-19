@@ -280,14 +280,6 @@
         });
     }
 
-    // Truncate text with ellipsis
-    function truncateText(text, maxLength = 150) {
-        if (!text || text.length <= maxLength) {
-            return text;
-        }
-        return text.substring(0, maxLength).trim() + '...';
-    }
-
     // Escape HTML for attributes
     function escapeHtml(text) {
         if (!text) return '';
@@ -297,6 +289,38 @@
             .replace(/>/g, '&gt;')
             .replace(/"/g, '&quot;')
             .replace(/'/g, '&#039;');
+    }
+
+    // Format taxation with tooltip
+    function formatTaxation(city) {
+        const lang = window.currentLang;
+
+        // New structured taxation format
+        if (city.taxation && city.taxation.items) {
+            const items = city.taxation.items[lang] || city.taxation.items.fr;
+            const notes = city.taxation.notes ? (city.taxation.notes[lang] || city.taxation.notes.fr) : '';
+
+            const itemsHtml = items.map(item => `<div style="font-size: 0.85em; line-height: 1.4;">${item}</div>`).join('');
+
+            if (notes) {
+                const iconHtml = `<span class="info-icon smart-tooltip-icon taxation-info-icon" data-position="right" style="position: absolute; left: 8px; top: 50%; transform: translateY(-50%);">
+                    ℹ️
+                    <span class="custom-tooltip taxation-tooltip">${notes}</span>
+                </span>`;
+
+                return `<div style="position: relative; padding-left: 35px;">${itemsHtml}${iconHtml}</div>`;
+            } else {
+                return `<div>${itemsHtml}</div>`;
+            }
+        }
+
+        // Fallback to old format
+        if (city.totalTaxation) {
+            const taxation = city.totalTaxation[lang] || city.totalTaxation.fr;
+            return `<div><div style="font-size: 0.85em;">${taxation}</div></div>`;
+        }
+
+        return '<div>N/A</div>';
     }
 
     // Format management services tooltip
@@ -341,27 +365,39 @@
 
             const cityName = city.city[window.currentLang] || city.city.fr;
             const countryName = city.countryName[window.currentLang] || city.countryName.fr;
-            const notes = city.notes[window.currentLang] || city.notes.fr;
-            const taxation = city.totalTaxation[window.currentLang] || city.totalTaxation.fr;
-            const truncatedNotes = truncateText(notes, 150);
+
+            // Airport information
+            const airportName = city.airport ? (city.airport.name[window.currentLang] || city.airport.name.fr) : '';
+            const airportDistance = city.airport ? (city.airport.distance[window.currentLang] || city.airport.distance.fr) : '';
+            const alternativeTransport = city.alternativeTransport ? (city.alternativeTransport[window.currentLang] || city.alternativeTransport.fr) : '';
 
             // Prepare tooltip data
             const platformsList = city.platforms.join(', ');
-            const platformsEscaped = escapeHtml(platformsList);
+            const platformStats = city.platformStats ? (city.platformStats[window.currentLang] || city.platformStats.fr) : '';
+            let platformTooltip = platformsList;
+            if (platformStats) {
+                platformTooltip = `${platformsList}<br><span style="font-size: 0.85em; color: #999; margin-top: 4px; display: block;">${platformStats}</span>`;
+            }
             const servicesFormatted = formatManagementServices(city);
 
             // Get market type info
             const marketType = marketTypes[city.marketType] || marketTypes['urban'];
             const marketIcon = marketType.icon;
             const marketTooltip = marketType.tooltip[window.currentLang] || marketType.tooltip.fr;
-            const marketTooltipEscaped = escapeHtml(marketTooltip);
+
+            // Add market quality if available
+            let tooltipHtml = marketTooltip;
+            if (city.marketQuality) {
+                const marketQuality = city.marketQuality[window.currentLang] || city.marketQuality.fr;
+                tooltipHtml = `${marketTooltip}<br><span style="font-size: 0.85em; color: #999; font-style: italic;">${marketQuality}</span>`;
+            }
 
             row.innerHTML = `
                 <td class="info-cell">
                     <div class="info-icons">
                         <span class="info-icon platform-icon">
                             🌐
-                            <span class="custom-tooltip">${platformsEscaped}</span>
+                            <span class="custom-tooltip">${platformTooltip}</span>
                         </span>
                         <span class="info-icon services-icon">
                             🏢
@@ -370,20 +406,25 @@
                     </div>
                 </td>
                 <td class="destination-cell">
-                    <strong>${cityName}</strong>
-                    <span class="info-icon type-icon">
-                        ${marketIcon}
-                        <span class="custom-tooltip">${marketTooltipEscaped}</span>
-                    </span>
+                    <div style="display: flex; flex-direction: column; gap: 2px;">
+                        <div>
+                            <strong>${cityName}</strong>
+                            <span class="info-icon type-icon">
+                                ${marketIcon}
+                                <span class="custom-tooltip">${tooltipHtml}</span>
+                            </span>
+                        </div>
+                        ${airportName ? `<div style="font-size: 0.7em; color: #888; line-height: 1.2;">${airportName} (${airportDistance})</div>` : ''}
+                        ${alternativeTransport ? `<div style="font-size: 0.7em; color: #888; line-height: 1.2;">🚢 ${alternativeTransport}</div>` : ''}
+                    </div>
                 </td>
                 <td class="country-cell">
                     <span class="flag">${city.flag}</span>
                     <span class="country-name">${countryName}</span>
                 </td>
                 <td class="licensing-td">${getLicensingBadge(city.licensing)}</td>
-                <td class="small-text">${taxation}</td>
+                <td class="taxation-td">${formatTaxation(city)}</td>
                 <td class="center profitability-td">${formatProfitability(city)}</td>
-                <td class="notes-cell">${truncatedNotes}</td>
             `;
 
             // Add click event listeners for all tooltips
@@ -458,14 +499,6 @@
                     }
                 }
             });
-
-            // Add tooltip to notes cell if text was truncated
-            if (notes.length > 150) {
-                const notesCell = row.querySelector('.notes-cell');
-                if (notesCell) {
-                    notesCell.setAttribute('title', notes);
-                }
-            }
 
             tableBody.appendChild(row);
         });
@@ -663,8 +696,13 @@
         if (sortHeader) {
             sortHeader.classList.add('sorted-asc');
         }
+
+        // Listen for language changes and re-render table
+        window.addEventListener('languageChanged', () => {
+            filterAndSort();
+        });
     }
-    
+
     // Export init function for router
     window.initVacationRentalHotspots = initVacationRentalHotspots;
 

@@ -64,6 +64,9 @@
                 currentTopicEl.textContent = topicName;
             }
         }
+
+        // Trigger language change event for topics to re-render
+        window.dispatchEvent(new CustomEvent('languageChanged', { detail: { lang } }));
     }
 
     function applyTranslations() {

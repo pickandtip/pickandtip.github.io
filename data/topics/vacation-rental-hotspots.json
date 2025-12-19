@@ -9,6 +9,16 @@
       },
       "countryCode": "MX",
       "marketType": "beach",
+      "airport": {
+        "name": {
+          "fr": "Aéroport international de Cancún",
+          "en": "Cancún International Airport"
+        },
+        "distance": {
+          "fr": "15 km",
+          "en": "15 km"
+        }
+      },
       "dayLimit": 365,
       "monthlyRevenue": {
         "min": 800,
@@ -28,22 +38,36 @@
           "en": "Low regulation. RFC (Federal Taxpayer Registry) reduces taxation from 20% to 10%."
         }
       },
-      "totalTaxation": {
-        "fr": "20% revenus (sans RFC) ou 10-35% (avec RFC) + TVA 16% + Taxe séjour 3%",
-        "en": "20% income (no RFC) or 10-35% (with RFC) + VAT 16% + Lodging tax 3%"
+      "taxation": {
+        "items": {
+          "fr": ["RFC : 20% (sans RFC) ou 10-35% (avec RFC)", "TVA : 16%", "Taxe séjour : 3%"],
+          "en": ["RFC : 20% (no RFC) or 10-35% (with RFC)", "VAT : 16%", "Lodging tax : 3%"]
+        },
+        "notes": {
+          "fr": "RFC = Registro Federal de Contribuyentes (Registre fédéral des contribuables) · TVA = Taxe sur la Valeur Ajoutée",
+          "en": "RFC = Registro Federal de Contribuyentes (Federal Taxpayer Registry) · VAT = Value Added Tax"
+        }
       },
       "platforms": [
         "Airbnb",
         "Vrbo",
         "Booking.com"
       ],
+      "platformStats": {
+        "fr": "7 309 annonces actives",
+        "en": "7,309 active listings"
+      },
       "managementServices": {
         "fr": "Nombreuses: Condo Hotels Playa, PlayaStays, Nomads Rental",
         "en": "Numerous: Condo Hotels Playa, PlayaStays, Nomads Rental"
       },
+      "marketQuality": {
+        "fr": "Marché saisonnier fort (déc-juil)",
+        "en": "Strong seasonal market (Dec-Jul)"
+      },
       "notes": {
-        "fr": "Aéroport international. Marché saisonnier fort (déc-juil). 7 309 annonces actives.",
-        "en": "International airport. Strong seasonal market (Dec-Jul). 7,309 active listings."
+        "fr": "",
+        "en": ""
       },
       "profitability": {
         "pricePerSqm": 1800,
@@ -76,6 +100,16 @@
       },
       "countryCode": "TR",
       "marketType": "urban",
+      "airport": {
+        "name": {
+          "fr": "Aéroport d'Istanbul",
+          "en": "Istanbul Airport"
+        },
+        "distance": {
+          "fr": "40 km du centre",
+          "en": "40 km from center"
+        }
+      },
       "dayLimit": 100,
       "monthlyRevenue": {
         "min": 900,
@@ -95,22 +129,36 @@
           "en": "Strict 100-day/year limit. Fines TRY 100,000-1,000,000 for non-compliance."
         }
       },
-      "totalTaxation": {
-        "fr": "15-40% progressif + TVA 20% + Taxe tourisme incluse",
-        "en": "15-40% progressive + VAT 20% + Tourism tax included"
+      "taxation": {
+        "items": {
+          "fr": ["Impôt progressif : 15-40%", "TVA : 20%", "Taxe tourisme incluse"],
+          "en": ["Progressive tax : 15-40%", "VAT : 20%", "Tourism tax included"]
+        },
+        "notes": {
+          "fr": "TVA = Taxe sur la Valeur Ajoutée · Impôt sur le revenu progressif selon les tranches",
+          "en": "VAT = Value Added Tax · Progressive income tax by brackets"
+        }
       },
       "platforms": [
         "Airbnb",
         "Booking.com",
         "Sahibinden"
       ],
+      "platformStats": {
+        "fr": "21 877 annonces",
+        "en": "21,877 listings"
+      },
       "managementServices": {
         "fr": "Limités : agences locales, services professionnels limités",
         "en": "Limited: local agencies, limited professional services"
       },
+      "marketQuality": {
+        "fr": "80% clients internationaux, districts premium, ROI 10-15%",
+        "en": "80% international guests, premium districts, ROI 10-15%"
+      },
       "notes": {
-        "fr": "2 aéroports internationaux. 21 877 annonces. 80% clients internationaux. ROI 10-15% districts premium.",
-        "en": "2 international airports. 21,877 listings. 80% international guests. ROI 10-15% premium districts."
+        "fr": "",
+        "en": ""
       },
       "profitability": {
         "pricePerSqm": 2850,
@@ -143,6 +191,16 @@
       },
       "countryCode": "AE",
       "marketType": "urban",
+      "airport": {
+        "name": {
+          "fr": "Aéroport international de Dubaï",
+          "en": "Dubai International Airport"
+        },
+        "distance": {
+          "fr": "10-20 km",
+          "en": "10-20 km"
+        }
+      },
       "dayLimit": 365,
       "monthlyRevenue": {
         "min": 2000,
@@ -162,22 +220,36 @@
           "en": "7-day minimum rental. Very tax-friendly (0% income tax)."
         }
       },
-      "totalTaxation": {
-        "fr": "0% IR + TVA 5% (si > 375k AED) + Tourism Dirham 10-15 AED/chambre/nuit",
-        "en": "0% income tax + VAT 5% (if > AED 375k) + Tourism Dirham AED 10-15/bedroom/night"
+      "taxation": {
+        "items": {
+          "fr": ["Impôt sur le revenu : 0%", "TVA : 5% (si > 375k AED)", "Tourism Dirham : 10-15 AED/chambre/nuit"],
+          "en": ["Income tax : 0%", "VAT : 5% (if > AED 375k)", "Tourism Dirham : AED 10-15/bedroom/night"]
+        },
+        "notes": {
+          "fr": "TVA = Taxe sur la Valeur Ajoutée · Fiscalité très avantageuse avec 0% d'impôt sur le revenu · Tourism Dirham varie selon le nombre de chambres",
+          "en": "VAT = Value Added Tax · Very favorable taxation with 0% income tax · Tourism Dirham varies by number of bedrooms"
+        }
       },
       "platforms": [
         "Airbnb",
         "Booking.com",
         "Vrbo"
       ],
+      "platformStats": {
+        "fr": "85% occupation hiver · ADR 226 USD",
+        "en": "85% winter occupancy · ADR $226"
+      },
       "managementServices": {
         "fr": "Nombreuses: Blueground Dubai, Sonder, Short Stay Dubai",
         "en": "Numerous: Blueground Dubai, Sonder, Short Stay Dubai"
       },
+      "marketQuality": {
+        "fr": "Zones premium (Downtown, Marina, JBR)",
+        "en": "Premium zones (Downtown, Marina, JBR)"
+      },
       "notes": {
-        "fr": "Aéroport international hub. Occupancy 85% hiver. Downtown, Marina, JBR: zones premium. ADR 226 USD.",
-        "en": "International airport hub. 85% winter occupancy. Downtown, Marina, JBR: premium zones. ADR $226."
+        "fr": "",
+        "en": ""
       },
       "profitability": {
         "pricePerSqm": 5500,
@@ -210,6 +282,16 @@
       },
       "countryCode": "PT",
       "marketType": "urban",
+      "airport": {
+        "name": {
+          "fr": "Aéroport de Lisbonne Portela",
+          "en": "Lisbon Portela Airport"
+        },
+        "distance": {
+          "fr": "7 km",
+          "en": "7 km"
+        }
+      },
       "dayLimit": 365,
       "monthlyRevenue": {
         "min": 1500,
@@ -229,22 +311,36 @@
           "en": "Moratorium on new licenses in downtown area."
         }
       },
-      "totalTaxation": {
-        "fr": "28% IRS (ou régime simplifié) + TVA 6% + Taxe séjour 2€/nuit + CEAL",
-        "en": "28% IRS (or simplified regime) + VAT 6% + Tourist tax €2/night + CEAL"
+      "taxation": {
+        "items": {
+          "fr": ["IRS : 28%", "TVA : 6%", "Taxe séjour : 2€/nuit", "CEAL"],
+          "en": ["IRS : 28%", "VAT : 6%", "Tourist tax : €2/night", "CEAL"]
+        },
+        "notes": {
+          "fr": "IRS = Impôt sur le Revenu des personnes Singulières · TVA = Taxe sur la Valeur Ajoutée · CEAL = Contribuição Especial sobre o Alojamento Local (taxe spéciale hébergement touristique)",
+          "en": "IRS = Personal Income Tax · VAT = Value Added Tax · CEAL = Special Contribution on Local Accommodation (special tourist accommodation tax)"
+        }
       },
       "platforms": [
         "Airbnb",
         "Booking.com",
         "Vrbo"
       ],
+      "platformStats": {
+        "fr": "13 342 annonces actives · Top 10% : 272 USD/nuit",
+        "en": "13,342 active listings · Top 10%: $272/night"
+      },
       "managementServices": {
         "fr": "Nombreuses: Rental Guardians, Sweet Inn, Local Apartments",
         "en": "Numerous: Rental Guardians, Sweet Inn, Local Apartments"
       },
+      "marketQuality": {
+        "fr": "Saisonnalité forte (mai-juil), 93% clients internationaux",
+        "en": "Strong seasonality (May-Jul), 93% international guests"
+      },
       "notes": {
-        "fr": "Aéroport international. 13 342 annonces actives. 93% clients internationaux. Saisonnalité forte (mai-juil). Top 10% : 272 USD/nuit.",
-        "en": "International airport. 13,342 active listings. 93% international guests. Strong seasonality (May-Jul). Top 10%: $272/night."
+        "fr": "",
+        "en": ""
       },
       "profitability": {
         "pricePerSqm": 4850,
@@ -277,6 +373,16 @@
       },
       "countryCode": "MX",
       "marketType": "beach",
+      "airport": {
+        "name": {
+          "fr": "Aéroport international de Cancún",
+          "en": "Cancún International Airport"
+        },
+        "distance": {
+          "fr": "45 min (55 km)",
+          "en": "45 min (55 km)"
+        }
+      },
       "dayLimit": 365,
       "monthlyRevenue": {
         "min": 1200,
@@ -296,9 +402,15 @@
           "en": "Very permissive. Foreign ownership allowed through bank trust (fideicomiso)."
         }
       },
-      "totalTaxation": {
-        "fr": "20% (sans RFC) ou 10-35% (avec RFC) + TVA 16% + Taxe séjour 3%",
-        "en": "20% (no RFC) or 10-35% (with RFC) + VAT 16% + Lodging tax 3%"
+      "taxation": {
+        "items": {
+          "fr": ["RFC : 20% (sans RFC) ou 10-35% (avec RFC)", "TVA : 16%", "Taxe séjour : 3%"],
+          "en": ["RFC : 20% (no RFC) or 10-35% (with RFC)", "VAT : 16%", "Lodging tax : 3%"]
+        },
+        "notes": {
+          "fr": "RFC = Registro Federal de Contribuyentes (Registre fédéral des contribuables) · TVA = Taxe sur la Valeur Ajoutée",
+          "en": "RFC = Registro Federal de Contribuyentes (Federal Taxpayer Registry) · VAT = Value Added Tax"
+        }
       },
       "platforms": [
         "Airbnb",
@@ -309,9 +421,13 @@
         "fr": "Nombreuses: PlayaStays, Nomads Rental, agences locales",
         "en": "Numerous: PlayaStays, Nomads Rental, local agencies"
       },
+      "marketQuality": {
+        "fr": "Marché favorable aux investisseurs",
+        "en": "Favorable investor market"
+      },
       "notes": {
-        "fr": "Aéroport Cancún 45 min. Marché favorable aux investisseurs.",
-        "en": "Cancún airport 45 min. Favorable investor market."
+        "fr": "",
+        "en": ""
       },
       "profitability": {
         "pricePerSqm": 4000,
@@ -344,6 +460,16 @@
       },
       "countryCode": "PT",
       "marketType": "urban",
+      "airport": {
+        "name": {
+          "fr": "Aéroport Francisco Sá Carneiro",
+          "en": "Francisco Sá Carneiro Airport"
+        },
+        "distance": {
+          "fr": "11 km",
+          "en": "11 km"
+        }
+      },
       "dayLimit": 365,
       "monthlyRevenue": {
         "min": 1000,
@@ -363,9 +489,15 @@
           "en": "Moratorium on new licenses in historic center."
         }
       },
-      "totalTaxation": {
-        "fr": "28% IRS + TVA 6% + Taxe séjour 2€/nuit + CEAL",
-        "en": "28% IRS + VAT 6% + Tourist tax €2/night + CEAL"
+      "taxation": {
+        "items": {
+          "fr": ["IRS : 28%", "TVA : 6%", "Taxe séjour : 2€/nuit", "CEAL"],
+          "en": ["IRS : 28%", "VAT : 6%", "Tourist tax : €2/night", "CEAL"]
+        },
+        "notes": {
+          "fr": "IRS = Impôt sur le Revenu des personnes Singulières · TVA = Taxe sur la Valeur Ajoutée · CEAL = Contribuição Especial sobre o Alojamento Local (taxe spéciale hébergement touristique)",
+          "en": "IRS = Personal Income Tax · VAT = Value Added Tax · CEAL = Special Contribution on Local Accommodation (special tourist accommodation tax)"
+        }
       },
       "platforms": [
         "Airbnb",
@@ -376,9 +508,13 @@
         "fr": "Nombreuses: agences locales, Sweet Inn",
         "en": "Numerous: local agencies, Sweet Inn"
       },
+      "marketQuality": {
+        "fr": "Forte demande tourisme œnotouristique, alternative moins chère que Lisbonne",
+        "en": "Strong wine tourism demand, cheaper alternative to Lisbon"
+      },
       "notes": {
-        "fr": "Aéroport international. Alternative moins chère que Lisbonne. Forte demande tourisme oenotouristique.",
-        "en": "International airport. Cheaper alternative to Lisbon. Strong wine tourism demand."
+        "fr": "",
+        "en": ""
       },
       "profitability": {
         "pricePerSqm": 4610,
@@ -411,6 +547,16 @@
       },
       "countryCode": "IT",
       "marketType": "urban",
+      "airport": {
+        "name": {
+          "fr": "Aéroport Fiumicino",
+          "en": "Fiumicino Airport"
+        },
+        "distance": {
+          "fr": "30 km",
+          "en": "30 km"
+        }
+      },
       "dayLimit": 365,
       "monthlyRevenue": {
         "min": 1200,
@@ -430,9 +576,15 @@
           "en": "2-night minimum in historic center. In-person check-in required. Fines €800-8,000."
         }
       },
-      "totalTaxation": {
-        "fr": "Cédulaire sèche 21% (1 bien) ou 26% (2+ biens) + Taxe séjour 3-7€/nuit",
-        "en": "Flat tax 21% (1 property) or 26% (2+ properties) + Tourist tax €3-7/night"
+      "taxation": {
+        "items": {
+          "fr": ["Cédulaire sèche : 21% (1 bien) ou 26% (2+ biens)", "Taxe séjour : 3-7€/nuit"],
+          "en": ["Flat tax : 21% (1 property) or 26% (2+ properties)", "Tourist tax : €3-7/night"]
+        },
+        "notes": {
+          "fr": "Cédulaire sèche = impôt forfaitaire sur les revenus locatifs · Taux progressif selon le nombre de biens détenus",
+          "en": "Flat tax = fixed rate on rental income · Progressive rate based on number of properties owned"
+        }
       },
       "platforms": [
         "Airbnb",
@@ -444,8 +596,8 @@
         "en": "Numerous: Rome Sweet Rome, Rental in Rome, GuestReady"
       },
       "notes": {
-        "fr": "2 aéroports internationaux. CIN obligatoire depuis 2025.",
-        "en": "2 international airports. Mandatory CIN since 2025."
+        "fr": "",
+        "en": ""
       },
       "profitability": {
         "pricePerSqm": 4200,
@@ -478,6 +630,16 @@
       },
       "countryCode": "GR",
       "marketType": "urban",
+      "airport": {
+        "name": {
+          "fr": "Aéroport Elefthérios-Venizélos",
+          "en": "Eleftherios Venizelos Airport"
+        },
+        "distance": {
+          "fr": "20 km",
+          "en": "20 km"
+        }
+      },
       "dayLimit": 365,
       "monthlyRevenue": {
         "min": 1000,
@@ -497,9 +659,15 @@
           "en": "1-year registration freeze (2025). Max 2 properties per individual. Strict safety standards (Oct. 2025). €5,000 fines."
         }
       },
-      "totalTaxation": {
-        "fr": "TVA 13% + Taxe climatique 8€/nuit (mars-oct) ou 2€/nuit (nov-fév)",
-        "en": "VAT 13% + Climate tax €8/night (Mar-Oct) or €2/night (Nov-Feb)"
+      "taxation": {
+        "items": {
+          "fr": ["TVA : 13%", "Taxe climatique : 8€/nuit (mars-oct)", "Taxe climatique : 2€/nuit (nov-fév)"],
+          "en": ["VAT : 13%", "Climate tax : €8/night (Mar-Oct)", "Climate tax : €2/night (Nov-Feb)"]
+        },
+        "notes": {
+          "fr": "TVA = Taxe sur la Valeur Ajoutée · Taxe climatique saisonnière pour financer la protection environnementale",
+          "en": "VAT = Value Added Tax · Seasonal climate tax to fund environmental protection"
+        }
       },
       "platforms": [
         "Airbnb",
@@ -511,8 +679,8 @@
         "en": "Numerous: GuestReady Athens, Sweet Inn, Key Concierge"
       },
       "notes": {
-        "fr": "Aéroport international.",
-        "en": "International airport."
+        "fr": "",
+        "en": ""
       },
       "profitability": {
         "pricePerSqm": 3600,
@@ -545,6 +713,16 @@
       },
       "countryCode": "US",
       "marketType": "beach",
+      "airport": {
+        "name": {
+          "fr": "Aéroport international de Miami",
+          "en": "Miami International Airport"
+        },
+        "distance": {
+          "fr": "10-15 km",
+          "en": "10-15 km"
+        }
+      },
       "dayLimit": 365,
       "monthlyRevenue": {
         "min": 2500,
@@ -564,9 +742,15 @@
           "en": "Regulations vary by neighborhood. Miami Beach very restrictive. Condos can ban short-term rentals."
         }
       },
-      "totalTaxation": {
-        "fr": "Fédéral 10-37% + Floride 0% + Local TOT 6% + Municipal 3-4%",
-        "en": "Federal 10-37% + Florida 0% + Local TOT 6% + Municipal 3-4%"
+      "taxation": {
+        "items": {
+          "fr": ["Fédéral : 10-37%", "Floride : 0%", "TOT local : 6%", "Municipal : 3-4%"],
+          "en": ["Federal : 10-37%", "Florida : 0%", "Local TOT : 6%", "Municipal : 3-4%"]
+        },
+        "notes": {
+          "fr": "TOT = Tourist Occupancy Tax (taxe d'occupation touristique) · La Floride n'a pas d'impôt sur le revenu au niveau de l'État",
+          "en": "TOT = Tourist Occupancy Tax · Florida has no state income tax"
+        }
       },
       "platforms": [
         "Airbnb",
@@ -578,8 +762,8 @@
         "en": "Numerous: Sonder, Stay Alfred, Blueground Miami"
       },
       "notes": {
-        "fr": "Aéroport international hub. Pas d'impôt d'État en Floride.",
-        "en": "International airport hub. No state income tax in Florida."
+        "fr": "",
+        "en": ""
       },
       "profitability": {
         "pricePerSqm": 10000,
@@ -612,6 +796,16 @@
       },
       "countryCode": "MX",
       "marketType": "beach",
+      "airport": {
+        "name": {
+          "fr": "Aéroport de Tulum",
+          "en": "Tulum Airport"
+        },
+        "distance": {
+          "fr": "20 km",
+          "en": "20 km"
+        }
+      },
       "dayLimit": 365,
       "monthlyRevenue": {
         "min": 1500,
@@ -631,9 +825,15 @@
           "en": "Very permissive zone. Growing boho-luxury market."
         }
       },
-      "totalTaxation": {
-        "fr": "20% (sans RFC) ou 10-35% (avec RFC) + TVA 16% + Taxe séjour 3%",
-        "en": "20% (no RFC) or 10-35% (with RFC) + VAT 16% + Lodging tax 3%"
+      "taxation": {
+        "items": {
+          "fr": ["RFC : 20% (sans RFC) ou 10-35% (avec RFC)", "TVA : 16%", "Taxe séjour : 3%"],
+          "en": ["RFC : 20% (no RFC) or 10-35% (with RFC)", "VAT : 16%", "Lodging tax : 3%"]
+        },
+        "notes": {
+          "fr": "RFC = Registro Federal de Contribuyentes (Registre fédéral des contribuables) · TVA = Taxe sur la Valeur Ajoutée",
+          "en": "RFC = Registro Federal de Contribuyentes (Federal Taxpayer Registry) · VAT = Value Added Tax"
+        }
       },
       "platforms": [
         "Airbnb",
@@ -644,9 +844,13 @@
         "fr": "Nombreuses: agences locales spécialisées Tulum",
         "en": "Numerous: local agencies specialized in Tulum"
       },
+      "marketQuality": {
+        "fr": "Zone bohème-luxe, marché premium, nouvel aéroport (2024)",
+        "en": "Boho-luxury zone, premium market, new airport (2024)"
+      },
       "notes": {
-        "fr": "Nouvel aéroport Tulum (2024). Zone bohème-luxe. Marché premium. Nouvel aéroport booste la demande.",
-        "en": "New Tulum airport (2024). Boho-luxury zone. Premium market. New airport boosts demand."
+        "fr": "",
+        "en": ""
       },
       "profitability": {
         "pricePerSqm": 2685,
@@ -679,6 +883,16 @@
       },
       "countryCode": "ID",
       "marketType": "nature",
+      "airport": {
+        "name": {
+          "fr": "Aéroport international Ngurah Rai (Denpasar)",
+          "en": "Ngurah Rai International Airport (Denpasar)"
+        },
+        "distance": {
+          "fr": "35 km",
+          "en": "35 km"
+        }
+      },
       "dayLimit": 365,
       "monthlyRevenue": {
         "min": 800,
@@ -698,9 +912,15 @@
           "en": "Evolving regulatory situation (2025). 0% of current rentals licensed. Government rejected total ban."
         }
       },
-      "totalTaxation": {
-        "fr": "Impôt progressif + TVA 11% + Taxe locale variable",
-        "en": "Progressive tax + VAT 11% + Variable local tax"
+      "taxation": {
+        "items": {
+          "fr": ["Impôt progressif", "TVA : 11%", "Taxe locale variable"],
+          "en": ["Progressive tax", "VAT : 11%", "Variable local tax"]
+        },
+        "notes": {
+          "fr": "TVA = Taxe sur la Valeur Ajoutée · Impôt progressif sur le revenu · Les taxes locales varient selon les régions de Bali",
+          "en": "VAT = Value Added Tax · Progressive income tax · Local taxes vary by Bali region"
+        }
       },
       "platforms": [
         "Airbnb",
@@ -711,9 +931,13 @@
         "fr": "Nombreuses: agences locales Bali, property managers",
         "en": "Numerous: local Bali agencies, property managers"
       },
+      "marketQuality": {
+        "fr": "Marché expatriés/nomades, Top 10% : 4 974 USD/mois",
+        "en": "Expat/nomad market, Top 10%: $4,974/month"
+      },
       "notes": {
-        "fr": "Aéroport international Denpasar. Top 10% : 4 974 USD/mois.",
-        "en": "Denpasar international airport. Top 10%: $4,974/month."
+        "fr": "",
+        "en": ""
       },
       "profitability": {
         "pricePerSqm": 825,
@@ -746,6 +970,20 @@
       },
       "countryCode": "GR",
       "marketType": "beach",
+      "airport": {
+        "name": {
+          "fr": "Aéroport de Santorin",
+          "en": "Santorini Airport"
+        },
+        "distance": {
+          "fr": "5 km de Fira",
+          "en": "5 km from Fira"
+        }
+      },
+      "alternativeTransport": {
+        "fr": "Ferry depuis Athènes disponible",
+        "en": "Ferry from Athens available"
+      },
       "dayLimit": 365,
       "monthlyRevenue": {
         "min": 1500,
@@ -765,9 +1003,15 @@
           "en": "Max 2 properties per person. High climate tax in high season."
         }
       },
-      "totalTaxation": {
-        "fr": "TVA 13% + Taxe climatique 8€/nuit (haute saison)",
-        "en": "VAT 13% + Climate tax €8/night (high season)"
+      "taxation": {
+        "items": {
+          "fr": ["TVA : 13%", "Taxe climatique : 8€/nuit (haute saison)"],
+          "en": ["VAT : 13%", "Climate tax : €8/night (high season)"]
+        },
+        "notes": {
+          "fr": "TVA = Taxe sur la Valeur Ajoutée · Taxe climatique saisonnière (8€ en haute saison, 2€ en basse saison)",
+          "en": "VAT = Value Added Tax · Seasonal climate tax (€8 high season, €2 low season)"
+        }
       },
       "platforms": [
         "Airbnb",
@@ -778,9 +1022,13 @@
         "fr": "Nombreuses: agences locales Santorin",
         "en": "Numerous: local Santorini agencies"
       },
+      "marketQuality": {
+        "fr": "Marché premium, très saisonnier (avr-oct)",
+        "en": "Premium market, very seasonal (Apr-Oct)"
+      },
       "notes": {
-        "fr": "Aéroport + ferry Athènes. Marché premium. Très saisonnier (avr-oct).",
-        "en": "Airport + Athens ferry. Premium market. Very seasonal (Apr-Oct)."
+        "fr": "",
+        "en": ""
       },
       "profitability": {
         "pricePerSqm": 7625,
@@ -813,6 +1061,16 @@
       },
       "countryCode": "CZ",
       "marketType": "urban",
+      "airport": {
+        "name": {
+          "fr": "Aéroport Václav Havel",
+          "en": "Václav Havel Airport"
+        },
+        "distance": {
+          "fr": "15 km",
+          "en": "15 km"
+        }
+      },
       "dayLimit": 365,
       "monthlyRevenue": {
         "min": 1000,
@@ -832,9 +1090,15 @@
           "en": "Moderate regulation. Mature short-term rental market."
         }
       },
-      "totalTaxation": {
-        "fr": "Impôt 15-23% + TVA 21% (si > 2M CZK CA) + Taxe séjour locale",
-        "en": "Income tax 15-23% + VAT 21% (if > CZK 2M revenue) + Local tourist tax"
+      "taxation": {
+        "items": {
+          "fr": ["Impôt : 15-23%", "TVA : 21% (si > 2M CZK CA)", "Taxe séjour locale"],
+          "en": ["Income tax : 15-23%", "VAT : 21% (if > CZK 2M revenue)", "Local tourist tax"]
+        },
+        "notes": {
+          "fr": "TVA = Taxe sur la Valeur Ajoutée · CZK = Couronne tchèque · TVA applicable si le chiffre d'affaires dépasse 2 millions CZK/an",
+          "en": "VAT = Value Added Tax · CZK = Czech Koruna · VAT applies if revenue exceeds CZK 2M/year"
+        }
       },
       "platforms": [
         "Airbnb",
@@ -845,9 +1109,13 @@
         "fr": "Nombreuses: agences locales Prague",
         "en": "Numerous: local Prague agencies"
       },
+      "marketQuality": {
+        "fr": "Centre historique forte demande",
+        "en": "High demand historic center"
+      },
       "notes": {
-        "fr": "Aéroport international. Centre historique forte demande.",
-        "en": "International airport. High demand historic center."
+        "fr": "",
+        "en": ""
       },
       "profitability": {
         "pricePerSqm": 5450,
@@ -880,6 +1148,16 @@
       },
       "countryCode": "HU",
       "marketType": "urban",
+      "airport": {
+        "name": {
+          "fr": "Aéroport Ferenc Liszt",
+          "en": "Ferenc Liszt Airport"
+        },
+        "distance": {
+          "fr": "16 km",
+          "en": "16 km"
+        }
+      },
       "dayLimit": 365,
       "monthlyRevenue": {
         "min": 900,
@@ -899,9 +1177,15 @@
           "en": "Strict regulations in downtown (districts V, VI, VII)."
         }
       },
-      "totalTaxation": {
-        "fr": "Impôt 15% + TVA 27% (si > 12M HUF) + Taxe tourisme 4%",
-        "en": "Income tax 15% + VAT 27% (if > HUF 12M) + Tourism tax 4%"
+      "taxation": {
+        "items": {
+          "fr": ["Impôt : 15%", "TVA : 27% (si > 12M HUF)", "Taxe tourisme : 4%"],
+          "en": ["Income tax : 15%", "VAT : 27% (if > HUF 12M)", "Tourism tax : 4%"]
+        },
+        "notes": {
+          "fr": "TVA = Taxe sur la Valeur Ajoutée · HUF = Forint hongrois · Taux d'imposition fixe de 15% très compétitif",
+          "en": "VAT = Value Added Tax · HUF = Hungarian Forint · Competitive 15% flat income tax rate"
+        }
       },
       "platforms": [
         "Airbnb",
@@ -912,9 +1196,13 @@
         "fr": "Nombreuses: agences locales Budapest",
         "en": "Numerous: local Budapest agencies"
       },
+      "marketQuality": {
+        "fr": "Marché compétitif, fiscalité avantageuse (15% IR)",
+        "en": "Competitive market, favorable taxation (15% income tax)"
+      },
       "notes": {
-        "fr": "Aéroport international. Marché compétitif. Fiscalité avantageuse (15% IR).",
-        "en": "International airport. Competitive market. Favorable taxation (15% income tax)."
+        "fr": "",
+        "en": ""
       },
       "profitability": {
         "pricePerSqm": 4400,
@@ -947,6 +1235,16 @@
       },
       "countryCode": "MA",
       "marketType": "urban",
+      "airport": {
+        "name": {
+          "fr": "Aéroport Marrakech Ménara",
+          "en": "Marrakech Menara Airport"
+        },
+        "distance": {
+          "fr": "6 km",
+          "en": "6 km"
+        }
+      },
       "dayLimit": 365,
       "monthlyRevenue": {
         "min": 800,
@@ -966,9 +1264,15 @@
           "en": "Unrestricted foreign ownership."
         }
       },
-      "totalTaxation": {
-        "fr": "Impôt 15-38% progressif + Taxe séjour variable par catégorie",
-        "en": "Progressive tax 15-38% + Tourist tax variable by category"
+      "taxation": {
+        "items": {
+          "fr": ["Impôt progressif : 15-38%", "Taxe séjour variable par catégorie"],
+          "en": ["Progressive tax : 15-38%", "Tourist tax variable by category"]
+        },
+        "notes": {
+          "fr": "Impôt progressif sur le revenu · Taxe de séjour variant selon la catégorie de l'hébergement (riad, appartement, villa)",
+          "en": "Progressive income tax · Tourist tax varies by accommodation category (riad, apartment, villa)"
+        }
       },
       "platforms": [
         "Airbnb",
@@ -979,9 +1283,13 @@
         "fr": "Nombreuses: agences locales riads, property managers",
         "en": "Numerous: local riad agencies, property managers"
       },
+      "marketQuality": {
+        "fr": "Marché riads/villas mature, Médina forte demande",
+        "en": "Mature riads/villas market, high demand Medina"
+      },
       "notes": {
-        "fr": "Aéroport international. Marché riads/villas mature. Médina forte demande.",
-        "en": "International airport. Mature riads/villas market. High demand Medina."
+        "fr": "",
+        "en": ""
       },
       "profitability": {
         "pricePerSqm": 1675,
@@ -1014,6 +1322,16 @@
       },
       "countryCode": "TH",
       "marketType": "nature",
+      "airport": {
+        "name": {
+          "fr": "Aéroport international de Chiang Mai",
+          "en": "Chiang Mai International Airport"
+        },
+        "distance": {
+          "fr": "4 km",
+          "en": "4 km"
+        }
+      },
       "dayLimit": 30,
       "monthlyRevenue": {
         "min": 600,
@@ -1033,9 +1351,15 @@
           "en": "Legal gray area. Rentals over 30 days legal without license."
         }
       },
-      "totalTaxation": {
-        "fr": "Retenue 5-15% + Taxe foncière 12.5% + TVA si > 1.8M THB/an",
-        "en": "Withholding 5-15% + House & Land tax 12.5% + VAT if > THB 1.8M/year"
+      "taxation": {
+        "items": {
+          "fr": ["Retenue à la source : 5-15%", "Taxe foncière : 12.5%", "TVA (si > 1.8M THB/an)"],
+          "en": ["Withholding tax : 5-15%", "House & Land tax : 12.5%", "VAT (if > THB 1.8M/year)"]
+        },
+        "notes": {
+          "fr": "TVA = Taxe sur la Valeur Ajoutée · THB = Baht thaïlandais · La retenue à la source varie selon le statut du propriétaire",
+          "en": "VAT = Value Added Tax · THB = Thai Baht · Withholding tax varies by owner status"
+        }
       },
       "platforms": [
         "Airbnb",
@@ -1046,9 +1370,13 @@
         "fr": "Limités: agences locales, services moins développés",
         "en": "Limited: local agencies, less developed services"
       },
+      "marketQuality": {
+        "fr": "Marché nomades digitaux, coût de vie bas",
+        "en": "Digital nomad market, low cost of living"
+      },
       "notes": {
-        "fr": "Aéroport international. Marché nomades digitaux. Coût de vie bas.",
-        "en": "International airport. Digital nomad market. Low cost of living."
+        "fr": "",
+        "en": ""
       },
       "profitability": {
         "pricePerSqm": 2445,
@@ -1081,6 +1409,16 @@
       },
       "countryCode": "PL",
       "marketType": "urban",
+      "airport": {
+        "name": {
+          "fr": "Aéroport Jean-Paul II Cracovie-Balice",
+          "en": "John Paul II Kraków-Balice Airport"
+        },
+        "distance": {
+          "fr": "11 km",
+          "en": "11 km"
+        }
+      },
       "dayLimit": 365,
       "monthlyRevenue": {
         "min": 700,
@@ -1100,9 +1438,15 @@
           "en": "Moderate regulation."
         }
       },
-      "totalTaxation": {
-        "fr": "Impôt 17-32% progressif + TVA 23% (si > 200k PLN) + Taxe séjour locale",
-        "en": "Progressive tax 17-32% + VAT 23% (if > PLN 200k) + Local tourist tax"
+      "taxation": {
+        "items": {
+          "fr": ["Impôt progressif : 17-32%", "TVA : 23% (si > 200k PLN)", "Taxe séjour locale"],
+          "en": ["Progressive tax : 17-32%", "VAT : 23% (if > PLN 200k)", "Local tourist tax"]
+        },
+        "notes": {
+          "fr": "TVA = Taxe sur la Valeur Ajoutée · PLN = Zloty polonais · TVA applicable si le revenu dépasse 200 000 PLN/an",
+          "en": "VAT = Value Added Tax · PLN = Polish Zloty · VAT applies if revenue exceeds PLN 200k/year"
+        }
       },
       "platforms": [
         "Airbnb",
@@ -1113,9 +1457,13 @@
         "fr": "Nombreuses: agences locales Cracovie",
         "en": "Numerous: local Krakow agencies"
       },
+      "marketQuality": {
+        "fr": "Centre historique UNESCO forte demande, prix abordables",
+        "en": "UNESCO historic center high demand, affordable pricing"
+      },
       "notes": {
-        "fr": "Aéroport international. Centre historique UNESCO forte demande. Marché compétitif prix abordables.",
-        "en": "International airport. UNESCO historic center high demand. Competitive market with affordable pricing."
+        "fr": "",
+        "en": ""
       },
       "profitability": {
         "pricePerSqm": 4400,
@@ -1148,6 +1496,16 @@
       },
       "countryCode": "HR",
       "marketType": "beach",
+      "airport": {
+        "name": {
+          "fr": "Aéroport de Split",
+          "en": "Split Airport"
+        },
+        "distance": {
+          "fr": "20 km",
+          "en": "20 km"
+        }
+      },
       "dayLimit": 365,
       "monthlyRevenue": {
         "min": 1000,
@@ -1167,9 +1525,15 @@
           "en": "Foreign ownership allowed for EU citizens."
         }
       },
-      "totalTaxation": {
-        "fr": "Impôt 10-30% progressif + TVA 13% + Taxe séjour variable saison",
-        "en": "Progressive tax 10-30% + VAT 13% + Seasonal tourist tax"
+      "taxation": {
+        "items": {
+          "fr": ["Impôt progressif : 10-30%", "TVA : 13%", "Taxe séjour variable saison"],
+          "en": ["Progressive tax : 10-30%", "VAT : 13%", "Seasonal tourist tax"]
+        },
+        "notes": {
+          "fr": "TVA = Taxe sur la Valeur Ajoutée · Taxe de séjour variant selon la saison touristique · Imposition progressive selon les revenus",
+          "en": "VAT = Value Added Tax · Tourist tax varies by season · Progressive taxation based on income"
+        }
       },
       "platforms": [
         "Airbnb",
@@ -1180,9 +1544,13 @@
         "fr": "Nombreuses: agences locales côte dalmate",
         "en": "Numerous: local Dalmatian coast agencies"
       },
+      "marketQuality": {
+        "fr": "Marché saisonnier fort (mai-sept), Palais de Dioclétien UNESCO",
+        "en": "Strong seasonal market (May-Sept), Diocletian's Palace UNESCO"
+      },
       "notes": {
-        "fr": "Aéroport international. Marché saisonnier fort (mai-sept). Palais de Dioclétien UNESCO.",
-        "en": "International airport. Strong seasonal market (May-Sept). Diocletian's Palace UNESCO."
+        "fr": "",
+        "en": ""
       },
       "profitability": {
         "pricePerSqm": 3750,
@@ -1215,6 +1583,16 @@
       },
       "countryCode": "PT",
       "marketType": "beach",
+      "airport": {
+        "name": {
+          "fr": "Aéroport de Faro",
+          "en": "Faro Airport"
+        },
+        "distance": {
+          "fr": "30 km",
+          "en": "30 km"
+        }
+      },
       "dayLimit": 365,
       "monthlyRevenue": {
         "min": 1200,
@@ -1234,9 +1612,15 @@
           "en": "Moratorium in saturated zones."
         }
       },
-      "totalTaxation": {
-        "fr": "28% IRS + TVA 6% + Taxe séjour 2€/nuit + CEAL",
-        "en": "28% IRS + VAT 6% + Tourist tax €2/night + CEAL"
+      "taxation": {
+        "items": {
+          "fr": ["IRS : 28%", "TVA : 6%", "Taxe séjour : 2€/nuit", "CEAL"],
+          "en": ["IRS : 28%", "VAT : 6%", "Tourist tax : €2/night", "CEAL"]
+        },
+        "notes": {
+          "fr": "IRS = Impôt sur le Revenu des personnes Singulières · TVA = Taxe sur la Valeur Ajoutée · CEAL = Contribuição Especial sobre o Alojamento Local (taxe spéciale hébergement touristique)",
+          "en": "IRS = Personal Income Tax · VAT = Value Added Tax · CEAL = Special Contribution on Local Accommodation (special tourist accommodation tax)"
+        }
       },
       "platforms": [
         "Airbnb",
@@ -1247,9 +1631,13 @@
         "fr": "Nombreuses: agences Algarve spécialisées",
         "en": "Numerous: specialized Algarve agencies"
       },
+      "marketQuality": {
+        "fr": "Marché saisonnier premium, forte demande retraités UE, plages classe mondiale",
+        "en": "Premium seasonal market, high retiree demand EU, world-class beaches"
+      },
       "notes": {
-        "fr": "Aéroport Faro international. Marché saisonnier premium. Forte demande retraités EU. Plages classe mondiale.",
-        "en": "Faro international airport. Premium seasonal market. High retiree demand EU. World-class beaches."
+        "fr": "",
+        "en": ""
       },
       "profitability": {
         "pricePerSqm": 4150,
@@ -1282,6 +1670,16 @@
       },
       "countryCode": "ES",
       "marketType": "beach",
+      "airport": {
+        "name": {
+          "fr": "Aéroport de Valence",
+          "en": "Valencia Airport"
+        },
+        "distance": {
+          "fr": "8 km",
+          "en": "8 km"
+        }
+      },
       "dayLimit": 365,
       "monthlyRevenue": {
         "min": 900,
@@ -1301,9 +1699,15 @@
           "en": "Restrictions in historic center."
         }
       },
-      "totalTaxation": {
-        "fr": "19-47% progressif + TVA + Taxe séjour 2-3€/nuit",
-        "en": "19-47% progressive + VAT + Tourist tax €2-3/night"
+      "taxation": {
+        "items": {
+          "fr": ["Impôt progressif : 19-47%", "TVA", "Taxe séjour : 2-3€/nuit"],
+          "en": ["Progressive tax : 19-47%", "VAT", "Tourist tax : €2-3/night"]
+        },
+        "notes": {
+          "fr": "TVA = Taxe sur la Valeur Ajoutée · Imposition progressive selon les tranches de revenus · Taux de TVA standard en Espagne",
+          "en": "VAT = Value Added Tax · Progressive taxation by income brackets · Standard VAT rate in Spain"
+        }
       },
       "platforms": [
         "Airbnb",
@@ -1314,9 +1718,13 @@
         "fr": "Nombreuses: agences locales Valence",
         "en": "Numerous: local Valencia agencies"
       },
+      "marketQuality": {
+        "fr": "Alternative moins chère Barcelone/Madrid, plages urbaines, Cité des Arts et des Sciences",
+        "en": "Cheaper alternative to Barcelona/Madrid, urban beaches, City of Arts and Sciences"
+      },
       "notes": {
-        "fr": "Aéroport international. Alternative moins chère Barcelone/Madrid. Plages urbaines. Cité des Arts et des Sciences.",
-        "en": "International airport. Cheaper alternative to Barcelona/Madrid. Urban beaches. City of Arts and Sciences."
+        "fr": "",
+        "en": ""
       },
       "profitability": {
         "pricePerSqm": 3630,
