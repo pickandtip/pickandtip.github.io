@@ -63,13 +63,88 @@
         }
     }
 
-    // Get legal framework badge
+    // Generic tooltip cell creator
+    function createTooltipCell(config) {
+        const {
+            mainContent,      // HTML content before/after the icon
+            tooltipContent,   // Tooltip HTML content
+            cellClass,        // Class for the wrapper cell
+            iconClass,        // Unique class for the icon
+            tooltipClass,     // Class for the tooltip
+            position = 'right', // 'left' or 'right' - where tooltip appears
+            iconFirst = false // true = icon before content, false = content before icon
+        } = config;
+
+        const iconHtml = `<span class="info-icon smart-tooltip-icon ${iconClass}" data-position="${position}">
+                    ℹ️
+                    <span class="custom-tooltip ${tooltipClass}">${tooltipContent}</span>
+                </span>`;
+
+        return `
+            <div class="${cellClass}">
+                ${iconFirst ? iconHtml + mainContent : mainContent + iconHtml}
+            </div>
+        `;
+    }
+
+    // Smart tooltip position adjuster
+    function setupSmartTooltip(icon) {
+        if (!icon) return;
+
+        const tooltip = icon.querySelector('.custom-tooltip');
+        if (!tooltip) return;
+
+        const preferredPosition = icon.getAttribute('data-position') || 'right';
+
+        // Wait for tooltip to be displayed to get accurate dimensions
+        setTimeout(() => {
+            const iconRect = icon.getBoundingClientRect();
+            const tooltipRect = tooltip.getBoundingClientRect();
+            const viewportHeight = window.innerHeight;
+            const viewportWidth = window.innerWidth;
+            const tableScrollContainer = document.querySelector('.table-scroll');
+            const containerTop = tableScrollContainer ? tableScrollContainer.getBoundingClientRect().top : 0;
+            const containerBottom = tableScrollContainer ? tableScrollContainer.getBoundingClientRect().bottom : viewportHeight;
+
+            // Remove any previous positioning classes
+            tooltip.classList.remove('tooltip-top', 'tooltip-bottom', 'tooltip-left', 'tooltip-right');
+
+            // Horizontal positioning
+            if (preferredPosition === 'left') {
+                tooltip.classList.add('tooltip-left');
+            } else {
+                tooltip.classList.add('tooltip-right');
+            }
+
+            // Vertical positioning - calculate where the tooltip would be if centered
+            const tooltipCenterTop = iconRect.top + iconRect.height / 2 - tooltipRect.height / 2;
+            const tooltipCenterBottom = tooltipCenterTop + tooltipRect.height;
+
+            // Check if tooltip would overflow at the top
+            if (tooltipCenterTop < containerTop) {
+                tooltip.classList.add('tooltip-top');
+            }
+            // Check if tooltip would overflow at the bottom
+            else if (tooltipCenterBottom > Math.min(viewportHeight, containerBottom)) {
+                tooltip.classList.add('tooltip-bottom');
+            }
+        }, 10);
+    }
+
+    // Get legal framework badge with info icon and tooltip
     function getLegalBadge(legalFramework) {
         const level = legalLevels[legalFramework.level] || legalLevels['moderate'];
         const label = level.label[window.currentLang] || level.label.fr;
         const details = legalFramework.details[window.currentLang] || legalFramework.details.fr;
 
-        return `<span class="legal-badge" style="background-color: ${level.color}" title="${details}">${label}</span>`;
+        return createTooltipCell({
+            mainContent: `<span class="legal-badge" style="background-color: ${level.color}">${label}</span>`,
+            tooltipContent: details,
+            cellClass: 'legal-framework-cell',
+            iconClass: 'legal-info-icon',
+            tooltipClass: 'legal-tooltip',
+            position: 'right'
+        });
     }
 
     // Get services badge
@@ -135,7 +210,7 @@
             row.innerHTML = `
                 <td><span class="flag">${country.flag}</span> ${countryName}</td>
                 <td>${regionLabel}</td>
-                <td>${getLegalBadge(country.legalFramework)}</td>
+                <td class="legal-framework-td">${getLegalBadge(country.legalFramework)}</td>
                 <td class="small-text taxation-cell">${taxation}</td>
                 <td class="platforms-cell">${getPlatformsDisplay(country.platforms)}</td>
                 <td>${getServicesBadge(country.managementServices)}</td>
@@ -149,6 +224,54 @@
                     notesCell.setAttribute('title', notes);
                 }
             }
+
+            // Smart tooltips (legal framework) - unified handler
+            const smartTooltips = row.querySelectorAll('.smart-tooltip-icon');
+            smartTooltips.forEach(icon => {
+                if (icon) {
+                    const tooltip = icon.querySelector('.custom-tooltip');
+                    let closeTimeout;
+
+                    icon.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        // Close all other tooltips
+                        document.querySelectorAll('.info-icon.active').forEach(otherIcon => {
+                            if (otherIcon !== this) otherIcon.classList.remove('active');
+                        });
+                        // Toggle this tooltip
+                        this.classList.toggle('active');
+
+                        // Adjust tooltip position if active
+                        if (this.classList.contains('active')) {
+                            setupSmartTooltip(this);
+                        }
+                    });
+
+                    // Delay closing when mouse leaves the icon
+                    icon.addEventListener('mouseleave', function() {
+                        closeTimeout = setTimeout(() => {
+                            this.classList.remove('active');
+                        }, 200);
+                    });
+
+                    // Cancel closing if mouse enters the icon again
+                    icon.addEventListener('mouseenter', function() {
+                        clearTimeout(closeTimeout);
+                    });
+
+                    // Keep tooltip open when mouse is over it
+                    if (tooltip) {
+                        tooltip.addEventListener('mouseenter', function() {
+                            clearTimeout(closeTimeout);
+                        });
+
+                        // Close when mouse leaves the tooltip
+                        tooltip.addEventListener('mouseleave', function() {
+                            icon.classList.remove('active');
+                        });
+                    }
+                }
+            });
 
             tableBody.appendChild(row);
         });
