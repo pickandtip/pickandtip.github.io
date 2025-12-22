@@ -155,6 +155,9 @@
       "platforms": "Platforms",
       "services": "Management services"
     },
+    "tooltips": {
+      "noAdditionalInfo": "No additional information"
+    },
     "disclaimer": {
       "text": "This data is provided for informational purposes only and may vary by region, property type and your personal situation. Regulations change frequently. Always consult a local legal and tax advisor before making any investment decision. Last updated: January 2025."
     }
@@ -194,6 +197,9 @@
       "legalFramework": "Legal Framework",
       "profitability": "Profitability",
       "taxation": "Taxation"
+    },
+    "tooltips": {
+      "noAdditionalInfo": "No additional information"
     },
     "disclaimer": {
       "text": "This data is provided for informational purposes only. Estimated revenues can vary significantly based on precise location, property type and quality. Local regulations change frequently. Always consult a local legal and tax advisor before making any investment decision. Last updated: January 2025."

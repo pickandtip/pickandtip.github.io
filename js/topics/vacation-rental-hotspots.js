@@ -76,82 +76,18 @@
     
     // Get market type badge
     function getMarketBadge(marketType) {
-        const market = marketTypes[marketType] || marketTypes['urban'];
+        const market = marketTypes[marketType];
         const label = market.label[window.currentLang] || market.label.fr;
         return `<span class="market-badge">${label}</span>`;
     }
-    
-    // Generic tooltip cell creator
-    function createTooltipCell(config) {
-        const {
-            mainContent,      // HTML content before/after the icon
-            tooltipContent,   // Tooltip HTML content
-            cellClass,        // Class for the wrapper cell
-            iconClass,        // Unique class for the icon
-            tooltipClass,     // Class for the tooltip
-            position = 'right', // 'left' or 'right' - where tooltip appears
-            iconFirst = false // true = icon before content, false = content before icon
-        } = config;
 
-        const iconHtml = `<span class="info-icon smart-tooltip-icon ${iconClass}" data-position="${position}">
-                    ℹ️
-                    <span class="custom-tooltip ${tooltipClass}">${tooltipContent}</span>
-                </span>`;
-
-        return `
-            <div class="${cellClass}">
-                ${iconFirst ? iconHtml + mainContent : mainContent + iconHtml}
-            </div>
-        `;
-    }
-
-    // Smart tooltip position adjuster
-    function setupSmartTooltip(icon) {
-        if (!icon) return;
-
-        const tooltip = icon.querySelector('.custom-tooltip');
-        if (!tooltip) return;
-
-        const preferredPosition = icon.getAttribute('data-position') || 'right';
-
-        // Wait for tooltip to be displayed to get accurate dimensions
-        setTimeout(() => {
-            const iconRect = icon.getBoundingClientRect();
-            const tooltipRect = tooltip.getBoundingClientRect();
-            const viewportHeight = window.innerHeight;
-            const viewportWidth = window.innerWidth;
-            const tableScrollContainer = document.querySelector('.table-scroll');
-            const containerTop = tableScrollContainer ? tableScrollContainer.getBoundingClientRect().top : 0;
-            const containerBottom = tableScrollContainer ? tableScrollContainer.getBoundingClientRect().bottom : viewportHeight;
-
-            // Remove any previous positioning classes
-            tooltip.classList.remove('tooltip-top', 'tooltip-bottom', 'tooltip-left', 'tooltip-right');
-
-            // Horizontal positioning
-            if (preferredPosition === 'left') {
-                tooltip.classList.add('tooltip-left');
-            } else {
-                tooltip.classList.add('tooltip-right');
-            }
-
-            // Vertical positioning - calculate where the tooltip would be if centered
-            const tooltipCenterTop = iconRect.top + iconRect.height / 2 - tooltipRect.height / 2;
-            const tooltipCenterBottom = tooltipCenterTop + tooltipRect.height;
-
-            // Check if tooltip would overflow at the top
-            if (tooltipCenterTop < containerTop) {
-                tooltip.classList.add('tooltip-top');
-            }
-            // Check if tooltip would overflow at the bottom
-            else if (tooltipCenterBottom > Math.min(viewportHeight, containerBottom)) {
-                tooltip.classList.add('tooltip-bottom');
-            }
-        }, 10);
-    }
+    // Use tooltip module functions
+    const createTooltipCell = window.TooltipModule.createTooltipCell;
+    const setupSmartTooltip = window.TooltipModule.setupSmartTooltip;
 
     // Get licensing badge with info icon and tooltip
     function getLicensingBadge(licensing) {
-        const level = licensingLevels[licensing.level] || licensingLevels['registration'];
+        const level = licensingLevels[licensing.level];
         const label = level.label[window.currentLang] || level.label.fr;
         const details = licensing.details[window.currentLang] || licensing.details.fr;
         const legalNotes = licensing.legalNotes ? (licensing.legalNotes[window.currentLang] || licensing.legalNotes.fr) : '';
@@ -295,32 +231,25 @@
     function formatTaxation(city) {
         const lang = window.currentLang;
 
-        // New structured taxation format
-        if (city.taxation && city.taxation.items) {
-            const items = city.taxation.items[lang] || city.taxation.items.fr;
-            const notes = city.taxation.notes ? (city.taxation.notes[lang] || city.taxation.notes.fr) : '';
+        const items = city.taxation.items[lang] || city.taxation.items.fr;
+        const notes = city.taxation.notes ? (city.taxation.notes[lang] || city.taxation.notes.fr) : '';
 
-            const itemsHtml = items.map(item => `<div style="font-size: 0.85em; line-height: 1.4;">${item}</div>`).join('');
+        const itemsHtml = items.map(item => `<div style="font-size: 0.85em; line-height: 1.4;">${item}</div>`).join('');
 
-            if (notes) {
-                const iconHtml = `<span class="info-icon smart-tooltip-icon taxation-info-icon" data-position="right" style="position: absolute; left: 8px; top: 50%; transform: translateY(-50%);">
-                    ℹ️
-                    <span class="custom-tooltip taxation-tooltip">${notes}</span>
-                </span>`;
+        // Toujours afficher l'icône, mais avec un état visuel différent
+        const hasNotes = notes && notes.trim() !== '';
+        const tooltipContent = hasNotes ? notes : (window.translations?.[lang]?.vacationRentalHotspots?.tooltips?.noAdditionalInfo || 'N/A');
 
-                return `<div style="position: relative; padding-left: 35px;">${itemsHtml}${iconHtml}</div>`;
-            } else {
-                return `<div>${itemsHtml}</div>`;
-            }
-        }
-
-        // Fallback to old format
-        if (city.totalTaxation) {
-            const taxation = city.totalTaxation[lang] || city.totalTaxation.fr;
-            return `<div><div style="font-size: 0.85em;">${taxation}</div></div>`;
-        }
-
-        return '<div>N/A</div>';
+        return createTooltipCell({
+            mainContent: `<div class="taxation-items">${itemsHtml}</div>`,
+            tooltipContent: tooltipContent,
+            cellClass: 'taxation-cell',
+            iconClass: 'taxation-info-icon',
+            tooltipClass: 'taxation-tooltip',
+            position: 'right',
+            iconFirst: true,
+            isEmpty: !hasNotes  // Use module's isEmpty parameter for color coding
+        });
     }
 
     // Format management services tooltip
@@ -381,7 +310,7 @@
             const servicesFormatted = formatManagementServices(city);
 
             // Get market type info
-            const marketType = marketTypes[city.marketType] || marketTypes['urban'];
+            const marketType = marketTypes[city.marketType];
             const marketIcon = marketType.icon;
             const marketTooltip = marketType.tooltip[window.currentLang] || marketType.tooltip.fr;
 
@@ -452,53 +381,8 @@
                 }
             });
 
-            // Smart tooltips (profitability, licensing, etc.) - unified handler
-            const smartTooltips = row.querySelectorAll('.smart-tooltip-icon');
-            smartTooltips.forEach(icon => {
-                if (icon) {
-                    const tooltip = icon.querySelector('.custom-tooltip');
-                    let closeTimeout;
-
-                    icon.addEventListener('click', function(e) {
-                        e.stopPropagation();
-                        // Close all other tooltips
-                        document.querySelectorAll('.info-icon.active').forEach(otherIcon => {
-                            if (otherIcon !== this) otherIcon.classList.remove('active');
-                        });
-                        // Toggle this tooltip
-                        this.classList.toggle('active');
-
-                        // Adjust tooltip position if active
-                        if (this.classList.contains('active')) {
-                            setupSmartTooltip(this);
-                        }
-                    });
-
-                    // Delay closing when mouse leaves the icon
-                    icon.addEventListener('mouseleave', function() {
-                        closeTimeout = setTimeout(() => {
-                            this.classList.remove('active');
-                        }, 200);
-                    });
-
-                    // Cancel closing if mouse enters the icon again
-                    icon.addEventListener('mouseenter', function() {
-                        clearTimeout(closeTimeout);
-                    });
-
-                    // Keep tooltip open when mouse is over it
-                    if (tooltip) {
-                        tooltip.addEventListener('mouseenter', function() {
-                            clearTimeout(closeTimeout);
-                        });
-
-                        // Close when mouse leaves the tooltip
-                        tooltip.addEventListener('mouseleave', function() {
-                            icon.classList.remove('active');
-                        });
-                    }
-                }
-            });
+            // Initialize tooltips using the unified module
+            window.TooltipModule.initializeTooltips(row);
 
             tableBody.appendChild(row);
         });
@@ -690,7 +574,12 @@
     
         // Initial render
         filterAndSort();
-    
+
+        // Initialize unlock button in result-count area
+        if (window.TooltipModule) {
+            window.TooltipModule.initUnlockButton();
+        }
+
         // Set initial sort indicator
         const sortHeader = document.querySelector('th[data-sort="city"]');
         if (sortHeader) {

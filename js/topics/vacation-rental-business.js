@@ -63,83 +63,40 @@
         }
     }
 
-    // Generic tooltip cell creator
-    function createTooltipCell(config) {
-        const {
-            mainContent,      // HTML content before/after the icon
-            tooltipContent,   // Tooltip HTML content
-            cellClass,        // Class for the wrapper cell
-            iconClass,        // Unique class for the icon
-            tooltipClass,     // Class for the tooltip
-            position = 'right', // 'left' or 'right' - where tooltip appears
-            iconFirst = false // true = icon before content, false = content before icon
-        } = config;
-
-        const iconHtml = `<span class="info-icon smart-tooltip-icon ${iconClass}" data-position="${position}">
-                    ℹ️
-                    <span class="custom-tooltip ${tooltipClass}">${tooltipContent}</span>
-                </span>`;
-
-        return `
-            <div class="${cellClass}">
-                ${iconFirst ? iconHtml + mainContent : mainContent + iconHtml}
-            </div>
-        `;
-    }
-
-    // Smart tooltip position adjuster
-    function setupSmartTooltip(icon) {
-        if (!icon) return;
-
-        const tooltip = icon.querySelector('.custom-tooltip');
-        if (!tooltip) return;
-
-        const preferredPosition = icon.getAttribute('data-position') || 'right';
-
-        // Wait for tooltip to be displayed to get accurate dimensions
-        setTimeout(() => {
-            const iconRect = icon.getBoundingClientRect();
-            const tooltipRect = tooltip.getBoundingClientRect();
-            const viewportHeight = window.innerHeight;
-            const viewportWidth = window.innerWidth;
-            const tableScrollContainer = document.querySelector('.table-scroll');
-            const containerTop = tableScrollContainer ? tableScrollContainer.getBoundingClientRect().top : 0;
-            const containerBottom = tableScrollContainer ? tableScrollContainer.getBoundingClientRect().bottom : viewportHeight;
-
-            // Remove any previous positioning classes
-            tooltip.classList.remove('tooltip-top', 'tooltip-bottom', 'tooltip-left', 'tooltip-right');
-
-            // Horizontal positioning
-            if (preferredPosition === 'left') {
-                tooltip.classList.add('tooltip-left');
-            } else {
-                tooltip.classList.add('tooltip-right');
-            }
-
-            // Vertical positioning - calculate where the tooltip would be if centered
-            const tooltipCenterTop = iconRect.top + iconRect.height / 2 - tooltipRect.height / 2;
-            const tooltipCenterBottom = tooltipCenterTop + tooltipRect.height;
-
-            // Check if tooltip would overflow at the top
-            if (tooltipCenterTop < containerTop) {
-                tooltip.classList.add('tooltip-top');
-            }
-            // Check if tooltip would overflow at the bottom
-            else if (tooltipCenterBottom > Math.min(viewportHeight, containerBottom)) {
-                tooltip.classList.add('tooltip-bottom');
-            }
-        }, 10);
-    }
+    // Use tooltip module functions
+    const createTooltipCell = window.TooltipModule.createTooltipCell;
+    const setupSmartTooltip = window.TooltipModule.setupSmartTooltip;
 
     // Get legal framework badge with info icon and tooltip
-    function getLegalBadge(legalFramework) {
-        const level = legalLevels[legalFramework.level] || legalLevels['moderate'];
+    function getLegalBadge(legalFramework, countryNotes) {
+        const level = legalLevels[legalFramework.level];
         const label = level.label[window.currentLang] || level.label.fr;
         const details = legalFramework.details[window.currentLang] || legalFramework.details.fr;
 
+        // Combine legal framework details with country-specific notes
+        const lang = window.currentLang;
+        const notes = countryNotes ? (countryNotes[lang] || countryNotes.fr) : '';
+
+        let tooltipContent = details;
+        if (notes && notes.trim() !== '') {
+            const legalLabel = lang === 'fr' ? 'Cadre légal:' : 'Legal Framework:';
+            const notesLabel = lang === 'fr' ? 'Notes importantes:' : 'Important Notes:';
+
+            tooltipContent = `
+                <div style="margin-bottom: 0.75rem;">
+                    <strong style="color: var(--brand-gold); display: block; margin-bottom: 0.5rem;">${legalLabel}</strong>
+                    ${details}
+                </div>
+                <div>
+                    <strong style="color: var(--brand-gold); display: block; margin-bottom: 0.5rem;">${notesLabel}</strong>
+                    ${notes}
+                </div>
+            `;
+        }
+
         return createTooltipCell({
             mainContent: `<span class="legal-badge" style="background-color: ${level.color}">${label}</span>`,
-            tooltipContent: details,
+            tooltipContent: tooltipContent,
             cellClass: 'legal-framework-cell',
             iconClass: 'legal-info-icon',
             tooltipClass: 'legal-tooltip',
@@ -147,42 +104,59 @@
         });
     }
 
+    // Format taxation with tooltip
+    function formatTaxation(country) {
+        const lang = window.currentLang;
+
+        const items = country.taxation.items[lang] || country.taxation.items.fr;
+        const notes = country.taxation.notes ? (country.taxation.notes[lang] || country.taxation.notes.fr) : '';
+
+        const itemsHtml = items.map(item => `<div style="font-size: 0.85em; line-height: 1.4;">${item}</div>`).join('');
+
+        // Toujours afficher l'icône, mais avec un état visuel différent
+        const hasNotes = notes && notes.trim() !== '';
+        const tooltipContent = hasNotes ? notes : (window.translations?.[lang]?.vacationRentalBusiness?.tooltips?.noAdditionalInfo || 'N/A');
+
+        return createTooltipCell({
+            mainContent: `<div class="taxation-items">${itemsHtml}</div>`,
+            tooltipContent: tooltipContent,
+            cellClass: 'taxation-cell',
+            iconClass: 'taxation-info-icon',
+            tooltipClass: 'taxation-tooltip',
+            position: 'right',
+            iconFirst: true,
+            isEmpty: !hasNotes  // Use module's isEmpty parameter for color coding
+        });
+    }
+
     // Get services badge
     function getServicesBadge(services) {
-        const level = servicesLevels[services.level] || servicesLevels['limited'];
+        const level = servicesLevels[services.level];
         const label = level.label[window.currentLang] || level.label.fr;
-    
+
         let tooltip = '';
         if (services.examples && services.examples.length > 0) {
             tooltip = ` title="${services.examples.join(', ')}"`;
         }
-    
+
         return `<span class="services-badge" style="background-color: ${level.color}"${tooltip}>${label}</span>`;
     }
     
     // Get platforms display
     function getPlatformsDisplay(platforms) {
         if (!platforms || platforms.length === 0) return '<span style="color: #999;">N/A</span>';
-    
+
         const badges = platforms.map(platform => {
             const langs = platform.languages.map(lang => {
                 const flags = { 'fr': '🇫🇷', 'en': '🇬🇧', 'es': '🇪🇸', 'pt': '🇵🇹', 'it': '🇮🇹', 'de': '🇩🇪', 'nl': '🇳🇱', 'el': '🇬🇷', 'tr': '🇹🇷', 'ar': '🇸🇦', 'ja': '🇯🇵', 'th': '🇹🇭', 'zh': '🇨🇳' };
                 return flags[lang] || lang;
             }).join('');
-    
+
             const scope = platform.scope === 'international' ? '🌍' : '📍';
-            return `<span class="platform-item" title="${platform.name}">${scope} ${platform.name} ${langs}</span>`;
-        }).join(' ');
+            return `<div class="platform-item" title="${platform.name}">${scope} ${platform.name} ${langs}</div>`;
+        }).join('');
 
         return `<div class="platforms-list">${badges}</div>`;
-    }
-
-    // Truncate text with ellipsis
-    function truncateText(text, maxLength = 150) {
-        if (!text || text.length <= maxLength) {
-            return text;
-        }
-        return text.substring(0, maxLength).trim() + '...';
     }
 
     // Render table
@@ -202,76 +176,19 @@
             const row = document.createElement('tr');
 
             const countryName = country.countryName[window.currentLang] || country.countryName.fr;
-            const notes = country.notes[window.currentLang] || country.notes.fr;
-            const taxation = country.taxation[window.currentLang] || country.taxation.fr;
             const regionLabel = window.translations?.regions?.[country.region] || country.region;
-            const truncatedNotes = truncateText(notes, 150);
 
             row.innerHTML = `
                 <td><span class="flag">${country.flag}</span> ${countryName}</td>
                 <td>${regionLabel}</td>
-                <td class="legal-framework-td">${getLegalBadge(country.legalFramework)}</td>
-                <td class="small-text taxation-cell">${taxation}</td>
+                <td class="legal-framework-td">${getLegalBadge(country.legalFramework, country.notes)}</td>
+                <td class="small-text taxation-td">${formatTaxation(country)}</td>
                 <td class="platforms-cell">${getPlatformsDisplay(country.platforms)}</td>
                 <td>${getServicesBadge(country.managementServices)}</td>
-                <td class="notes-cell">${truncatedNotes}</td>
             `;
 
-            // Add tooltip to notes cell if text was truncated
-            if (notes.length > 150) {
-                const notesCell = row.querySelector('.notes-cell');
-                if (notesCell) {
-                    notesCell.setAttribute('title', notes);
-                }
-            }
-
-            // Smart tooltips (legal framework) - unified handler
-            const smartTooltips = row.querySelectorAll('.smart-tooltip-icon');
-            smartTooltips.forEach(icon => {
-                if (icon) {
-                    const tooltip = icon.querySelector('.custom-tooltip');
-                    let closeTimeout;
-
-                    icon.addEventListener('click', function(e) {
-                        e.stopPropagation();
-                        // Close all other tooltips
-                        document.querySelectorAll('.info-icon.active').forEach(otherIcon => {
-                            if (otherIcon !== this) otherIcon.classList.remove('active');
-                        });
-                        // Toggle this tooltip
-                        this.classList.toggle('active');
-
-                        // Adjust tooltip position if active
-                        if (this.classList.contains('active')) {
-                            setupSmartTooltip(this);
-                        }
-                    });
-
-                    // Delay closing when mouse leaves the icon
-                    icon.addEventListener('mouseleave', function() {
-                        closeTimeout = setTimeout(() => {
-                            this.classList.remove('active');
-                        }, 200);
-                    });
-
-                    // Cancel closing if mouse enters the icon again
-                    icon.addEventListener('mouseenter', function() {
-                        clearTimeout(closeTimeout);
-                    });
-
-                    // Keep tooltip open when mouse is over it
-                    if (tooltip) {
-                        tooltip.addEventListener('mouseenter', function() {
-                            clearTimeout(closeTimeout);
-                        });
-
-                        // Close when mouse leaves the tooltip
-                        tooltip.addEventListener('mouseleave', function() {
-                            icon.classList.remove('active');
-                        });
-                    }
-                }
-            });
+            // Initialize tooltips using the unified module
+            window.TooltipModule.initializeTooltips(row);
 
             tableBody.appendChild(row);
         });
@@ -431,14 +348,24 @@
 
         // Initial render
         filterAndSortBusiness();
-    
+
+        // Initialize unlock button in result-count area
+        if (window.TooltipModule) {
+            window.TooltipModule.initUnlockButton();
+        }
+
         // Set initial sort indicator
         const sortHeader = document.querySelector('th[data-sort="country"]');
         if (sortHeader) {
             sortHeader.classList.add('sorted-asc');
         }
+
+        // Listen for language changes and re-render table
+        window.addEventListener('languageChanged', () => {
+            filterAndSortBusiness();
+        });
     }
-    
+
     // Export init function for router
     window.initVacationRentalBusiness = initVacationRentalBusiness;
 

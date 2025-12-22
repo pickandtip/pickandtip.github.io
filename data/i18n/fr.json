@@ -155,6 +155,9 @@
       "platforms": "Plateformes",
       "services": "Services de gestion"
     },
+    "tooltips": {
+      "noAdditionalInfo": "Aucune information complémentaire"
+    },
     "disclaimer": {
       "text": "Ces données sont fournies à titre indicatif uniquement et peuvent varier selon les régions, le type de bien et votre situation personnelle. Les réglementations changent fréquemment. Consultez toujours un conseiller juridique et fiscal local avant toute décision d'investissement. Dernière mise à jour : Janvier 2025."
     }
@@ -194,6 +197,9 @@
       "legalFramework": "Cadre Légal",
       "profitability": "Rentabilité",
       "taxation": "Fiscalité"
+    },
+    "tooltips": {
+      "noAdditionalInfo": "Aucune information complémentaire"
     },
     "disclaimer": {
       "text": "Ces données sont fournies à titre indicatif uniquement. Les revenus estimés peuvent varier significativement selon l'emplacement précis, le type et la qualité du bien. Les réglementations locales changent fréquemment. Consultez toujours un conseiller juridique et fiscal local avant toute décision d'investissement. Dernière mise à jour : Janvier 2025."

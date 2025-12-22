@@ -13,6 +13,9 @@
     // Export only what's needed to window
     window.PickAndTip = window.PickAndTip || {};
 
+    // Global lockable mode for tooltips - set to true to enable lock icons
+    window.PickAndTip.tooltipLockableMode = true; // TODO: Set to false in production
+
     // Expose necessary getters/setters
     Object.defineProperty(window, 'currentLang', {
         get: function() { return currentLang; },
@@ -308,6 +311,11 @@
             document.getElementById('home-btn')?.addEventListener('click', () => {
                 navigateTo('');
             });
+
+            // Initialize global tooltip listeners (Escape key, unlock buttons)
+            if (window.TooltipModule) {
+                window.TooltipModule.initGlobalListeners();
+            }
 
             // Load initial route
             handleRoute();
