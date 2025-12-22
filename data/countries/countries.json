@@ -297,21 +297,570 @@
     }
   },
   {
-    "code": "US",
+    "code": "US-AL",
     "flag": "🇺🇸",
     "region": "america",
     "name": {
-      "fr": "États-Unis",
-      "en": "United States"
+      "fr": "Alabama (États-Unis)",
+      "en": "Alabama (United States)"
     }
   },
   {
-    "code": "CA",
+    "code": "US-AK",
+    "flag": "🇺🇸",
+    "region": "america",
+    "name": {
+      "fr": "Alaska (États-Unis)",
+      "en": "Alaska (United States)"
+    }
+  },
+  {
+    "code": "US-AZ",
+    "flag": "🇺🇸",
+    "region": "america",
+    "name": {
+      "fr": "Arizona (États-Unis)",
+      "en": "Arizona (United States)"
+    }
+  },
+  {
+    "code": "US-AR",
+    "flag": "🇺🇸",
+    "region": "america",
+    "name": {
+      "fr": "Arkansas (États-Unis)",
+      "en": "Arkansas (United States)"
+    }
+  },
+  {
+    "code": "US-CA",
+    "flag": "🇺🇸",
+    "region": "america",
+    "name": {
+      "fr": "Californie (États-Unis)",
+      "en": "California (United States)"
+    }
+  },
+  {
+    "code": "US-CO",
+    "flag": "🇺🇸",
+    "region": "america",
+    "name": {
+      "fr": "Colorado (États-Unis)",
+      "en": "Colorado (United States)"
+    }
+  },
+  {
+    "code": "US-CT",
+    "flag": "🇺🇸",
+    "region": "america",
+    "name": {
+      "fr": "Connecticut (États-Unis)",
+      "en": "Connecticut (United States)"
+    }
+  },
+  {
+    "code": "US-DE",
+    "flag": "🇺🇸",
+    "region": "america",
+    "name": {
+      "fr": "Delaware (États-Unis)",
+      "en": "Delaware (United States)"
+    }
+  },
+  {
+    "code": "US-FL",
+    "flag": "🇺🇸",
+    "region": "america",
+    "name": {
+      "fr": "Floride (États-Unis)",
+      "en": "Florida (United States)"
+    }
+  },
+  {
+    "code": "US-GA",
+    "flag": "🇺🇸",
+    "region": "america",
+    "name": {
+      "fr": "Géorgie (États-Unis)",
+      "en": "Georgia (United States)"
+    }
+  },
+  {
+    "code": "US-HI",
+    "flag": "🇺🇸",
+    "region": "america",
+    "name": {
+      "fr": "Hawaï (États-Unis)",
+      "en": "Hawaii (United States)"
+    }
+  },
+  {
+    "code": "US-ID",
+    "flag": "🇺🇸",
+    "region": "america",
+    "name": {
+      "fr": "Idaho (États-Unis)",
+      "en": "Idaho (United States)"
+    }
+  },
+  {
+    "code": "US-IL",
+    "flag": "🇺🇸",
+    "region": "america",
+    "name": {
+      "fr": "Illinois (États-Unis)",
+      "en": "Illinois (United States)"
+    }
+  },
+  {
+    "code": "US-IN",
+    "flag": "🇺🇸",
+    "region": "america",
+    "name": {
+      "fr": "Indiana (États-Unis)",
+      "en": "Indiana (United States)"
+    }
+  },
+  {
+    "code": "US-IA",
+    "flag": "🇺🇸",
+    "region": "america",
+    "name": {
+      "fr": "Iowa (États-Unis)",
+      "en": "Iowa (United States)"
+    }
+  },
+  {
+    "code": "US-KS",
+    "flag": "🇺🇸",
+    "region": "america",
+    "name": {
+      "fr": "Kansas (États-Unis)",
+      "en": "Kansas (United States)"
+    }
+  },
+  {
+    "code": "US-KY",
+    "flag": "🇺🇸",
+    "region": "america",
+    "name": {
+      "fr": "Kentucky (États-Unis)",
+      "en": "Kentucky (United States)"
+    }
+  },
+  {
+    "code": "US-LA",
+    "flag": "🇺🇸",
+    "region": "america",
+    "name": {
+      "fr": "Louisiane (États-Unis)",
+      "en": "Louisiana (United States)"
+    }
+  },
+  {
+    "code": "US-ME",
+    "flag": "🇺🇸",
+    "region": "america",
+    "name": {
+      "fr": "Maine (États-Unis)",
+      "en": "Maine (United States)"
+    }
+  },
+  {
+    "code": "US-MD",
+    "flag": "🇺🇸",
+    "region": "america",
+    "name": {
+      "fr": "Maryland (États-Unis)",
+      "en": "Maryland (United States)"
+    }
+  },
+  {
+    "code": "US-MA",
+    "flag": "🇺🇸",
+    "region": "america",
+    "name": {
+      "fr": "Massachusetts (États-Unis)",
+      "en": "Massachusetts (United States)"
+    }
+  },
+  {
+    "code": "US-MI",
+    "flag": "🇺🇸",
+    "region": "america",
+    "name": {
+      "fr": "Michigan (États-Unis)",
+      "en": "Michigan (United States)"
+    }
+  },
+  {
+    "code": "US-MN",
+    "flag": "🇺🇸",
+    "region": "america",
+    "name": {
+      "fr": "Minnesota (États-Unis)",
+      "en": "Minnesota (United States)"
+    }
+  },
+  {
+    "code": "US-MS",
+    "flag": "🇺🇸",
+    "region": "america",
+    "name": {
+      "fr": "Mississippi (États-Unis)",
+      "en": "Mississippi (United States)"
+    }
+  },
+  {
+    "code": "US-MO",
+    "flag": "🇺🇸",
+    "region": "america",
+    "name": {
+      "fr": "Missouri (États-Unis)",
+      "en": "Missouri (United States)"
+    }
+  },
+  {
+    "code": "US-MT",
+    "flag": "🇺🇸",
+    "region": "america",
+    "name": {
+      "fr": "Montana (États-Unis)",
+      "en": "Montana (United States)"
+    }
+  },
+  {
+    "code": "US-NE",
+    "flag": "🇺🇸",
+    "region": "america",
+    "name": {
+      "fr": "Nebraska (États-Unis)",
+      "en": "Nebraska (United States)"
+    }
+  },
+  {
+    "code": "US-NV",
+    "flag": "🇺🇸",
+    "region": "america",
+    "name": {
+      "fr": "Nevada (États-Unis)",
+      "en": "Nevada (United States)"
+    }
+  },
+  {
+    "code": "US-NH",
+    "flag": "🇺🇸",
+    "region": "america",
+    "name": {
+      "fr": "New Hampshire (États-Unis)",
+      "en": "New Hampshire (United States)"
+    }
+  },
+  {
+    "code": "US-NJ",
+    "flag": "🇺🇸",
+    "region": "america",
+    "name": {
+      "fr": "New Jersey (États-Unis)",
+      "en": "New Jersey (United States)"
+    }
+  },
+  {
+    "code": "US-NM",
+    "flag": "🇺🇸",
+    "region": "america",
+    "name": {
+      "fr": "Nouveau-Mexique (États-Unis)",
+      "en": "New Mexico (United States)"
+    }
+  },
+  {
+    "code": "US-NY",
+    "flag": "🇺🇸",
+    "region": "america",
+    "name": {
+      "fr": "New York (États-Unis)",
+      "en": "New York (United States)"
+    }
+  },
+  {
+    "code": "US-NC",
+    "flag": "🇺🇸",
+    "region": "america",
+    "name": {
+      "fr": "Caroline du Nord (États-Unis)",
+      "en": "North Carolina (United States)"
+    }
+  },
+  {
+    "code": "US-ND",
+    "flag": "🇺🇸",
+    "region": "america",
+    "name": {
+      "fr": "Dakota du Nord (États-Unis)",
+      "en": "North Dakota (United States)"
+    }
+  },
+  {
+    "code": "US-OH",
+    "flag": "🇺🇸",
+    "region": "america",
+    "name": {
+      "fr": "Ohio (États-Unis)",
+      "en": "Ohio (United States)"
+    }
+  },
+  {
+    "code": "US-OK",
+    "flag": "🇺🇸",
+    "region": "america",
+    "name": {
+      "fr": "Oklahoma (États-Unis)",
+      "en": "Oklahoma (United States)"
+    }
+  },
+  {
+    "code": "US-OR",
+    "flag": "🇺🇸",
+    "region": "america",
+    "name": {
+      "fr": "Oregon (États-Unis)",
+      "en": "Oregon (United States)"
+    }
+  },
+  {
+    "code": "US-PA",
+    "flag": "🇺🇸",
+    "region": "america",
+    "name": {
+      "fr": "Pennsylvanie (États-Unis)",
+      "en": "Pennsylvania (United States)"
+    }
+  },
+  {
+    "code": "US-RI",
+    "flag": "🇺🇸",
+    "region": "america",
+    "name": {
+      "fr": "Rhode Island (États-Unis)",
+      "en": "Rhode Island (United States)"
+    }
+  },
+  {
+    "code": "US-SC",
+    "flag": "🇺🇸",
+    "region": "america",
+    "name": {
+      "fr": "Caroline du Sud (États-Unis)",
+      "en": "South Carolina (United States)"
+    }
+  },
+  {
+    "code": "US-SD",
+    "flag": "🇺🇸",
+    "region": "america",
+    "name": {
+      "fr": "Dakota du Sud (États-Unis)",
+      "en": "South Dakota (United States)"
+    }
+  },
+  {
+    "code": "US-TN",
+    "flag": "🇺🇸",
+    "region": "america",
+    "name": {
+      "fr": "Tennessee (États-Unis)",
+      "en": "Tennessee (United States)"
+    }
+  },
+  {
+    "code": "US-TX",
+    "flag": "🇺🇸",
+    "region": "america",
+    "name": {
+      "fr": "Texas (États-Unis)",
+      "en": "Texas (United States)"
+    }
+  },
+  {
+    "code": "US-UT",
+    "flag": "🇺🇸",
+    "region": "america",
+    "name": {
+      "fr": "Utah (États-Unis)",
+      "en": "Utah (United States)"
+    }
+  },
+  {
+    "code": "US-VT",
+    "flag": "🇺🇸",
+    "region": "america",
+    "name": {
+      "fr": "Vermont (États-Unis)",
+      "en": "Vermont (United States)"
+    }
+  },
+  {
+    "code": "US-VA",
+    "flag": "🇺🇸",
+    "region": "america",
+    "name": {
+      "fr": "Virginie (États-Unis)",
+      "en": "Virginia (United States)"
+    }
+  },
+  {
+    "code": "US-WA",
+    "flag": "🇺🇸",
+    "region": "america",
+    "name": {
+      "fr": "Washington (États-Unis)",
+      "en": "Washington (United States)"
+    }
+  },
+  {
+    "code": "US-WV",
+    "flag": "🇺🇸",
+    "region": "america",
+    "name": {
+      "fr": "Virginie-Occidentale (États-Unis)",
+      "en": "West Virginia (United States)"
+    }
+  },
+  {
+    "code": "US-WI",
+    "flag": "🇺🇸",
+    "region": "america",
+    "name": {
+      "fr": "Wisconsin (États-Unis)",
+      "en": "Wisconsin (United States)"
+    }
+  },
+  {
+    "code": "US-WY",
+    "flag": "🇺🇸",
+    "region": "america",
+    "name": {
+      "fr": "Wyoming (États-Unis)",
+      "en": "Wyoming (United States)"
+    }
+  },
+  {
+    "code": "CA-AB",
     "flag": "🇨🇦",
     "region": "america",
     "name": {
-      "fr": "Canada",
-      "en": "Canada"
+      "fr": "Alberta (Canada)",
+      "en": "Alberta (Canada)"
+    }
+  },
+  {
+    "code": "CA-BC",
+    "flag": "🇨🇦",
+    "region": "america",
+    "name": {
+      "fr": "Colombie-Britannique (Canada)",
+      "en": "British Columbia (Canada)"
+    }
+  },
+  {
+    "code": "CA-MB",
+    "flag": "🇨🇦",
+    "region": "america",
+    "name": {
+      "fr": "Manitoba (Canada)",
+      "en": "Manitoba (Canada)"
+    }
+  },
+  {
+    "code": "CA-NB",
+    "flag": "🇨🇦",
+    "region": "america",
+    "name": {
+      "fr": "Nouveau-Brunswick (Canada)",
+      "en": "New Brunswick (Canada)"
+    }
+  },
+  {
+    "code": "CA-NL",
+    "flag": "🇨🇦",
+    "region": "america",
+    "name": {
+      "fr": "Terre-Neuve-et-Labrador (Canada)",
+      "en": "Newfoundland and Labrador (Canada)"
+    }
+  },
+  {
+    "code": "CA-NS",
+    "flag": "🇨🇦",
+    "region": "america",
+    "name": {
+      "fr": "Nouvelle-Écosse (Canada)",
+      "en": "Nova Scotia (Canada)"
+    }
+  },
+  {
+    "code": "CA-ON",
+    "flag": "🇨🇦",
+    "region": "america",
+    "name": {
+      "fr": "Ontario (Canada)",
+      "en": "Ontario (Canada)"
+    }
+  },
+  {
+    "code": "CA-PE",
+    "flag": "🇨🇦",
+    "region": "america",
+    "name": {
+      "fr": "Île-du-Prince-Édouard (Canada)",
+      "en": "Prince Edward Island (Canada)"
+    }
+  },
+  {
+    "code": "CA-QC",
+    "flag": "🇨🇦",
+    "region": "america",
+    "name": {
+      "fr": "Québec (Canada)",
+      "en": "Quebec (Canada)"
+    }
+  },
+  {
+    "code": "CA-SK",
+    "flag": "🇨🇦",
+    "region": "america",
+    "name": {
+      "fr": "Saskatchewan (Canada)",
+      "en": "Saskatchewan (Canada)"
+    }
+  },
+  {
+    "code": "CA-NT",
+    "flag": "🇨🇦",
+    "region": "america",
+    "name": {
+      "fr": "Territoires du Nord-Ouest (Canada)",
+      "en": "Northwest Territories (Canada)"
+    }
+  },
+  {
+    "code": "CA-NU",
+    "flag": "🇨🇦",
+    "region": "america",
+    "name": {
+      "fr": "Nunavut (Canada)",
+      "en": "Nunavut (Canada)"
+    }
+  },
+  {
+    "code": "CA-YT",
+    "flag": "🇨🇦",
+    "region": "america",
+    "name": {
+      "fr": "Yukon (Canada)",
+      "en": "Yukon (Canada)"
     }
   },
   {

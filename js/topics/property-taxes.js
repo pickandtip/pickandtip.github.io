@@ -255,6 +255,11 @@
                 filterAndSort();
             });
         });
+
+        // Listen for language changes and re-render table
+        window.addEventListener('languageChanged', () => {
+            filterAndSort();
+        });
     }
 
     // ==========================================

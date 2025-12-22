@@ -19,12 +19,15 @@
         </div>
 
         <!-- VAT Card -->
-        <div class="topic-card coming-soon">
+        <div class="topic-card available" onclick="window.navigateTo('vat')">
             <div class="topic-icon">💰</div>
             <h2 class="topic-title">{{ landing.topics.vat.title }}</h2>
             <p class="topic-description">{{ landing.topics.vat.description }}</p>
-            <div class="coming-soon-badge">{{ landing.comingSoon }}</div>
-            <button class="topic-cta disabled" disabled>{{ landing.inProgress }}</button>
+            <div class="topic-stats">
+                <span class="stat-badge">✓ 92 juridictions</span>
+                <span class="stat-badge">✓ Mis à jour</span>
+            </div>
+            <button class="topic-cta">{{ landing.explore }}</button>
         </div>
 
         <!-- Vacation Rental Business Card -->

@@ -118,12 +118,31 @@
   "vat": {
     "title": "VAT by Country",
     "subtitle": "Comparison of VAT rates and indirect taxation worldwide",
-    "features": {
-      "standard": "✓ Standard VAT rates by country",
-      "reduced": "✓ Reduced rates and exemptions",
-      "registration": "✓ VAT registration thresholds",
-      "ecommerce": "✓ E-commerce VAT rules",
-      "refund": "✓ Refund procedures"
+    "stats": {
+      "noVat": "Countries without VAT",
+      "lowVat": "Low VAT (≤10%)",
+      "avgVat": "Average rate",
+      "reducedRates": "With reduced rates"
+    },
+    "filter": {
+      "allRates": "All rates",
+      "noVat": "No VAT (0%)",
+      "lowVat": "Low (≤10%)",
+      "mediumVat": "Medium (10-20%)",
+      "highVat": "High (>20%)",
+      "allReducedRates": "Reduced rates",
+      "hasReduced": "With reduced rates",
+      "noReduced": "Without reduced rates"
+    },
+    "table": {
+      "standardRate": "Standard rate",
+      "standardSubtitle": "General VAT",
+      "reducedRates": "Reduced rates",
+      "threshold": "Registration threshold",
+      "thresholdSubtitle": "Small business exemption"
+    },
+    "disclaimer": {
+      "text": "VAT rates and thresholds may vary depending on the type of goods or services. Some countries apply specific rules for cross-border e-commerce. Always consult a local tax expert before making any business decision. Last updated: January 2025."
     }
   },
   "vacationRentalBusiness": {

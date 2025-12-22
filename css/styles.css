@@ -1422,6 +1422,37 @@ tr {
    opacity removed, all icons treated equally */
 
 
+/* VAT Badges and Elements (for VAT by country topic) */
+.vat-badge {
+    display: inline-block;
+    padding: 0.35rem 0.85rem;
+    border-radius: 50px;
+    color: white;
+    font-weight: 700;
+    font-size: 0.9rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    white-space: nowrap;
+    line-height: 1.2;
+}
+
+.reduced-rate-tag {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    margin: 0.1rem;
+    background-color: var(--bg-elevated);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    color: var(--brand-gold);
+    font-weight: 500;
+    font-size: 0.85rem;
+    white-space: nowrap;
+}
+
+.threshold-value {
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
 /* Market Badge (for vacation rental hotspots) */
 .market-badge {
     display: inline-block;

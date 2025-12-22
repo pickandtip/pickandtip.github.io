@@ -521,22 +521,27 @@
         document.querySelectorAll('th.sortable').forEach(header => {
             header.addEventListener('click', () => {
                 const column = header.getAttribute('data-sort');
-    
+
                 if (currentSort.column === column) {
                     currentSort.direction = currentSort.direction === 'asc' ? 'desc' : 'asc';
                 } else {
                     currentSort.column = column;
                     currentSort.direction = 'asc';
                 }
-    
+
                 // Update header classes
                 document.querySelectorAll('th.sortable').forEach(h => {
                     h.classList.remove('sorted-asc', 'sorted-desc');
                 });
                 header.classList.add(`sorted-${currentSort.direction}`);
-    
+
                 filterAndSort();
             });
+        });
+
+        // Listen for language changes and re-render table
+        window.addEventListener('languageChanged', () => {
+            filterAndSort();
         });
     }
     
@@ -585,11 +590,6 @@
         if (sortHeader) {
             sortHeader.classList.add('sorted-asc');
         }
-
-        // Listen for language changes and re-render table
-        window.addEventListener('languageChanged', () => {
-            filterAndSort();
-        });
     }
 
     // Export init function for router

@@ -118,12 +118,31 @@
   "vat": {
     "title": "TVA par Pays",
     "subtitle": "Comparatif des taux de TVA et fiscalité indirecte à l'international",
-    "features": {
-      "standard": "✓ Taux de TVA standard par pays",
-      "reduced": "✓ Taux réduits et exonérations",
-      "registration": "✓ Seuils d'enregistrement TVA",
-      "ecommerce": "✓ Règles TVA e-commerce",
-      "refund": "✓ Procédures de remboursement"
+    "stats": {
+      "noVat": "Pays sans TVA",
+      "lowVat": "TVA faible (≤10%)",
+      "avgVat": "Taux moyen",
+      "reducedRates": "Avec taux réduits"
+    },
+    "filter": {
+      "allRates": "Tous les taux",
+      "noVat": "Sans TVA (0%)",
+      "lowVat": "Faible (≤10%)",
+      "mediumVat": "Modéré (10-20%)",
+      "highVat": "Élevé (>20%)",
+      "allReducedRates": "Taux réduits",
+      "hasReduced": "Avec taux réduits",
+      "noReduced": "Sans taux réduits"
+    },
+    "table": {
+      "standardRate": "Taux standard",
+      "standardSubtitle": "TVA générale",
+      "reducedRates": "Taux réduits",
+      "threshold": "Seuil d'enregistrement",
+      "thresholdSubtitle": "Franchise en base"
+    },
+    "disclaimer": {
+      "text": "Les taux de TVA et seuils peuvent varier selon le type de bien ou service. Certains pays appliquent des règles spécifiques pour le e-commerce transfrontalier. Consultez toujours un expert fiscal local avant toute décision commerciale. Dernière mise à jour : Janvier 2025."
     }
   },
   "vacationRentalBusiness": {

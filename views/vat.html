@@ -1,26 +1,105 @@
-<div class="topic-view under-construction" id="vat-view">
+<div class="topic-view" id="vat-view">
     <header>
-        <h1 data-i18n="vat.title">TVA par Pays</h1>
+        <h1>{{ vat.title }}</h1>
         <div class="gold-line"></div>
-        <p class="subtitle" data-i18n="vat.subtitle">Comparatif des taux de TVA et fiscalité indirecte à l'international</p>
+        <p class="subtitle">{{ vat.subtitle }}</p>
     </header>
 
-    <div class="construction-container">
-        <div class="construction-icon">🚧</div>
-        <h2 data-i18n="construction.title">Contenu en construction</h2>
-        <p data-i18n="construction.message">Cette thématique est actuellement en cours de développement. Nous travaillons dur pour vous apporter des données complètes et fiables.</p>
-
-        <div class="construction-features">
-            <h3 data-i18n="construction.upcoming">À venir prochainement :</h3>
-            <ul>
-                <li data-i18n="vat.features.standard">✓ Taux de TVA standard par pays</li>
-                <li data-i18n="vat.features.reduced">✓ Taux réduits et exonérations</li>
-                <li data-i18n="vat.features.registration">✓ Seuils d'enregistrement TVA</li>
-                <li data-i18n="vat.features.ecommerce">✓ Règles TVA e-commerce</li>
-                <li data-i18n="vat.features.refund">✓ Procédures de remboursement</li>
-            </ul>
+    <!-- Statistics Section -->
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-value" id="countryCount">—</div>
+            <div class="stat-label">{{ stats.countries }}</div>
         </div>
+        <div class="stat-card">
+            <div class="stat-value" id="noVatCount">—</div>
+            <div class="stat-label">{{ vat.stats.noVat }}</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value" id="lowVatCount">—</div>
+            <div class="stat-label">{{ vat.stats.lowVat }}</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value" id="avgVatRate">—</div>
+            <div class="stat-label">{{ vat.stats.avgVat }}</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value" id="reducedRatesCount">—</div>
+            <div class="stat-label">{{ vat.stats.reducedRates }}</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value" id="lastUpdated">—</div>
+            <div class="stat-label">{{ stats.updated }}</div>
+        </div>
+    </div>
 
-        <button class="back-btn" onclick="window.navigateTo('')" data-i18n="construction.backHome">← Retour à l'accueil</button>
+    <!-- Controls -->
+    <div class="controls">
+        <div class="controls-row">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="{{ search.placeholder }}">
+            </div>
+            <select id="regionFilter">
+                <option value="">{{ filter.allRegions }}</option>
+                <option value="europe">{{ filter.europe }}</option>
+                <option value="america">{{ filter.america }}</option>
+                <option value="asia">{{ filter.asia }}</option>
+                <option value="middleEast">{{ filter.middleEast }}</option>
+                <option value="africa">{{ filter.africa }}</option>
+                <option value="oceania">{{ filter.oceania }}</option>
+            </select>
+            <select id="vatRateFilter">
+                <option value="all">{{ vat.filter.allRates }}</option>
+                <option value="none">{{ vat.filter.noVat }}</option>
+                <option value="low">{{ vat.filter.lowVat }}</option>
+                <option value="medium">{{ vat.filter.mediumVat }}</option>
+                <option value="high">{{ vat.filter.highVat }}</option>
+            </select>
+            <select id="reducedRatesFilter">
+                <option value="all">{{ vat.filter.allReducedRates }}</option>
+                <option value="yes">{{ vat.filter.hasReduced }}</option>
+                <option value="no">{{ vat.filter.noReduced }}</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- Table Container -->
+    <div class="table-container">
+        <div class="result-count">
+            <strong id="resultCount">—</strong> <span>{{ results.displayed }}</span>
+        </div>
+        <div class="table-scroll">
+            <table id="vatTable" class="comparison-table">
+                <thead>
+                    <tr>
+                        <th data-sort="country" class="sortable">{{ table.country }}</th>
+                        <th data-sort="region" class="sortable">{{ table.region }}</th>
+                        <th data-sort="standardRate" class="sortable">
+                            <div>{{ vat.table.standardRate }}</div>
+                            <div class="th-subtitle">{{ vat.table.standardSubtitle }}</div>
+                        </th>
+                        <th data-sort="reducedRates" class="sortable">{{ vat.table.reducedRates }}</th>
+                        <th data-sort="threshold" class="sortable">
+                            <div>{{ vat.table.threshold }}</div>
+                            <div class="th-subtitle">{{ vat.table.thresholdSubtitle }}</div>
+                        </th>
+                        <th>{{ table.notes }}</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                    <!-- Populated by JavaScript -->
+                </tbody>
+            </table>
+        </div>
+        <div class="no-results" id="noResults" style="display: none;">
+            <div class="no-results-icon">🔍</div>
+            <p>{{ results.none }}</p>
+        </div>
+    </div>
+
+    <!-- Disclaimer -->
+    <div class="disclaimer">
+        <div class="disclaimer-title">⚠️ <span>{{ disclaimer.title }}</span></div>
+        <p>{{ vat.disclaimer.text }}</p>
     </div>
 </div>
