@@ -1106,10 +1106,6 @@ tr {
         font-size: 0.85rem;
     }
 
-    .lang-switcher {
-        /* Styling remains the same */
-    }
-
     .header-section {
         flex-direction: column;
         gap: 2rem;
