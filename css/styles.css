@@ -422,7 +422,12 @@ select:focus {
     background: var(--brand-gold-light);
 }
 
-/* Firefox scrollbar */
+/* Firefox scrollbar styling
+ * Note: Safari doesn't support custom scrollbar styling yet (as of 2025)
+ * This is intentional - Safari will use default scrollbars (graceful degradation)
+ * Chrome/Edge: Use ::-webkit-scrollbar (above)
+ * Firefox: Use scrollbar-width and scrollbar-color (below)
+ */
 .table-scroll {
     scrollbar-width: auto;
     scrollbar-color: var(--brand-gold) var(--bg-elevated);
