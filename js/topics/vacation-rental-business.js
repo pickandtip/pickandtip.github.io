@@ -33,8 +33,8 @@
     async function loadVacationRentalBusinessData() {
         try {
             const [countriesData, rentalBusinessData] = await Promise.all([
-                fetch('data/countries/countries.json').then(res => res.json()),
-                fetch('data/topics/vacation-rental-business.json').then(res => res.json())
+                fetch(CONFIG.getApiUrl(CONFIG.ENDPOINTS.countries)).then(res => res.json()),
+                fetch(CONFIG.getApiUrl(CONFIG.ENDPOINTS.vacationRentalBusiness)).then(res => res.json())
             ]);
 
             countries = countriesData;

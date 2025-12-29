@@ -282,10 +282,10 @@
     // ==========================================
     async function init() {
         try {
-            // Load translations
+            // Load translations from API
             const [frTranslations, enTranslations] = await Promise.all([
-                fetch('data/i18n/fr.json').then(res => res.json()),
-                fetch('data/i18n/en.json').then(res => res.json())
+                fetch(CONFIG.getApiUrl(CONFIG.ENDPOINTS.i18n.fr)).then(res => res.json()),
+                fetch(CONFIG.getApiUrl(CONFIG.ENDPOINTS.i18n.en)).then(res => res.json())
             ]);
 
             translations = {

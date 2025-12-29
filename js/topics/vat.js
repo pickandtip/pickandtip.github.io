@@ -31,8 +31,8 @@
     async function loadVatData() {
         try {
             const [countriesData, vatRatesData] = await Promise.all([
-                fetch('data/countries/countries.json').then(res => res.json()),
-                fetch('data/topics/vat.json').then(res => res.json())
+                fetch(CONFIG.getApiUrl(CONFIG.ENDPOINTS.countries)).then(res => res.json()),
+                fetch(CONFIG.getApiUrl(CONFIG.ENDPOINTS.vat)).then(res => res.json())
             ]);
 
             countries = countriesData;

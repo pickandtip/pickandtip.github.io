@@ -44,8 +44,8 @@
     async function loadVacationRentalHotspotsData() {
         try {
             const [countriesData, hotspotsJsonData] = await Promise.all([
-                fetch('data/countries/countries.json').then(res => res.json()),
-                fetch('data/topics/vacation-rental-hotspots.json').then(res => res.json())
+                fetch(CONFIG.getApiUrl(CONFIG.ENDPOINTS.countries)).then(res => res.json()),
+                fetch(CONFIG.getApiUrl(CONFIG.ENDPOINTS.vacationRentalHotspots)).then(res => res.json())
             ]);
 
             countries = countriesData;
@@ -407,10 +407,11 @@
             // Market filter
             const matchesMarket = selectedMarket === 'all' || city.marketType === selectedMarket;
     
-            // Revenue filter
+            // Revenue filter (based on profitability)
             let matchesRevenue = true;
-            if (selectedRevenue !== 'all') {
-                const avgRevenue = (city.monthlyRevenue.min + city.monthlyRevenue.max) / 2;
+            if (selectedRevenue !== 'all' && city.profitability && city.profitability.profitabilityBySize) {
+                const prof = city.profitability.profitabilityBySize;
+                const avgRevenue = (prof["50m2"].monthlyRevenue + prof["100m2"].monthlyRevenue + prof["200m2"].monthlyRevenue) / 3;
                 if (selectedRevenue === 'high') matchesRevenue = avgRevenue > 2000;
                 else if (selectedRevenue === 'medium') matchesRevenue = avgRevenue >= 1000 && avgRevenue <= 2000;
                 else if (selectedRevenue === 'low') matchesRevenue = avgRevenue < 1000;
@@ -474,9 +475,12 @@
         const totalCities = cityData.length;
         const unlimited = cityData.filter(c => c.dayLimit === 365).length;
     
-        const workableCities = cityData.filter(c => c.monthlyRevenue.min > 0);
+        const workableCities = cityData.filter(c => c.profitability && c.profitability.profitabilityBySize);
         const avgRevenue = workableCities.length > 0
-            ? Math.round(workableCities.reduce((sum, c) => (sum + (c.monthlyRevenue.min + c.monthlyRevenue.max) / 2), 0) / workableCities.length)
+            ? Math.round(workableCities.reduce((sum, c) => {
+                const prof = c.profitability.profitabilityBySize;
+                return sum + (prof["50m2"].monthlyRevenue + prof["100m2"].monthlyRevenue + prof["200m2"].monthlyRevenue) / 3;
+            }, 0) / workableCities.length)
             : 0;
     
         const avgOccupancy = cityData.length > 0

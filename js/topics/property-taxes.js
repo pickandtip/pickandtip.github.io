@@ -23,8 +23,8 @@
     async function loadPropertyTaxesData() {
         try {
             const [countriesData, propertyTaxesData] = await Promise.all([
-                fetch('data/countries/countries.json').then(res => res.json()),
-                fetch('data/topics/property-taxes.json').then(res => res.json())
+                fetch(CONFIG.getApiUrl(CONFIG.ENDPOINTS.countries)).then(res => res.json()),
+                fetch(CONFIG.getApiUrl(CONFIG.ENDPOINTS.propertyTaxes)).then(res => res.json())
             ]);
 
             countries = countriesData;

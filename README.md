@@ -68,7 +68,7 @@ Aucun ! Le projet fonctionne directement dans un navigateur moderne.
 ### Cloner le projet
 ```bash
 git clone https://github.com/pickandtip/pickandtip.github.io.git
-cd pickandtip.github.io
+cd pickandtip.github.io/webapp/pickandtip
 ```
 
 ### Lancer localement
@@ -95,21 +95,30 @@ Puis ouvrez votre navigateur à l'adresse : `http://localhost:8000`
 ## 📂 Structure du projet
 
 ```
-/siteapp/
+/Users/chancebet/Proj/pickandtip/webapp/pickandtip/
 ├── index.html              # Page principale
 ├── README.md              # Documentation (ce fichier)
 ├── css/
 │   └── styles.css         # Styles CSS complets
 ├── js/
-│   └── app.js            # Logique applicative JavaScript
+│   ├── app.js            # Logique applicative JavaScript
+│   ├── config.js         # Configuration de l'application
+│   └── topics/           # Modules métiers par thématique
+│       ├── property-taxes.js
+│       ├── vat.js
+│       ├── vacation-rental-business.js
+│       └── vacation-rental-hotspots.js
 └── data/
     ├── countries/
-    │   └── countries.json        # Base de 85+ pays avec métadonnées
+    │   └── countries.json        # Base de 130+ pays avec métadonnées
     ├── i18n/
     │   ├── fr.json              # Traductions françaises
     │   └── en.json              # Traductions anglaises
-    └── topics/
-        └── property-taxes.json   # Données fiscales par pays
+    └── topics/                   # Données par thématique
+        ├── property-taxes.json
+        ├── vat.json
+        ├── vacation-rental-business.json
+        └── vacation-rental-hotspots.json
 ```
 
 ## 🔧 Configuration
@@ -281,7 +290,7 @@ None! The project works directly in any modern browser.
 ### Clone the project
 ```bash
 git clone https://github.com/pickandtip/pickandtip.github.io.git
-cd pickandtip.github.io
+cd pickandtip.github.io/webapp/pickandtip
 ```
 
 ### Run locally
