@@ -61,7 +61,7 @@
         // Update breadcrumb if on a topic page
         const breadcrumb = document.getElementById('breadcrumb');
         const currentTopicEl = document.getElementById('current-topic');
-        if (breadcrumb && breadcrumb.style.display !== 'none' && currentTopicEl) {
+        if (breadcrumb && !breadcrumb.classList.contains('hidden') && currentTopicEl) {
             const topicName = document.querySelector('.topic-view h1')?.textContent;
             if (topicName) {
                 currentTopicEl.textContent = topicName;
@@ -217,9 +217,9 @@
 
             // Update breadcrumb AFTER translations are applied
             if (viewName === 'landing') {
-                breadcrumb.style.display = 'none';
+                breadcrumb.classList.add('hidden');
             } else {
-                breadcrumb.style.display = 'block';
+                breadcrumb.classList.remove('hidden');
                 const topicName = document.querySelector('.topic-view h1')?.textContent || viewName;
                 document.getElementById('current-topic').textContent = topicName;
             }

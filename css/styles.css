@@ -39,7 +39,7 @@ body {
 
 /* Utility classes */
 .hidden {
-    display: none !important;
+    display: none;
 }
 
 .cursor-pointer {
