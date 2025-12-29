@@ -22,7 +22,7 @@
     <!-- Top Sticky Header with blur effect -->
     <div class="top-header-bar">
         <!-- Breadcrumb Navigation -->
-        <div class="breadcrumb" id="breadcrumb" style="display: none;">
+        <div class="breadcrumb hidden" id="breadcrumb">
             <button id="home-btn" class="breadcrumb-btn">
                 ← <span>{{ breadcrumb.home }}</span>
             </button>
@@ -41,7 +41,7 @@
         <!-- Logo and Description -->
         <div class="header-section">
             <div class="logo-container">
-                <div class="logo-main" onclick="window.navigateTo('')" style="cursor: pointer;">PICK & TIP</div>
+                <div class="logo-main cursor-pointer" onclick="window.navigateTo('')">PICK & TIP</div>
                 <div class="logo-tagline">{{ tagline }}</div>
             </div>
             <div class="channel-description">
@@ -64,7 +64,7 @@
                 <span class="youtube-icon">▶️</span>
                 <span>{{ footer.subscribe }}</span>
             </a>
-            <p style="margin-top: 1.5rem; font-size: 0.85rem;">{{ footer.topics }}</p>
+            <p class="footer-topics">{{ footer.topics }}</p>
         </footer>
     </div>
 

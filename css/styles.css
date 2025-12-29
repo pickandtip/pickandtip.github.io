@@ -37,6 +37,15 @@ body {
     min-height: 100vh;
 }
 
+/* Utility classes */
+.hidden {
+    display: none !important;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
 /* Animated background */
 .bg-pattern {
     position: fixed;
@@ -626,6 +635,11 @@ footer a {
 
 footer a:hover {
     text-decoration: underline;
+}
+
+footer .footer-topics {
+    margin-top: 1.5rem;
+    font-size: 0.85rem;
 }
 
 .disclaimer {
