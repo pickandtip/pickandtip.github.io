@@ -440,6 +440,7 @@ th {
     color: var(--text-primary);
     border-bottom: 2px solid var(--brand-gold);
     cursor: pointer;
+    -webkit-user-select: none; /* Safari */
     user-select: none;
     transition: all 0.2s ease;
     white-space: nowrap;
@@ -1391,6 +1392,7 @@ tr {
     font-size: 0.75rem;
     cursor: pointer;
     transition: transform 0.2s ease;
+    -webkit-user-select: none; /* Safari */
     user-select: none;
     z-index: 1;
 }
