@@ -37,7 +37,7 @@
             <div class="search-box">
                 <input type="text" id="searchInput" placeholder="{{ search.placeholder }}">
             </div>
-            <select id="regionFilter">
+            <select id="regionFilter" aria-label="Filter by region">
                 <option value="">{{ filter.allRegions }}</option>
                 <option value="europe">{{ filter.europe }}</option>
                 <option value="america">{{ filter.america }}</option>
@@ -46,14 +46,14 @@
                 <option value="africa">{{ filter.africa }}</option>
                 <option value="oceania">{{ filter.oceania }}</option>
             </select>
-            <select id="propertyTaxFilter">
+            <select id="propertyTaxFilter" aria-label="Filter by property tax rate">
                 <option value="all">{{ filter.propertyTax.all }}</option>
                 <option value="none">{{ filter.propertyTax.none }}</option>
                 <option value="low">{{ filter.propertyTax.low }}</option>
                 <option value="medium">{{ filter.propertyTax.medium }}</option>
                 <option value="high">{{ filter.propertyTax.high }}</option>
             </select>
-            <select id="transferTaxFilter">
+            <select id="transferTaxFilter" aria-label="Filter by transfer tax rate">
                 <option value="all">{{ filter.transferTax.all }}</option>
                 <option value="none">{{ filter.transferTax.none }}</option>
                 <option value="low">{{ filter.transferTax.low }}</option>

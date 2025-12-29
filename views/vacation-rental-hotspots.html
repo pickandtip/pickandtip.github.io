@@ -35,7 +35,7 @@
             <div class="search-box">
                 <input type="text" id="searchInput" placeholder="{{ vacationRentalHotspots.search.placeholder }}">
             </div>
-            <select id="regionFilter">
+            <select id="regionFilter" aria-label="Filter by region">
                 <option value="all">{{ filter.allRegions }}</option>
                 <option value="europe">{{ filter.europe }}</option>
                 <option value="america">{{ filter.america }}</option>
@@ -44,13 +44,13 @@
                 <option value="africa">{{ filter.africa }}</option>
                 <option value="oceania">{{ filter.oceania }}</option>
             </select>
-            <select id="marketFilter">
+            <select id="marketFilter" aria-label="Filter by market type">
                 <option value="all">{{ vacationRentalHotspots.filter.allMarkets }}</option>
                 <option value="beach">{{ vacationRentalHotspots.filter.beach }}</option>
                 <option value="urban">{{ vacationRentalHotspots.filter.urban }}</option>
                 <option value="nature">{{ vacationRentalHotspots.filter.nature }}</option>
             </select>
-            <select id="revenueFilter">
+            <select id="revenueFilter" aria-label="Filter by revenue level">
                 <option value="all">{{ vacationRentalHotspots.filter.allRevenue }}</option>
                 <option value="high">{{ vacationRentalHotspots.filter.highRevenue }}</option>
                 <option value="medium">{{ vacationRentalHotspots.filter.mediumRevenue }}</option>

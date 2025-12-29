@@ -39,7 +39,7 @@
             <div class="search-box">
                 <input type="text" id="searchInput" placeholder="{{ search.placeholder }}">
             </div>
-            <select id="regionFilter">
+            <select id="regionFilter" aria-label="Filter by region">
                 <option value="">{{ filter.allRegions }}</option>
                 <option value="europe">{{ filter.europe }}</option>
                 <option value="america">{{ filter.america }}</option>
@@ -48,14 +48,14 @@
                 <option value="africa">{{ filter.africa }}</option>
                 <option value="oceania">{{ filter.oceania }}</option>
             </select>
-            <select id="vatRateFilter">
+            <select id="vatRateFilter" aria-label="Filter by VAT rate">
                 <option value="all">{{ vat.filter.allRates }}</option>
                 <option value="none">{{ vat.filter.noVat }}</option>
                 <option value="low">{{ vat.filter.lowVat }}</option>
                 <option value="medium">{{ vat.filter.mediumVat }}</option>
                 <option value="high">{{ vat.filter.highVat }}</option>
             </select>
-            <select id="reducedRatesFilter">
+            <select id="reducedRatesFilter" aria-label="Filter by reduced rates availability">
                 <option value="all">{{ vat.filter.allReducedRates }}</option>
                 <option value="yes">{{ vat.filter.hasReduced }}</option>
                 <option value="no">{{ vat.filter.noReduced }}</option>

@@ -34,7 +34,7 @@
             <div class="search-box">
                 <input type="text" id="searchInput" placeholder="{{ search.placeholder }}">
             </div>
-            <select id="regionFilter">
+            <select id="regionFilter" aria-label="Filter by region">
                 <option value="all">{{ filter.allRegions }}</option>
                 <option value="europe">{{ filter.europe }}</option>
                 <option value="america">{{ filter.america }}</option>
@@ -43,7 +43,7 @@
                 <option value="africa">{{ filter.africa }}</option>
                 <option value="oceania">{{ filter.oceania }}</option>
             </select>
-            <select id="legalFilter">
+            <select id="legalFilter" aria-label="Filter by legal framework">
                 <option value="all">{{ vacationRentalBusiness.filter.allLegal }}</option>
                 <option value="permissive">{{ vacationRentalBusiness.filter.permissive }}</option>
                 <option value="moderate">{{ vacationRentalBusiness.filter.moderate }}</option>
@@ -51,7 +51,7 @@
                 <option value="prohibited_exceptions">{{ vacationRentalBusiness.filter.prohibitedExceptions }}</option>
                 <option value="prohibited">{{ vacationRentalBusiness.filter.prohibited }}</option>
             </select>
-            <select id="servicesFilter">
+            <select id="servicesFilter" aria-label="Filter by professional services">
                 <option value="all">{{ vacationRentalBusiness.filter.allServices }}</option>
                 <option value="professional">{{ vacationRentalBusiness.filter.professional }}</option>
                 <option value="limited">{{ vacationRentalBusiness.filter.limited }}</option>
