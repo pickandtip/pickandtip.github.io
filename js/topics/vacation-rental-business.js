@@ -164,12 +164,12 @@
         tableBody.innerHTML = '';
     
         if (data.length === 0) {
-            noResults.style.display = 'block';
+            noResults.classList.remove('hidden');
             resultCount.textContent = '0';
             return;
         }
-    
-        noResults.style.display = 'none';
+
+        noResults.classList.add('hidden');
         resultCount.textContent = data.length;
     
         data.forEach(country => {

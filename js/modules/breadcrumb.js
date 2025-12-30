@@ -53,8 +53,7 @@
             this.breadcrumbEl.classList.remove('hidden');
             this.separatorEl.classList.remove('hidden');
             this.currentTopicEl.classList.remove('hidden');
-            this.homeBtn.style.pointerEvents = 'auto';
-            this.homeBtn.style.opacity = '1';
+            this.homeBtn.classList.remove('disabled');
             console.log('Breadcrumb shown for:', topicName);
         },
 
@@ -71,8 +70,7 @@
             this.breadcrumbEl.classList.remove('hidden');
             this.separatorEl.classList.add('hidden');
             this.currentTopicEl.classList.add('hidden');
-            this.homeBtn.style.pointerEvents = 'none';
-            this.homeBtn.style.opacity = '0.6';
+            this.homeBtn.classList.add('disabled');
             console.log('Breadcrumb showing home only');
         },
 

@@ -248,9 +248,9 @@ window.TooltipModule = (function() {
         const count = getLockedTooltipsCount();
 
         if (count > 0) {
-            unlockBtn.style.display = 'flex';
+            unlockBtn.classList.remove('hidden');
         } else {
-            unlockBtn.style.display = 'none';
+            unlockBtn.classList.add('hidden');
         }
     }
 
@@ -261,8 +261,7 @@ window.TooltipModule = (function() {
     function createUnlockButton() {
         const button = document.createElement('button');
         button.id = 'unlock-all-tooltips';
-        button.className = 'unlock-all-btn';
-        button.style.display = 'none'; // Hidden by default
+        button.className = 'unlock-all-btn hidden'; // Hidden by default
         button.innerHTML = `
             <span class="unlock-icon">🔓</span>
             <span class="unlock-text">Tout déverrouiller</span>

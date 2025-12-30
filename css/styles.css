@@ -46,6 +46,10 @@ body {
     cursor: pointer;
 }
 
+.cursor-help {
+    cursor: help;
+}
+
 /* Animated background */
 .bg-pattern {
     position: fixed;
@@ -765,7 +769,7 @@ tr {
 
 /* Unlock all tooltips button */
 .unlock-all-btn {
-    display: none; /* Hidden by default, shown when tooltips are locked */
+    display: flex;
     align-items: center;
     gap: 0.5rem;
     padding: 0.5rem 1rem;
@@ -832,6 +836,11 @@ tr {
 .breadcrumb-btn:hover {
     color: var(--brand-gold-light);
     transform: translateX(-2px);
+}
+
+.breadcrumb-btn.disabled {
+    pointer-events: none;
+    opacity: 0.6;
 }
 
 .breadcrumb-separator {

@@ -123,12 +123,12 @@
         tableBody.innerHTML = '';
 
         if (data.length === 0) {
-            noResults.style.display = 'block';
+            noResults.classList.remove('hidden');
             resultCount.textContent = '0';
             return;
         }
 
-        noResults.style.display = 'none';
+        noResults.classList.add('hidden');
         resultCount.textContent = data.length;
 
         data.forEach((item, index) => {
@@ -159,7 +159,7 @@
                 const notesCell = row.querySelector('.small-text');
                 if (notesCell) {
                     notesCell.setAttribute('title', notes);
-                    notesCell.style.cursor = 'help';
+                    notesCell.classList.add('cursor-help');
                 }
             }
 
