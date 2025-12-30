@@ -204,10 +204,8 @@
                 });
             });
 
-            // Load topic-specific JavaScript if exists
-            if (viewName !== 'landing') {
-                await loadTopicScript(viewName);
-            }
+            // Load topic-specific JavaScript (including landing page)
+            await loadTopicScript(viewName);
 
             // Apply translations to the new view
             applyTranslations();
