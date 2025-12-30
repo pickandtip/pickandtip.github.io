@@ -59,12 +59,10 @@
         applyTranslations();
 
         // Update breadcrumb if on a topic page
-        const breadcrumb = document.getElementById('breadcrumb');
-        const currentTopicEl = document.getElementById('current-topic');
-        if (breadcrumb && !breadcrumb.classList.contains('hidden') && currentTopicEl) {
+        if (window.BreadcrumbModule && window.BreadcrumbModule.isVisible()) {
             const topicName = document.querySelector('.topic-view h1')?.textContent;
             if (topicName) {
-                currentTopicEl.textContent = topicName;
+                window.BreadcrumbModule.updateText(topicName);
             }
         }
 
@@ -189,7 +187,6 @@
 
     async function loadView(viewName) {
         const appContainer = document.getElementById('app-container');
-        const breadcrumb = document.getElementById('breadcrumb');
 
         try {
             // Load the HTML template
@@ -216,12 +213,14 @@
             applyTranslations();
 
             // Update breadcrumb AFTER translations are applied
+            console.log('loadView: Updating breadcrumb for viewName:', viewName);
             if (viewName === 'landing') {
-                breadcrumb.classList.add('hidden');
+                console.log('loadView: Calling BreadcrumbModule.showHomeOnly()');
+                window.BreadcrumbModule.showHomeOnly();
             } else {
-                breadcrumb.classList.remove('hidden');
                 const topicName = document.querySelector('.topic-view h1')?.textContent || viewName;
-                document.getElementById('current-topic').textContent = topicName;
+                console.log('loadView: Calling BreadcrumbModule.show() with:', topicName);
+                window.BreadcrumbModule.show(topicName);
             }
 
         } catch (error) {
@@ -307,10 +306,10 @@
             // Setup router
             window.addEventListener('hashchange', handleRoute);
 
-            // Setup home button
-            document.getElementById('home-btn')?.addEventListener('click', () => {
-                navigateTo('');
-            });
+            // Initialize breadcrumb module
+            if (window.BreadcrumbModule) {
+                window.BreadcrumbModule.init();
+            }
 
             // Initialize global tooltip listeners (Escape key, unlock buttons)
             if (window.TooltipModule) {

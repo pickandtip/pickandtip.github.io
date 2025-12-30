@@ -35,7 +35,7 @@
             taxData = propertyTaxes.map(tax => {
                 const country = countries.find(c => c.code === tax.countryCode);
                 if (!country) {
-                    console.warn(`Country not found for code: ${tax.countryCode}`);
+                    console.warn(`⚠️ DATA INTEGRITY ERROR: Country code "${tax.countryCode}" referenced in property-taxes but not found in countries database`);
                     return null;
                 }
                 return {
