@@ -1546,6 +1546,32 @@ tr {
     border-left-color: #FF6B35 !important;
 }
 
+/* Property Taxes Table Column Widths */
+#taxTable th:nth-child(1),
+#taxTable td:nth-child(1) {
+    width: 20%; /* Pays */
+}
+
+#taxTable th:nth-child(2),
+#taxTable td:nth-child(2) {
+    width: 12%; /* Région */
+}
+
+#taxTable th:nth-child(3),
+#taxTable td:nth-child(3) {
+    width: 20%; /* Taxe Foncière */
+}
+
+#taxTable th:nth-child(4),
+#taxTable td:nth-child(4) {
+    width: 18%; /* Droits de mutation - réduit */
+}
+
+#taxTable th:nth-child(5),
+#taxTable td:nth-child(5) {
+    width: 30%; /* Accès étranger - élargi pour "Nationaux uniquement" */
+}
+
 /* Bridge invisible entre l'icône et le tooltip pour éviter que le tooltip se ferme */
 .smart-tooltip-icon.taxation-info-icon.active::before {
     content: '';
