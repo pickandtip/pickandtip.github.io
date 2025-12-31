@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Property Taxes - Tooltips Migration</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="app">
+        <div class="topic-view" id="property-taxes-view">
+            <header>
+                <h1>Taxes foncières - Test Tooltips</h1>
+                <div class="gold-line"></div>
+                <p class="subtitle">Test de la migration vers l'architecture avec tooltips</p>
+            </header>
+
+            <div class="table-container">
+                <div class="result-count">
+                    <strong id="resultCount">3</strong> <span>pays affichés</span>
+                </div>
+                <div class="table-scroll">
+                    <table id="taxTable">
+                        <thead>
+                            <tr>
+                                <th>Pays</th>
+                                <th>Région</th>
+                                <th>Taxe foncière annuelle</th>
+                                <th>Droits de mutation</th>
+                                <th>Accès étranger</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tableBody">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Load modules in correct order -->
+    <script src="js/modules/tooltip.js"></script>
+    <script>
+        // Initialize global listeners for tooltip module
+        if (window.TooltipModule) {
+            window.TooltipModule.initGlobalListeners();
+        }
+
+        // Mock translations
+        window.currentLang = 'fr';
+        window.translations = {
+            fr: {
+                regions: {
+                    'asia': 'Asie',
+                    'america': 'Amérique',
+                    'europe': 'Europe'
+                },
+                foreignerRestriction: {
+                    'prohibited': 'Interdit',
+                    'high': 'Très restrictif',
+                    'medium': 'Restrictif',
+                    'low': 'Peu restrictif',
+                    'unrestricted': 'Libre'
+                },
+                propertyTaxes: {
+                    tooltips: {
+                        noAdditionalInfo: 'Aucune information complémentaire'
+                    }
+                }
+            }
+        };
+
+        // Mock function replaceTokens
+        window.replaceTokens = function(text, lang) {
+            return text;
+        };
+
+        // Mock data with new structure
+        const mockData = [
+            {
+                countryCode: "AF",
+                country: { fr: "Afghanistan", en: "Afghanistan" },
+                flag: "🇦🇫",
+                region: "asia",
+                propertyTax: "N/A",
+                propertyTaxValue: 0,
+                transferTax: "1%",
+                transferTaxValue: 1,
+                foreignerRestrictionLevel: "prohibited",
+                foreignerRestrictionValue: 3,
+                propertyTaxNotes: {
+                    fr: "Système municipal 'safayi' (charges pour services municipaux). Pas de taux national standardisé. Exemple: Une villa résidentielle de 200m² à Kaboul pourrait avoir une taxe annuelle de 10,000-20,000 AFN (~$115-230 USD).",
+                    en: "Municipal 'safayi' system (municipal service charges). No standardized national rate. Example: A 200m² residential villa in Kabul might have annual tax of 10,000-20,000 AFN (~$115-230 USD)."
+                },
+                transferTaxNotes: {
+                    fr: "1% de plus-value sur transfert de propriété. Revenus locatifs >15,000 AFN/mois: retenue à la source de 20%. Important: Les transactions immobilières doivent être enregistrées auprès du Bureau d'enregistrement des biens.",
+                    en: "1% capital gains on property transfer. Rental income >15,000 AFN/month: 20% withholding tax. Important: Real estate transactions must be registered with the Property Registration Office."
+                },
+                foreignAccessNotes: {
+                    fr: "INTERDIT. Seuls les citoyens afghans peuvent posséder des terres/biens immobiliers. Étrangers limités à la location (10-30 ans pour investissements court/moyen terme, jusqu'à 90 ans pour terres non-arables en investissements long terme). Constitution afghane réserve la propriété foncière aux nationaux uniquement. ATTENTION: Données pré-août 2021, vérifier contexte politique actuel.",
+                    en: "PROHIBITED. Only Afghan citizens can own land/real estate. Foreigners limited to leasing (10-30 years for short/medium-term investments, up to 90 years for non-arable land in long-term investments). Afghan Constitution reserves land ownership to nationals only. WARNING: Data pre-August 2021, verify current political context."
+                }
+            },
+            {
+                countryCode: "AL",
+                country: { fr: "Albanie", en: "Albania" },
+                flag: "🇦🇱",
+                region: "europe",
+                propertyTax: "0.05% 0.1% 0.2%",
+                propertyTaxValue: 0.1,
+                transferTax: "2%",
+                transferTaxValue: 2,
+                foreignerRestrictionLevel: "unrestricted",
+                foreignerRestrictionValue: 0,
+                propertyTaxNotes: {
+                    fr: "0.05% de la valeur cadastrale pour résidentiel, 0.2% pour commercial. La valeur cadastrale est généralement inférieure à la valeur marchande. Paiement automatique réparti sur 12 mois via facture d'eau. Exemple: villa de luxe 200m² = €100-300/an.",
+                    en: "0.05% of cadastral value for residential, 0.2% for commercial. Cadastral value typically lower than market value. Automatic payment spread over 12 months via water bill. Example: 200m² luxury villa = €100-300/year."
+                },
+                transferTaxNotes: {
+                    fr: "2% du prix de vente (pas de TVA sur l'immobilier résidentiel). Frais de notaire: €150-450. Taxe éducation municipale: ALL 1,800 (€17.50/an/famille à Tirana). Plus-value immobilière: 15% du gain en capital. Possibilité d'exemption pour biens détenus >2 ans.",
+                    en: "2% of sale price (no VAT on residential real estate). Notary fees: €150-450. Municipal education tax: ALL 1,800 (€17.50/year/family in Tirana). Capital gains: 15% tax on capital gain. Possible exemption for properties held >2 years."
+                },
+                foreignAccessNotes: {
+                    fr: "Pleine propriété sans restriction. Pas besoin de résidence ou citoyenneté. Achat possible en nom propre ou via société. Marché immobilier en pleine expansion, particulièrement sur la côte adriatique et à Tirana.",
+                    en: "Full ownership without restrictions. No residency or citizenship required. Purchase possible as individual or through legal entity. Real estate market booming, especially on Adriatic coast and in Tirana."
+                }
+            },
+            {
+                countryCode: "AW",
+                country: { fr: "Aruba", en: "Aruba" },
+                flag: "🇦🇼",
+                region: "america",
+                propertyTax: "0% 0.3% 0.6%",
+                propertyTaxValue: 0.3,
+                transferTax: "3% 4.5% 6%",
+                transferTaxValue: 4.5,
+                foreignerRestrictionLevel: "unrestricted",
+                foreignerRestrictionValue: 0,
+                propertyTaxNotes: {
+                    fr: "",
+                    en: ""
+                },
+                transferTaxNotes: {
+                    fr: "3% si valeur <AWG 250k (~$140k), 6% si ≥AWG 250k. Base: valeur la plus élevée entre estimation fiscale et prix transaction. Frais notariaux: 2% du prix d'achat. Plus-value: généralement pas taxée sauf activité commerciale ou revenus locatifs.",
+                    en: "3% if value <AWG 250k (~$140k), 6% if ≥AWG 250k. Base: highest value between tax appraisal and transaction price. Notary fees: 2% of purchase price. Capital gains: generally not taxed unless business activity or rental income."
+                },
+                foreignAccessNotes: {
+                    fr: "Aucune restriction. Même processus résidents/non-résidents. Types de propriété: Freehold (propriété pleine) ou Leasehold (bail terrain gouvernemental, 60 ans renouvelable). Marché stable, prix élevés en bord de mer.",
+                    en: "No restrictions. Same process residents/non-residents. Property types: Freehold (full ownership) or Leasehold (government land lease, 60 years renewable). Stable market, high prices on beachfront."
+                }
+            }
+        ];
+
+        // Use tooltip module functions
+        const createTooltipCell = window.TooltipModule.createTooltipCell;
+
+        // Format property tax with tooltip
+        function formatPropertyTaxWithTooltip(item) {
+            const lang = window.currentLang;
+            const propertyTax = item.propertyTax.replace(/\n/g, '<br>');
+            const notes = item.propertyTaxNotes?.[lang] || '';
+
+            const taxClass = item.propertyTaxValue === 0 ? 'tax-none' :
+                             item.propertyTaxValue < 0.5 ? 'tax-low' :
+                             item.propertyTaxValue < 1.5 ? 'tax-medium' : 'tax-high';
+
+            const hasNotes = notes && notes.trim() !== '';
+            const tooltipContent = hasNotes ? notes : (window.translations?.[lang]?.propertyTaxes?.tooltips?.noAdditionalInfo || 'No additional information');
+
+            return createTooltipCell({
+                mainContent: `<span class="tax-value ${taxClass}">${propertyTax}</span>`,
+                tooltipContent: tooltipContent,
+                cellClass: 'property-tax-cell',
+                iconClass: 'property-tax-info-icon',
+                tooltipClass: 'property-tax-tooltip',
+                position: 'right',
+                iconFirst: false,
+                isEmpty: !hasNotes
+            });
+        }
+
+        // Format transfer tax with tooltip
+        function formatTransferTaxWithTooltip(item) {
+            const transferTax = item.transferTax.replace(/\n/g, '<br>');
+            const notes = item.transferTaxNotes?.[window.currentLang] || '';
+
+            const transferClass = item.transferTaxValue === 0 ? 'tax-none' :
+                                  item.transferTaxValue < 2 ? 'tax-low' :
+                                  item.transferTaxValue < 5 ? 'tax-medium' : 'tax-high';
+
+            const hasNotes = notes && notes.trim() !== '';
+            const lang = window.currentLang;
+            const tooltipContent = hasNotes ? notes : (window.translations?.[lang]?.propertyTaxes?.tooltips?.noAdditionalInfo || 'N/A');
+
+            return createTooltipCell({
+                mainContent: `<span class="tax-value ${transferClass}">${transferTax}</span>`,
+                tooltipContent: tooltipContent,
+                cellClass: 'transfer-tax-cell',
+                iconClass: 'transfer-tax-info-icon',
+                tooltipClass: 'transfer-tax-tooltip',
+                position: 'right',
+                iconFirst: true,
+                isEmpty: !hasNotes
+            });
+        }
+
+        // Format foreign access with tooltip
+        function formatForeignAccessWithTooltip(item) {
+            const foreignLevel = item.foreignerRestrictionLevel || 'unrestricted';
+            const foreignClass = `foreign-${foreignLevel}`;
+            const foreignText = window.translations[window.currentLang].foreignerRestriction[foreignLevel] || foreignLevel;
+            const notes = item.foreignAccessNotes?.[window.currentLang] || '';
+
+            const hasNotes = notes && notes.trim() !== '';
+            const lang = window.currentLang;
+            const tooltipContent = hasNotes ? notes : (window.translations?.[lang]?.propertyTaxes?.tooltips?.noAdditionalInfo || 'N/A');
+
+            return createTooltipCell({
+                mainContent: `<span class="foreign-badge ${foreignClass}">${foreignText}</span>`,
+                tooltipContent: tooltipContent,
+                cellClass: 'foreign-access-cell',
+                iconClass: 'foreign-access-info-icon',
+                tooltipClass: 'foreign-access-tooltip',
+                position: 'right',
+                iconFirst: true,
+                isEmpty: !hasNotes
+            });
+        }
+
+        // Render table
+        function renderTable() {
+            const tableBody = document.getElementById('tableBody');
+            tableBody.innerHTML = '';
+
+            mockData.forEach((item, index) => {
+                const row = document.createElement('tr');
+                row.style.animationDelay = `${index * 0.02}s`;
+
+                const regionClass = item.region.toLowerCase().replace('-', '');
+                const regionName = window.translations[window.currentLang].regions[item.region] || item.region;
+                const countryName = item.country[window.currentLang];
+
+                row.innerHTML = `
+                    <td>
+                        <div class="country-cell">
+                            <span class="flag">${item.flag}</span>
+                            <span>${countryName}</span>
+                        </div>
+                    </td>
+                    <td><span class="region-badge region-${regionClass}">${regionName}</span></td>
+                    <td class="property-tax-td">${formatPropertyTaxWithTooltip(item)}</td>
+                    <td class="transfer-tax-td">${formatTransferTaxWithTooltip(item)}</td>
+                    <td class="foreign-access-td">${formatForeignAccessWithTooltip(item)}</td>
+                `;
+
+                // Initialize tooltips using the unified module
+                window.TooltipModule.initializeTooltips(row);
+
+                tableBody.appendChild(row);
+            });
+
+            // Initialize unlock button
+            if (window.TooltipModule) {
+                window.TooltipModule.initUnlockButton();
+            }
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('🧪 Test Property Taxes - Tooltips Migration');
+            console.log('✅ TooltipModule loaded:', !!window.TooltipModule);
+            console.log('📊 Mock data loaded:', mockData.length, 'countries');
+
+            renderTable();
+
+            console.log('✅ Table rendered with tooltips');
+            console.log('💡 Testez les icônes ⓘ pour voir les tooltips');
+            console.log('💡 Notez que Aruba a des notes vides pour propertyTaxNotes (icône grisée)');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,842 @@
+[
+  {
+    "countryCode": "FR",
+    "lang": "FR",
+    "currentNotes": "Frais totaux à l'achat incluant droits de mutation (5.1-5.8%), émoluments notaire (~1%) et débours (~0.5%). Neuf: TVA réduite. Taxe d'habitation (0.5-2%) pour résidences secondaires uniquement (nationale, majorations communales possibles)",
+    "suggestion": "transferTaxNotes",
+    "INSTRUCTIONS": "Split the text below into the appropriate fields. Leave empty if not applicable.",
+    "propertyTaxNotes": "",
+    "transferTaxNotes": "",
+    "countryGeneralNotes": ""
+  },
+  {
+    "countryCode": "DE",
+    "lang": "FR",
+    "currentNotes": "Grundsteuer réformée en 2025, varie par Land. Droits de mutation (Grunderwerbsteuer): Bavière/Saxe 3.5%, moyenne nationale ~5%, Berlin 6%",
+    "suggestion": "REVIEW_NEEDED (contains both or unclear)",
+    "INSTRUCTIONS": "Split the text below into the appropriate fields. Leave empty if not applicable.",
+    "propertyTaxNotes": "",
+    "transferTaxNotes": "",
+    "countryGeneralNotes": ""
+  },
+  {
+    "countryCode": "ES",
+    "lang": "FR",
+    "currentNotes": "IBI varie par municipalité (Madrid 0.44%, Valence 0.57%). Droits de mutation (ITP): Madrid 6%, Andalousie 7%, Catalogne/Valence 10%",
+    "suggestion": "REVIEW_NEEDED (contains both or unclear)",
+    "INSTRUCTIONS": "Split the text below into the appropriate fields. Leave empty if not applicable.",
+    "propertyTaxNotes": "",
+    "transferTaxNotes": "",
+    "countryGeneralNotes": ""
+  },
+  {
+    "countryCode": "IT",
+    "lang": "FR",
+    "currentNotes": "IMU exonérée pour résidence principale",
+    "suggestion": "propertyTaxNotes",
+    "INSTRUCTIONS": "Split the text below into the appropriate fields. Leave empty if not applicable.",
+    "propertyTaxNotes": "",
+    "transferTaxNotes": "",
+    "countryGeneralNotes": ""
+  },
+  {
+    "countryCode": "PT",
+    "lang": "FR",
+    "currentNotes": "IMI basée sur valeur patrimoniale",
+    "suggestion": "REVIEW_NEEDED (contains both or unclear)",
+    "INSTRUCTIONS": "Split the text below into the appropriate fields. Leave empty if not applicable.",
+    "propertyTaxNotes": "",
+    "transferTaxNotes": "",
+    "countryGeneralNotes": ""
+  },
+  {
+    "countryCode": "GB",
+    "lang": "FR",
+    "currentNotes": "Stamp Duty progressif: 0% <£125k, 2% £125k-£250k, 5% £250k-£925k, 10% £925k-£1.5M, 12% >£1.5M. Primo-accédant: 0% <£300k. Council Tax (taxe d'habitation municipale, 0.5-1.5%) payée par l'occupant du logement",
+    "suggestion": "transferTaxNotes",
+    "INSTRUCTIONS": "Split the text below into the appropriate fields. Leave empty if not applicable.",
+    "propertyTaxNotes": "",
+    "transferTaxNotes": "",
+    "countryGeneralNotes": ""
+  },
+  {
+    "countryCode": "BE",
+    "lang": "FR",
+    "currentNotes": "Précompte immobilier élevé",
+    "suggestion": "REVIEW_NEEDED (contains both or unclear)",
+    "INSTRUCTIONS": "Split the text below into the appropriate fields. Leave empty if not applicable.",
+    "propertyTaxNotes": "",
+    "transferTaxNotes": "",
+    "countryGeneralNotes": ""
+  },
+  {
+    "countryCode": "NL",
+    "lang": "FR",
+    "currentNotes": "OZB faible, droits transfert augmentés",
+    "suggestion": "transferTaxNotes",
+    "INSTRUCTIONS": "Split the text below into the appropriate fields. Leave empty if not applicable.",
+    "propertyTaxNotes": "",
+    "transferTaxNotes": "",
+    "countryGeneralNotes": ""
+  },
+  {
+    "countryCode": "CH",
+    "lang": "FR",
+    "currentNotes": "Varie considérablement par canton",
+    "suggestion": "REVIEW_NEEDED (contains both or unclear)",
+    "INSTRUCTIONS": "Split the text below into the appropriate fields. Leave empty if not applicable.",
+    "propertyTaxNotes": "",
+    "transferTaxNotes": "",
+    "countryGeneralNotes": ""
+  },
+  {
+    "countryCode": "AT",
+    "lang": "FR",
+    "currentNotes": "Grundsteuer très faible",
+    "suggestion": "propertyTaxNotes",
+    "INSTRUCTIONS": "Split the text below into the appropriate fields. Leave empty if not applicable.",
+    "propertyTaxNotes": "",
+    "transferTaxNotes": "",
+    "countryGeneralNotes": ""
+  },
+  {
+    "countryCode": "IE",
+    "lang": "FR",
+    "currentNotes": "Local Property Tax récente",
+    "suggestion": "propertyTaxNotes",
+    "INSTRUCTIONS": "Split the text below into the appropriate fields. Leave empty if not applicable.",
+    "propertyTaxNotes": "",
+    "transferTaxNotes": "",
+    "countryGeneralNotes": ""
+  },
+  {
+    "countryCode": "IM",
+    "lang": "FR",
+    "currentNotes": "Pas de Stamp Duty à l'Île de Man. Frais d'enregistrement foncier variables. Pas de TVA. Rates (taxe foncière locale) s'appliquent, calculés sur la valeur cadastrale (Rateable Value), environ 0.5% à 1.5% selon la localisation.",
+    "suggestion": "REVIEW_NEEDED (contains both or unclear)",
+    "INSTRUCTIONS": "Split the text below into the appropriate fields. Leave empty if not applicable.",
+    "propertyTaxNotes": "",
+    "transferTaxNotes": "",
+    "countryGeneralNotes": ""
+  },
+  {
+    "countryCode": "GR",
+    "lang": "FR",
+    "currentNotes": "ENFIA basée sur valeur objective",
+    "suggestion": "REVIEW_NEEDED (contains both or unclear)",
+    "INSTRUCTIONS": "Split the text below into the appropriate fields. Leave empty if not applicable.",
+    "propertyTaxNotes": "",
+    "transferTaxNotes": "",
+    "countryGeneralNotes": ""
+  },
+  {
+    "countryCode": "PL",
+    "lang": "FR",
+    "currentNotes": "Taxe au m², pas sur la valeur",
+    "suggestion": "REVIEW_NEEDED (contains both or unclear)",
+    "INSTRUCTIONS": "Split the text below into the appropriate fields. Leave empty if not applicable.",
+    "propertyTaxNotes": "",
+    "transferTaxNotes": "",
+    "countryGeneralNotes": ""
+  },
+  {
+    "countryCode": "CZ",
+    "lang": "FR",
+    "currentNotes": "Parmi les plus faibles d'Europe",
+    "suggestion": "REVIEW_NEEDED (contains both or unclear)",
+    "INSTRUCTIONS": "Split the text below into the appropriate fields. Leave empty if not applicable.",
+    "propertyTaxNotes": "",
+    "transferTaxNotes": "",
+    "countryGeneralNotes": ""
+  },
+  {
+    "countryCode": "HU",
+    "lang": "FR",
+    "currentNotes": "Décidée par municipalités",
+    "suggestion": "REVIEW_NEEDED (contains both or unclear)",
+    "INSTRUCTIONS": "Split the text below into the appropriate fields. Leave empty if not applicable.",
+    "propertyTaxNotes": "",
+    "transferTaxNotes": "",
+    "countryGeneralNotes": ""
+  },
+  {
+    "countryCode": "RO",
+    "lang": "FR",
+    "currentNotes": "Très faible, basée sur valeur cadastrale",
+    "suggestion": "REVIEW_NEEDED (contains both or unclear)",
+    "INSTRUCTIONS": "Split the text below into the appropriate fields. Leave empty if not applicable.",
+    "propertyTaxNotes": "",
+    "transferTaxNotes": "",
+    "countryGeneralNotes": ""
+  },
+  {
+    "countryCode": "BG",
+    "lang": "FR",
+    "currentNotes": "Parmi les plus attractives en UE",
+    "suggestion": "REVIEW_NEEDED (contains both or unclear)",
+    "INSTRUCTIONS": "Split the text below into the appropriate fields. Leave empty if not applicable.",
+    "propertyTaxNotes": "",
+    "transferTaxNotes": "",
+    "countryGeneralNotes": ""
+  },
+  {
+    "countryCode": "HR",
+    "lang": "FR",
+    "currentNotes": "Taxe sur résidences secondaires/vacantes",
+    "suggestion": "REVIEW_NEEDED (contains both or unclear)",
+    "INSTRUCTIONS": "Split the text below into the appropriate fields. Leave empty if not applicable.",
+    "propertyTaxNotes": "",
+    "transferTaxNotes": "",
+    "countryGeneralNotes": ""
+  },
+  {
+    "countryCode": "SI",
+    "lang": "FR",
+    "currentNotes": "Faible taxe foncière",
+    "suggestion": "propertyTaxNotes",
+    "INSTRUCTIONS": "Split the text below into the appropriate fields. Leave empty if not applicable.",
+    "propertyTaxNotes": "",
+    "transferTaxNotes": "",
+    "countryGeneralNotes": ""
+  },
+  {
+    "countryCode": "SK",
+    "lang": "FR",
+    "currentNotes": "Pas de droits de mutation",
+    "suggestion": "transferTaxNotes",
+    "INSTRUCTIONS": "Split the text below into the appropriate fields. Leave empty if not applicable.",
+    "propertyTaxNotes": "",
+    "transferTaxNotes": "",
+    "countryGeneralNotes": ""
+  },
+  {
+    "countryCode": "EE",
+    "lang": "FR",
+    "currentNotes": "Taxe sur le terrain uniquement",
+    "suggestion": "REVIEW_NEEDED (contains both or unclear)",
+    "INSTRUCTIONS": "Split the text below into the appropriate fields. Leave empty if not applicable.",
+    "propertyTaxNotes": "",
+    "transferTaxNotes": "",
+    "countryGeneralNotes": ""
+  },
+  {
+    "countryCode": "LV",
+    "lang": "FR",
+    "currentNotes": "Taux progressif selon valeur",
+    "suggestion": "REVIEW_NEEDED (contains both or unclear)",
+    "INSTRUCTIONS": "Split the text below into the appropriate fields. Leave empty if not applicable.",
+    "propertyTaxNotes": "",
+    "transferTaxNotes": "",
+    "countryGeneralNotes": ""
+  },
+  {
+    "countryCode": "LT",
+    "lang": "FR",
+    "currentNotes": "Taxe sur biens > 150 000€",
+    "suggestion": "REVIEW_NEEDED (contains both or unclear)",
+    "INSTRUCTIONS": "Split the text below into the appropriate fields. Leave empty if not applicable.",
+    "propertyTaxNotes": "",
+    "transferTaxNotes": "",
+    "countryGeneralNotes": ""
+  },
+  {
+    "countryCode": "CY",
+    "lang": "FR",
+    "currentNotes": "Taxe foncière abolie en 2017",
+    "suggestion": "propertyTaxNotes",
+    "INSTRUCTIONS": "Split the text below into the appropriate fields. Leave empty if not applicable.",
+    "propertyTaxNotes": "",
+    "transferTaxNotes": "",
+    "countryGeneralNotes": ""
+  },
+  {
+    "countryCode": "MT",
+    "lang": "FR",
+    "currentNotes": "Aucune taxe foncière annuelle",
+    "suggestion": "propertyTaxNotes",
+    "INSTRUCTIONS": "Split the text below into the appropriate fields. Leave empty if not applicable.",
+    "propertyTaxNotes": "",
+    "transferTaxNotes": "",
+    "countryGeneralNotes": ""
+  },
+  {
+    "countryCode": "LU",
+    "lang": "FR",
+    "currentNotes": "Impôt foncier symbolique",
+    "suggestion": "REVIEW_NEEDED (contains both or unclear)",
+    "INSTRUCTIONS": "Split the text below into the appropriate fields. Leave empty if not applicable.",
+    "propertyTaxNotes": "",
+    "transferTaxNotes": "",
+    "countryGeneralNotes": ""
+  },
+  {
+    "countryCode": "MC",
+    "lang": "FR",
+    "currentNotes": "Pas de taxe foncière",
+    "suggestion": "propertyTaxNotes",
+    "INSTRUCTIONS": "Split the text below into the appropriate fields. Leave empty if not applicable.",
+    "propertyTaxNotes": "",
+    "transferTaxNotes": "",
+    "countryGeneralNotes": ""
+  },
+  {
+    "countryCode": "AD",
+    "lang": "FR",
+    "currentNotes": "Pas de taxe foncière annuelle",
+    "suggestion": "propertyTaxNotes",
+    "INSTRUCTIONS": "Split the text below into the appropriate fields. Leave empty if not applicable.",
+    "propertyTaxNotes": "",
+    "transferTaxNotes": "",
+    "countryGeneralNotes": ""
+  },
+  {
+    "countryCode": "SE",
+    "lang": "FR",
+    "currentNotes": "Plafonnée à ~8000€/an",
+    "suggestion": "REVIEW_NEEDED (contains both or unclear)",
+    "INSTRUCTIONS": "Split the text below into the appropriate fields. Leave empty if not applicable.",
+    "propertyTaxNotes": "",
+    "transferTaxNotes": "",
+    "countryGeneralNotes": ""
+  },
+  {
+    "countryCode": "NO",
+    "lang": "FR",
+    "currentNotes": "Décidée localement",
+    "suggestion": "REVIEW_NEEDED (contains both or unclear)",
+    "INSTRUCTIONS": "Split the text below into the appropriate fields. Leave empty if not applicable.",
+    "propertyTaxNotes": "",
+    "transferTaxNotes": "",
+    "countryGeneralNotes": ""
+  },
+  {
+    "countryCode": "DK",
+    "lang": "FR",
+    "currentNotes": "Taxe foncière élevée",
+    "suggestion": "propertyTaxNotes",
+    "INSTRUCTIONS": "Split the text below into the appropriate fields. Leave empty if not applicable.",
+    "propertyTaxNotes": "",
+    "transferTaxNotes": "",
+    "countryGeneralNotes": ""
+  },
+  {
+    "countryCode": "FI",
+    "lang": "FR",
+    "currentNotes": "Varie par municipalité. Droits de mutation: 3% pour maisons, 1.5% pour appartements en copropriété",
+    "suggestion": "transferTaxNotes",
+    "INSTRUCTIONS": "Split the text below into the appropriate fields. Leave empty if not applicable.",
+    "propertyTaxNotes": "",
+    "transferTaxNotes": "",
+    "countryGeneralNotes": ""
+  },
+  {
+    "countryCode": "IS",
+    "lang": "FR",
+    "currentNotes": "Droits de mutation faibles",
+    "suggestion": "transferTaxNotes",
+    "INSTRUCTIONS": "Split the text below into the appropriate fields. Leave empty if not applicable.",
+    "propertyTaxNotes": "",
+    "transferTaxNotes": "",
+    "countryGeneralNotes": ""
+  },
+  {
+    "countryCode": "MX",
+    "lang": "FR",
+    "currentNotes": "Predial très faible",
+    "suggestion": "REVIEW_NEEDED (contains both or unclear)",
+    "INSTRUCTIONS": "Split the text below into the appropriate fields. Leave empty if not applicable.",
+    "propertyTaxNotes": "",
+    "transferTaxNotes": "",
+    "countryGeneralNotes": ""
+  },
+  {
+    "countryCode": "BR",
+    "lang": "FR",
+    "currentNotes": "IPTU varie par ville (municipale). Peut être payé par le locataire selon contrat de location, mais propriétaire reste légalement responsable",
+    "suggestion": "REVIEW_NEEDED (contains both or unclear)",
+    "INSTRUCTIONS": "Split the text below into the appropriate fields. Leave empty if not applicable.",
+    "propertyTaxNotes": "",
+    "transferTaxNotes": "",
+    "countryGeneralNotes": ""
+  },
+  {
+    "countryCode": "AR",
+    "lang": "FR",
+    "currentNotes": "Impuesto Inmobiliario / ABL (provincial/municipal). Locataire paie généralement la taxe selon contrat, mais propriétaire reste responsable",
+    "suggestion": "REVIEW_NEEDED (contains both or unclear)",
+    "INSTRUCTIONS": "Split the text below into the appropriate fields. Leave empty if not applicable.",
+    "propertyTaxNotes": "",
+    "transferTaxNotes": "",
+    "countryGeneralNotes": ""
+  },
+  {
+    "countryCode": "CL",
+    "lang": "FR",
+    "currentNotes": "Pas de droits de mutation",
+    "suggestion": "transferTaxNotes",
+    "INSTRUCTIONS": "Split the text below into the appropriate fields. Leave empty if not applicable.",
+    "propertyTaxNotes": "",
+    "transferTaxNotes": "",
+    "countryGeneralNotes": ""
+  },
+  {
+    "countryCode": "CO",
+    "lang": "FR",
+    "currentNotes": "Impuesto Predial progressif",
+    "suggestion": "propertyTaxNotes",
+    "INSTRUCTIONS": "Split the text below into the appropriate fields. Leave empty if not applicable.",
+    "propertyTaxNotes": "",
+    "transferTaxNotes": "",
+    "countryGeneralNotes": ""
+  },
+  {
+    "countryCode": "PE",
+    "lang": "FR",
+    "currentNotes": "Impuesto Predial",
+    "suggestion": "propertyTaxNotes",
+    "INSTRUCTIONS": "Split the text below into the appropriate fields. Leave empty if not applicable.",
+    "propertyTaxNotes": "",
+    "transferTaxNotes": "",
+    "countryGeneralNotes": ""
+  },
+  {
+    "countryCode": "CR",
+    "lang": "FR",
+    "currentNotes": "Impuesto sobre bienes inmuebles.",
+    "suggestion": "REVIEW_NEEDED (contains both or unclear)",
+    "INSTRUCTIONS": "Split the text below into the appropriate fields. Leave empty if not applicable.",
+    "propertyTaxNotes": "",
+    "transferTaxNotes": "",
+    "countryGeneralNotes": ""
+  },
+  {
+    "countryCode": "PA",
+    "lang": "FR",
+    "currentNotes": "Exonération jusqu'à 120 000$",
+    "suggestion": "REVIEW_NEEDED (contains both or unclear)",
+    "INSTRUCTIONS": "Split the text below into the appropriate fields. Leave empty if not applicable.",
+    "propertyTaxNotes": "",
+    "transferTaxNotes": "",
+    "countryGeneralNotes": ""
+  },
+  {
+    "countryCode": "UY",
+    "lang": "FR",
+    "currentNotes": "Contribución Inmobiliaria",
+    "suggestion": "REVIEW_NEEDED (contains both or unclear)",
+    "INSTRUCTIONS": "Split the text below into the appropriate fields. Leave empty if not applicable.",
+    "propertyTaxNotes": "",
+    "transferTaxNotes": "",
+    "countryGeneralNotes": ""
+  },
+  {
+    "countryCode": "PY",
+    "lang": "FR",
+    "currentNotes": "Impuesto Inmobiliario",
+    "suggestion": "REVIEW_NEEDED (contains both or unclear)",
+    "INSTRUCTIONS": "Split the text below into the appropriate fields. Leave empty if not applicable.",
+    "propertyTaxNotes": "",
+    "transferTaxNotes": "",
+    "countryGeneralNotes": ""
+  },
+  {
+    "countryCode": "EC",
+    "lang": "FR",
+    "currentNotes": "Très faible",
+    "suggestion": "REVIEW_NEEDED (contains both or unclear)",
+    "INSTRUCTIONS": "Split the text below into the appropriate fields. Leave empty if not applicable.",
+    "propertyTaxNotes": "",
+    "transferTaxNotes": "",
+    "countryGeneralNotes": ""
+  },
+  {
+    "countryCode": "DO",
+    "lang": "FR",
+    "currentNotes": "IPI sur biens > ~150 000$.",
+    "suggestion": "REVIEW_NEEDED (contains both or unclear)",
+    "INSTRUCTIONS": "Split the text below into the appropriate fields. Leave empty if not applicable.",
+    "propertyTaxNotes": "",
+    "transferTaxNotes": "",
+    "countryGeneralNotes": ""
+  },
+  {
+    "countryCode": "BS",
+    "lang": "FR",
+    "currentNotes": "Property Tax progressif",
+    "suggestion": "propertyTaxNotes",
+    "INSTRUCTIONS": "Split the text below into the appropriate fields. Leave empty if not applicable.",
+    "propertyTaxNotes": "",
+    "transferTaxNotes": "",
+    "countryGeneralNotes": ""
+  },
+  {
+    "countryCode": "KY",
+    "lang": "FR",
+    "currentNotes": "Aucune taxe foncière.",
+    "suggestion": "propertyTaxNotes",
+    "INSTRUCTIONS": "Split the text below into the appropriate fields. Leave empty if not applicable.",
+    "propertyTaxNotes": "",
+    "transferTaxNotes": "",
+    "countryGeneralNotes": ""
+  },
+  {
+    "countryCode": "JP",
+    "lang": "FR",
+    "currentNotes": "Kotei Shisan Zei + City Planning Tax",
+    "suggestion": "propertyTaxNotes",
+    "INSTRUCTIONS": "Split the text below into the appropriate fields. Leave empty if not applicable.",
+    "propertyTaxNotes": "",
+    "transferTaxNotes": "",
+    "countryGeneralNotes": ""
+  },
+  {
+    "countryCode": "KR",
+    "lang": "FR",
+    "currentNotes": "Taxe foncière modérée",
+    "suggestion": "propertyTaxNotes",
+    "INSTRUCTIONS": "Split the text below into the appropriate fields. Leave empty if not applicable.",
+    "propertyTaxNotes": "",
+    "transferTaxNotes": "",
+    "countryGeneralNotes": ""
+  },
+  {
+    "countryCode": "CN",
+    "lang": "FR",
+    "currentNotes": "Pas de taxe foncière nationale (pilotes)",
+    "suggestion": "propertyTaxNotes",
+    "INSTRUCTIONS": "Split the text below into the appropriate fields. Leave empty if not applicable.",
+    "propertyTaxNotes": "",
+    "transferTaxNotes": "",
+    "countryGeneralNotes": ""
+  },
+  {
+    "countryCode": "HK",
+    "lang": "FR",
+    "currentNotes": "Rates basées sur valeur locative",
+    "suggestion": "propertyTaxNotes",
+    "INSTRUCTIONS": "Split the text below into the appropriate fields. Leave empty if not applicable.",
+    "propertyTaxNotes": "",
+    "transferTaxNotes": "",
+    "countryGeneralNotes": ""
+  },
+  {
+    "countryCode": "SG",
+    "lang": "FR",
+    "currentNotes": "Progressif, élevé pour non-résidents",
+    "suggestion": "REVIEW_NEEDED (contains both or unclear)",
+    "INSTRUCTIONS": "Split the text below into the appropriate fields. Leave empty if not applicable.",
+    "propertyTaxNotes": "",
+    "transferTaxNotes": "",
+    "countryGeneralNotes": ""
+  },
+  {
+    "countryCode": "TH",
+    "lang": "FR",
+    "currentNotes": "Land and Building Tax récente",
+    "suggestion": "REVIEW_NEEDED (contains both or unclear)",
+    "INSTRUCTIONS": "Split the text below into the appropriate fields. Leave empty if not applicable.",
+    "propertyTaxNotes": "",
+    "transferTaxNotes": "",
+    "countryGeneralNotes": ""
+  },
+  {
+    "countryCode": "MY",
+    "lang": "FR",
+    "currentNotes": "Quit Rent + Assessment Rate",
+    "suggestion": "REVIEW_NEEDED (contains both or unclear)",
+    "INSTRUCTIONS": "Split the text below into the appropriate fields. Leave empty if not applicable.",
+    "propertyTaxNotes": "",
+    "transferTaxNotes": "",
+    "countryGeneralNotes": ""
+  },
+  {
+    "countryCode": "ID",
+    "lang": "FR",
+    "currentNotes": "PBB faible",
+    "suggestion": "REVIEW_NEEDED (contains both or unclear)",
+    "INSTRUCTIONS": "Split the text below into the appropriate fields. Leave empty if not applicable.",
+    "propertyTaxNotes": "",
+    "transferTaxNotes": "",
+    "countryGeneralNotes": ""
+  },
+  {
+    "countryCode": "PH",
+    "lang": "FR",
+    "currentNotes": "Real Property Tax",
+    "suggestion": "propertyTaxNotes",
+    "INSTRUCTIONS": "Split the text below into the appropriate fields. Leave empty if not applicable.",
+    "propertyTaxNotes": "",
+    "transferTaxNotes": "",
+    "countryGeneralNotes": ""
+  },
+  {
+    "countryCode": "VN",
+    "lang": "FR",
+    "currentNotes": "Taxe foncière très faible",
+    "suggestion": "propertyTaxNotes",
+    "INSTRUCTIONS": "Split the text below into the appropriate fields. Leave empty if not applicable.",
+    "propertyTaxNotes": "",
+    "transferTaxNotes": "",
+    "countryGeneralNotes": ""
+  },
+  {
+    "countryCode": "IN",
+    "lang": "FR",
+    "currentNotes": "Varie par État et ville",
+    "suggestion": "REVIEW_NEEDED (contains both or unclear)",
+    "INSTRUCTIONS": "Split the text below into the appropriate fields. Leave empty if not applicable.",
+    "propertyTaxNotes": "",
+    "transferTaxNotes": "",
+    "countryGeneralNotes": ""
+  },
+  {
+    "countryCode": "TW",
+    "lang": "FR",
+    "currentNotes": "House Tax + Land Tax",
+    "suggestion": "REVIEW_NEEDED (contains both or unclear)",
+    "INSTRUCTIONS": "Split the text below into the appropriate fields. Leave empty if not applicable.",
+    "propertyTaxNotes": "",
+    "transferTaxNotes": "",
+    "countryGeneralNotes": ""
+  },
+  {
+    "countryCode": "KH",
+    "lang": "FR",
+    "currentNotes": "Taxe très faible.",
+    "suggestion": "REVIEW_NEEDED (contains both or unclear)",
+    "INSTRUCTIONS": "Split the text below into the appropriate fields. Leave empty if not applicable.",
+    "propertyTaxNotes": "",
+    "transferTaxNotes": "",
+    "countryGeneralNotes": ""
+  },
+  {
+    "countryCode": "LK",
+    "lang": "FR",
+    "currentNotes": "Assessment rates.",
+    "suggestion": "propertyTaxNotes",
+    "INSTRUCTIONS": "Split the text below into the appropriate fields. Leave empty if not applicable.",
+    "propertyTaxNotes": "",
+    "transferTaxNotes": "",
+    "countryGeneralNotes": ""
+  },
+  {
+    "countryCode": "GE",
+    "lang": "FR",
+    "currentNotes": "Taxe progressive selon revenu géorgien. Exonération si < 40 000 GEL/an (~17 000$), 0.8-1% si > 100 000 GEL. Avantage expatriés : revenus étrangers non imposés = taxe foncière souvent à 0%. Aucun droit de mutation",
+    "suggestion": "REVIEW_NEEDED (contains both or unclear)",
+    "INSTRUCTIONS": "Split the text below into the appropriate fields. Leave empty if not applicable.",
+    "propertyTaxNotes": "",
+    "transferTaxNotes": "",
+    "countryGeneralNotes": ""
+  },
+  {
+    "countryCode": "AE",
+    "lang": "FR",
+    "currentNotes": "Aucune taxe foncière à Dubai",
+    "suggestion": "propertyTaxNotes",
+    "INSTRUCTIONS": "Split the text below into the appropriate fields. Leave empty if not applicable.",
+    "propertyTaxNotes": "",
+    "transferTaxNotes": "",
+    "countryGeneralNotes": ""
+  },
+  {
+    "countryCode": "QA",
+    "lang": "FR",
+    "currentNotes": "Presque aucun frais",
+    "suggestion": "REVIEW_NEEDED (contains both or unclear)",
+    "INSTRUCTIONS": "Split the text below into the appropriate fields. Leave empty if not applicable.",
+    "propertyTaxNotes": "",
+    "transferTaxNotes": "",
+    "countryGeneralNotes": ""
+  },
+  {
+    "countryCode": "SA",
+    "lang": "FR",
+    "currentNotes": "Pas de taxe foncière",
+    "suggestion": "propertyTaxNotes",
+    "INSTRUCTIONS": "Split the text below into the appropriate fields. Leave empty if not applicable.",
+    "propertyTaxNotes": "",
+    "transferTaxNotes": "",
+    "countryGeneralNotes": ""
+  },
+  {
+    "countryCode": "BH",
+    "lang": "FR",
+    "currentNotes": "Aucune taxe foncière.",
+    "suggestion": "propertyTaxNotes",
+    "INSTRUCTIONS": "Split the text below into the appropriate fields. Leave empty if not applicable.",
+    "propertyTaxNotes": "",
+    "transferTaxNotes": "",
+    "countryGeneralNotes": ""
+  },
+  {
+    "countryCode": "OM",
+    "lang": "FR",
+    "currentNotes": "Pas de taxe foncière",
+    "suggestion": "propertyTaxNotes",
+    "INSTRUCTIONS": "Split the text below into the appropriate fields. Leave empty if not applicable.",
+    "propertyTaxNotes": "",
+    "transferTaxNotes": "",
+    "countryGeneralNotes": ""
+  },
+  {
+    "countryCode": "KW",
+    "lang": "FR",
+    "currentNotes": "Aucune taxe immobilière.",
+    "suggestion": "REVIEW_NEEDED (contains both or unclear)",
+    "INSTRUCTIONS": "Split the text below into the appropriate fields. Leave empty if not applicable.",
+    "propertyTaxNotes": "",
+    "transferTaxNotes": "",
+    "countryGeneralNotes": ""
+  },
+  {
+    "countryCode": "JO",
+    "lang": "FR",
+    "currentNotes": "Property Tax très faible",
+    "suggestion": "propertyTaxNotes",
+    "INSTRUCTIONS": "Split the text below into the appropriate fields. Leave empty if not applicable.",
+    "propertyTaxNotes": "",
+    "transferTaxNotes": "",
+    "countryGeneralNotes": ""
+  },
+  {
+    "countryCode": "IL",
+    "lang": "FR",
+    "currentNotes": "Arnona basée sur surface",
+    "suggestion": "REVIEW_NEEDED (contains both or unclear)",
+    "INSTRUCTIONS": "Split the text below into the appropriate fields. Leave empty if not applicable.",
+    "propertyTaxNotes": "",
+    "transferTaxNotes": "",
+    "countryGeneralNotes": ""
+  },
+  {
+    "countryCode": "TR",
+    "lang": "FR",
+    "currentNotes": "Emlak Vergisi",
+    "suggestion": "REVIEW_NEEDED (contains both or unclear)",
+    "INSTRUCTIONS": "Split the text below into the appropriate fields. Leave empty if not applicable.",
+    "propertyTaxNotes": "",
+    "transferTaxNotes": "",
+    "countryGeneralNotes": ""
+  },
+  {
+    "countryCode": "MA",
+    "lang": "FR",
+    "currentNotes": "Taxe d'habitation + taxe services",
+    "suggestion": "REVIEW_NEEDED (contains both or unclear)",
+    "INSTRUCTIONS": "Split the text below into the appropriate fields. Leave empty if not applicable.",
+    "propertyTaxNotes": "",
+    "transferTaxNotes": "",
+    "countryGeneralNotes": ""
+  },
+  {
+    "countryCode": "TN",
+    "lang": "FR",
+    "currentNotes": "Taxe foncière faible",
+    "suggestion": "propertyTaxNotes",
+    "INSTRUCTIONS": "Split the text below into the appropriate fields. Leave empty if not applicable.",
+    "propertyTaxNotes": "",
+    "transferTaxNotes": "",
+    "countryGeneralNotes": ""
+  },
+  {
+    "countryCode": "EG",
+    "lang": "FR",
+    "currentNotes": "Property Tax récente",
+    "suggestion": "propertyTaxNotes",
+    "INSTRUCTIONS": "Split the text below into the appropriate fields. Leave empty if not applicable.",
+    "propertyTaxNotes": "",
+    "transferTaxNotes": "",
+    "countryGeneralNotes": ""
+  },
+  {
+    "countryCode": "ZA",
+    "lang": "FR",
+    "currentNotes": "Rates + Transfer Duty progressif",
+    "suggestion": "REVIEW_NEEDED (contains both or unclear)",
+    "INSTRUCTIONS": "Split the text below into the appropriate fields. Leave empty if not applicable.",
+    "propertyTaxNotes": "",
+    "transferTaxNotes": "",
+    "countryGeneralNotes": ""
+  },
+  {
+    "countryCode": "MU",
+    "lang": "FR",
+    "currentNotes": "Pas de taxe foncière annuelle.",
+    "suggestion": "propertyTaxNotes",
+    "INSTRUCTIONS": "Split the text below into the appropriate fields. Leave empty if not applicable.",
+    "propertyTaxNotes": "",
+    "transferTaxNotes": "",
+    "countryGeneralNotes": ""
+  },
+  {
+    "countryCode": "SC",
+    "lang": "FR",
+    "currentNotes": "Aucune taxe foncière. Stamp duty 18.5%.",
+    "suggestion": "REVIEW_NEEDED (contains both or unclear)",
+    "INSTRUCTIONS": "Split the text below into the appropriate fields. Leave empty if not applicable.",
+    "propertyTaxNotes": "",
+    "transferTaxNotes": "",
+    "countryGeneralNotes": ""
+  },
+  {
+    "countryCode": "KE",
+    "lang": "FR",
+    "currentNotes": "Land Rates",
+    "suggestion": "propertyTaxNotes",
+    "INSTRUCTIONS": "Split the text below into the appropriate fields. Leave empty if not applicable.",
+    "propertyTaxNotes": "",
+    "transferTaxNotes": "",
+    "countryGeneralNotes": ""
+  },
+  {
+    "countryCode": "GH",
+    "lang": "FR",
+    "currentNotes": "Property Rate.",
+    "suggestion": "REVIEW_NEEDED (contains both or unclear)",
+    "INSTRUCTIONS": "Split the text below into the appropriate fields. Leave empty if not applicable.",
+    "propertyTaxNotes": "",
+    "transferTaxNotes": "",
+    "countryGeneralNotes": ""
+  },
+  {
+    "countryCode": "AU",
+    "lang": "FR",
+    "currentNotes": "Land Tax + Stamp Duty, varie par État",
+    "suggestion": "transferTaxNotes",
+    "INSTRUCTIONS": "Split the text below into the appropriate fields. Leave empty if not applicable.",
+    "propertyTaxNotes": "",
+    "transferTaxNotes": "",
+    "countryGeneralNotes": ""
+  },
+  {
+    "countryCode": "NZ",
+    "lang": "FR",
+    "currentNotes": "Rates locaux, pas de Stamp Duty",
+    "suggestion": "REVIEW_NEEDED (contains both or unclear)",
+    "INSTRUCTIONS": "Split the text below into the appropriate fields. Leave empty if not applicable.",
+    "propertyTaxNotes": "",
+    "transferTaxNotes": "",
+    "countryGeneralNotes": ""
+  },
+  {
+    "countryCode": "FJ",
+    "lang": "FR",
+    "currentNotes": "Pas de taxe foncière",
+    "suggestion": "propertyTaxNotes",
+    "INSTRUCTIONS": "Split the text below into the appropriate fields. Leave empty if not applicable.",
+    "propertyTaxNotes": "",
+    "transferTaxNotes": "",
+    "countryGeneralNotes": ""
+  },
+  {
+    "countryCode": "VU",
+    "lang": "FR",
+    "currentNotes": "Paradis fiscal complet.",
+    "suggestion": "REVIEW_NEEDED (contains both or unclear)",
+    "INSTRUCTIONS": "Split the text below into the appropriate fields. Leave empty if not applicable.",
+    "propertyTaxNotes": "",
+    "transferTaxNotes": "",
+    "countryGeneralNotes": ""
+  }
+]

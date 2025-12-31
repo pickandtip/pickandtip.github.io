@@ -1395,6 +1395,157 @@ tr {
     color: var(--brand-gold);
 }
 
+/* Property Tax icon states (for property-taxes topic) */
+.property-tax-info-icon {
+    color: var(--brand-gold); /* Gold color indicates there is content */
+}
+
+.property-tax-info-icon.empty {
+    color: var(--text-muted); /* Muted color indicates no content */
+}
+
+.property-tax-info-icon.empty.active,
+.property-tax-info-icon.empty.locked {
+    color: var(--text-primary); /* Restore normal color when active or locked */
+}
+
+/* Transfer Tax icon states (for property-taxes topic) */
+.transfer-tax-info-icon {
+    color: var(--brand-gold); /* Gold color indicates there is content */
+}
+
+.transfer-tax-info-icon.empty {
+    color: var(--text-muted); /* Muted color indicates no content */
+}
+
+.transfer-tax-info-icon.empty.active,
+.transfer-tax-info-icon.empty.locked {
+    color: var(--text-primary); /* Restore normal color when active or locked */
+}
+
+/* Foreign Access icon states (for property-taxes topic) */
+.foreign-access-info-icon {
+    color: var(--brand-gold); /* Gold color indicates there is content */
+}
+
+.foreign-access-info-icon.empty {
+    color: var(--text-muted); /* Muted color indicates no content */
+}
+
+.foreign-access-info-icon.empty.active,
+.foreign-access-info-icon.empty.locked {
+    color: var(--text-primary); /* Restore normal color when active or locked */
+}
+
+/* Country General Notes icon states (for property-taxes topic) */
+.country-info-icon {
+    color: var(--brand-gold); /* Gold color indicates there is content */
+}
+
+.country-info-icon.empty {
+    color: var(--text-muted); /* Muted color indicates no content */
+}
+
+.country-info-icon.empty.active,
+.country-info-icon.empty.locked {
+    color: var(--text-primary); /* Restore normal color when active or locked */
+}
+
+/* Country cell with tooltip (for property-taxes topic) */
+.country-td {
+    position: relative;
+    overflow: visible;
+    z-index: 100;
+}
+
+.country-td:has(.info-icon.active),
+.country-td:has(.smart-tooltip-icon.active) {
+    z-index: 10000 !important;
+}
+
+/* Property tax cell with tooltip */
+.property-tax-td {
+    position: relative;
+    overflow: visible;
+    z-index: 100;
+}
+
+.property-tax-td:has(.info-icon.active),
+.property-tax-td:has(.smart-tooltip-icon.active) {
+    z-index: 10000 !important;
+}
+
+/* Transfer tax cell with tooltip */
+.transfer-tax-td {
+    position: relative;
+    overflow: visible;
+    z-index: 100;
+}
+
+.transfer-tax-td:has(.info-icon.active),
+.transfer-tax-td:has(.smart-tooltip-icon.active) {
+    z-index: 10000 !important;
+}
+
+/* Foreign access cell with tooltip */
+.foreign-access-td {
+    position: relative;
+    overflow: visible;
+    z-index: 100;
+}
+
+.foreign-access-td:has(.info-icon.active),
+.foreign-access-td:has(.smart-tooltip-icon.active) {
+    z-index: 10000 !important;
+}
+
+.country-with-tooltip-cell {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.country-cell-content {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Country Warning Triangle icon */
+.country-warning-icon {
+    color: #FF9800; /* Orange warning color */
+    font-size: 1.2rem;
+    margin-right: 0.3rem;
+}
+
+.country-warning-icon::before {
+    content: '⚠️';
+}
+
+.country-warning-icon:hover {
+    transform: scale(1.2);
+}
+
+.country-warning-cell {
+    display: inline-flex;
+    align-items: center;
+}
+
+.custom-tooltip.country-warning-tooltip {
+    background: #FF6B35 !important;
+    max-width: 400px;
+    min-width: 280px;
+    white-space: normal;
+    text-align: left;
+    line-height: 1.6;
+    font-weight: 500;
+}
+
+.custom-tooltip.country-warning-tooltip::after {
+    border-right-color: #FF6B35 !important;
+    border-left-color: #FF6B35 !important;
+}
+
 /* Bridge invisible entre l'icône et le tooltip pour éviter que le tooltip se ferme */
 .smart-tooltip-icon.taxation-info-icon.active::before {
     content: '';

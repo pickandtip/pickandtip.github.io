@@ -54,12 +54,134 @@
         }
     }
 
-    // Truncate text with ellipsis
-    function truncateText(text, maxLength = 150) {
-        if (!text || text.length <= maxLength) {
-            return text;
+    // Use tooltip module functions
+    const createTooltipCell = window.TooltipModule.createTooltipCell;
+    const setupSmartTooltip = window.TooltipModule.setupSmartTooltip;
+
+    // ==========================================
+    // TOOLTIP FORMATTING FUNCTIONS
+    // ==========================================
+
+    // Format property tax with tooltip
+    function formatPropertyTaxWithTooltip(item) {
+        const lang = window.currentLang;
+        const propertyTax = window.replaceTokens(item.propertyTax, lang).replace(/\n/g, '<br>');
+        const notes = item.propertyTaxNotes?.[lang] || '';
+
+        const taxClass = item.propertyTaxValue === 0 ? 'tax-none' :
+                         item.propertyTaxValue < 0.5 ? 'tax-low' :
+                         item.propertyTaxValue < 1.5 ? 'tax-medium' : 'tax-high';
+
+        const hasNotes = notes && notes.trim() !== '';
+        const tooltipContent = hasNotes ? notes : (window.translations?.[lang]?.propertyTaxes?.tooltips?.noAdditionalInfo || 'No additional information');
+
+        return createTooltipCell({
+            mainContent: `<span class="tax-value ${taxClass}">${propertyTax}</span>`,
+            tooltipContent: tooltipContent,
+            cellClass: 'property-tax-cell',
+            iconClass: 'property-tax-info-icon',
+            tooltipClass: 'property-tax-tooltip',
+            position: 'right',
+            iconFirst: false,
+            isEmpty: !hasNotes
+        });
+    }
+
+    // Format transfer tax with tooltip
+    function formatTransferTaxWithTooltip(item) {
+        const lang = window.currentLang;
+        const transferTax = window.replaceTokens(item.transferTax, lang).replace(/\n/g, '<br>');
+        const notes = item.transferTaxNotes?.[lang] || '';
+
+        const transferClass = item.transferTaxValue === 0 ? 'tax-none' :
+                              item.transferTaxValue < 2 ? 'tax-low' :
+                              item.transferTaxValue < 5 ? 'tax-medium' : 'tax-high';
+
+        const hasNotes = notes && notes.trim() !== '';
+        const tooltipContent = hasNotes ? notes : (window.translations?.[lang]?.propertyTaxes?.tooltips?.noAdditionalInfo || 'No additional information');
+
+        return createTooltipCell({
+            mainContent: `<span class="tax-value ${transferClass}">${transferTax}</span>`,
+            tooltipContent: tooltipContent,
+            cellClass: 'transfer-tax-cell',
+            iconClass: 'transfer-tax-info-icon',
+            tooltipClass: 'transfer-tax-tooltip',
+            position: 'right',
+            iconFirst: true,
+            isEmpty: !hasNotes
+        });
+    }
+
+    // Format foreign access with tooltip
+    function formatForeignAccessWithTooltip(item) {
+        const lang = window.currentLang;
+        const foreignLevel = item.foreignerRestrictionLevel || 'unrestricted';
+        const foreignClass = `foreign-${foreignLevel}`;
+        const foreignText = window.translations[lang].foreignerRestriction[foreignLevel] || foreignLevel;
+        const notes = item.foreignAccessNotes?.[lang] || '';
+
+        const hasNotes = notes && notes.trim() !== '';
+        const tooltipContent = hasNotes ? notes : (window.translations?.[lang]?.propertyTaxes?.tooltips?.noAdditionalInfo || 'No additional information');
+
+        return createTooltipCell({
+            mainContent: `<span class="foreign-badge ${foreignClass}">${foreignText}</span>`,
+            tooltipContent: tooltipContent,
+            cellClass: 'foreign-access-cell',
+            iconClass: 'foreign-access-info-icon',
+            tooltipClass: 'foreign-access-tooltip',
+            position: 'right',
+            iconFirst: true,
+            isEmpty: !hasNotes
+        });
+    }
+
+    // Format country warning triangle (if warnings exist)
+    function formatCountryWarning(item) {
+        const lang = window.currentLang;
+        const warnings = item.countryWarnings?.[lang] || '';
+
+        if (!warnings || warnings.trim() === '') {
+            return ''; // No warning triangle
         }
-        return text.substring(0, maxLength).trim() + '...';
+
+        return createTooltipCell({
+            mainContent: '',
+            tooltipContent: warnings,
+            cellClass: 'country-warning-cell',
+            iconClass: 'country-warning-icon',
+            tooltipClass: 'country-warning-tooltip',
+            position: 'right',
+            iconFirst: true,
+            isEmpty: false
+        });
+    }
+
+    // Format country name with general notes tooltip
+    function formatCountryWithTooltip(item) {
+        const lang = window.currentLang;
+        const countryName = item.country[lang];
+        const notes = item.countryGeneralNotes?.[lang] || '';
+        const warningHtml = formatCountryWarning(item);
+
+        const hasNotes = notes && notes.trim() !== '';
+        const tooltipContent = hasNotes ? notes : (window.translations?.[lang]?.propertyTaxes?.tooltips?.noAdditionalInfo || 'No additional information');
+
+        return createTooltipCell({
+            mainContent: `
+                ${warningHtml}
+                <div class="country-cell-content">
+                    <span class="flag">${item.flag}</span>
+                    <span>${countryName}</span>
+                </div>
+            `,
+            tooltipContent: tooltipContent,
+            cellClass: 'country-with-tooltip-cell',
+            iconClass: 'country-info-icon',
+            tooltipClass: 'country-tooltip',
+            position: 'right',
+            iconFirst: false,
+            isEmpty: !hasNotes
+        });
     }
 
     // ==========================================
@@ -81,49 +203,19 @@
             const row = document.createElement('tr');
             row.style.animationDelay = `${index * 0.02}s`;
 
-            const taxClass = item.propertyTaxValue === 0 ? 'tax-none' :
-                             item.propertyTaxValue < 0.5 ? 'tax-low' :
-                             item.propertyTaxValue < 1.5 ? 'tax-medium' : 'tax-high';
-
-            const transferClass = item.transferTaxValue === 0 ? 'tax-none' :
-                                  item.transferTaxValue < 2 ? 'tax-low' :
-                                  item.transferTaxValue < 5 ? 'tax-medium' : 'tax-high';
-
             const regionClass = item.region.toLowerCase().replace('-', '');
             const regionName = window.translations[window.currentLang].regions[item.region] || item.region;
-            const countryName = item.country[window.currentLang];
-            const notes = item.notes[window.currentLang];
-            const truncatedNotes = truncateText(notes, 150);
-            const propertyTax = window.replaceTokens(item.propertyTax, window.currentLang).replace(/\n/g, '<br>');
-            const transferTax = window.replaceTokens(item.transferTax, window.currentLang).replace(/\n/g, '<br>');
-
-            // Foreign access badge
-            const foreignLevel = item.foreignerRestrictionLevel || 'unrestricted';
-            const foreignClass = `foreign-${foreignLevel}`;
-            const foreignText = window.translations[window.currentLang].foreignerRestriction[foreignLevel] || foreignLevel;
 
             row.innerHTML = `
-                <td>
-                    <div class="country-cell">
-                        <span class="flag">${item.flag}</span>
-                        <span>${countryName}</span>
-                    </div>
-                </td>
+                <td class="country-td">${formatCountryWithTooltip(item)}</td>
                 <td><span class="region-badge region-${regionClass}">${regionName}</span></td>
-                <td><span class="tax-value ${taxClass}">${propertyTax}</span></td>
-                <td><span class="tax-value ${transferClass}">${transferTax}</span></td>
-                <td><span class="foreign-badge ${foreignClass}">${foreignText}</span></td>
-                <td><span class="notes">${truncatedNotes}</span></td>
+                <td class="property-tax-td">${formatPropertyTaxWithTooltip(item)}</td>
+                <td class="transfer-tax-td">${formatTransferTaxWithTooltip(item)}</td>
+                <td class="foreign-access-td">${formatForeignAccessWithTooltip(item)}</td>
             `;
 
-            // Add tooltip to notes if text was truncated
-            if (notes.length > 150) {
-                const notesSpan = row.querySelector('.notes');
-                if (notesSpan) {
-                    notesSpan.setAttribute('title', notes);
-                    notesSpan.classList.add('cursor-help');
-                }
-            }
+            // Initialize tooltips using the unified module
+            window.TooltipModule.initializeTooltips(row);
 
             tableBody.appendChild(row);
         });
@@ -138,8 +230,7 @@
                 item.country[window.currentLang].toLowerCase().includes(searchTerm) ||
                 item.country.fr.toLowerCase().includes(searchTerm) ||
                 item.country.en.toLowerCase().includes(searchTerm) ||
-                window.translations[window.currentLang].regions[item.region]?.toLowerCase().includes(searchTerm) ||
-                item.notes[window.currentLang].toLowerCase().includes(searchTerm)
+                window.translations[window.currentLang].regions[item.region]?.toLowerCase().includes(searchTerm)
             );
         }
 
@@ -263,6 +354,10 @@
     }
 
     // ==========================================
+    // INITIALIZATION
+    // ==========================================
+
+    // ==========================================
     // STATISTICS UPDATE
     // ==========================================
     function updateStats() {
@@ -305,6 +400,11 @@
 
         // Render initial table
         filterAndSort();
+
+        // Initialize unlock button in result-count area
+        if (window.TooltipModule) {
+            window.TooltipModule.initUnlockButton();
+        }
 
         // Set initial sort indicator
         document.querySelector('th[data-sort="country"]').classList.add('sorted-asc');
