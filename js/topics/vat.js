@@ -108,12 +108,119 @@
         return `<span class="threshold-value">${display}</span>`;
     }
 
-    // Truncate text with ellipsis
-    function truncateText(text, maxLength = 200) {
-        if (!text || text.length <= maxLength) {
-            return text;
+    // Use tooltip module functions
+    const createTooltipCell = window.TooltipModule.createTooltipCell;
+    const setupSmartTooltip = window.TooltipModule.setupSmartTooltip;
+
+    // ==========================================
+    // TOOLTIP FORMATTING FUNCTIONS
+    // ==========================================
+
+    // Format country warning triangle (if warnings exist)
+    function formatCountryWarning(item) {
+        const lang = window.currentLang;
+        const warnings = item.countryWarnings?.[lang] || '';
+
+        if (!warnings || warnings.trim() === '') {
+            return ''; // No warning triangle
         }
-        return text.substring(0, maxLength).trim() + '...';
+
+        return createTooltipCell({
+            mainContent: '',
+            tooltipContent: warnings,
+            cellClass: 'country-warning-cell',
+            iconClass: 'country-warning-icon',
+            tooltipClass: 'country-warning-tooltip',
+            iconFirst: true,
+            isEmpty: false
+        });
+    }
+
+    // Format country name with system notes tooltip
+    function formatCountryWithTooltip(item) {
+        const lang = window.currentLang;
+        const countryName = item.countryName[lang];
+        const notes = item.systemNotes?.[lang] || '';
+        const warningHtml = formatCountryWarning(item);
+
+        const hasNotes = notes && notes.trim() !== '';
+        const tooltipContent = hasNotes ? notes : (window.translations?.[lang]?.vat?.tooltips?.noAdditionalInfo || 'No additional information');
+
+        return createTooltipCell({
+            mainContent: `
+                ${warningHtml}
+                <div class="country-cell-content">
+                    <span class="flag">${item.flag}</span>
+                    <span>${countryName}</span>
+                </div>
+            `,
+            tooltipContent: tooltipContent,
+            cellClass: 'country-with-tooltip-cell',
+            iconClass: 'country-info-icon',
+            tooltipClass: 'country-tooltip',
+            iconFirst: false,
+            isEmpty: !hasNotes
+        });
+    }
+
+    // Format standard rate with tooltip
+    function formatStandardRateWithTooltip(item) {
+        const lang = window.currentLang;
+        const notes = item.standardRateNotes?.[lang] || '';
+        const badge = getVatBadge(item.standardRate);
+
+        const hasNotes = notes && notes.trim() !== '';
+        const tooltipContent = hasNotes ? notes : (window.translations?.[lang]?.vat?.tooltips?.noAdditionalInfo || 'No additional information');
+
+        return createTooltipCell({
+            mainContent: badge,
+            tooltipContent: tooltipContent,
+            cellClass: 'standard-rate-cell',
+            iconClass: 'standard-rate-info-icon',
+            tooltipClass: 'standard-rate-tooltip',
+            iconFirst: false,
+            isEmpty: !hasNotes
+        });
+    }
+
+    // Format reduced rates with tooltip
+    function formatReducedRatesWithTooltip(item) {
+        const lang = window.currentLang;
+        const notes = item.reducedRatesNotes?.[lang] || '';
+        const ratesHtml = formatReducedRates(item.reducedRates);
+
+        const hasNotes = notes && notes.trim() !== '';
+        const tooltipContent = hasNotes ? notes : (window.translations?.[lang]?.vat?.tooltips?.noAdditionalInfo || 'No additional information');
+
+        return createTooltipCell({
+            mainContent: ratesHtml,
+            tooltipContent: tooltipContent,
+            cellClass: 'reduced-rates-cell',
+            iconClass: 'reduced-rates-info-icon',
+            tooltipClass: 'reduced-rates-tooltip',
+            iconFirst: true,
+            isEmpty: !hasNotes
+        });
+    }
+
+    // Format threshold with tooltip
+    function formatThresholdWithTooltip(item) {
+        const lang = window.currentLang;
+        const notes = item.thresholdNotes?.[lang] || '';
+        const thresholdHtml = formatThreshold(item.registrationThreshold, lang);
+
+        const hasNotes = notes && notes.trim() !== '';
+        const tooltipContent = hasNotes ? notes : (window.translations?.[lang]?.vat?.tooltips?.noAdditionalInfo || 'No additional information');
+
+        return createTooltipCell({
+            mainContent: thresholdHtml,
+            tooltipContent: tooltipContent,
+            cellClass: 'threshold-cell',
+            iconClass: 'threshold-info-icon',
+            tooltipClass: 'threshold-tooltip',
+            iconFirst: true,
+            isEmpty: !hasNotes
+        });
     }
 
     // ==========================================
@@ -135,33 +242,18 @@
             const row = document.createElement('tr');
             row.style.animationDelay = `${index * 0.02}s`;
 
-            const countryName = item.countryName[window.currentLang] || item.countryName.fr;
             const regionLabel = window.translations?.regions?.[item.region] || item.region;
-            const notes = item.notes[window.currentLang] || item.notes.fr;
-            const truncatedNotes = truncateText(notes, 200);
 
             row.innerHTML = `
-                <td>
-                    <div class="country-cell">
-                        <span class="flag">${item.flag}</span>
-                        <span>${countryName}</span>
-                    </div>
-                </td>
+                <td class="country-td">${formatCountryWithTooltip(item)}</td>
                 <td>${regionLabel}</td>
-                <td>${getVatBadge(item.standardRate)}</td>
-                <td>${formatReducedRates(item.reducedRates)}</td>
-                <td>${formatThreshold(item.registrationThreshold, window.currentLang)}</td>
-                <td class="small-text">${truncatedNotes}</td>
+                <td class="standard-rate-td">${formatStandardRateWithTooltip(item)}</td>
+                <td class="reduced-rates-td">${formatReducedRatesWithTooltip(item)}</td>
+                <td class="threshold-td">${formatThresholdWithTooltip(item)}</td>
             `;
 
-            // Add tooltip to notes if text was truncated
-            if (notes.length > 200) {
-                const notesCell = row.querySelector('.small-text');
-                if (notesCell) {
-                    notesCell.setAttribute('title', notes);
-                    notesCell.classList.add('cursor-help');
-                }
-            }
+            // Initialize tooltips using the unified module
+            window.TooltipModule.initializeTooltips(row);
 
             tableBody.appendChild(row);
         });
@@ -179,9 +271,7 @@
             filtered = filtered.filter(item =>
                 item.countryName.fr.toLowerCase().includes(searchTerm) ||
                 item.countryName.en.toLowerCase().includes(searchTerm) ||
-                window.translations[window.currentLang].regions[item.region]?.toLowerCase().includes(searchTerm) ||
-                item.notes.fr.toLowerCase().includes(searchTerm) ||
-                item.notes.en.toLowerCase().includes(searchTerm)
+                window.translations[window.currentLang].regions[item.region]?.toLowerCase().includes(searchTerm)
             );
         }
 

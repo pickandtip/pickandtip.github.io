@@ -1572,6 +1572,100 @@ tr {
     width: 30%; /* Accès étranger - élargi pour "Nationaux uniquement" */
 }
 
+/* ========================================== */
+/* VAT TABLE TOOLTIPS */
+/* ========================================== */
+
+/* Country cell with tooltip (for VAT topic) */
+.country-td {
+    position: relative;
+    overflow: visible;
+    z-index: 100;
+}
+
+.country-td:has(.info-icon.active),
+.country-td:has(.smart-tooltip-icon.active) {
+    z-index: 10000 !important;
+}
+
+/* Standard rate cell with tooltip */
+.standard-rate-td {
+    position: relative;
+    overflow: visible;
+    z-index: 100;
+}
+
+.standard-rate-td:has(.info-icon.active),
+.standard-rate-td:has(.smart-tooltip-icon.active) {
+    z-index: 10000 !important;
+}
+
+/* Reduced rates cell with tooltip */
+.reduced-rates-td {
+    position: relative;
+    overflow: visible;
+    z-index: 100;
+}
+
+.reduced-rates-td:has(.info-icon.active),
+.reduced-rates-td:has(.smart-tooltip-icon.active) {
+    z-index: 10000 !important;
+}
+
+/* Threshold cell with tooltip */
+.threshold-td {
+    position: relative;
+    overflow: visible;
+    z-index: 100;
+}
+
+.threshold-td:has(.info-icon.active),
+.threshold-td:has(.smart-tooltip-icon.active) {
+    z-index: 10000 !important;
+}
+
+/* Standard Rate icon states (for VAT topic) */
+.standard-rate-info-icon {
+    color: var(--brand-gold);
+}
+
+.standard-rate-info-icon.empty {
+    color: var(--text-muted);
+}
+
+.standard-rate-info-icon.empty.active,
+.standard-rate-info-icon.empty.locked {
+    color: var(--text-primary);
+}
+
+/* Reduced Rates icon states (for VAT topic) */
+.reduced-rates-info-icon {
+    color: var(--brand-gold);
+}
+
+.reduced-rates-info-icon.empty {
+    color: var(--text-muted);
+}
+
+.reduced-rates-info-icon.empty.active,
+.reduced-rates-info-icon.empty.locked {
+    color: var(--text-primary);
+}
+
+/* Threshold icon states (for VAT topic) */
+.threshold-info-icon {
+    color: var(--brand-gold);
+}
+
+.threshold-info-icon.empty {
+    color: var(--text-muted);
+}
+
+.threshold-info-icon.empty.active,
+.threshold-info-icon.empty.locked {
+    color: var(--text-primary);
+}
+
 /* Bridge invisible entre l'icône et le tooltip pour éviter que le tooltip se ferme */
 .smart-tooltip-icon.taxation-info-icon.active::before {
     content: '';
@@ -1731,7 +1825,7 @@ tr {
     border-radius: 8px;
     font-size: 0.85rem;
     font-weight: 500;
-    white-space: nowrap;
+    white-space: normal; /* Allow text wrapping for better readability */
     z-index: 99998;
     visibility: hidden;
     opacity: 0;
@@ -1739,8 +1833,9 @@ tr {
     transition: opacity 0.2s ease, visibility 0.2s ease;
     border: 1px solid var(--brand-gold);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-    max-width: 300px;
-    white-space: normal;
+    max-width: 450px; /* Wider tooltips to avoid excessive height */
+    min-width: 200px;
+    line-height: 1.5;
 }
 
 .custom-tooltip::before {
