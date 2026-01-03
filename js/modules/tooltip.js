@@ -19,7 +19,7 @@ window.TooltipModule = (function() {
      * @param {string} config.cellClass - Class for the wrapper cell
      * @param {string} config.iconClass - Unique class for the icon
      * @param {string} config.tooltipClass - Class for the tooltip
-     * @param {string} [config.position] - DEPRECATED: position is now auto-deduced from iconFirst
+     * @param {string} [config.position] - Optional override for tooltip position ('left' or 'right'). If not provided, auto-deduced from iconFirst
      * @param {boolean} [config.iconFirst=false] - true = icon before content (tooltip shows left), false = icon after content (tooltip shows right)
      * @param {boolean} [config.isEmpty=false] - true = no additional info (muted color), false = has content (gold color)
      * @returns {string} HTML string for the tooltip cell
@@ -31,14 +31,16 @@ window.TooltipModule = (function() {
             cellClass,
             iconClass,
             tooltipClass,
+            position,
             iconFirst = false,
             isEmpty = false
         } = config;
 
-        // Auto-deduce position from iconFirst
+        // Auto-deduce position from iconFirst if not explicitly provided
         // iconFirst=true (icon on LEFT of text) → tooltip shows on LEFT
         // iconFirst=false (icon on RIGHT of text) → tooltip shows on RIGHT
-        const autoPosition = iconFirst ? 'left' : 'right';
+        // BUT: allow manual override via position parameter (e.g., for warning triangles)
+        const tooltipPosition = position || (iconFirst ? 'left' : 'right');
 
         // Add lock icon if lockable mode is enabled
         const lockIcon = window.PickAndTip?.tooltipLockableMode
@@ -48,7 +50,7 @@ window.TooltipModule = (function() {
         // Add 'empty' class if no additional info
         const emptyClass = isEmpty ? ' empty' : '';
 
-        const iconHtml = `<span class="info-icon smart-tooltip-icon ${iconClass}${emptyClass}" data-position="${autoPosition}">
+        const iconHtml = `<span class="info-icon smart-tooltip-icon ${iconClass}${emptyClass}" data-position="${tooltipPosition}">
                     ⓘ
                     <span class="custom-tooltip ${tooltipClass}">${lockIcon}${tooltipContent}</span>
                 </span>`;

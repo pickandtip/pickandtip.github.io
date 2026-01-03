@@ -147,6 +147,7 @@
             cellClass: 'country-warning-cell',
             iconClass: 'country-warning-icon',
             tooltipClass: 'country-warning-tooltip',
+            position: 'right', // Force right for warning triangles
             iconFirst: true,
             isEmpty: false
         });
