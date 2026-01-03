@@ -211,7 +211,6 @@
             cellClass: 'profitability-cell',
             iconClass: 'profitability-info-icon',
             tooltipClass: 'profitability-tooltip',
-            position: 'left',
             iconFirst: true
         });
     }
@@ -246,7 +245,6 @@
             cellClass: 'taxation-cell',
             iconClass: 'taxation-info-icon',
             tooltipClass: 'taxation-tooltip',
-            position: 'right',
             iconFirst: true,
             isEmpty: !hasNotes  // Use module's isEmpty parameter for color coding
         });

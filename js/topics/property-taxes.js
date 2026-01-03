@@ -81,7 +81,6 @@
             cellClass: 'property-tax-cell',
             iconClass: 'property-tax-info-icon',
             tooltipClass: 'property-tax-tooltip',
-            position: 'right',
             iconFirst: false,
             isEmpty: !hasNotes
         });
@@ -106,7 +105,6 @@
             cellClass: 'transfer-tax-cell',
             iconClass: 'transfer-tax-info-icon',
             tooltipClass: 'transfer-tax-tooltip',
-            position: 'right',
             iconFirst: true,
             isEmpty: !hasNotes
         });
@@ -129,7 +127,6 @@
             cellClass: 'foreign-access-cell',
             iconClass: 'foreign-access-info-icon',
             tooltipClass: 'foreign-access-tooltip',
-            position: 'right',
             iconFirst: true,
             isEmpty: !hasNotes
         });
@@ -150,7 +147,6 @@
             cellClass: 'country-warning-cell',
             iconClass: 'country-warning-icon',
             tooltipClass: 'country-warning-tooltip',
-            position: 'right',
             iconFirst: true,
             isEmpty: false
         });
@@ -178,7 +174,6 @@
             cellClass: 'country-with-tooltip-cell',
             iconClass: 'country-info-icon',
             tooltipClass: 'country-tooltip',
-            position: 'right',
             iconFirst: false,
             isEmpty: !hasNotes
         });
