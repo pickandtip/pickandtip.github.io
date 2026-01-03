@@ -1833,8 +1833,8 @@ tr {
     transition: opacity 0.2s ease, visibility 0.2s ease;
     border: 1px solid var(--brand-gold);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-    max-width: 450px; /* Wider tooltips to avoid excessive height */
-    min-width: 200px;
+    max-width: 600px; /* Wider tooltips to avoid excessive height (1cm ≈ 38px added) */
+    min-width: 300px;
     line-height: 1.5;
 }
 
