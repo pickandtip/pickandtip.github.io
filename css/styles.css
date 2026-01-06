@@ -107,7 +107,6 @@ body {
     border-radius: 50px;
     border: 1px solid var(--border-color);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-    margin-left: auto; /* Force always to the right */
 }
 
 .lang-btn {
@@ -231,7 +230,7 @@ h1 {
     color: var(--text-secondary);
     font-size: 1.1rem;
     max-width: 700px;
-    margin: 0 auto;
+    margin: 0.5rem auto 0 auto;
     font-weight: 500;
 }
 
@@ -246,6 +245,93 @@ h1 {
     padding: 0.75rem 1.5rem;
     border-radius: 8px;
     border-left: 3px solid var(--brand-gold);
+}
+
+/* ==========================================
+   COMPACT HEADER IN TOP BAR
+   ========================================== */
+.header-section-compact {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-left: auto;
+    margin-right: 1rem;
+}
+
+.logo-container-compact {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: var(--brand-blue);
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(10, 52, 96, 0.4);
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.logo-container-compact:hover {
+    background: var(--brand-blue-light);
+    transform: translateX(-2px);
+    box-shadow: 0 6px 20px rgba(10, 52, 96, 0.6);
+}
+
+.logo-container-compact.cursor-pointer {
+    cursor: pointer;
+}
+
+.logo-main-compact {
+    font-size: 0.9rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    letter-spacing: 1px;
+    line-height: 1.2;
+    margin-bottom: 0.1rem;
+}
+
+.logo-tagline-compact {
+    font-size: 0.5rem;
+    font-weight: 700;
+    color: var(--brand-gold);
+    letter-spacing: 1.2px;
+    line-height: 1.2;
+}
+
+.channel-description-compact {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.channel-description-compact p {
+    color: var(--text-secondary);
+    font-size: 0.75rem;
+    line-height: 1.4;
+    margin: 0;
+    max-width: 330px;
+}
+
+.youtube-link-compact {
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #FF0000;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(255, 0, 0, 0.3);
+    text-decoration: none;
+}
+
+.youtube-link-compact:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(255, 0, 0, 0.5);
+    background: #CC0000;
+}
+
+.youtube-link-compact .youtube-icon {
+    font-size: 1rem;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
 }
 
 /* Stats cards */
@@ -802,7 +888,7 @@ tr {
     width: 80px;
     height: 4px;
     background: var(--brand-gold);
-    margin: 1.5rem auto;
+    margin: 0.8rem auto;
     border-radius: 2px;
 }
 
@@ -862,7 +948,8 @@ tr {
 
 .landing-header {
     text-align: center;
-    margin-bottom: 4rem;
+    margin-top: 0;
+    margin-bottom: 2rem;
 }
 
 .landing-header h1 {
@@ -873,6 +960,155 @@ tr {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+}
+
+/* ==========================================
+   CONCEPT BANNER WITH ANIMATED IMAGES
+   ========================================== */
+.concept-banner {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    margin: 2.5rem 0 0 0;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+.concept-banner-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(10, 52, 96, 0.85) 0%,
+        rgba(6, 36, 68, 0.75) 50%,
+        rgba(10, 52, 96, 0.85) 100%
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    padding: 2rem;
+}
+
+.concept-text {
+    text-align: center;
+    max-width: 800px;
+}
+
+.concept-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--brand-gold);
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    letter-spacing: 2px;
+}
+
+.concept-description {
+    font-size: 1.2rem;
+    color: var(--text-primary);
+    line-height: 1.8;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+.image-scroll-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.image-scroll-track {
+    display: flex;
+    height: 100%;
+    animation: scroll 30s linear infinite;
+    will-change: transform;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.scroll-image {
+    flex-shrink: 0;
+    width: 500px;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: brightness(0.7);
+    transition: filter 0.3s ease;
+}
+
+.concept-banner:hover .scroll-image {
+    filter: brightness(0.5);
+    animation-play-state: paused;
+}
+
+.concept-banner:hover .image-scroll-track {
+    animation-play-state: paused;
+}
+
+/* Responsive adjustments for concept banner */
+@media (max-width: 768px) {
+    .concept-banner {
+        height: 300px;
+        margin: 0.5rem 0 0 0;
+    }
+
+    .concept-title {
+        font-size: 1.8rem;
+        letter-spacing: 1px;
+    }
+
+    .concept-description {
+        font-size: 1rem;
+    }
+
+    .scroll-image {
+        width: 350px;
+    }
+
+    .image-scroll-track {
+        animation: scroll 25s linear infinite;
+    }
+}
+
+@media (max-width: 480px) {
+    .concept-banner {
+        height: 250px;
+        margin: 0.4rem 0 0 0;
+        border-radius: 12px;
+    }
+
+    .concept-title {
+        font-size: 1.4rem;
+    }
+
+    .concept-description {
+        font-size: 0.9rem;
+        line-height: 1.6;
+    }
+
+    .scroll-image {
+        width: 280px;
+    }
+
+    .image-scroll-track {
+        animation: scroll 20s linear infinite;
+    }
 }
 
 .topics-grid {
@@ -890,7 +1126,7 @@ tr {
     cursor: pointer;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
-    overflow: hidden;
+    overflow: visible;
 }
 
 .topic-card::before {
@@ -1003,6 +1239,98 @@ tr {
     color: var(--text-muted);
     cursor: not-allowed;
     border-color: var(--border-color);
+}
+
+/* ==========================================
+   THINKING BUBBLE ANIMATION
+   ========================================== */
+.topic-thinking-bubble {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    z-index: 10;
+}
+
+.thinking-emoji {
+    font-size: 3rem;
+    opacity: 0;
+    transform: scale(0);
+    animation: thinkingAppear 28s ease-in-out infinite;
+    animation-delay: var(--animation-delay, 0s);
+}
+
+@keyframes thinkingAppear {
+    0%, 25% {
+        opacity: 0;
+        transform: scale(0) rotate(-15deg);
+    }
+    30%, 55% {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+    }
+    60%, 100% {
+        opacity: 0;
+        transform: scale(0) rotate(15deg);
+    }
+}
+
+.thinking-tooltip {
+    position: absolute;
+    top: 50%;
+    right: calc(100% + 10px);
+    transform: translateY(-50%);
+    background: var(--bg-elevated);
+    color: var(--text-primary);
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    white-space: normal;
+    max-width: 280px;
+    min-width: 220px;
+    line-height: 1.5;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+    border: 2px solid var(--brand-gold);
+    opacity: 0;
+    pointer-events: none;
+    animation: tooltipAppear 28s ease-in-out infinite;
+    animation-delay: var(--animation-delay, 0s);
+}
+
+.thinking-tooltip::after {
+    content: '';
+    position: absolute;
+    left: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 10px solid transparent;
+    border-left-color: var(--brand-gold);
+}
+
+.thinking-tooltip::before {
+    content: '';
+    position: absolute;
+    left: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: 2px;
+    border: 8px solid transparent;
+    border-left-color: var(--bg-elevated);
+}
+
+@keyframes tooltipAppear {
+    0%, 25% {
+        opacity: 0;
+        transform: translateY(-50%) translateX(-10px);
+    }
+    30%, 55% {
+        opacity: 1;
+        transform: translateY(-50%) translateX(0);
+    }
+    60%, 100% {
+        opacity: 0;
+        transform: translateY(-50%) translateX(-10px);
+    }
 }
 
 /* ==========================================
@@ -1130,6 +1458,11 @@ tr {
         font-size: 0.95rem;
     }
 
+    /* Hide compact header on mobile to save space */
+    .header-section-compact {
+        display: none;
+    }
+
     .landing-header h1 {
         font-size: 2rem;
     }
@@ -1141,6 +1474,11 @@ tr {
 
     .topic-icon {
         font-size: 3rem;
+    }
+
+    /* Hide thinking bubble on mobile to avoid overflow */
+    .topic-thinking-bubble {
+        display: none;
     }
 
     .construction-icon {

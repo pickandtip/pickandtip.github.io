@@ -13,21 +13,33 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-    <!-- Stylesheet -->
-    <link rel="stylesheet" href="css/styles.css">
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/styles.css?v=17">
+    <link rel="stylesheet" href="css/contact-form.css?v=7">
 </head>
 <body>
     <div class="bg-pattern"></div>
 
     <!-- Top Sticky Header with blur effect -->
     <div class="top-header-bar">
-        <!-- Breadcrumb Navigation -->
+        <!-- Breadcrumb Navigation with Logo -->
         <div class="breadcrumb hidden" id="breadcrumb">
-            <button id="home-btn" class="breadcrumb-btn">
-                ← <span>{{ breadcrumb.home }}</span>
-            </button>
+            <div id="home-btn" class="logo-container-compact cursor-pointer">
+                <div class="logo-main-compact">PICK & TIP</div>
+                <div class="logo-tagline-compact">{{ tagline }}</div>
+            </div>
             <span class="breadcrumb-separator">›</span>
             <span id="current-topic" class="breadcrumb-current"></span>
+        </div>
+
+        <!-- Channel Description (in header) -->
+        <div class="header-section-compact">
+            <div class="channel-description-compact">
+                <p>{{ description }}</p>
+                <a href="https://www.youtube.com/@pickandtip" target="_blank" rel="noopener noreferrer" class="youtube-link-compact" title="Visiter la chaîne YouTube">
+                    <span class="youtube-icon">▶️</span>
+                </a>
+            </div>
         </div>
 
         <!-- Language Switcher -->
@@ -38,19 +50,8 @@
     </div>
 
     <div class="container">
-        <!-- Logo and Description -->
-        <div class="header-section">
-            <div class="logo-container">
-                <div class="logo-main cursor-pointer" onclick="window.navigateTo('')">PICK & TIP</div>
-                <div class="logo-tagline">{{ tagline }}</div>
-            </div>
-            <div class="channel-description">
-                <p>{{ description }}</p>
-                <a href="https://www.youtube.com/@pickandtip-channel" target="_blank" rel="noopener noreferrer" class="youtube-link" title="Visiter la chaîne YouTube">
-                    <span class="youtube-icon">▶️</span>
-                </a>
-            </div>
-        </div>
+        <!-- Concept Banner (visible only on landing page) -->
+        <div id="concept-banner-container"></div>
 
         <!-- Dynamic content container -->
         <div id="app-container">
@@ -59,8 +60,8 @@
 
         <!-- Footer - Always visible -->
         <footer>
-            <p>{{ footer.createdBy }} <a href="https://www.youtube.com/@pickandtip-channel" target="_blank" rel="noopener noreferrer">Pick & Tip</a></p>
-            <a href="https://www.youtube.com/@pickandtip-channel" target="_blank" rel="noopener noreferrer" class="youtube-cta">
+            <p>{{ footer.createdBy }} <a href="https://www.youtube.com/@pickandtip" target="_blank" rel="noopener noreferrer">Pick & Tip</a></p>
+            <a href="https://www.youtube.com/@pickandtip" target="_blank" rel="noopener noreferrer" class="youtube-cta">
                 <span class="youtube-icon">▶️</span>
                 <span>{{ footer.subscribe }}</span>
             </a>
@@ -74,8 +75,9 @@
     <!-- Modules (must be loaded before app.js) -->
     <script src="js/modules/tooltip.js"></script>
     <script src="js/modules/breadcrumb.js"></script>
+    <script src="js/modules/contactForm.js?v=7"></script>
 
     <!-- Main Application Script -->
-    <script src="js/app.js"></script>
+    <script src="js/app.js?v=9"></script>
 </body>
 </html>

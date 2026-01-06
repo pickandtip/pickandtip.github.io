@@ -187,10 +187,16 @@
 
     async function loadView(viewName) {
         const appContainer = document.getElementById('app-container');
+        const conceptBannerContainer = document.getElementById('concept-banner-container');
 
         try {
+            // Clear concept banner if not on landing page
+            if (conceptBannerContainer && viewName !== 'landing') {
+                conceptBannerContainer.innerHTML = '';
+            }
+
             // Load the HTML template
-            const response = await fetch(`views/${viewName}.html`);
+            const response = await fetch(`views/${viewName}.html?v=9`);
             if (!response.ok) {
                 throw new Error(`Failed to load view: ${viewName}`);
             }
@@ -209,6 +215,15 @@
 
             // Apply translations to the new view
             applyTranslations();
+
+            // Inject contact form if container exists
+            const contactFormContainer = document.getElementById('contact-form-container');
+            if (contactFormContainer && window.ContactFormModule) {
+                contactFormContainer.innerHTML = window.ContactFormModule.getHTML();
+                // Apply translations to contact form
+                applyTokensToDOM(contactFormContainer);
+                window.ContactFormModule.init();
+            }
 
             // Update breadcrumb AFTER translations are applied
             console.log('loadView: Updating breadcrumb for viewName:', viewName);

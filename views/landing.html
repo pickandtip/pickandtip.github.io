@@ -1,4 +1,7 @@
 <div class="landing-view">
+    <!-- Contact form banner -->
+    <div id="contact-form-container"></div>
+
     <header class="landing-header">
         <h1>{{ landing.title }}</h1>
         <div class="gold-line"></div>
@@ -8,6 +11,10 @@
     <div class="topics-grid">
         <!-- Property Taxes Card -->
         <div class="topic-card available" onclick="window.navigateTo('property-taxes')">
+            <div class="topic-thinking-bubble" style="--animation-delay: 0s;">
+                <div class="thinking-emoji">🤔</div>
+                <div class="thinking-tooltip">{{ landing.topics.propertyTaxes.question }}</div>
+            </div>
             <div class="topic-icon">🏠</div>
             <h2 class="topic-title">{{ landing.topics.propertyTaxes.title }}</h2>
             <p class="topic-description">{{ landing.topics.propertyTaxes.description }}</p>
@@ -20,6 +27,10 @@
 
         <!-- VAT Card -->
         <div class="topic-card available" onclick="window.navigateTo('vat')">
+            <div class="topic-thinking-bubble" style="--animation-delay: 7s;">
+                <div class="thinking-emoji">🤔</div>
+                <div class="thinking-tooltip">{{ landing.topics.vat.question }}</div>
+            </div>
             <div class="topic-icon">💰</div>
             <h2 class="topic-title">{{ landing.topics.vat.title }}</h2>
             <p class="topic-description">{{ landing.topics.vat.description }}</p>
@@ -32,6 +43,10 @@
 
         <!-- Vacation Rental Business Card -->
         <div class="topic-card available" onclick="window.navigateTo('vacation-rental-business')">
+            <div class="topic-thinking-bubble" style="--animation-delay: 14s;">
+                <div class="thinking-emoji">🤔</div>
+                <div class="thinking-tooltip">{{ landing.topics.vacationRentalBusiness.question }}</div>
+            </div>
             <div class="topic-icon">🗺️</div>
             <h2 class="topic-title">{{ landing.topics.vacationRentalBusiness.title }}</h2>
             <p class="topic-description">{{ landing.topics.vacationRentalBusiness.description }}</p>
@@ -44,6 +59,10 @@
 
         <!-- Vacation Rental Hotspots Card -->
         <div class="topic-card available" onclick="window.navigateTo('vacation-rental-hotspots')">
+            <div class="topic-thinking-bubble" style="--animation-delay: 21s;">
+                <div class="thinking-emoji">🤔</div>
+                <div class="thinking-tooltip">{{ landing.topics.vacationRentalHotspots.question }}</div>
+            </div>
             <div class="topic-icon">🏖️</div>
             <h2 class="topic-title">{{ landing.topics.vacationRentalHotspots.title }}</h2>
             <p class="topic-description">{{ landing.topics.vacationRentalHotspots.description }}</p>

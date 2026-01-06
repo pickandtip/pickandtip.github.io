@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bannière Contact Animée - Archive Pick & Tip</title>
+    <style>
+        :root {
+            --brand-blue: #0A3460;
+            --brand-blue-dark: #062444;
+            --brand-blue-light: #0D4A8A;
+            --brand-gold: #F2C744;
+            --brand-gold-light: #F5D76E;
+            --brand-gold-dark: #D4A93A;
+            --bg-dark: #050D18;
+            --bg-card: #0A1929;
+            --bg-elevated: #0F2744;
+            --text-primary: #FFFFFF;
+            --text-secondary: #A0B4C8;
+            --border-color: #1A3A5C;
+        }
+
+        body {
+            font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            padding: 40px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            color: var(--brand-gold);
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .archive-info {
+            text-align: center;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            font-size: 0.9em;
+        }
+
+        /* BANNIÈRE CONTACT AVEC ANIMATION D'ICÔNES */
+        .contact-section {
+            margin: 50px 0 15px 0;
+        }
+
+        .contact-toggle {
+            background: linear-gradient(135deg, var(--bg-elevated) 0%, var(--brand-blue-dark) 100%);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 25px 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            box-shadow: 0 4px 20px rgba(10, 52, 96, 0.3);
+            animation: contactGlow 3s ease-in-out infinite;
+            position: relative;
+            overflow: hidden;
+        }
+
+        @keyframes contactGlow {
+            0%, 100% {
+                box-shadow:
+                    0 4px 20px rgba(10, 52, 96, 0.3),
+                    0 0 20px rgba(242, 199, 68, 0.1),
+                    inset 0 0 20px rgba(242, 199, 68, 0.05);
+                border-color: var(--border-color);
+            }
+            50% {
+                box-shadow:
+                    0 4px 30px rgba(10, 52, 96, 0.4),
+                    0 0 40px rgba(242, 199, 68, 0.4),
+                    inset 0 0 30px rgba(242, 199, 68, 0.15);
+                border-color: rgba(242, 199, 68, 0.5);
+            }
+        }
+
+        .contact-toggle::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                45deg,
+                transparent 30%,
+                rgba(242, 199, 68, 0.1) 50%,
+                transparent 70%
+            );
+            animation: shine 4s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes shine {
+            0% {
+                transform: translateX(-100%) translateY(-100%) rotate(45deg);
+            }
+            100% {
+                transform: translateX(100%) translateY(100%) rotate(45deg);
+            }
+        }
+
+        .contact-toggle:hover {
+            background: linear-gradient(135deg, var(--brand-blue) 0%, var(--brand-blue-dark) 100%);
+            border-color: var(--brand-gold);
+            box-shadow: 0 6px 30px rgba(242, 199, 68, 0.5);
+            transform: translateY(-2px);
+            animation: none;
+        }
+
+        .contact-toggle:hover::before {
+            animation: none;
+        }
+
+        .contact-toggle-content {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex: 1;
+        }
+
+        .contact-toggle-icon {
+            font-size: 2.5em;
+            line-height: 1;
+        }
+
+        .contact-toggle-text h3 {
+            color: var(--brand-gold);
+            font-size: 1.4em;
+            margin: 0 0 5px 0;
+            font-weight: 700;
+        }
+
+        .contact-toggle-text p {
+            color: var(--text-secondary);
+            margin: 0;
+            font-size: 0.95em;
+        }
+
+        /* ANIMATION D'ICÔNES */
+        .contact-toggle-icons-animated {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-left: auto;
+            margin-right: 20px;
+        }
+
+        .animated-icon {
+            font-size: 2rem;
+            opacity: 0;
+            transform: translateX(-28px);
+            animation: slideInOutLoop 7s ease-in-out infinite;
+        }
+
+        .animated-icon.money-hand {
+            font-size: 2.5rem;
+            animation: slideInOutLoop 7s ease-in-out infinite, pulseMoney 2s ease-in-out 1.5s infinite;
+        }
+
+        @keyframes slideInOutLoop {
+            0% {
+                opacity: 0;
+                transform: translateX(-28px);
+            }
+            10% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+            70% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+            80% {
+                opacity: 0;
+                transform: translateX(-28px);
+            }
+            100% {
+                opacity: 0;
+                transform: translateX(-28px);
+            }
+        }
+
+        @keyframes pulseMoney {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.35);
+            }
+        }
+
+        .contact-toggle-arrow {
+            color: var(--brand-gold);
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .notes {
+            background: var(--bg-card);
+            border: 2px solid var(--border-color);
+            border-left: 4px solid var(--brand-gold);
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        .notes h2 {
+            color: var(--brand-gold);
+            font-size: 1.2em;
+            margin-top: 0;
+        }
+
+        .notes ul {
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        .notes li {
+            margin-bottom: 8px;
+        }
+
+        .notes code {
+            background: var(--bg-elevated);
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--brand-gold-light);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎬 Bannière Contact avec Animation d'Icônes</h1>
+        <p class="archive-info">
+            Archive créée le 6 janvier 2026 - Version avec icônes animées<br>
+            <em>Cette version a été remplacée suite aux retours utilisateur</em>
+        </p>
+
+        <!-- BANNIÈRE CONTACT ANIMÉE -->
+        <div class="contact-section">
+            <div class="contact-toggle">
+                <div class="contact-toggle-content">
+                    <div class="contact-toggle-icon">💼</div>
+                    <div class="contact-toggle-text">
+                        <h3>Envie d'immobilier rentable clé en main ?</h3>
+                        <p>Cliquez ici pour être recontacté par notre équipe</p>
+                    </div>
+                </div>
+                <div class="contact-toggle-icons-animated">
+                    <div class="animated-icon" style="animation-delay: 0s;">🏢</div>
+                    <div class="animated-icon" style="animation-delay: 0.3s;">🏡</div>
+                    <div class="animated-icon" style="animation-delay: 0.6s;">🏘️</div>
+                    <div class="animated-icon" style="animation-delay: 0.9s;">🏪</div>
+                    <div class="animated-icon money-hand" style="animation-delay: 1.2s;">💸</div>
+                </div>
+                <div class="contact-toggle-arrow">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <!-- NOTES TECHNIQUES -->
+        <div class="notes">
+            <h2>📝 Notes Techniques</h2>
+            <ul>
+                <li><strong>Animation séquentielle :</strong> Chaque icône apparaît avec un délai de 0.3s (0s, 0.3s, 0.6s, 0.9s, 1.2s)</li>
+                <li><strong>Cycle complet :</strong> 7 secondes (apparition, affichage, disparition, pause)</li>
+                <li><strong>Glissement :</strong> 28px (≈ 3/4 cm) de gauche à droite avec fade-in</li>
+                <li><strong>Icône spéciale :</strong> 💸 (main avec billets) pulse à 135% de sa taille</li>
+                <li><strong>Responsive :</strong> Masqué sur mobile (<768px) pour économiser l'espace</li>
+                <li><strong>Effet de lueur :</strong> Animation <code>contactGlow</code> sur la bordure (3s cycle)</li>
+                <li><strong>Effet de brillance :</strong> Animation <code>shine</code> qui traverse le bandeau (4s cycle)</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

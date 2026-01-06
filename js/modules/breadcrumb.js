@@ -59,6 +59,7 @@
 
         /**
          * Show only the Home button (for landing page)
+         * Note: Home button stays clickable to allow page reload
          */
         showHomeOnly() {
             if (!this.breadcrumbEl || !this.currentTopicEl || !this.separatorEl) {
@@ -70,8 +71,9 @@
             this.breadcrumbEl.classList.remove('hidden');
             this.separatorEl.classList.add('hidden');
             this.currentTopicEl.classList.add('hidden');
-            this.homeBtn.classList.add('disabled');
-            console.log('Breadcrumb showing home only');
+            // Keep home button clickable (removed disabled class)
+            this.homeBtn.classList.remove('disabled');
+            console.log('Breadcrumb showing home only (clickable)');
         },
 
         /**
