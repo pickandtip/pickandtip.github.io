@@ -27,7 +27,7 @@
                 fetch(CONFIG.getApiUrl(CONFIG.ENDPOINTS.propertyTaxes)).then(res => res.json())
             ]);
 
-            countries = countriesData;
+            countries = countriesData.results || countriesData;
             lastUpdated = propertyTaxesData.lastUpdated || '2024-12';
             propertyTaxes = propertyTaxesData.countries || propertyTaxesData;
 
@@ -40,7 +40,10 @@
                 }
                 return {
                     ...tax,
-                    country: country.name,
+                    country: {
+                        fr: country.nameFr,
+                        en: country.nameEn
+                    },
                     flag: country.flag,
                     region: country.region
                 };

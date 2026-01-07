@@ -48,7 +48,7 @@
                 fetch(CONFIG.getApiUrl(CONFIG.ENDPOINTS.vacationRentalHotspots)).then(res => res.json())
             ]);
 
-            countries = countriesData;
+            countries = countriesData.results || countriesData;
             hotspotsData = hotspotsJsonData.cities || hotspotsJsonData;
 
             // Merge with country data
@@ -60,7 +60,10 @@
                 }
                 return {
                     ...city,
-                    countryName: country.name,
+                    countryName: {
+                        fr: country.nameFr,
+                        en: country.nameEn
+                    },
                     flag: country.flag,
                     regionName: country.region
                 };

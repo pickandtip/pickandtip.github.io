@@ -799,16 +799,18 @@ class ContactFormModule {
     const nameInput = document.getElementById('contact-name');
     const errorSpan = document.getElementById('name-error');
 
-    if (!nameInput || !errorSpan) return false;
+    if (!nameInput || !errorSpan) return true;
 
     const name = nameInput.value.trim();
 
+    // If empty, return true since name is optional
     if (!name) {
-      errorSpan.textContent = window.translations?.contactForm?.fields?.name?.errors?.required || 'Name is required';
-      nameInput.classList.add('error');
-      return false;
+      errorSpan.textContent = '';
+      nameInput.classList.remove('error');
+      return true;
     }
 
+    // Only validate format if a value is provided
     if (name.length < 2) {
       errorSpan.textContent = window.translations?.contactForm?.fields?.name?.errors?.minLength || 'Name must be at least 2 characters';
       nameInput.classList.add('error');

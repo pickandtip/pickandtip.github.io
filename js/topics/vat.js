@@ -35,7 +35,7 @@
                 fetch(CONFIG.getApiUrl(CONFIG.ENDPOINTS.vat)).then(res => res.json())
             ]);
 
-            countries = countriesData;
+            countries = countriesData.results || countriesData;
             lastUpdated = vatRatesData.lastUpdated || '2025-01';
             vatRates = vatRatesData.countries || vatRatesData;
 
@@ -48,7 +48,10 @@
                 }
                 return {
                     ...vat,
-                    countryName: country.name,
+                    countryName: {
+                        fr: country.nameFr,
+                        en: country.nameEn
+                    },
                     flag: country.flag,
                     region: country.region
                 };

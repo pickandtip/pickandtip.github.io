@@ -37,7 +37,7 @@
                 fetch(CONFIG.getApiUrl(CONFIG.ENDPOINTS.vacationRentalBusiness)).then(res => res.json())
             ]);
 
-            countries = countriesData;
+            countries = countriesData.results || countriesData;
             rentalData = rentalBusinessData.countries || rentalBusinessData;
 
             // Merge with country data
@@ -49,7 +49,10 @@
                 }
                 return {
                     ...rental,
-                    countryName: country.name,
+                    countryName: {
+                        fr: country.nameFr,
+                        en: country.nameEn
+                    },
                     flag: country.flag,
                     region: country.region
                 };

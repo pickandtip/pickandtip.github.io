@@ -217,12 +217,17 @@
             applyTranslations();
 
             // Inject contact form if container exists
-            const contactFormContainer = document.getElementById('contact-form-container');
-            if (contactFormContainer && window.ContactFormModule) {
-                contactFormContainer.innerHTML = window.ContactFormModule.getHTML();
-                // Apply translations to contact form
-                applyTokensToDOM(contactFormContainer);
-                window.ContactFormModule.init();
+            try {
+                const contactFormContainer = document.getElementById('contact-form-container');
+                if (contactFormContainer && window.ContactFormModule) {
+                    contactFormContainer.innerHTML = window.ContactFormModule.getHTML();
+                    // Apply translations to contact form
+                    applyTokensToDOM(contactFormContainer);
+                    window.ContactFormModule.init();
+                }
+            } catch (contactFormError) {
+                console.error('Error initializing contact form:', contactFormError);
+                // Don't block page loading if contact form fails
             }
 
             // Update breadcrumb AFTER translations are applied
