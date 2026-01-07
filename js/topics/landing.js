@@ -21,7 +21,8 @@
             // Fetch total number of countries from reference database
             const countriesResponse = await fetch(CONFIG.getApiUrl(CONFIG.ENDPOINTS.countries));
             const countriesData = await countriesResponse.json();
-            totalCountries = countriesData.length;
+            const countries = countriesData.results || countriesData;
+            totalCountries = countries.length;
 
             // Fetch data for each topic
             const [propertyTaxesData, vatData, vacationRentalBusinessData] = await Promise.all([
