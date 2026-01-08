@@ -838,13 +838,13 @@ class ContactFormModule {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     if (!email) {
-      errorSpan.textContent = window.translations?.contactForm?.fields?.email?.errors?.required || 'Email is required';
+      errorSpan.textContent = window.translations[window.currentLang]?.contactForm?.fields?.email?.errors?.required || 'Email is required';
       emailInput.classList.add('error');
       return false;
     }
 
     if (!emailRegex.test(email)) {
-      errorSpan.textContent = window.translations?.contactForm?.fields?.email?.errors?.invalid || 'Please enter a valid email';
+      errorSpan.textContent = window.translations[window.currentLang]?.contactForm?.fields?.email?.errors?.invalid || 'Please enter a valid email';
       emailInput.classList.add('error');
       return false;
     }
@@ -874,7 +874,7 @@ class ContactFormModule {
 
     // Only validate format if a value is provided
     if (name.length < 2) {
-      errorSpan.textContent = window.translations?.contactForm?.fields?.name?.errors?.minLength || 'Name must be at least 2 characters';
+      errorSpan.textContent = window.translations[window.currentLang]?.contactForm?.fields?.name?.errors?.minLength || 'Name must be at least 2 characters';
       nameInput.classList.add('error');
       return false;
     }
@@ -918,7 +918,7 @@ class ContactFormModule {
 
     if (!emailValid || !nameValid || !managementTypeValid) {
       this.showFeedback(
-        window.translations?.contactForm?.feedback?.fixErrors || 'Please fix the errors in the form.',
+        window.translations[window.currentLang]?.contactForm?.feedback?.fixErrors || 'Please fix the errors in the form.',
         'error'
       );
       return;
@@ -976,13 +976,13 @@ class ContactFormModule {
 
         // Afficher le toast de succès
         this.showToast(
-          window.translations?.contactForm?.feedback?.success || '✅ Perfect! We\'ve sent you a confirmation email. Check your inbox and click on the confirmation link to finalize your request.',
+          window.translations[window.currentLang]?.contactForm?.feedback?.success || '✅ Perfect! We\'ve sent you a confirmation email. Check your inbox and click on the confirmation link to finalize your request.',
           'success'
         );
 
       } else {
         // Erreur du backend
-        const errorMsg = window.translations?.contactForm?.feedback?.errorGeneric || 'An error occurred. Please try again.';
+        const errorMsg = window.translations[window.currentLang]?.contactForm?.feedback?.errorGeneric || 'An error occurred. Please try again.';
         this.showFeedback(
           `❌ ${result.error || errorMsg}`,
           'error'
@@ -992,7 +992,7 @@ class ContactFormModule {
     } catch (error) {
       console.error('Erreur lors de l\'envoi:', error);
       this.showFeedback(
-        window.translations?.contactForm?.feedback?.errorNetwork || '❌ Unable to contact the server. Check your connection and try again.',
+        window.translations[window.currentLang]?.contactForm?.feedback?.errorNetwork || '❌ Unable to contact the server. Check your connection and try again.',
         'error'
       );
     } finally {
