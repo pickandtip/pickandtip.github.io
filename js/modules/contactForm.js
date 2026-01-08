@@ -764,6 +764,68 @@ class ContactFormModule {
   }
 
   /**
+   * Ferme le formulaire (utilisé après soumission réussie)
+   */
+  closeForm() {
+    const wrapper = document.getElementById('contact-form-wrapper');
+    const toggle = document.getElementById('contact-toggle');
+    const arrow = toggle?.querySelector('.contact-toggle-arrow');
+
+    if (!wrapper) return;
+
+    // Fermer
+    wrapper.style.display = 'none';
+    toggle?.classList.remove('active');
+    if (arrow) arrow.style.transform = 'rotate(0deg)';
+  }
+
+  /**
+   * Affiche un message toast sous le bandeau de contact
+   */
+  showToast(message, type = 'success') {
+    // Supprimer tout toast existant
+    const existingToast = document.getElementById('contact-toast');
+    if (existingToast) {
+      existingToast.remove();
+    }
+
+    // Créer le toast
+    const toast = document.createElement('div');
+    toast.id = 'contact-toast';
+    toast.className = `contact-toast contact-toast-${type}`;
+    toast.textContent = message;
+
+    // Insérer après le toggle du formulaire
+    const contactSection = document.getElementById('contact-section');
+    if (contactSection) {
+      const toggle = document.getElementById('contact-toggle');
+      if (toggle && toggle.nextSibling) {
+        contactSection.insertBefore(toast, toggle.nextSibling);
+      } else {
+        contactSection.appendChild(toast);
+      }
+    }
+
+    // Animation d'apparition
+    setTimeout(() => {
+      toast.classList.add('show');
+    }, 10);
+
+    // Scroll vers le toast
+    setTimeout(() => {
+      toast.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }, 300);
+
+    // Auto-hide après 8 secondes
+    setTimeout(() => {
+      toast.classList.remove('show');
+      setTimeout(() => {
+        toast.remove();
+      }, 300);
+    }, 8000);
+  }
+
+  /**
    * Valide l'email
    */
   validateEmail() {
@@ -898,11 +960,7 @@ class ContactFormModule {
       const result = await response.json();
 
       if (response.ok && result.success) {
-        // Succès
-        this.showFeedback(
-          window.translations?.contactForm?.feedback?.success || '✅ Perfect! We\'ve sent you a confirmation email. Check your inbox and click on the confirmation link to finalize your request.',
-          'success'
-        );
+        // Succès - Fermer le formulaire et afficher un toast
 
         // Réinitialiser le formulaire
         document.getElementById('contact-form').reset();
@@ -910,8 +968,17 @@ class ContactFormModule {
         // Réinitialiser les boutons de type de propriété
         document.querySelectorAll('.property-type-btn').forEach(btn => btn.classList.remove('selected'));
 
-        // Scroll vers le message
-        document.getElementById('contact-feedback').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        // Revenir à l'étape 1
+        this.goToStep(1);
+
+        // Fermer le formulaire
+        this.closeForm();
+
+        // Afficher le toast de succès
+        this.showToast(
+          window.translations?.contactForm?.feedback?.success || '✅ Perfect! We\'ve sent you a confirmation email. Check your inbox and click on the confirmation link to finalize your request.',
+          'success'
+        );
 
       } else {
         // Erreur du backend
