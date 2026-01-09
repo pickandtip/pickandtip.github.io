@@ -975,10 +975,8 @@ class ContactFormModule {
         this.closeForm();
 
         // Afficher le toast de succès
-        this.showToast(
-          window.translations[window.currentLang]?.contactForm?.feedback?.success || '✅ Perfect! We\'ve sent you a confirmation email. Check your inbox and click on the confirmation link to finalize your request.',
-          'success'
-        );
+        const successMessage = window.translations?.[window.currentLang]?.contactForm?.feedback?.success || '✅ Perfect! We\'ve sent you a confirmation email. Check your inbox and click on the confirmation link to finalize your request.';
+        this.showToast(successMessage, 'success');
 
       } else {
         // Erreur du backend
