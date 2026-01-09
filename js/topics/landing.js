@@ -8,10 +8,34 @@
     let totalCountries = 0;
 
     /**
+     * Randomize thinking bubble animation order
+     */
+    function randomizeThinkingBubbles() {
+        const bubbles = document.querySelectorAll('.topic-thinking-bubble');
+
+        // Keep regular intervals (0s, 7s, 14s, 21s, etc.) but shuffle the order
+        const delays = Array.from({ length: bubbles.length }, (_, i) => i * 7);
+
+        // Shuffle delays array (Fisher-Yates algorithm)
+        for (let i = delays.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [delays[i], delays[j]] = [delays[j], delays[i]];
+        }
+
+        // Apply shuffled delays to each bubble
+        bubbles.forEach((bubble, index) => {
+            bubble.style.setProperty('--animation-delay', `${delays[index]}s`);
+        });
+    }
+
+    /**
      * Initialize landing page with dynamic statistics
      */
     async function initLanding() {
         try {
+            // Randomize thinking bubble animations
+            randomizeThinkingBubbles();
+
             // Initialize concept banner
             initConceptBanner();
 
