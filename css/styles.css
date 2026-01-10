@@ -648,12 +648,17 @@ tr:last-child td {
     color: #f59e0b;
 }
 
+.foreign-moderate {
+    background: rgba(251, 146, 60, 0.25);
+    color: #fb923c;
+}
+
 .foreign-high {
     background: rgba(251, 113, 36, 0.25);
     color: #f97316;
 }
 
-.foreign-nationalsOnly {
+.foreign-prohibited {
     background: rgba(248, 113, 113, 0.25);
     color: #ef4444;
 }
