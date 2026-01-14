@@ -481,13 +481,14 @@ select:focus {
     background: var(--bg-card);
     border: 1px solid var(--border-color);
     border-radius: 16px;
-    overflow: hidden;
+    overflow: visible; /* Changed from hidden to allow tooltips to overflow */
 }
 
 .table-scroll {
     overflow-x: auto;
     max-height: calc(100vh - 400px);
     overflow-y: scroll; /* Force scrollbar to always be visible */
+    border-radius: 16px; /* Maintain rounded corners */
 }
 
 /* Custom scrollbar styling for better visibility */
@@ -2045,13 +2046,9 @@ tr {
 }
 
 .smart-tooltip-icon.locked .custom-tooltip {
-    display: block !important;
-    opacity: 1 !important;
     background: #0F2744 !important;
-    visibility: visible !important;
     pointer-events: auto !important;
     z-index: 99999 !important;
-    transition: none !important;
 }
 
 .smart-tooltip-icon.locked .custom-tooltip::after {
@@ -2157,11 +2154,9 @@ tr {
 
 /* Custom tooltip */
 .custom-tooltip {
-    display: none;
-    position: absolute;
-    left: calc(100% + 0.75rem);
-    top: 50%;
-    transform: translateY(-50%);
+    position: fixed;
+    left: -9999px;
+    top: -9999px;
     background: #0F2744;
     color: var(--text-primary);
     padding: 0.6rem 1rem;
@@ -2169,11 +2164,11 @@ tr {
     font-size: 0.85rem;
     font-weight: 500;
     white-space: normal; /* Allow text wrapping for better readability */
-    z-index: 99998;
+    z-index: 999999;
+    display: none;
     visibility: hidden;
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.2s ease, visibility 0.2s ease;
     border: 1px solid var(--brand-gold);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
     max-width: 600px; /* Wider tooltips to avoid excessive height (1cm ≈ 38px added) */
@@ -2202,32 +2197,9 @@ tr {
     border-right-color: #0F2744;
 }
 
-/* Profitability tooltip positioned to the left */
-.profitability-tooltip {
-    left: auto;
-    right: calc(100% + 0.75rem);
-}
 
-.profitability-tooltip::before {
-    right: auto;
-    left: 100%;
-    border-right-color: transparent;
-    border-left-color: var(--brand-gold);
-}
-
-.profitability-tooltip::after {
-    right: auto;
-    left: 100%;
-    margin-right: 0;
-    margin-left: 1px;
-    border-right-color: transparent;
-    border-left-color: #0F2744;
-}
-
-.info-icon.active .custom-tooltip {
-    display: block;
-    visibility: visible;
-    opacity: 1;
+.info-icon.active .custom-tooltip,
+.smart-tooltip-icon.active .custom-tooltip {
     pointer-events: auto;
     background: #0F2744;
 }
@@ -2303,24 +2275,14 @@ tr {
     z-index: 99999;
 }
 
-/* Show smart tooltips when active */
-.smart-tooltip-icon.active .custom-tooltip {
-    display: block !important;
-    opacity: 1 !important;
-    background: #0F2744 !important;
-    visibility: visible !important;
-    pointer-events: auto !important;
-}
 
 /* Horizontal positioning - LEFT */
-.custom-tooltip.tooltip-left {
-    left: auto;
-    right: calc(100% + 0.75rem);
-}
-
+/* Arrow points to the right (towards the icon) */
 .custom-tooltip.tooltip-left::before {
     right: auto;
     left: 100%;
+    top: 50%;
+    transform: translateY(-50%);
     border-right-color: transparent;
     border-left-color: var(--brand-gold);
 }
@@ -2328,6 +2290,8 @@ tr {
 .custom-tooltip.tooltip-left::after {
     right: auto;
     left: 100%;
+    top: 50%;
+    transform: translateY(-50%);
     margin-right: 0;
     margin-left: 1px;
     border-right-color: transparent;
@@ -2335,14 +2299,12 @@ tr {
 }
 
 /* Horizontal positioning - RIGHT (default) */
-.custom-tooltip.tooltip-right {
-    left: calc(100% + 0.75rem);
-    right: auto;
-}
-
+/* Arrow points to the left (towards the icon) */
 .custom-tooltip.tooltip-right::before {
     right: 100%;
     left: auto;
+    top: 50%;
+    transform: translateY(-50%);
     border-right-color: var(--brand-gold);
     border-left-color: transparent;
 }
@@ -2350,6 +2312,8 @@ tr {
 .custom-tooltip.tooltip-right::after {
     right: 100%;
     left: auto;
+    top: 50%;
+    transform: translateY(-50%);
     margin-right: 1px;
     margin-left: 0;
     border-right-color: #0F2744;
@@ -2357,11 +2321,7 @@ tr {
 }
 
 /* Vertical positioning - TOP aligned */
-.custom-tooltip.tooltip-top {
-    top: -8px;
-    transform: translateY(0);
-}
-
+/* Adjust arrow position when tooltip is top-aligned */
 .custom-tooltip.tooltip-top::before {
     top: 16px;
     transform: translateY(0);
@@ -2373,12 +2333,7 @@ tr {
 }
 
 /* Vertical positioning - BOTTOM aligned */
-.custom-tooltip.tooltip-bottom {
-    top: auto;
-    bottom: -8px;
-    transform: translateY(0);
-}
-
+/* Adjust arrow position when tooltip is bottom-aligned */
 .custom-tooltip.tooltip-bottom::before {
     top: auto;
     bottom: 16px;
@@ -2391,39 +2346,6 @@ tr {
     transform: translateY(0);
 }
 
-/* Legacy profitability tooltip positioning (deprecated - use smart system) */
-.profitability-tooltip.tooltip-top {
-    top: -8px;
-    transform: translateY(0);
-}
-
-.profitability-tooltip.tooltip-top::before {
-    top: 16px;
-    transform: translateY(0);
-}
-
-.profitability-tooltip.tooltip-top::after {
-    top: 16px;
-    transform: translateY(0);
-}
-
-.profitability-tooltip.tooltip-bottom {
-    top: auto;
-    bottom: -8px;
-    transform: translateY(0);
-}
-
-.profitability-tooltip.tooltip-bottom::before {
-    top: auto;
-    bottom: 16px;
-    transform: translateY(0);
-}
-
-.profitability-tooltip.tooltip-bottom::after {
-    top: auto;
-    bottom: 16px;
-    transform: translateY(0);
-}
 
 .profitability-tooltip-content {
     line-height: 1.6;

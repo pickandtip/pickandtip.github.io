@@ -63,50 +63,115 @@ window.TooltipModule = (function() {
     }
 
     /**
+     * Hide a tooltip by resetting its visibility
+     * @param {HTMLElement} icon - The icon element containing the tooltip
+     */
+    function hideTooltip(icon) {
+        if (!icon) return;
+
+        // Try to get tooltip from icon's reference first (when moved to body)
+        const tooltip = icon._tooltip || icon.querySelector('.custom-tooltip');
+        if (!tooltip) return;
+
+        tooltip.style.display = 'none';
+        tooltip.style.visibility = 'hidden';
+        tooltip.style.opacity = '0';
+        tooltip.style.left = '-9999px';
+        tooltip.style.top = '-9999px';
+    }
+
+    /**
      * Adjust tooltip position based on viewport and container boundaries
      * @param {HTMLElement} icon - The icon element containing the tooltip
      */
     function setupSmartTooltip(icon) {
         if (!icon) return;
 
-        const tooltip = icon.querySelector('.custom-tooltip');
+        // Try to get tooltip from icon's reference first (when moved to body)
+        let tooltip = icon._tooltip || icon.querySelector('.custom-tooltip');
         if (!tooltip) return;
 
-        const preferredPosition = icon.getAttribute('data-position') || 'right';
+        // Store reference on the icon so we can find it later
+        if (!icon._tooltip) {
+            icon._tooltip = tooltip;
+        }
 
-        // Wait for tooltip to be displayed to get accurate dimensions
-        setTimeout(() => {
-            const iconRect = icon.getBoundingClientRect();
+        const preferredPosition = icon.getAttribute('data-position') || 'right';
+        const iconRect = icon.getBoundingClientRect();
+        const spacing = 12; // 0.75rem = 12px
+
+        // Move tooltip to body to escape any overflow clipping
+        // Store original parent so we can put it back later if needed
+        if (!tooltip.dataset.originalParent) {
+            tooltip.dataset.originalParent = 'stored';
+            tooltip._originalParent = tooltip.parentNode;
+        }
+
+        if (tooltip.parentNode !== document.body) {
+            document.body.appendChild(tooltip);
+        }
+
+        // First, position tooltip near the icon but invisible to measure it
+        tooltip.style.display = 'block';
+        tooltip.style.visibility = 'hidden';
+        tooltip.style.opacity = '0';
+        tooltip.style.left = `${iconRect.right + spacing}px`;
+        tooltip.style.top = `${iconRect.top}px`;
+
+        // Wait for the browser to render and get accurate dimensions
+        requestAnimationFrame(() => {
             const tooltipRect = tooltip.getBoundingClientRect();
             const viewportHeight = window.innerHeight;
             const viewportWidth = window.innerWidth;
-            const tableScrollContainer = document.querySelector('.table-scroll');
-            const containerTop = tableScrollContainer ? tableScrollContainer.getBoundingClientRect().top : 0;
-            const containerBottom = tableScrollContainer ? tableScrollContainer.getBoundingClientRect().bottom : viewportHeight;
 
             // Remove any previous positioning classes
             tooltip.classList.remove('tooltip-top', 'tooltip-bottom', 'tooltip-left', 'tooltip-right');
 
+            // Calculate base positions using fixed positioning
+            let tooltipLeft, tooltipTop;
+
             // Horizontal positioning
             if (preferredPosition === 'left') {
                 tooltip.classList.add('tooltip-left');
+                tooltipLeft = iconRect.left - tooltipRect.width - spacing;
             } else {
                 tooltip.classList.add('tooltip-right');
+                tooltipLeft = iconRect.right + spacing;
             }
 
-            // Vertical positioning - calculate where the tooltip would be if centered
-            const tooltipCenterTop = iconRect.top + iconRect.height / 2 - tooltipRect.height / 2;
-            const tooltipCenterBottom = tooltipCenterTop + tooltipRect.height;
+            // Vertical positioning - try to center on icon
+            tooltipTop = iconRect.top + (iconRect.height / 2) - (tooltipRect.height / 2);
 
             // Check if tooltip would overflow at the top
-            if (tooltipCenterTop < containerTop) {
+            if (tooltipTop < 10) {
                 tooltip.classList.add('tooltip-top');
+                tooltipTop = 10; // 10px from top
             }
             // Check if tooltip would overflow at the bottom
-            else if (tooltipCenterBottom > Math.min(viewportHeight, containerBottom)) {
+            else if (tooltipTop + tooltipRect.height > viewportHeight - 10) {
                 tooltip.classList.add('tooltip-bottom');
+                tooltipTop = viewportHeight - tooltipRect.height - 10; // 10px from bottom
             }
-        }, 10);
+
+            // Check horizontal overflow and flip if needed
+            if (tooltipLeft < 10) {
+                // Would overflow left, flip to right
+                tooltip.classList.remove('tooltip-left');
+                tooltip.classList.add('tooltip-right');
+                tooltipLeft = iconRect.right + spacing;
+            } else if (tooltipLeft + tooltipRect.width > viewportWidth - 10) {
+                // Would overflow right, flip to left
+                tooltip.classList.remove('tooltip-right');
+                tooltip.classList.add('tooltip-left');
+                tooltipLeft = iconRect.left - tooltipRect.width - spacing;
+            }
+
+            // Apply the calculated positions and make visible
+            tooltip.style.left = `${tooltipLeft}px`;
+            tooltip.style.top = `${tooltipTop}px`;
+            tooltip.style.visibility = 'visible';
+            tooltip.style.opacity = '1';
+        });
     }
 
     /**
@@ -142,7 +207,11 @@ window.TooltipModule = (function() {
                         this.title = 'Déverrouiller le tooltip';
                         // Ensure tooltip stays open
                         icon.classList.add('active');
+                        setupSmartTooltip(icon);
                     }
+
+                    // Update unlock button count
+                    updateUnlockButton();
                 });
             }
 
@@ -150,20 +219,24 @@ window.TooltipModule = (function() {
             icon.addEventListener('click', function(e) {
                 e.stopPropagation();
                 // Close all other tooltips (except locked ones)
-                document.querySelectorAll('.info-icon.active').forEach(otherIcon => {
+                document.querySelectorAll('.info-icon.active, .smart-tooltip-icon.active').forEach(otherIcon => {
                     if (otherIcon !== this && !otherIcon.classList.contains('locked')) {
                         otherIcon.classList.remove('active');
+                        hideTooltip(otherIcon);
                     }
                 });
                 // Toggle this tooltip (only if not locked)
                 if (!this.classList.contains('locked')) {
+                    const wasActive = this.classList.contains('active');
                     this.classList.toggle('active');
+
+                    if (this.classList.contains('active')) {
+                        setupSmartTooltip(this);
+                    } else {
+                        hideTooltip(this);
+                    }
                 } else {
                     this.classList.add('active');
-                }
-
-                // Adjust tooltip position if active
-                if (this.classList.contains('active')) {
                     setupSmartTooltip(this);
                 }
             });
@@ -173,6 +246,7 @@ window.TooltipModule = (function() {
                 if (!this.classList.contains('locked')) {
                     closeTimeout = setTimeout(() => {
                         this.classList.remove('active');
+                        hideTooltip(this);
                     }, 200);
                 }
             });
@@ -196,6 +270,7 @@ window.TooltipModule = (function() {
                 tooltip.addEventListener('mouseleave', function() {
                     if (!icon.classList.contains('locked')) {
                         icon.classList.remove('active');
+                        hideTooltip(icon);
                     } else {
                         // Keep active class when locked
                         icon.classList.add('active');
@@ -210,9 +285,10 @@ window.TooltipModule = (function() {
      * Typically called when clicking outside
      */
     function closeAllTooltips() {
-        document.querySelectorAll('.info-icon.active').forEach(icon => {
+        document.querySelectorAll('.info-icon.active, .smart-tooltip-icon.active').forEach(icon => {
             if (!icon.classList.contains('locked')) {
                 icon.classList.remove('active');
+                hideTooltip(icon);
             }
         });
     }
@@ -221,9 +297,10 @@ window.TooltipModule = (function() {
      * Unlock all locked tooltips
      */
     function unlockAllTooltips() {
-        document.querySelectorAll('.info-icon.locked').forEach(icon => {
+        document.querySelectorAll('.info-icon.locked, .smart-tooltip-icon.locked').forEach(icon => {
             icon.classList.remove('locked');
             icon.classList.remove('active');
+            hideTooltip(icon);
 
             // Update lock icon if present
             const lockIcon = icon.querySelector('.tooltip-lock-icon');
@@ -241,7 +318,7 @@ window.TooltipModule = (function() {
      * @returns {number} Number of locked tooltips
      */
     function getLockedTooltipsCount() {
-        return document.querySelectorAll('.info-icon.locked').length;
+        return document.querySelectorAll('.info-icon.locked, .smart-tooltip-icon.locked').length;
     }
 
     /**
@@ -294,6 +371,24 @@ window.TooltipModule = (function() {
                 }
             });
             window._tooltipEscapeListenerBound = true;
+        }
+
+        // Recalculate tooltip positions on scroll and resize
+        if (!window._tooltipScrollListenerBound) {
+            let scrollTimeout;
+            const recalculateActiveTooltips = () => {
+                clearTimeout(scrollTimeout);
+                scrollTimeout = setTimeout(() => {
+                    document.querySelectorAll('.info-icon.active, .smart-tooltip-icon.active').forEach(icon => {
+                        setupSmartTooltip(icon);
+                    });
+                }, 10);
+            };
+
+            // Listen to scroll on table-scroll containers
+            document.addEventListener('scroll', recalculateActiveTooltips, true);
+            window.addEventListener('resize', recalculateActiveTooltips);
+            window._tooltipScrollListenerBound = true;
         }
     }
 
@@ -356,20 +451,24 @@ window.TooltipModule = (function() {
             icon.addEventListener('click', function(e) {
                 e.stopPropagation();
                 // Close all other tooltips (except locked ones)
-                document.querySelectorAll('.info-icon.active').forEach(otherIcon => {
+                document.querySelectorAll('.info-icon.active, .smart-tooltip-icon.active').forEach(otherIcon => {
                     if (otherIcon !== this && !otherIcon.classList.contains('locked')) {
                         otherIcon.classList.remove('active');
+                        hideTooltip(otherIcon);
                     }
                 });
                 // Toggle this tooltip (only if not locked)
                 if (!this.classList.contains('locked')) {
+                    const wasActive = this.classList.contains('active');
                     this.classList.toggle('active');
+
+                    if (this.classList.contains('active')) {
+                        setupSmartTooltip(this);
+                    } else {
+                        hideTooltip(this);
+                    }
                 } else {
                     this.classList.add('active');
-                }
-
-                // Adjust tooltip position if active
-                if (this.classList.contains('active')) {
                     setupSmartTooltip(this);
                 }
             });
@@ -379,6 +478,7 @@ window.TooltipModule = (function() {
                 if (!this.classList.contains('locked')) {
                     closeTimeout = setTimeout(() => {
                         this.classList.remove('active');
+                        hideTooltip(this);
                     }, 200);
                 }
             });
@@ -402,6 +502,7 @@ window.TooltipModule = (function() {
                 tooltip.addEventListener('mouseleave', function() {
                     if (!icon.classList.contains('locked')) {
                         icon.classList.remove('active');
+                        hideTooltip(icon);
                     } else {
                         // Keep active class when locked
                         icon.classList.add('active');
