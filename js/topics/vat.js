@@ -9,7 +9,6 @@
     let countries = [];
     let vatRates = [];
     let vatData = [];
-    let lastUpdated = '';
     let currentSort = { column: 'country', direction: 'asc' };
     let currentVatRateFilter = 'all';
     let currentReducedRatesFilter = 'all';
@@ -36,7 +35,6 @@
             ]);
 
             countries = countriesData.results || countriesData;
-            lastUpdated = vatRatesData.lastUpdated || '2025-01';
             vatRates = vatRatesData.countries || vatRatesData;
 
             // Merge with country data
@@ -360,10 +358,6 @@
         document.getElementById('avgVatRate').textContent = `${avgVat}%`;
 
         document.getElementById('reducedRatesCount').textContent = vatData.filter(d => hasReducedRates(d.reducedRates)).length;
-
-        // Format and display last updated date (MM/YYYY format)
-        const [year, month] = lastUpdated.split('-');
-        document.getElementById('lastUpdated').textContent = `${month}/${year}`;
     }
 
     // ==========================================

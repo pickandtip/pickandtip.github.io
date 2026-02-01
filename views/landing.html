@@ -20,7 +20,6 @@
             <p class="topic-description">{{ landing.topics.propertyTaxes.description }}</p>
             <div class="topic-stats">
                 <span class="stat-badge">✓ {{ landing.topics.propertyTaxes.loading }}</span>
-                <span class="stat-badge">✓ {{ landing.topics.propertyTaxes.updated }}</span>
             </div>
             <button class="topic-cta">{{ landing.explore }}</button>
         </div>
@@ -36,7 +35,6 @@
             <p class="topic-description">{{ landing.topics.vat.description }}</p>
             <div class="topic-stats">
                 <span class="stat-badge">✓ {{ landing.topics.vat.loading }}</span>
-                <span class="stat-badge">✓ {{ landing.topics.vat.updated }}</span>
             </div>
             <button class="topic-cta">{{ landing.explore }}</button>
         </div>
@@ -52,7 +50,6 @@
             <p class="topic-description">{{ landing.topics.vacationRentalBusiness.description }}</p>
             <div class="topic-stats">
                 <span class="stat-badge">✓ {{ landing.topics.vacationRentalBusiness.loading }}</span>
-                <span class="stat-badge">✓ {{ landing.topics.vacationRentalBusiness.updated }}</span>
             </div>
             <button class="topic-cta">{{ landing.explore }}</button>
         </div>
@@ -68,7 +65,21 @@
             <p class="topic-description">{{ landing.topics.vacationRentalHotspots.description }}</p>
             <div class="topic-stats">
                 <span class="stat-badge">✓ 20 destinations</span>
-                <span class="stat-badge">✓ Mis à jour</span>
+            </div>
+            <button class="topic-cta">{{ landing.explore }}</button>
+        </div>
+
+        <!-- Parking Markets Card -->
+        <div class="topic-card available" onclick="window.navigateTo('parking-markets')">
+            <div class="topic-thinking-bubble" style="--animation-delay: 28s;">
+                <div class="thinking-emoji">🤔</div>
+                <div class="thinking-tooltip">{{ landing.topics.parkingMarkets.question }}</div>
+            </div>
+            <div class="topic-icon">🅿️</div>
+            <h2 class="topic-title">{{ landing.topics.parkingMarkets.title }}</h2>
+            <p class="topic-description">{{ landing.topics.parkingMarkets.description }}</p>
+            <div class="topic-stats">
+                <span class="stat-badge">✓ {{ landing.topics.parkingMarkets.loading }}</span>
             </div>
             <button class="topic-cta">{{ landing.explore }}</button>
         </div>

@@ -9,7 +9,6 @@
     let countries = [];
     let propertyTaxes = [];
     let taxData = [];
-    let lastUpdated = '';
     let currentSort = { column: 'country', direction: 'asc' };
     let currentPropertyTaxFilter = 'all';
     let currentTransferTaxFilter = 'all';
@@ -28,7 +27,6 @@
             ]);
 
             countries = countriesData.results || countriesData;
-            lastUpdated = propertyTaxesData.lastUpdated || '2024-12';
             propertyTaxes = propertyTaxesData.countries || propertyTaxesData;
 
             // Merge countries with property taxes
@@ -365,10 +363,6 @@
         document.getElementById('lowTaxCount').textContent = taxData.filter(d => d.propertyTaxValue > 0 && d.propertyTaxValue < 0.5).length;
         document.getElementById('noTransferTaxCount').textContent = taxData.filter(d => d.transferTaxValue === 0).length;
         document.getElementById('lowTransferTaxCount').textContent = taxData.filter(d => d.transferTaxValue > 0 && d.transferTaxValue < 2).length;
-
-        // Format and display last updated date (MM/YYYY format)
-        const [year, month] = lastUpdated.split('-');
-        document.getElementById('lastUpdated').textContent = `${month}/${year}`;
     }
 
     // ==========================================
