@@ -16,6 +16,10 @@ const CONFIG = {
         propertyTaxes: '/api/topics/property-taxes',
         vacationRentalBusiness: '/api/topics/vacation-rental-business',
         vacationRentalHotspots: '/api/topics/vacation-rental-hotspots',
+        parkingCommon: '/api/topics/parking-markets/common',
+        parkingGarage: '/api/topics/parking-markets/garage',
+        parkingIndoor: '/api/topics/parking-markets/indoor-space',
+        parkingOutdoor: '/api/topics/parking-markets/outdoor-space',
         i18n: {
             fr: '/api/i18n/fr',
             en: '/api/i18n/en'

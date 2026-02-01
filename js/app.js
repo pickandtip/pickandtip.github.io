@@ -182,7 +182,8 @@
         'property-taxes': 'property-taxes',
         'vat': 'vat',
         'vacation-rental-business': 'vacation-rental-business',
-        'vacation-rental-hotspots': 'vacation-rental-hotspots'
+        'vacation-rental-hotspots': 'vacation-rental-hotspots',
+        'parking-markets': 'parking-markets'
     };
 
     async function loadView(viewName) {

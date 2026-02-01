@@ -1,0 +1,336 @@
+<div class="topic-view" id="parking-markets-view">
+    <!-- Contact form will be inserted here (top position) -->
+    <div id="contact-form-container"></div>
+
+    <header>
+        <h1>{{ parkingMarkets.title }}</h1>
+        <div class="gold-line"></div>
+        <p class="subtitle">{{ parkingMarkets.subtitle }}</p>
+        <p class="info-note">{{ parkingMarkets.infoNote }}</p>
+    </header>
+
+    <!-- Tabs Navigation -->
+    <div class="tabs-container">
+        <div class="tabs-nav">
+            <button class="tab-btn active" data-tab="legal" aria-label="Legal & Taxation">
+                <span class="tab-icon">🏛️</span>
+                <span class="tab-label">{{ parkingMarkets.tabs.legal }}</span>
+            </button>
+            <button class="tab-btn" data-tab="garage" aria-label="Garage 20m²">
+                <span class="tab-icon">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" style="display: inline-block; vertical-align: middle;">
+                        <!-- Toit plat -->
+                        <rect x="2" y="2" width="16" height="2" fill="currentColor"/>
+                        <!-- Murs latéraux -->
+                        <rect x="2" y="4" width="2" height="14" fill="currentColor"/>
+                        <rect x="16" y="4" width="2" height="14" fill="currentColor"/>
+                        <!-- Porte de garage (avec lignes horizontales) -->
+                        <rect x="4" y="7" width="12" height="11" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                        <line x1="4" y1="10" x2="16" y2="10" stroke="currentColor" stroke-width="1"/>
+                        <line x1="4" y1="13" x2="16" y2="13" stroke="currentColor" stroke-width="1"/>
+                        <line x1="4" y1="16" x2="16" y2="16" stroke="currentColor" stroke-width="1"/>
+                    </svg>
+                </span>
+                <span class="tab-label">{{ parkingMarkets.tabs.garage }}</span>
+            </button>
+            <button class="tab-btn" data-tab="indoor" aria-label="Indoor Parking">
+                <span class="tab-icon">🅿️</span>
+                <span class="tab-label">{{ parkingMarkets.tabs.indoor }}</span>
+            </button>
+            <button class="tab-btn" data-tab="outdoor" aria-label="Outdoor Parking">
+                <span class="tab-icon">🌤️</span>
+                <span class="tab-label">{{ parkingMarkets.tabs.outdoor }}</span>
+            </button>
+        </div>
+
+        <!-- Tab 1: Legal & Taxation -->
+        <div class="tab-content active" id="tab-legal">
+            <!-- Statistics Section -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value" id="legal-countries-count">0</div>
+                    <div class="stat-label">{{ parkingMarkets.stats.countries }}</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="legal-unrestricted-count">0</div>
+                    <div class="stat-label">{{ parkingMarkets.stats.unrestricted }}</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="legal-avg-tax">0%</div>
+                    <div class="stat-label">{{ parkingMarkets.stats.avgTax }}</div>
+                </div>
+            </div>
+
+            <!-- Controls -->
+            <div class="controls">
+                <div class="controls-row">
+                    <div class="search-box">
+                        <input type="text" id="legal-search" placeholder="{{ parkingMarkets.search.placeholder }}">
+                    </div>
+                    <select id="legal-region-filter" aria-label="Filter by region">
+                        <option value="all">{{ filter.allRegions }}</option>
+                        <option value="europe">{{ filter.europe }}</option>
+                        <option value="america">{{ filter.america }}</option>
+                        <option value="asia">{{ filter.asia }}</option>
+                        <option value="middleEast">{{ filter.middleEast }}</option>
+                        <option value="africa">{{ filter.africa }}</option>
+                        <option value="oceania">{{ filter.oceania }}</option>
+                    </select>
+                    <select id="legal-access-filter" aria-label="Filter by foreign access">
+                        <option value="all">{{ parkingMarkets.filter.allAccess }}</option>
+                        <option value="unrestricted">{{ parkingMarkets.filter.unrestricted }}</option>
+                        <option value="restricted">{{ parkingMarkets.filter.restricted }}</option>
+                        <option value="prohibited">{{ parkingMarkets.filter.prohibited }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Table -->
+            <div class="table-container">
+                <div class="result-count">
+                    <strong id="legal-result-count">—</strong> <span>{{ parkingMarkets.results.displayed }}</span>
+                </div>
+                <div class="table-scroll">
+                    <table class="comparison-table" id="legal-table">
+                        <thead>
+                            <tr>
+                                <th data-sort="country">{{ table.country }}</th>
+                                <th data-sort="region">{{ table.region }}</th>
+                                <th data-sort="riskProfile">{{ parkingMarkets.table.riskProfile }}</th>
+                                <th data-sort="foreignAccess">{{ parkingMarkets.table.foreignAccess }}</th>
+                                <th data-sort="legalFramework">{{ parkingMarkets.table.legalFramework }}</th>
+                                <th data-sort="taxation">{{ parkingMarkets.table.taxation }}</th>
+                                <th data-sort="platforms">{{ parkingMarkets.table.platforms }}</th>
+                            </tr>
+                        </thead>
+                        <tbody id="legal-table-body">
+                            <!-- Rows will be inserted by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+                <div class="no-results hidden" id="legal-no-results">
+                    <div class="no-results-icon">🔍</div>
+                    <p>{{ parkingMarkets.results.none }}</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab 2: Garage (20m²) -->
+        <div class="tab-content" id="tab-garage">
+            <!-- Statistics Section -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value" id="garage-countries-count">0</div>
+                    <div class="stat-label">{{ parkingMarkets.stats.countries }}</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="garage-avg-yield">0%</div>
+                    <div class="stat-label">{{ parkingMarkets.stats.avgYield }}</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="garage-avg-price">$0</div>
+                    <div class="stat-label">{{ parkingMarkets.stats.avgPrice }}</div>
+                </div>
+            </div>
+
+            <!-- Controls -->
+            <div class="controls">
+                <div class="controls-row">
+                    <div class="search-box">
+                        <input type="text" id="garage-search" placeholder="{{ parkingMarkets.search.placeholder }}">
+                    </div>
+                    <select id="garage-region-filter" aria-label="Filter by region">
+                        <option value="all">{{ filter.allRegions }}</option>
+                        <option value="europe">{{ filter.europe }}</option>
+                        <option value="america">{{ filter.america }}</option>
+                        <option value="asia">{{ filter.asia }}</option>
+                        <option value="middleEast">{{ filter.middleEast }}</option>
+                        <option value="africa">{{ filter.africa }}</option>
+                        <option value="oceania">{{ filter.oceania }}</option>
+                    </select>
+                    <select id="garage-yield-filter" aria-label="Filter by yield">
+                        <option value="all">{{ parkingMarkets.filter.allYields }}</option>
+                        <option value="high">{{ parkingMarkets.filter.highYield }}</option>
+                        <option value="medium">{{ parkingMarkets.filter.mediumYield }}</option>
+                        <option value="low">{{ parkingMarkets.filter.lowYield }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Table -->
+            <div class="table-container">
+                <div class="result-count">
+                    <strong id="garage-result-count">—</strong> <span>{{ parkingMarkets.results.displayed }}</span>
+                </div>
+                <div class="table-scroll">
+                    <table class="comparison-table" id="garage-table">
+                        <thead>
+                            <tr>
+                                <th data-sort="country">{{ table.country }}</th>
+                                <th data-sort="region">{{ table.region }}</th>
+                                <th data-sort="priceRange">{{ parkingMarkets.table.priceRange }}</th>
+                                <th data-sort="longTermYield">{{ parkingMarkets.table.longTermYield }}</th>
+                                <th data-sort="shortTermYield">{{ parkingMarkets.table.shortTermYield }}</th>
+                                <th data-sort="liquidity">{{ parkingMarkets.table.liquidity }}</th>
+                            </tr>
+                        </thead>
+                        <tbody id="garage-table-body">
+                            <!-- Rows will be inserted by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+                <div class="no-results hidden" id="garage-no-results">
+                    <div class="no-results-icon">🔍</div>
+                    <p>{{ parkingMarkets.results.none }}</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab 3: Indoor Parking -->
+        <div class="tab-content" id="tab-indoor">
+            <!-- Statistics Section -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value" id="indoor-countries-count">0</div>
+                    <div class="stat-label">{{ parkingMarkets.stats.countries }}</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="indoor-avg-yield">0%</div>
+                    <div class="stat-label">{{ parkingMarkets.stats.avgYield }}</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="indoor-avg-price">$0</div>
+                    <div class="stat-label">{{ parkingMarkets.stats.avgPrice }}</div>
+                </div>
+            </div>
+
+            <!-- Controls -->
+            <div class="controls">
+                <div class="controls-row">
+                    <div class="search-box">
+                        <input type="text" id="indoor-search" placeholder="{{ parkingMarkets.search.placeholder }}">
+                    </div>
+                    <select id="indoor-region-filter" aria-label="Filter by region">
+                        <option value="all">{{ filter.allRegions }}</option>
+                        <option value="europe">{{ filter.europe }}</option>
+                        <option value="america">{{ filter.america }}</option>
+                        <option value="asia">{{ filter.asia }}</option>
+                        <option value="middleEast">{{ filter.middleEast }}</option>
+                        <option value="africa">{{ filter.africa }}</option>
+                        <option value="oceania">{{ filter.oceania }}</option>
+                    </select>
+                    <select id="indoor-yield-filter" aria-label="Filter by yield">
+                        <option value="all">{{ parkingMarkets.filter.allYields }}</option>
+                        <option value="high">{{ parkingMarkets.filter.highYield }}</option>
+                        <option value="medium">{{ parkingMarkets.filter.mediumYield }}</option>
+                        <option value="low">{{ parkingMarkets.filter.lowYield }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Table -->
+            <div class="table-container">
+                <div class="result-count">
+                    <strong id="indoor-result-count">—</strong> <span>{{ parkingMarkets.results.displayed }}</span>
+                </div>
+                <div class="table-scroll">
+                    <table class="comparison-table" id="indoor-table">
+                        <thead>
+                            <tr>
+                                <th data-sort="country">{{ table.country }}</th>
+                                <th data-sort="region">{{ table.region }}</th>
+                                <th data-sort="priceRange">{{ parkingMarkets.table.priceRange }}</th>
+                                <th data-sort="longTermYield">{{ parkingMarkets.table.longTermYield }}</th>
+                                <th data-sort="shortTermYield">{{ parkingMarkets.table.shortTermYield }}</th>
+                                <th data-sort="liquidity">{{ parkingMarkets.table.liquidity }}</th>
+                            </tr>
+                        </thead>
+                        <tbody id="indoor-table-body">
+                            <!-- Rows will be inserted by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+                <div class="no-results hidden" id="indoor-no-results">
+                    <div class="no-results-icon">🔍</div>
+                    <p>{{ parkingMarkets.results.none }}</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab 4: Outdoor Parking -->
+        <div class="tab-content" id="tab-outdoor">
+            <!-- Statistics Section -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value" id="outdoor-countries-count">0</div>
+                    <div class="stat-label">{{ parkingMarkets.stats.countries }}</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="outdoor-avg-yield">0%</div>
+                    <div class="stat-label">{{ parkingMarkets.stats.avgYield }}</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="outdoor-avg-price">$0</div>
+                    <div class="stat-label">{{ parkingMarkets.stats.avgPrice }}</div>
+                </div>
+            </div>
+
+            <!-- Controls -->
+            <div class="controls">
+                <div class="controls-row">
+                    <div class="search-box">
+                        <input type="text" id="outdoor-search" placeholder="{{ parkingMarkets.search.placeholder }}">
+                    </div>
+                    <select id="outdoor-region-filter" aria-label="Filter by region">
+                        <option value="all">{{ filter.allRegions }}</option>
+                        <option value="europe">{{ filter.europe }}</option>
+                        <option value="america">{{ filter.america }}</option>
+                        <option value="asia">{{ filter.asia }}</option>
+                        <option value="middleEast">{{ filter.middleEast }}</option>
+                        <option value="africa">{{ filter.africa }}</option>
+                        <option value="oceania">{{ filter.oceania }}</option>
+                    </select>
+                    <select id="outdoor-yield-filter" aria-label="Filter by yield">
+                        <option value="all">{{ parkingMarkets.filter.allYields }}</option>
+                        <option value="high">{{ parkingMarkets.filter.highYield }}</option>
+                        <option value="medium">{{ parkingMarkets.filter.mediumYield }}</option>
+                        <option value="low">{{ parkingMarkets.filter.lowYield }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Table -->
+            <div class="table-container">
+                <div class="result-count">
+                    <strong id="outdoor-result-count">—</strong> <span>{{ parkingMarkets.results.displayed }}</span>
+                </div>
+                <div class="table-scroll">
+                    <table class="comparison-table" id="outdoor-table">
+                        <thead>
+                            <tr>
+                                <th data-sort="country">{{ table.country }}</th>
+                                <th data-sort="region">{{ table.region }}</th>
+                                <th data-sort="priceRange">{{ parkingMarkets.table.priceRange }}</th>
+                                <th data-sort="longTermYield">{{ parkingMarkets.table.longTermYield }}</th>
+                                <th data-sort="shortTermYield">{{ parkingMarkets.table.shortTermYield }}</th>
+                                <th data-sort="liquidity">{{ parkingMarkets.table.liquidity }}</th>
+                            </tr>
+                        </thead>
+                        <tbody id="outdoor-table-body">
+                            <!-- Rows will be inserted by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+                <div class="no-results hidden" id="outdoor-no-results">
+                    <div class="no-results-icon">🔍</div>
+                    <p>{{ parkingMarkets.results.none }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="disclaimer">
+        <div class="disclaimer-title">⚠️ <span>{{ disclaimer.title }}</span></div>
+        <p>{{ parkingMarkets.disclaimer.text }}</p>
+    </div>
+</div>
