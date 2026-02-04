@@ -49,16 +49,18 @@
             totalCountries = countries.length;
 
             // Fetch data for each topic
-            const [propertyTaxesData, vatData, vacationRentalBusinessData] = await Promise.all([
+            const [propertyTaxesData, vatData, vacationRentalBusinessData, parkingMarketsData] = await Promise.all([
                 fetch(CONFIG.getApiUrl(CONFIG.ENDPOINTS.propertyTaxes)).then(res => res.json()),
                 fetch(CONFIG.getApiUrl(CONFIG.ENDPOINTS.vat)).then(res => res.json()),
-                fetch(CONFIG.getApiUrl(CONFIG.ENDPOINTS.vacationRentalBusiness)).then(res => res.json())
+                fetch(CONFIG.getApiUrl(CONFIG.ENDPOINTS.vacationRentalBusiness)).then(res => res.json()),
+                fetch(CONFIG.getApiUrl(CONFIG.ENDPOINTS.parkingCommon)).then(res => res.json())
             ]);
 
             // Update each topic card with dynamic stats
             updatePropertyTaxesStats(propertyTaxesData);
             updateVatStats(vatData);
             updateVacationRentalBusinessStats(vacationRentalBusinessData);
+            updateParkingMarketsStats(parkingMarketsData);
 
         } catch (error) {
             console.error('Error loading landing page statistics:', error);
@@ -185,6 +187,26 @@
         const count = countries.length;
 
         const statsContainer = document.querySelector('.topic-card[onclick*="vacation-rental-business"] .topic-stats');
+        if (statsContainer) {
+            const currentLang = window.currentLang || 'fr';
+            const badge = statsContainer.querySelector('.stat-badge:first-child');
+            if (badge) {
+                const text = currentLang === 'fr'
+                    ? `✓ ${count} pays sur ${totalCountries}`
+                    : `✓ ${count} countries out of ${totalCountries}`;
+                badge.textContent = text;
+            }
+        }
+    }
+
+    /**
+     * Update Parking Markets card statistics
+     */
+    function updateParkingMarketsStats(data) {
+        const markets = data.markets || data;
+        const count = markets.length;
+
+        const statsContainer = document.querySelector('.topic-card[onclick*="parking-markets"] .topic-stats');
         if (statsContainer) {
             const currentLang = window.currentLang || 'fr';
             const badge = statsContainer.querySelector('.stat-badge:first-child');
