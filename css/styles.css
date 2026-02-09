@@ -2632,3 +2632,29 @@ tr {
 .center {
     text-align: center;
 }
+
+/* ==========================================
+   EATING FOR LESS TOPIC SPECIFIC STYLES
+   ========================================== */
+
+.daily-meals {
+    margin-top: 2rem;
+}
+
+/* Supplier links (used in both Shopping List and Suppliers tabs) */
+.supplier-link {
+    color: #fb923c; /* Orange vif et chaleureux */
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+.supplier-link:hover {
+    color: #f97316; /* Orange plus foncé au survol */
+    background: rgba(251, 146, 60, 0.15); /* Fond orange léger au survol */
+    text-decoration: underline;
+    transform: translateY(-1px);
+}

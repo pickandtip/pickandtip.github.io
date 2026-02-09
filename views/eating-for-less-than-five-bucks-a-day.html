@@ -24,10 +24,6 @@
                 <span class="tab-icon">🥗</span>
                 <span class="tab-label">{{ eatingForLessThanFiveBucksADay.tabs.nutrition }}</span>
             </button>
-            <button class="tab-btn" data-tab="suppliers" aria-label="Suppliers">
-                <span class="tab-icon">🏪</span>
-                <span class="tab-label">{{ eatingForLessThanFiveBucksADay.tabs.suppliers }}</span>
-            </button>
         </div>
 
         <!-- Tab 1: Weekly Plan -->
@@ -268,81 +264,6 @@
             </div>
         </div>
 
-        <!-- Tab 4: Suppliers -->
-        <div class="tab-content" id="tab-suppliers">
-            <!-- Statistics Section -->
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-value">17</div>
-                    <div class="stat-label">{{ eatingForLessThanFiveBucksADay.stats.verifiedIngredients }}</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-value">16/17</div>
-                    <div class="stat-label">{{ eatingForLessThanFiveBucksADay.stats.priceMatch }}</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-value">{{ eatingForLessThanFiveBucksADay.suppliers.verificationDate }}</div>
-                    <div class="stat-label">{{ eatingForLessThanFiveBucksADay.stats.lastVerified }}</div>
-                </div>
-            </div>
-
-            <!-- Verification Note -->
-            <div class="info-banner">
-                <span class="info-icon">ℹ️</span>
-                <span id="verification-note">{{ eatingForLessThanFiveBucksADay.suppliers.verificationNote }}</span>
-            </div>
-
-            <!-- Controls -->
-            <div class="controls">
-                <div class="controls-row">
-                    <div class="search-box">
-                        <input type="text" id="suppliers-search" placeholder="{{ eatingForLessThanFiveBucksADay.search.placeholderSuppliers }}">
-                    </div>
-                    <select id="supplier-filter" aria-label="Filter by supplier">
-                        <option value="all">{{ eatingForLessThanFiveBucksADay.filter.allSuppliers }}</option>
-                        <option value="carrefour">Carrefour</option>
-                        <option value="leclerc">E.Leclerc</option>
-                        <option value="koro">KoRo France</option>
-                        <option value="vracengros">Vrac en Gros</option>
-                        <option value="other">{{ eatingForLessThanFiveBucksADay.filter.otherSuppliers }}</option>
-                    </select>
-                </div>
-            </div>
-
-            <!-- Table -->
-            <div class="table-container">
-                <div class="result-count">
-                    <strong id="suppliers-result-count">—</strong> <span>{{ eatingForLessThanFiveBucksADay.results.displayed }}</span>
-                </div>
-                <div class="table-scroll">
-                    <table class="comparison-table" id="suppliers-table">
-                        <thead>
-                            <tr>
-                                <th data-sort="ingredient">{{ eatingForLessThanFiveBucksADay.table.ingredient }}</th>
-                                <th data-sort="supplier">{{ eatingForLessThanFiveBucksADay.table.supplier }}</th>
-                                <th data-sort="product">{{ eatingForLessThanFiveBucksADay.table.product }}</th>
-                                <th data-sort="format">{{ eatingForLessThanFiveBucksADay.table.format }}</th>
-                                <th data-sort="price">{{ eatingForLessThanFiveBucksADay.table.price }}</th>
-                                <th>{{ eatingForLessThanFiveBucksADay.table.link }}</th>
-                            </tr>
-                        </thead>
-                        <tbody id="suppliers-table-body">
-                            <!-- Rows will be inserted by JavaScript -->
-                        </tbody>
-                    </table>
-                </div>
-                <div class="no-results hidden" id="suppliers-no-results">
-                    <div class="no-results-icon">🔍</div>
-                    <p>{{ eatingForLessThanFiveBucksADay.results.none }}</p>
-                </div>
-            </div>
-
-            <!-- Summary -->
-            <div class="summary-card">
-                <h4>{{ eatingForLessThanFiveBucksADay.suppliers.summaryTitle }}</h4>
-                <p id="suppliers-summary">{{ eatingForLessThanFiveBucksADay.suppliers.summaryText }}</p>
-            </div>
-        </div>
     </div>
 
     <div class="disclaimer">

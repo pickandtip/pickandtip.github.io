@@ -38,7 +38,6 @@
             initWeeklyPlanTab();
             initShoppingListTab();
             initNutritionTab();
-            initSuppliersTab();
 
             console.log('✅ Eating guide initialized');
 
@@ -236,137 +235,6 @@
         }
     }
 
-    /**
-     * Initialize Suppliers Tab
-     */
-    function initSuppliersTab() {
-        if (!data || !data.suppliers) return;
-
-        const tableBody = document.getElementById('suppliers-table-body');
-        const searchInput = document.getElementById('suppliers-search');
-        const supplierFilter = document.getElementById('supplier-filter');
-        const priceMatchFilter = document.getElementById('price-match-filter');
-        const resultCount = document.getElementById('suppliers-result-count');
-        const summaryText = document.getElementById('suppliers-summary');
-
-        // Flatten the data: one row per supplier (ingredients can repeat)
-        let flattenedRows = [];
-        if (data.suppliers.items) {
-            data.suppliers.items.forEach(item => {
-                if (item.suppliers && item.suppliers.length > 0) {
-                    item.suppliers.forEach(supplier => {
-                        flattenedRows.push({
-                            ingredient: item.ingredient,
-                            ingredientEn: item.ingredientEn,
-                            supplierName: supplier.name,
-                            productName: supplier.productName,
-                            format: supplier.format,
-                            pricePerKg: supplier.pricePerKg,
-                            url: supplier.url,
-                            note: supplier.note
-                        });
-                    });
-                }
-            });
-        }
-
-        // Update verification note
-        const verificationNote = document.getElementById('verification-note');
-        if (verificationNote && data.suppliers.note) {
-            verificationNote.textContent = data.suppliers.note[currentLang];
-        }
-
-        // Update summary
-        if (summaryText && data.suppliers.summary) {
-            summaryText.textContent = data.suppliers.summary[currentLang];
-        }
-
-        function renderSuppliersTable(filteredRows = flattenedRows) {
-            tableBody.innerHTML = '';
-
-            if (filteredRows.length === 0) {
-                document.getElementById('suppliers-no-results').classList.remove('hidden');
-                resultCount.textContent = '0';
-                return;
-            }
-
-            document.getElementById('suppliers-no-results').classList.add('hidden');
-            resultCount.textContent = filteredRows.length;
-
-            filteredRows.forEach(row => {
-                const tr = document.createElement('tr');
-
-                const ingredientName = currentLang === 'en' ? row.ingredientEn : row.ingredient;
-                const priceDisplay = row.pricePerKg ? `${row.pricePerKg.toFixed(2)}€/kg` : '—';
-
-                tr.innerHTML = `
-                    <td><strong>${ingredientName}</strong></td>
-                    <td>${row.supplierName}</td>
-                    <td>${row.productName}</td>
-                    <td>${row.format}</td>
-                    <td><strong>${priceDisplay}</strong></td>
-                    <td>
-                        <a href="${row.url}" target="_blank" rel="noopener noreferrer" class="supplier-link-btn">
-                            ${currentLang === 'fr' ? 'Voir' : 'View'} →
-                        </a>
-                    </td>
-                `;
-
-                // Add supplier note as tooltip if it exists
-                if (row.note) {
-                    tr.title = row.note;
-                }
-
-                tableBody.appendChild(tr);
-            });
-        }
-
-        function filterSuppliersTable() {
-            const searchTerm = searchInput.value.toLowerCase();
-            const supplier = supplierFilter.value.toLowerCase();
-
-            const filtered = flattenedRows.filter(row => {
-                const matchesSearch = !searchTerm ||
-                    row.ingredient.toLowerCase().includes(searchTerm) ||
-                    row.ingredientEn.toLowerCase().includes(searchTerm) ||
-                    row.supplierName.toLowerCase().includes(searchTerm) ||
-                    row.productName.toLowerCase().includes(searchTerm);
-
-                const matchesSupplier = supplier === 'all' ||
-                    row.supplierName.toLowerCase().includes(supplier);
-
-                return matchesSearch && matchesSupplier;
-            });
-
-            renderSuppliersTable(filtered);
-        }
-
-        // Event listeners
-        searchInput.addEventListener('input', filterSuppliersTable);
-        supplierFilter.addEventListener('change', filterSuppliersTable);
-        // Note: priceMatchFilter is removed as we no longer track price match per row
-
-        // Initial render
-        renderSuppliersTable();
-    }
-
-    /**
-     * Format price for display
-     */
-    function formatPrice(item) {
-        if (item.filePrice !== undefined) {
-            if (item.estimatedPricePerKg) {
-                return `${item.filePrice.toFixed(2)}€/kg`;
-            } else if (item.estimatedPricePerUnit) {
-                return `${item.filePrice.toFixed(2)}€/unit`;
-            } else if (item.estimatedPricePerLiter) {
-                return `${item.filePrice.toFixed(2)}€/L`;
-            } else if (item.estimatedPricePerBox) {
-                return `${item.filePrice.toFixed(2)}€/box`;
-            }
-        }
-        return '—';
-    }
 
     /**
      * Translate category names
@@ -403,7 +271,6 @@
             initWeeklyPlanTab();
             initShoppingListTab();
             initNutritionTab();
-            initSuppliersTab();
         }
     });
 
