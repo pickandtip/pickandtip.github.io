@@ -198,7 +198,7 @@
             }
 
             // Load the HTML template
-            const response = await fetch(`views/${viewName}.html?v=17`);
+            const response = await fetch(`views/${viewName}.html?v=20`);
             if (!response.ok) {
                 throw new Error(`Failed to load view: ${viewName}`);
             }

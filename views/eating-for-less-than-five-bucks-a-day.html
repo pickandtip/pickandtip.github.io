@@ -183,84 +183,44 @@
 
         <!-- Tab 3: Nutrition Benefits -->
         <div class="tab-content" id="tab-nutrition">
-            <div class="nutrition-content">
-                <h3>{{ eatingForLessThanFiveBucksADay.nutrition.keyBenefits }}</h3>
-
-                <!-- Walnuts Benefits Table -->
-                <div class="nutrition-section">
-                    <div class="section-header">
-                        <span class="section-icon">🌰</span>
-                        <h4>{{ eatingForLessThanFiveBucksADay.nutrition.walnuts.title }}</h4>
-                        <span class="daily-amount">27g/{{ eatingForLessThanFiveBucksADay.nutrition.perDay }}</span>
-                    </div>
-
-                    <div class="table-container">
-                        <table class="nutrition-table">
-                            <thead>
-                                <tr>
-                                    <th>{{ eatingForLessThanFiveBucksADay.nutrition.nutrient }}</th>
-                                    <th class="centered">{{ eatingForLessThanFiveBucksADay.nutrition.amount }}</th>
-                                    <th>{{ eatingForLessThanFiveBucksADay.nutrition.benefits }}</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><strong>Oméga-3 ALA</strong></td>
-                                    <td class="centered">~2.5g/{{ eatingForLessThanFiveBucksADay.nutrition.perDay }}</td>
-                                    <td>{{ eatingForLessThanFiveBucksADay.nutrition.walnuts.omega3Desc }}</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>{{ eatingForLessThanFiveBucksADay.nutrition.walnuts.magnesium }}</strong></td>
-                                    <td class="centered">~45mg/{{ eatingForLessThanFiveBucksADay.nutrition.perDay }}</td>
-                                    <td>{{ eatingForLessThanFiveBucksADay.nutrition.walnuts.magnesiumDesc }}</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Zinc</strong></td>
-                                    <td class="centered">~0.8mg/{{ eatingForLessThanFiveBucksADay.nutrition.perDay }}</td>
-                                    <td>{{ eatingForLessThanFiveBucksADay.nutrition.walnuts.zincDesc }}</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>{{ eatingForLessThanFiveBucksADay.nutrition.walnuts.other }}</strong></td>
-                                    <td class="centered">—</td>
-                                    <td>{{ eatingForLessThanFiveBucksADay.nutrition.walnuts.otherList }}</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+            <!-- Key Principles Cards (above everything) -->
+            <div class="key-principles-section">
+                <h3 class="principles-title">
+                    <span class="principles-icon">⚡</span>
+                    {{ eatingForLessThanFiveBucksADay.nutrition.keyPrinciples.title }}
+                </h3>
+                <div class="principles-grid" id="key-principles-grid">
+                    <!-- Principle cards will be inserted by JavaScript -->
                 </div>
+            </div>
 
-                <!-- Lipid Synergy -->
-                <div class="nutrition-section">
-                    <div class="section-header">
-                        <span class="section-icon">🥑</span>
-                        <h4>{{ eatingForLessThanFiveBucksADay.nutrition.lipidSynergy.title }}</h4>
-                    </div>
-                    <ul class="nutrition-list" id="lipid-synergy-list">
-                        <!-- Items will be inserted by JavaScript -->
-                    </ul>
+            <!-- Practical Tips Section -->
+            <div class="tips-section">
+                <h3 class="tips-title">
+                    <span class="tips-icon">💡</span>
+                    {{ eatingForLessThanFiveBucksADay.nutrition.tips.title }}
+                </h3>
+                <div class="tips-cards-grid" id="tips-cards-grid">
+                    <!-- Tip cards will be inserted by JavaScript -->
                 </div>
+            </div>
 
-                <!-- Key Principles -->
-                <div class="nutrition-section">
-                    <div class="section-header">
-                        <span class="section-icon">⚡</span>
-                        <h4>{{ eatingForLessThanFiveBucksADay.nutrition.keyPrinciples.title }}</h4>
-                    </div>
-                    <ul class="nutrition-list" id="key-principles-list">
-                        <!-- Items will be inserted by JavaScript -->
-                    </ul>
-                </div>
+            <!-- Nutritional Details Table -->
+            <h3>{{ eatingForLessThanFiveBucksADay.nutrition.keyBenefits }}</h3>
 
-                <!-- Tips -->
-                <div class="nutrition-section">
-                    <div class="section-header">
-                        <span class="section-icon">💡</span>
-                        <h4>{{ eatingForLessThanFiveBucksADay.nutrition.tips.title }}</h4>
-                    </div>
-                    <ul class="nutrition-list tips-grid" id="tips-list">
-                        <!-- Items will be inserted by JavaScript -->
-                    </ul>
-                </div>
+            <div class="table-container">
+                <table class="nutrition-benefits-table">
+                    <thead>
+                        <tr>
+                            <th class="category-col">{{ eatingForLessThanFiveBucksADay.nutrition.table.category }}</th>
+                            <th class="item-col">{{ eatingForLessThanFiveBucksADay.nutrition.table.item }}</th>
+                            <th class="details-col">{{ eatingForLessThanFiveBucksADay.nutrition.table.details }}</th>
+                        </tr>
+                    </thead>
+                    <tbody id="nutrition-benefits-tbody">
+                        <!-- Rows will be inserted by JavaScript -->
+                    </tbody>
+                </table>
             </div>
         </div>
 

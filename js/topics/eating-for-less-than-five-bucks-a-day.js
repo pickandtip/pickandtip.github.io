@@ -213,26 +213,154 @@
     function initNutritionTab() {
         if (!data) return;
 
-        // Populate lipid synergy list
-        const lipidSynergyList = document.getElementById('lipid-synergy-list');
-        if (lipidSynergyList && data.nutritionalBenefits && data.nutritionalBenefits.lipidSynergy) {
-            const items = data.nutritionalBenefits.lipidSynergy[currentLang];
-            lipidSynergyList.innerHTML = items.map(item => `<li>${item}</li>`).join('');
+        // 1. Populate Key Principles Cards (above the table)
+        populateKeyPrinciplesCards();
+
+        // 2. Populate Practical Tips Cards
+        populateTipsCards();
+
+        // 3. Populate the nutritional details table
+        populateNutritionTable();
+    }
+
+    /**
+     * Populate Key Principles Cards at the top
+     */
+    function populateKeyPrinciplesCards() {
+        const grid = document.getElementById('key-principles-grid');
+        if (!grid || !data.keyPrinciples) return;
+
+        grid.innerHTML = ''; // Clear existing cards
+
+        const principlesItems = data.keyPrinciples[currentLang] || [];
+
+        // Icons for each principle (can be customized)
+        const principleIcons = ['💰', '🥩', '🔥', '🌱'];
+
+        principlesItems.forEach((principle, index) => {
+            const card = document.createElement('div');
+            card.className = 'principle-card';
+
+            const icon = principleIcons[index] || '✓';
+
+            card.innerHTML = `
+                <div class="principle-icon-circle">
+                    <span class="principle-emoji">${icon}</span>
+                </div>
+                <div class="principle-text">${principle}</div>
+            `;
+
+            grid.appendChild(card);
+        });
+    }
+
+    /**
+     * Populate Practical Tips Cards
+     */
+    function populateTipsCards() {
+        const grid = document.getElementById('tips-cards-grid');
+        if (!grid || !data.tips) return;
+
+        grid.innerHTML = ''; // Clear existing cards
+
+        const tipsItems = data.tips[currentLang] || [];
+
+        // Fun icons for each tip
+        const tipIcons = ['🛒', '🌾', '❄️', '🧄'];
+
+        tipsItems.forEach((tip, index) => {
+            const card = document.createElement('div');
+            card.className = 'tip-card';
+
+            const icon = tipIcons[index] || '💡';
+
+            card.innerHTML = `
+                <div class="tip-icon">${icon}</div>
+                <div class="tip-text">${tip}</div>
+            `;
+
+            grid.appendChild(card);
+        });
+    }
+
+    /**
+     * Populate Nutrition Details Table
+     */
+    function populateNutritionTable() {
+        const tbody = document.getElementById('nutrition-benefits-tbody');
+        if (!tbody) return;
+
+        tbody.innerHTML = ''; // Clear existing rows
+
+        const rows = [];
+
+        // 1. Walnuts Benefits (4 rows with rowspan for category)
+        const walnutsTitle = window.translations[currentLang]?.eatingForLessThanFiveBucksADay?.nutrition?.walnuts?.title || 'Apports des Noix';
+
+        rows.push({
+            category: `🌰 ${walnutsTitle}`,
+            categoryRowspan: 4,
+            item: 'Oméga-3 ALA (~2.5g/jour)',
+            details: window.translations[currentLang]?.eatingForLessThanFiveBucksADay?.nutrition?.walnuts?.omega3Desc || 'Précurseur EPA/DHA, anti-inflammatoire'
+        });
+        rows.push({
+            skipCategory: true,
+            item: window.translations[currentLang]?.eatingForLessThanFiveBucksADay?.nutrition?.walnuts?.magnesium + ' (~45mg/jour)' || 'Magnésium (~45mg/jour)',
+            details: window.translations[currentLang]?.eatingForLessThanFiveBucksADay?.nutrition?.walnuts?.magnesiumDesc || 'Muscles, nerfs, sommeil'
+        });
+        rows.push({
+            skipCategory: true,
+            item: 'Zinc (~0.8mg/jour)',
+            details: window.translations[currentLang]?.eatingForLessThanFiveBucksADay?.nutrition?.walnuts?.zincDesc || 'Immunité, peau'
+        });
+        rows.push({
+            skipCategory: true,
+            item: window.translations[currentLang]?.eatingForLessThanFiveBucksADay?.nutrition?.walnuts?.other || 'Autres apports',
+            details: window.translations[currentLang]?.eatingForLessThanFiveBucksADay?.nutrition?.walnuts?.otherList || 'Cuivre, manganèse, phosphore, vitamine E'
+        });
+
+        // 2. Lipid Synergy
+        if (data.nutritionalBenefits && data.nutritionalBenefits.lipidSynergy) {
+            const lipidSynergyTitle = window.translations[currentLang]?.eatingForLessThanFiveBucksADay?.nutrition?.lipidSynergy?.title || 'Synergie Lipidique';
+            const lipidItems = data.nutritionalBenefits.lipidSynergy[currentLang] || [];
+
+            lipidItems.forEach((item, index) => {
+                rows.push({
+                    category: index === 0 ? `🥑 ${lipidSynergyTitle}` : '',
+                    categoryRowspan: index === 0 ? lipidItems.length : 0,
+                    skipCategory: index !== 0,
+                    item: item,
+                    details: ''
+                });
+            });
         }
 
-        // Populate key principles list
-        const principlesList = document.getElementById('key-principles-list');
-        if (principlesList && data.keyPrinciples) {
-            const items = data.keyPrinciples[currentLang];
-            principlesList.innerHTML = items.map(item => `<li>${item}</li>`).join('');
-        }
+        // Tips are now displayed as cards above the table, no longer in the table
 
-        // Populate tips list
-        const tipsList = document.getElementById('tips-list');
-        if (tipsList && data.tips) {
-            const items = data.tips[currentLang];
-            tipsList.innerHTML = items.map(item => `<li>${item}</li>`).join('');
-        }
+        // Render all rows
+        rows.forEach(rowData => {
+            const tr = document.createElement('tr');
+
+            if (!rowData.skipCategory) {
+                const categoryCell = document.createElement('td');
+                categoryCell.innerHTML = `<strong>${rowData.category}</strong>`;
+                categoryCell.className = 'category-cell';
+                if (rowData.categoryRowspan > 1) {
+                    categoryCell.rowSpan = rowData.categoryRowspan;
+                }
+                tr.appendChild(categoryCell);
+            }
+
+            const itemCell = document.createElement('td');
+            itemCell.textContent = rowData.item;
+            tr.appendChild(itemCell);
+
+            const detailsCell = document.createElement('td');
+            detailsCell.textContent = rowData.details;
+            tr.appendChild(detailsCell);
+
+            tbody.appendChild(tr);
+        });
     }
 
 
