@@ -183,7 +183,8 @@
         'vat': 'vat',
         'vacation-rental-business': 'vacation-rental-business',
         'vacation-rental-hotspots': 'vacation-rental-hotspots',
-        'parking-markets': 'parking-markets'
+        'parking-markets': 'parking-markets',
+        'eating-for-less-than-five-bucks-a-day': 'eating-for-less-than-five-bucks-a-day'
     };
 
     async function loadView(viewName) {
@@ -197,7 +198,7 @@
             }
 
             // Load the HTML template
-            const response = await fetch(`views/${viewName}.html?v=9`);
+            const response = await fetch(`views/${viewName}.html?v=17`);
             if (!response.ok) {
                 throw new Error(`Failed to load view: ${viewName}`);
             }

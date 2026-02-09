@@ -20,6 +20,7 @@ const CONFIG = {
         parkingGarage: '/api/topics/parking-markets/garage',
         parkingIndoor: '/api/topics/parking-markets/indoor-space',
         parkingOutdoor: '/api/topics/parking-markets/outdoor-space',
+        eatingForLessThanFiveBucksADay: '/api/topics/eating-for-less-than-five-bucks-a-day',
         i18n: {
             fr: '/api/i18n/fr',
             en: '/api/i18n/en'

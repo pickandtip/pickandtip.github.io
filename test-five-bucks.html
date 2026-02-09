@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Five Bucks - Diagnostic</title>
+</head>
+<body>
+    <h1>Test de diagnostic</h1>
+
+    <div id="results"></div>
+
+    <button onclick="runTests()">Lancer les tests</button>
+
+    <script src="js/config.js"></script>
+    <script>
+        let translations = {};
+
+        async function runTests() {
+            const results = document.getElementById('results');
+            results.innerHTML = '<h2>Tests en cours...</h2>';
+
+            let output = '';
+
+            // Test 1: Charger les traductions
+            try {
+                const response = await fetch(CONFIG.getApiUrl(CONFIG.ENDPOINTS.i18n.fr));
+                translations = await response.json();
+                output += '✅ Test 1: Traductions chargées<br>';
+                output += `Keys: ${Object.keys(translations).slice(0, 5).join(', ')}...<br><br>`;
+            } catch (error) {
+                output += `❌ Test 1 FAILED: ${error.message}<br><br>`;
+            }
+
+            // Test 2: Vérifier la clé eatingForLessThanFiveBucksADay
+            if (translations.eatingForLessThanFiveBucksADay) {
+                output += '✅ Test 2: Clé "eatingForLessThanFiveBucksADay" trouvée<br>';
+                output += `Title: ${translations.eatingForLessThanFiveBucksADay.title}<br><br>`;
+            } else {
+                output += '❌ Test 2 FAILED: Clé "eatingForLessThanFiveBucksADay" NOT FOUND<br>';
+                output += `Available keys: ${Object.keys(translations).join(', ')}<br><br>`;
+            }
+
+            // Test 3: Charger les données du topic
+            try {
+                const response = await fetch(CONFIG.getApiUrl(CONFIG.ENDPOINTS.eatingForLessThanFiveBucksADay));
+                const data = await response.json();
+                output += '✅ Test 3: Données du topic chargées<br>';
+                output += `Title: ${data.metadata?.title || 'N/A'}<br><br>`;
+            } catch (error) {
+                output += `❌ Test 3 FAILED: ${error.message}<br><br>`;
+            }
+
+            // Test 4: Vérifier que le script JS existe
+            output += '<h3>Test 4: Chargement du script JS</h3>';
+            const script = document.createElement('script');
+            script.src = 'js/topics/eating-for-less-than-five-bucks-a-day.js';
+            script.onload = () => {
+                output += '✅ Script chargé<br>';
+
+                // Test 5: Vérifier que la fonction existe
+                if (typeof window.initEatingForLessThanFiveBucksADay === 'function') {
+                    output += '✅ Test 5: Fonction "initEatingForLessThanFiveBucksADay" existe<br><br>';
+                } else {
+                    output += '❌ Test 5 FAILED: Fonction "initEatingForLessThanFiveBucksADay" NOT FOUND<br>';
+                    output += `Type: ${typeof window.initEatingForLessThanFiveBucksADay}<br><br>`;
+                }
+
+                results.innerHTML = output;
+            };
+            script.onerror = () => {
+                output += '❌ Test 4 FAILED: Impossible de charger le script JS<br><br>';
+                results.innerHTML = output;
+            };
+            document.body.appendChild(script);
+
+            results.innerHTML = output;
+        }
+    </script>
+</body>
+</html>

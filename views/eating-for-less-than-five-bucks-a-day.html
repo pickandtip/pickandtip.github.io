@@ -1,0 +1,352 @@
+<div class="topic-view" id="eating-for-less-than-4-a-day-view">
+    <!-- Contact form will be inserted here (top position) -->
+    <div id="contact-form-container"></div>
+
+    <header>
+        <h1>{{ eatingForLessThanFiveBucksADay.title }}</h1>
+        <div class="gold-line"></div>
+        <p class="subtitle">{{ eatingForLessThanFiveBucksADay.subtitle }}</p>
+        <p class="info-note">{{ eatingForLessThanFiveBucksADay.infoNote }}</p>
+    </header>
+
+    <!-- Tabs Navigation -->
+    <div class="tabs-container">
+        <div class="tabs-nav">
+            <button class="tab-btn active" data-tab="weekly-plan" aria-label="Weekly Plan">
+                <span class="tab-icon">📅</span>
+                <span class="tab-label">{{ eatingForLessThanFiveBucksADay.tabs.weeklyPlan }}</span>
+            </button>
+            <button class="tab-btn" data-tab="shopping-list" aria-label="Shopping List">
+                <span class="tab-icon">🛒</span>
+                <span class="tab-label">{{ eatingForLessThanFiveBucksADay.tabs.shoppingList }}</span>
+            </button>
+            <button class="tab-btn" data-tab="nutrition" aria-label="Nutrition">
+                <span class="tab-icon">🥗</span>
+                <span class="tab-label">{{ eatingForLessThanFiveBucksADay.tabs.nutrition }}</span>
+            </button>
+            <button class="tab-btn" data-tab="suppliers" aria-label="Suppliers">
+                <span class="tab-icon">🏪</span>
+                <span class="tab-label">{{ eatingForLessThanFiveBucksADay.tabs.suppliers }}</span>
+            </button>
+        </div>
+
+        <!-- Tab 1: Weekly Plan -->
+        <div class="tab-content active" id="tab-weekly-plan">
+            <!-- Statistics Section -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value">3.82€</div>
+                    <div class="stat-label">{{ eatingForLessThanFiveBucksADay.stats.dailyAverage }}</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">95.4g</div>
+                    <div class="stat-label">{{ eatingForLessThanFiveBucksADay.stats.avgProtein }}</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">1833</div>
+                    <div class="stat-label">{{ eatingForLessThanFiveBucksADay.stats.avgCalories }}</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">26.74€</div>
+                    <div class="stat-label">{{ eatingForLessThanFiveBucksADay.stats.weeklyTotal }}</div>
+                </div>
+            </div>
+
+            <!-- Macro Distribution Table -->
+            <div class="macro-distribution">
+                <h3>{{ eatingForLessThanFiveBucksADay.macroDistribution.title }}</h3>
+
+                <div class="table-container">
+                    <table class="macro-table">
+                        <thead>
+                            <tr>
+                                <th>{{ eatingForLessThanFiveBucksADay.macroDistribution.protein }}</th>
+                                <th>{{ eatingForLessThanFiveBucksADay.macroDistribution.fat }}</th>
+                                <th>{{ eatingForLessThanFiveBucksADay.macroDistribution.carbs }}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="macro-values">
+                                <td class="centered protein-cell">
+                                    <div class="macro-percentage">21%</div>
+                                    <div class="macro-amount">95g</div>
+                                    <div class="macro-calories">380 kcal</div>
+                                    <small>(4 kcal/g)</small>
+                                </td>
+                                <td class="centered fat-cell">
+                                    <div class="macro-percentage">52%</div>
+                                    <div class="macro-amount">107g</div>
+                                    <div class="macro-calories">963 kcal</div>
+                                    <small>(9 kcal/g)</small>
+                                    <div class="omega3-badge">✓ {{ eatingForLessThanFiveBucksADay.macroDistribution.omega3 }}</div>
+                                </td>
+                                <td class="centered carbs-cell">
+                                    <div class="macro-percentage">27%</div>
+                                    <div class="macro-amount">126g</div>
+                                    <div class="macro-calories">504 kcal</div>
+                                    <small>(4 kcal/g)</small>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Daily Meals Table -->
+            <div class="daily-meals">
+                <h3>{{ eatingForLessThanFiveBucksADay.weeklyPlan.title }}</h3>
+
+                <div class="table-container">
+                    <table class="weekly-plan-table">
+                        <thead>
+                            <tr>
+                                <th>{{ eatingForLessThanFiveBucksADay.weeklyPlan.day }}</th>
+                                <th>{{ eatingForLessThanFiveBucksADay.weeklyPlan.meal }}</th>
+                                <th class="centered">{{ eatingForLessThanFiveBucksADay.weeklyPlan.protein }}</th>
+                                <th class="centered">{{ eatingForLessThanFiveBucksADay.weeklyPlan.calories }}</th>
+                                <th class="centered">{{ eatingForLessThanFiveBucksADay.weeklyPlan.fat }}</th>
+                                <th class="centered">{{ eatingForLessThanFiveBucksADay.weeklyPlan.carbs }}</th>
+                                <th class="centered">{{ eatingForLessThanFiveBucksADay.weeklyPlan.cost }}</th>
+                            </tr>
+                        </thead>
+                        <tbody id="daily-meals-tbody">
+                            <!-- Rows will be inserted by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab 2: Shopping List -->
+        <div class="tab-content" id="tab-shopping-list">
+            <!-- Statistics Section -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value" id="shopping-items-count">17</div>
+                    <div class="stat-label">{{ eatingForLessThanFiveBucksADay.stats.ingredients }}</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">26.74€</div>
+                    <div class="stat-label">{{ eatingForLessThanFiveBucksADay.stats.weeklyBudget }}</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">1.26€</div>
+                    <div class="stat-label">{{ eatingForLessThanFiveBucksADay.stats.savings }}</div>
+                </div>
+            </div>
+
+            <!-- Controls -->
+            <div class="controls">
+                <div class="controls-row">
+                    <div class="search-box">
+                        <input type="text" id="shopping-search" placeholder="{{ eatingForLessThanFiveBucksADay.search.placeholder }}">
+                    </div>
+                    <select id="category-filter" aria-label="Filter by category">
+                        <option value="all">{{ eatingForLessThanFiveBucksADay.filter.allCategories }}</option>
+                        <option value="legumes">{{ eatingForLessThanFiveBucksADay.filter.legumes }}</option>
+                        <option value="protein">{{ eatingForLessThanFiveBucksADay.filter.protein }}</option>
+                        <option value="nuts">{{ eatingForLessThanFiveBucksADay.filter.nuts }}</option>
+                        <option value="seeds">{{ eatingForLessThanFiveBucksADay.filter.seeds }}</option>
+                        <option value="fish">{{ eatingForLessThanFiveBucksADay.filter.fish }}</option>
+                        <option value="vegetables">{{ eatingForLessThanFiveBucksADay.filter.vegetables }}</option>
+                        <option value="aromatics">{{ eatingForLessThanFiveBucksADay.filter.aromatics }}</option>
+                        <option value="oil">{{ eatingForLessThanFiveBucksADay.filter.oil }}</option>
+                        <option value="grains">{{ eatingForLessThanFiveBucksADay.filter.grains }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Table -->
+            <div class="table-container">
+                <div class="result-count">
+                    <strong id="shopping-result-count">—</strong> <span>{{ eatingForLessThanFiveBucksADay.results.displayed }}</span>
+                </div>
+                <div class="table-scroll">
+                    <table class="comparison-table" id="shopping-table">
+                        <thead>
+                            <tr>
+                                <th data-sort="name">{{ eatingForLessThanFiveBucksADay.table.ingredient }}</th>
+                                <th data-sort="category">{{ eatingForLessThanFiveBucksADay.table.category }}</th>
+                                <th data-sort="weeklyQuantity">{{ eatingForLessThanFiveBucksADay.table.weeklyQuantity }}</th>
+                                <th data-sort="unitPrice">{{ eatingForLessThanFiveBucksADay.table.unitPrice }}</th>
+                                <th data-sort="totalCost">{{ eatingForLessThanFiveBucksADay.table.totalCost }}</th>
+                                <th data-sort="suppliers">{{ eatingForLessThanFiveBucksADay.table.suppliers }}</th>
+                            </tr>
+                        </thead>
+                        <tbody id="shopping-table-body">
+                            <!-- Rows will be inserted by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+                <div class="no-results hidden" id="shopping-no-results">
+                    <div class="no-results-icon">🔍</div>
+                    <p>{{ eatingForLessThanFiveBucksADay.results.none }}</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab 3: Nutrition Benefits -->
+        <div class="tab-content" id="tab-nutrition">
+            <div class="nutrition-content">
+                <h3>{{ eatingForLessThanFiveBucksADay.nutrition.keyBenefits }}</h3>
+
+                <!-- Walnuts Benefits Table -->
+                <div class="nutrition-section">
+                    <div class="section-header">
+                        <span class="section-icon">🌰</span>
+                        <h4>{{ eatingForLessThanFiveBucksADay.nutrition.walnuts.title }}</h4>
+                        <span class="daily-amount">27g/{{ eatingForLessThanFiveBucksADay.nutrition.perDay }}</span>
+                    </div>
+
+                    <div class="table-container">
+                        <table class="nutrition-table">
+                            <thead>
+                                <tr>
+                                    <th>{{ eatingForLessThanFiveBucksADay.nutrition.nutrient }}</th>
+                                    <th class="centered">{{ eatingForLessThanFiveBucksADay.nutrition.amount }}</th>
+                                    <th>{{ eatingForLessThanFiveBucksADay.nutrition.benefits }}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Oméga-3 ALA</strong></td>
+                                    <td class="centered">~2.5g/{{ eatingForLessThanFiveBucksADay.nutrition.perDay }}</td>
+                                    <td>{{ eatingForLessThanFiveBucksADay.nutrition.walnuts.omega3Desc }}</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>{{ eatingForLessThanFiveBucksADay.nutrition.walnuts.magnesium }}</strong></td>
+                                    <td class="centered">~45mg/{{ eatingForLessThanFiveBucksADay.nutrition.perDay }}</td>
+                                    <td>{{ eatingForLessThanFiveBucksADay.nutrition.walnuts.magnesiumDesc }}</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Zinc</strong></td>
+                                    <td class="centered">~0.8mg/{{ eatingForLessThanFiveBucksADay.nutrition.perDay }}</td>
+                                    <td>{{ eatingForLessThanFiveBucksADay.nutrition.walnuts.zincDesc }}</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>{{ eatingForLessThanFiveBucksADay.nutrition.walnuts.other }}</strong></td>
+                                    <td class="centered">—</td>
+                                    <td>{{ eatingForLessThanFiveBucksADay.nutrition.walnuts.otherList }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Lipid Synergy -->
+                <div class="nutrition-section">
+                    <div class="section-header">
+                        <span class="section-icon">🥑</span>
+                        <h4>{{ eatingForLessThanFiveBucksADay.nutrition.lipidSynergy.title }}</h4>
+                    </div>
+                    <ul class="nutrition-list" id="lipid-synergy-list">
+                        <!-- Items will be inserted by JavaScript -->
+                    </ul>
+                </div>
+
+                <!-- Key Principles -->
+                <div class="nutrition-section">
+                    <div class="section-header">
+                        <span class="section-icon">⚡</span>
+                        <h4>{{ eatingForLessThanFiveBucksADay.nutrition.keyPrinciples.title }}</h4>
+                    </div>
+                    <ul class="nutrition-list" id="key-principles-list">
+                        <!-- Items will be inserted by JavaScript -->
+                    </ul>
+                </div>
+
+                <!-- Tips -->
+                <div class="nutrition-section">
+                    <div class="section-header">
+                        <span class="section-icon">💡</span>
+                        <h4>{{ eatingForLessThanFiveBucksADay.nutrition.tips.title }}</h4>
+                    </div>
+                    <ul class="nutrition-list tips-grid" id="tips-list">
+                        <!-- Items will be inserted by JavaScript -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab 4: Suppliers -->
+        <div class="tab-content" id="tab-suppliers">
+            <!-- Statistics Section -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value">17</div>
+                    <div class="stat-label">{{ eatingForLessThanFiveBucksADay.stats.verifiedIngredients }}</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">16/17</div>
+                    <div class="stat-label">{{ eatingForLessThanFiveBucksADay.stats.priceMatch }}</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">{{ eatingForLessThanFiveBucksADay.suppliers.verificationDate }}</div>
+                    <div class="stat-label">{{ eatingForLessThanFiveBucksADay.stats.lastVerified }}</div>
+                </div>
+            </div>
+
+            <!-- Verification Note -->
+            <div class="info-banner">
+                <span class="info-icon">ℹ️</span>
+                <span id="verification-note">{{ eatingForLessThanFiveBucksADay.suppliers.verificationNote }}</span>
+            </div>
+
+            <!-- Controls -->
+            <div class="controls">
+                <div class="controls-row">
+                    <div class="search-box">
+                        <input type="text" id="suppliers-search" placeholder="{{ eatingForLessThanFiveBucksADay.search.placeholderSuppliers }}">
+                    </div>
+                    <select id="supplier-filter" aria-label="Filter by supplier">
+                        <option value="all">{{ eatingForLessThanFiveBucksADay.filter.allSuppliers }}</option>
+                        <option value="carrefour">Carrefour</option>
+                        <option value="leclerc">E.Leclerc</option>
+                        <option value="koro">KoRo France</option>
+                        <option value="vracengros">Vrac en Gros</option>
+                        <option value="other">{{ eatingForLessThanFiveBucksADay.filter.otherSuppliers }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Table -->
+            <div class="table-container">
+                <div class="result-count">
+                    <strong id="suppliers-result-count">—</strong> <span>{{ eatingForLessThanFiveBucksADay.results.displayed }}</span>
+                </div>
+                <div class="table-scroll">
+                    <table class="comparison-table" id="suppliers-table">
+                        <thead>
+                            <tr>
+                                <th data-sort="ingredient">{{ eatingForLessThanFiveBucksADay.table.ingredient }}</th>
+                                <th data-sort="supplier">{{ eatingForLessThanFiveBucksADay.table.supplier }}</th>
+                                <th data-sort="product">{{ eatingForLessThanFiveBucksADay.table.product }}</th>
+                                <th data-sort="format">{{ eatingForLessThanFiveBucksADay.table.format }}</th>
+                                <th data-sort="price">{{ eatingForLessThanFiveBucksADay.table.price }}</th>
+                                <th>{{ eatingForLessThanFiveBucksADay.table.link }}</th>
+                            </tr>
+                        </thead>
+                        <tbody id="suppliers-table-body">
+                            <!-- Rows will be inserted by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+                <div class="no-results hidden" id="suppliers-no-results">
+                    <div class="no-results-icon">🔍</div>
+                    <p>{{ eatingForLessThanFiveBucksADay.results.none }}</p>
+                </div>
+            </div>
+
+            <!-- Summary -->
+            <div class="summary-card">
+                <h4>{{ eatingForLessThanFiveBucksADay.suppliers.summaryTitle }}</h4>
+                <p id="suppliers-summary">{{ eatingForLessThanFiveBucksADay.suppliers.summaryText }}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="disclaimer">
+        <div class="disclaimer-title">⚠️ <span>{{ disclaimer.title }}</span></div>
+        <p>{{ eatingForLessThanFiveBucksADay.disclaimer.text }}</p>
+    </div>
+</div>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Translations</title>
+</head>
+<body>
+    <h1>Test des traductions</h1>
+
+    <div id="test-container">
+        <h2>{{ eatingForLessThan4ADay.title }}</h2>
+        <p>{{ eatingForLessThan4ADay.subtitle }}</p>
+        <p>Tabs: {{ eatingForLessThan4ADay.tabs.weeklyPlan }}</p>
+    </div>
+
+    <button onclick="testTranslations()">Tester les traductions</button>
+    <button onclick="applyTranslationsManually()">Appliquer les traductions</button>
+
+    <pre id="debug-output"></pre>
+
+    <script src="js/config.js"></script>
+    <script>
+        let translations = {};
+
+        async function testTranslations() {
+            const output = document.getElementById('debug-output');
+            output.textContent = 'Chargement...\n';
+
+            try {
+                // Load translations
+                const response = await fetch(CONFIG.getApiUrl(CONFIG.ENDPOINTS.i18n.fr));
+                translations = await response.json();
+
+                output.textContent += 'Traductions chargées !\n';
+                output.textContent += 'Keys at root: ' + Object.keys(translations).join(', ') + '\n\n';
+
+                if (translations.eatingForLessThan4ADay) {
+                    output.textContent += 'eatingForLessThan4ADay trouvé !\n';
+                    output.textContent += 'Title: ' + translations.eatingForLessThan4ADay.title + '\n';
+                    output.textContent += 'Subtitle: ' + translations.eatingForLessThan4ADay.subtitle + '\n';
+                    output.textContent += 'Tabs: ' + JSON.stringify(translations.eatingForLessThan4ADay.tabs, null, 2) + '\n';
+                } else {
+                    output.textContent += '❌ eatingForLessThan4ADay NOT FOUND\n';
+                }
+            } catch (error) {
+                output.textContent += '❌ Error: ' + error.message + '\n';
+            }
+        }
+
+        function replaceTokens(text) {
+            return text.replace(/\{\{\s*([\w.]+)\s*\}\}/g, (match, key) => {
+                const path = key.split('.');
+                let value = translations;
+                for (const part of path) {
+                    value = value?.[part];
+                }
+                return value !== undefined ? value : match;
+            });
+        }
+
+        function applyTranslationsManually() {
+            const container = document.getElementById('test-container');
+            const walker = document.createTreeWalker(
+                container,
+                NodeFilter.SHOW_TEXT,
+                null,
+                false
+            );
+
+            const textNodes = [];
+            let node;
+            while (node = walker.nextNode()) {
+                textNodes.push(node);
+            }
+
+            textNodes.forEach(node => {
+                if (node.nodeValue && node.nodeValue.includes('{{')) {
+                    node.nodeValue = replaceTokens(node.nodeValue);
+                }
+            });
+
+            document.getElementById('debug-output').textContent += '\n✅ Traductions appliquées manuellement\n';
+        }
+    </script>
+</body>
+</html>
